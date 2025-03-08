@@ -1,0 +1,29 @@
+.registerLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns: half screen each */
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* or any background you want */
+  padding: var(--spacing-lg); /* Add some padding */
+}
+
+.right {
+  position: relative; 
+  overflow: hidden; 
+}
+
+@media (max-width: 768px) {
+  .registerLayout {
+    grid-template-columns: 1fr; /* Stack the columns vertically */
+  }
+
+  .right {
+    display: none; /* Hide the image on smaller screens */
+  }
+}

@@ -1,0 +1,93 @@
+.cardContainer {
+  display: flex;
+  align-items: stretch; /* Ensure both columns are equal height */
+  border-radius: var(--radius-xxl);
+  background-color: var(--gray);
+  width: 60%;
+  margin: 0 auto;
+  padding: 0; /* Remove padding so image takes full height */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden; /* Prevent image from overflowing */
+}
+
+.cardContainer:hover {
+  transform: translateY(-5px);
+}
+
+.imageContainer {
+  flex: 1; /* Takes 50% of width */
+  max-width: 50%; /* Ensures it never exceeds half */
+  height: 100%; /* Full height of the card */
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures full coverage without distortion */
+}
+
+.textContainer {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+}
+
+.role {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.textContainer h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.textContainer p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cardContainer {
+    width: 80%;
+  }
+
+  .textContainer {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    flex-direction: column; 
+    width: 90%;
+  }
+
+  .imageContainer {
+    max-width: 100%; 
+    height: 200px; 
+  }
+
+  .textContainer {
+    padding: var(--spacing-md);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContainer {
+    width: 100%;
+  }
+
+  .imageContainer {
+    height: 180px; 
+  }
+}

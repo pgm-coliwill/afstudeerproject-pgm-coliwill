@@ -1,0 +1,13 @@
+.flexForm {
+  display: flex;
+  width: 100%;
+  gap: var(--spacing-sm); 
+}
+
+.flexForm > div {
+  flex: 1;
+}
+
+.buttonContainer {
+  margin-top: var(--spacing-lg);
+}

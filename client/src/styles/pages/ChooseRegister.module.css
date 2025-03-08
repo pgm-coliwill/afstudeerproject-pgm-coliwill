@@ -1,0 +1,64 @@
+.wrapper {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;           /* Center de card container */
+  justify-content: center; /* horizontaal */
+  align-items: center;     /* verticaal */
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/register-choose-background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(15px);
+  z-index: 1;
+}
+
+.cardContainer {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsieve kolommen */
+  gap: 32px;         /* Ruimte tussen de kaarten */
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px; /* Maximale breedte op grote schermen */
+  
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Zorg dat de Link wrappers block-level zijn zodat elke gridcel volledig benut wordt */
+.cardContainer a {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.cardContainer a:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive aanpassingen voor kleinere schermen */
+@media (max-width: 768px) {
+  .cardContainer {
+    grid-template-columns: 1fr; /* Stapel de kaarten verticaal */
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 10px;
+  }
+}

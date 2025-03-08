@@ -1,0 +1,91 @@
+.navbarContainer {
+  width: 100%;
+  background-color: var(--gray);
+  padding: var(--spacing-md);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Desktop Navigation Links */
+.navlinks {
+  display: flex;
+  gap: var(--spacing-xl);
+  font-family: var(--font-secondary);
+}
+
+/* Desktop Authentication Buttons */
+.authContainer {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* Hamburger Button (Hidden on Desktop) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Full-Screen Mobile Menu Overlay */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: var(--spacing-md);
+}
+
+/* Mobile Navigation Links */
+.mobileNavlinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Mobile Authentication Container */
+.mobileAuthContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Close Button for Mobile Menu */
+.closeMenu {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .hamburger {
+    display: block;
+  }
+  
+  /* Hide desktop navigation on mobile */
+  .navlinks,
+  .authContainer {
+    display: none;
+  }
+}

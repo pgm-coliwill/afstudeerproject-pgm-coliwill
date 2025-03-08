@@ -1,0 +1,88 @@
+.eventContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--gray);
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.eventHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.eventName {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+}
+
+.eventImage {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.imageFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dateContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+  height: 200px;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.date {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+}
+
+.day {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+}
+
+.month {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detailsTitle {
+  font-weight: 700;
+}
+
+.detailWrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
+}
