@@ -109,7 +109,16 @@ h3 {
 p {
   font-size: 1rem;
   color: var(--text-secondary);
-  font-family: var(--font-secondary);
+  font-family: var(--font-secondary), sans-serif;
+  margin-bottom: var(--spacing-md);
+}
+
+label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-family: var(--font-secondary), sans-serif;
+  margin-bottom: var(--spacing-xs);
+  display: block;
 }
 
 /* 🔳 Containers */

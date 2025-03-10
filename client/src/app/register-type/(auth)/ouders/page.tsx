@@ -1,7 +1,11 @@
-import React from 'react'
+import RegisterOuderForms from "@/components/forms/RegisterOuderForms";
+
+import React from "react";
 
 export default function Ouders() {
   return (
-    <div>Ouders</div>
-  )
+    <div>
+      <RegisterOuderForms />
+    </div>
+  );
 }
