@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Zomerkamp 2024",
+    "body": "Doe mee aan een onvergetelijk zomerkamp in de Ardennen!",
+    "image": "zomerkamp.jpg",
+    "type": "Algemeen",
+    "eventDate": "2024-07-10T00:00:00Z",
+    "location": "Ardennen",
+    "signUp": true,
+    "volunteer": true,
+    "groupId": 1
+  }
+]

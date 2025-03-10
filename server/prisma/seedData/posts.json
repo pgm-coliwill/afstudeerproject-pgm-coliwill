@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "title": "Weekenduitstap naar de Ardennen",
+    "body": "Vergeet je niet in te schrijven voor ons avontuurlijke weekend!",
+    "userId": 1,
+    "groupId": 4,
+    "createdAt": "2024-03-03T14:00:00Z",
+    "updatedAt": "2024-03-03T14:30:00Z",
+    "image": "weekend.jpg",
+    "amountOfComments": 3
+  }
+]

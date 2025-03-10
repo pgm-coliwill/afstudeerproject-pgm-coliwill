@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "jeugdbewegingId": 1,
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "jeugdbewegingId": 2,
+    "role": "leider"
+  }
+]

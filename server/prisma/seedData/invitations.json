@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "email": "janne.vanaken@example.com",
+    "role": "ouder",
+    "jeugdbewegingId": 1,
+    "code": "INVITE123",
+    "used": false,
+    "sentAt": "2024-03-01T15:00:00Z",
+    "expiresAt": "2024-03-08T15:00:00Z"
+  }
+]
