@@ -1,7 +1,10 @@
-import React from 'react'
+import RegisterJeugdbewegingForms from "@/components/forms/RegisterJeugdbewegingForms";
+import React from "react";
 
-export default function page() {
+export default function RegisterJeugdbeweging() {
   return (
-    <div>page</div>
-  )
+    <div>
+      <RegisterJeugdbewegingForms />
+    </div>
+  );
 }

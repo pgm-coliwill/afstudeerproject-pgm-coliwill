@@ -17,14 +17,14 @@ export default function ChooseRegister() {
           />
         </Link>
 
-        <Link href={"/register/leiders"}>
+        <Link href={"/register-type/leiders"}>
           <BenefitsCardHero
             title="Ik ben een leider"
             description="Ik heb een code ontvangen via mail en wil me graag inschrijven als leider."
           />
         </Link>
 
-        <Link href={"/register/jeugdbeweging"}>
+        <Link href={"/register-type/jeugdbeweging"}>
           <BenefitsCardHero
             title="Jeugdbeweging"
             description="Ik wil graag mijn organisatie registreren op het KampVuur platform."
