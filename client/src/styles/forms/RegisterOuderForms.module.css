@@ -1,7 +1,7 @@
 .flexForm {
   display: flex;
   width: 100%;
-  gap: var(--spacing-sm); 
+  gap: var(--spacing-sm);
 }
 
 .flexForm > div {
@@ -10,4 +10,8 @@
 
 .buttonContainer {
   margin-top: var(--spacing-lg);
+}
+
+.imageContainer {
+  margin-bottom: 3rem;
 }
