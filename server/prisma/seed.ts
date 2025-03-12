@@ -36,9 +36,9 @@ async function deleteAllData() {
   await prisma.post.deleteMany();
   await prisma.group.deleteMany();
   await prisma.invitation.deleteMany();
-  await prisma.jeugdbewegingUser.deleteMany();
+  await prisma.youthMovementUser.deleteMany();
   await prisma.user.deleteMany();
-  await prisma.jeugdbeweging.deleteMany();
+  await prisma.youthMovement.deleteMany();
   console.log("🗑 All existing data cleared.");
 }
 
@@ -49,9 +49,9 @@ async function main() {
   await deleteAllData();
 
   // Load JSON data for each model
-  const jeugdbewegingen = JSON.parse(fs.readFileSync(path.join(dataDirectory, "jeugdbewegingen.json"), "utf-8"));
+  const youthMovements = JSON.parse(fs.readFileSync(path.join(dataDirectory, "youthMovements.json"), "utf-8"));
   const users = JSON.parse(fs.readFileSync(path.join(dataDirectory, "users.json"), "utf-8"));
-  const jeugdbewegingUser = JSON.parse(fs.readFileSync(path.join(dataDirectory, "jeugdbewegingUser.json"), "utf-8"));
+  const youthMovementUser = JSON.parse(fs.readFileSync(path.join(dataDirectory, "youthMovementsUser.json"), "utf-8"));
   const invitations = JSON.parse(fs.readFileSync(path.join(dataDirectory, "invitations.json"), "utf-8"));
   const groups = JSON.parse(fs.readFileSync(path.join(dataDirectory, "groups.json"), "utf-8"));
   const posts = JSON.parse(fs.readFileSync(path.join(dataDirectory, "posts.json"), "utf-8"));
@@ -64,18 +64,18 @@ async function main() {
   const messages = JSON.parse(fs.readFileSync(path.join(dataDirectory, "messages.json"), "utf-8"));
 
   // Seed each model in the correct order
-  await prisma.jeugdbeweging.createMany({ data: jeugdbewegingen });
+  await prisma.youthMovement.createMany({ data: youthMovements });
   await prisma.user.createMany({ data: users });
 
   // Handle foreign key constraints
-  for (const item of jeugdbewegingUser) {
+  for (const item of youthMovementUser) {
     const userExists = await prisma.user.findUnique({ where: { id: item.userId } });
-    const jeugdExists = await prisma.jeugdbeweging.findUnique({ where: { id: item.jeugdbewegingId } });
+    const jeugdExists = await prisma.youthMovement.findUnique({ where: { id: item.youthMovementId } });
 
     if (userExists && jeugdExists) {
-      await prisma.jeugdbewegingUser.create({ data: item });
+      await prisma.youthMovementUser.create({ data: item });
     } else {
-      console.warn(`❌ Skipping jeugdbewegingUser entry for userId ${item.userId} and jeugdbewegingId ${item.jeugdbewegingId}`);
+      console.warn(`❌ Skipping jeugdbewegingUser entry for userId ${item.userId} and jeugdbewegingId ${item.youthMovementId}`);
     }
   }
 

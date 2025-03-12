@@ -38,7 +38,7 @@ export default function Navbar() {
             <Link href="/register-type">Registreer</Link>
           </button>
           <button className="secondary">
-            <Link href="#">Login</Link>
+            <Link href="/signin">Login</Link>
           </button>
         </div>
 

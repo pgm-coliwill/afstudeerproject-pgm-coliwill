@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Jeugdbeweging {
+model YouthMovement {
   id          Int     @id @default(autoincrement())
   name        String
   description String?
@@ -19,7 +19,7 @@ model Jeugdbeweging {
   updatedAt   DateTime @updatedAt
 
   groups    Group[]
-  users     JeugdbewegingUser[]
+  users     YouthMovementUser[]
   invites   Invitation[]
 }
 
@@ -32,7 +32,7 @@ model User {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   imageUrl     String?
-  jeugdbewegings JeugdbewegingUser[]
+  youthMovements YouthMovementUser[]
   posts          Post[]
   postLikes      PostLike[]
   messagesSent   Message[] @relation("Sender")
@@ -43,29 +43,29 @@ model User {
   parentChild    ParentChild[]
 }
 
-model JeugdbewegingUser {
+model YouthMovementUser {
   id               Int            @id @default(autoincrement())
   userId           Int
-  jeugdbewegingId  Int
+  youthMovementId  Int
   role             Role
 
   user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  jeugdbeweging   Jeugdbeweging   @relation(fields: [jeugdbewegingId], references: [id], onDelete: Cascade)
+  youthMovement   YouthMovement   @relation(fields: [youthMovementId], references: [id], onDelete: Cascade)
 
-  @@unique([userId, jeugdbewegingId]) // Ensures a user can't have multiple roles in the same movement
+  @@unique([userId, youthMovementId]) // Ensures a user can't have multiple roles in the same movement
 }
 
 model Invitation {
   id               Int      @id @default(autoincrement())
   email           String    @unique
   role            Role
-  jeugdbewegingId Int
+  youthMovementId Int
   code            String    @unique
   used            Boolean   @default(false)
   sentAt          DateTime  @default(now())
   expiresAt       DateTime?
 
-  jeugdbeweging   Jeugdbeweging @relation(fields: [jeugdbewegingId], references: [id], onDelete: Cascade)
+  youthMovement   YouthMovement @relation(fields: [youthMovementId], references: [id], onDelete: Cascade)
 }
 
 model Group {
@@ -73,9 +73,9 @@ model Group {
   name           String
   minimumAge     Int
   maximumAge     Int
-  jeugdbewegingId Int
+  youthMovementId Int
 
-  jeugdbeweging  Jeugdbeweging @relation(fields: [jeugdbewegingId], references: [id], onDelete: Cascade)
+  youthMovement  YouthMovement @relation(fields: [youthMovementId], references: [id], onDelete: Cascade)
   posts          Post[]
   events         Event[]
   leadersGroups  LeadersGroup[]

@@ -9,7 +9,7 @@ export default function ChooseRegister() {
     <div className={styles.wrapper}>
       <div className={styles.background}></div>
       <div className={styles.cardContainer}>
-        <Link href={"/register-type/ouders"}>
+        <Link href={"/signup?role=ouder"}>
           {" "}
           <BenefitsCardHero
             title="Ik ben een ouder"
@@ -17,14 +17,14 @@ export default function ChooseRegister() {
           />
         </Link>
 
-        <Link href={"/register-type/leiders"}>
+        <Link href={"/register/leiders"}>
           <BenefitsCardHero
             title="Ik ben een leider"
             description="Ik heb een code ontvangen via mail en wil me graag inschrijven als leider."
           />
         </Link>
 
-        <Link href={"/register-type/jeugdbeweging"}>
+        <Link href={"/register/jeugdbeweging"}>
           <BenefitsCardHero
             title="Jeugdbeweging"
             description="Ik wil graag mijn organisatie registreren op het KampVuur platform."
