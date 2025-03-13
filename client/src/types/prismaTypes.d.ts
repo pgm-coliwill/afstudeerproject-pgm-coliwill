@@ -2284,14 +2284,10 @@ export namespace Prisma {
 
   export type YouthMovementAvgAggregateOutputType = {
     id: number | null
-    postalCode: number | null
-    houseNumber: number | null
   }
 
   export type YouthMovementSumAggregateOutputType = {
     id: number | null
-    postalCode: number | null
-    houseNumber: number | null
   }
 
   export type YouthMovementMinAggregateOutputType = {
@@ -2299,9 +2295,9 @@ export namespace Prisma {
     name: string | null
     description: string | null
     city: string | null
-    postalCode: number | null
+    postalCode: string | null
     street: string | null
-    houseNumber: number | null
+    houseNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2311,9 +2307,9 @@ export namespace Prisma {
     name: string | null
     description: string | null
     city: string | null
-    postalCode: number | null
+    postalCode: string | null
     street: string | null
-    houseNumber: number | null
+    houseNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2334,14 +2330,10 @@ export namespace Prisma {
 
   export type YouthMovementAvgAggregateInputType = {
     id?: true
-    postalCode?: true
-    houseNumber?: true
   }
 
   export type YouthMovementSumAggregateInputType = {
     id?: true
-    postalCode?: true
-    houseNumber?: true
   }
 
   export type YouthMovementMinAggregateInputType = {
@@ -2472,9 +2464,9 @@ export namespace Prisma {
     name: string
     description: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt: Date
     updatedAt: Date
     _count: YouthMovementCountAggregateOutputType | null
@@ -2572,9 +2564,9 @@ export namespace Prisma {
       name: string
       description: string | null
       city: string
-      postalCode: number
+      postalCode: string
       street: string
-      houseNumber: number
+      houseNumber: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["youthMovement"]>
@@ -3007,9 +2999,9 @@ export namespace Prisma {
     readonly name: FieldRef<"YouthMovement", 'String'>
     readonly description: FieldRef<"YouthMovement", 'String'>
     readonly city: FieldRef<"YouthMovement", 'String'>
-    readonly postalCode: FieldRef<"YouthMovement", 'Int'>
+    readonly postalCode: FieldRef<"YouthMovement", 'String'>
     readonly street: FieldRef<"YouthMovement", 'String'>
-    readonly houseNumber: FieldRef<"YouthMovement", 'Int'>
+    readonly houseNumber: FieldRef<"YouthMovement", 'String'>
     readonly createdAt: FieldRef<"YouthMovement", 'DateTime'>
     readonly updatedAt: FieldRef<"YouthMovement", 'DateTime'>
   }
@@ -17626,9 +17618,9 @@ export namespace Prisma {
     name?: StringFilter<"YouthMovement"> | string
     description?: StringNullableFilter<"YouthMovement"> | string | null
     city?: StringFilter<"YouthMovement"> | string
-    postalCode?: IntFilter<"YouthMovement"> | number
+    postalCode?: StringFilter<"YouthMovement"> | string
     street?: StringFilter<"YouthMovement"> | string
-    houseNumber?: IntFilter<"YouthMovement"> | number
+    houseNumber?: StringFilter<"YouthMovement"> | string
     createdAt?: DateTimeFilter<"YouthMovement"> | Date | string
     updatedAt?: DateTimeFilter<"YouthMovement"> | Date | string
     groups?: GroupListRelationFilter
@@ -17659,9 +17651,9 @@ export namespace Prisma {
     name?: StringFilter<"YouthMovement"> | string
     description?: StringNullableFilter<"YouthMovement"> | string | null
     city?: StringFilter<"YouthMovement"> | string
-    postalCode?: IntFilter<"YouthMovement"> | number
+    postalCode?: StringFilter<"YouthMovement"> | string
     street?: StringFilter<"YouthMovement"> | string
-    houseNumber?: IntFilter<"YouthMovement"> | number
+    houseNumber?: StringFilter<"YouthMovement"> | string
     createdAt?: DateTimeFilter<"YouthMovement"> | Date | string
     updatedAt?: DateTimeFilter<"YouthMovement"> | Date | string
     groups?: GroupListRelationFilter
@@ -17694,9 +17686,9 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"YouthMovement"> | string
     description?: StringNullableWithAggregatesFilter<"YouthMovement"> | string | null
     city?: StringWithAggregatesFilter<"YouthMovement"> | string
-    postalCode?: IntWithAggregatesFilter<"YouthMovement"> | number
+    postalCode?: StringWithAggregatesFilter<"YouthMovement"> | string
     street?: StringWithAggregatesFilter<"YouthMovement"> | string
-    houseNumber?: IntWithAggregatesFilter<"YouthMovement"> | number
+    houseNumber?: StringWithAggregatesFilter<"YouthMovement"> | string
     createdAt?: DateTimeWithAggregatesFilter<"YouthMovement"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"YouthMovement"> | Date | string
   }
@@ -18499,9 +18491,9 @@ export namespace Prisma {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
     groups?: GroupCreateNestedManyWithoutYouthMovementInput
@@ -18514,9 +18506,9 @@ export namespace Prisma {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
     groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
@@ -18528,9 +18520,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groups?: GroupUpdateManyWithoutYouthMovementNestedInput
@@ -18543,9 +18535,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
@@ -18558,9 +18550,9 @@ export namespace Prisma {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18569,9 +18561,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18581,9 +18573,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -19429,8 +19421,6 @@ export namespace Prisma {
 
   export type YouthMovementAvgOrderByAggregateInput = {
     id?: SortOrder
-    postalCode?: SortOrder
-    houseNumber?: SortOrder
   }
 
   export type YouthMovementMaxOrderByAggregateInput = {
@@ -19459,8 +19449,6 @@ export namespace Prisma {
 
   export type YouthMovementSumOrderByAggregateInput = {
     id?: SortOrder
-    postalCode?: SortOrder
-    houseNumber?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -20245,14 +20233,6 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -20297,6 +20277,14 @@ export namespace Prisma {
     update?: InvitationUpdateWithWhereUniqueWithoutYouthMovementInput | InvitationUpdateWithWhereUniqueWithoutYouthMovementInput[]
     updateMany?: InvitationUpdateManyWithWhereWithoutYouthMovementInput | InvitationUpdateManyWithWhereWithoutYouthMovementInput[]
     deleteMany?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type GroupUncheckedUpdateManyWithoutYouthMovementNestedInput = {
@@ -22176,9 +22164,9 @@ export namespace Prisma {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
     groups?: GroupCreateNestedManyWithoutYouthMovementInput
@@ -22190,9 +22178,9 @@ export namespace Prisma {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
     groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
@@ -22267,9 +22255,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groups?: GroupUpdateManyWithoutYouthMovementNestedInput
@@ -22281,9 +22269,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
@@ -22294,9 +22282,9 @@ export namespace Prisma {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
     groups?: GroupCreateNestedManyWithoutYouthMovementInput
@@ -22308,9 +22296,9 @@ export namespace Prisma {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
     groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
@@ -22337,9 +22325,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groups?: GroupUpdateManyWithoutYouthMovementNestedInput
@@ -22351,9 +22339,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
@@ -22364,9 +22352,9 @@ export namespace Prisma {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
     users?: YouthMovementUserCreateNestedManyWithoutYouthMovementInput
@@ -22378,9 +22366,9 @@ export namespace Prisma {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
     users?: YouthMovementUserUncheckedCreateNestedManyWithoutYouthMovementInput
@@ -22519,9 +22507,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     users?: YouthMovementUserUpdateManyWithoutYouthMovementNestedInput
@@ -22533,9 +22521,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     users?: YouthMovementUserUncheckedUpdateManyWithoutYouthMovementNestedInput

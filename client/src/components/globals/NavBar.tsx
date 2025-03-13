@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import styles from "@styles/globals/navBar.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { useAuthenticator } from "@aws-amplify/ui-react";
 
 export default function Navbar() {
+  const { user } = useAuthenticator();
+  console.log(user);
   const [isOpen, setIsOpen] = useState(false);
 
   const closeMenu = () => setIsOpen(false);
@@ -34,12 +37,20 @@ export default function Navbar() {
 
         {/* Desktop Authentication Buttons */}
         <div className={styles.authContainer}>
-          <button className="primary">
-            <Link href="/register-type">Registreer</Link>
-          </button>
-          <button className="secondary">
-            <Link href="/signin">Login</Link>
-          </button>
+          {user ? (
+            <button className="primary">
+              <Link href="/dashboard">Dashboard</Link>
+            </button>
+          ) : (
+            <>
+              <button className="primary">
+                <Link href="/register-type">Registreer</Link>
+              </button>
+              <button className="secondary">
+                <Link href="/dashboard">Login</Link>
+              </button>
+            </>
+          )}
         </div>
 
         {/* Hamburger Button for Mobile */}

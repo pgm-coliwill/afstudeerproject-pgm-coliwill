@@ -24,7 +24,7 @@ export default function ChooseRegister() {
           />
         </Link>
 
-        <Link href={"/register/jeugdbeweging"}>
+        <Link href={"/registration/youth-movement"}>
           <BenefitsCardHero
             title="Jeugdbeweging"
             description="Ik wil graag mijn organisatie registreren op het KampVuur platform."

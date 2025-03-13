@@ -12,9 +12,9 @@ model YouthMovement {
   name        String
   description String?
   city        String
-  postalCode  Int
+  postalCode  String
   street      String
-  houseNumber Int
+  houseNumber String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 

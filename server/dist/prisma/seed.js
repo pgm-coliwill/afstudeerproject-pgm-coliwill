@@ -44,9 +44,9 @@ function deleteAllData() {
         yield prisma.post.deleteMany();
         yield prisma.group.deleteMany();
         yield prisma.invitation.deleteMany();
-        yield prisma.jeugdbewegingUser.deleteMany();
+        yield prisma.youthMovementUser.deleteMany();
         yield prisma.user.deleteMany();
-        yield prisma.jeugdbeweging.deleteMany();
+        yield prisma.youthMovement.deleteMany();
         console.log("🗑 All existing data cleared.");
     });
 }
@@ -56,9 +56,9 @@ function main() {
         // Delete all existing data
         yield deleteAllData();
         // Load JSON data for each model
-        const jeugdbewegingen = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "jeugdbewegingen.json"), "utf-8"));
+        const youthMovements = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "youthMovements.json"), "utf-8"));
         const users = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "users.json"), "utf-8"));
-        const jeugdbewegingUser = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "jeugdbewegingUser.json"), "utf-8"));
+        const youthMovementUser = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "youthMovementsUser.json"), "utf-8"));
         const invitations = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "invitations.json"), "utf-8"));
         const groups = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "groups.json"), "utf-8"));
         const posts = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "posts.json"), "utf-8"));
@@ -70,17 +70,17 @@ function main() {
         const parentChild = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "parentChild.json"), "utf-8"));
         const messages = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "messages.json"), "utf-8"));
         // Seed each model in the correct order
-        yield prisma.jeugdbeweging.createMany({ data: jeugdbewegingen });
+        yield prisma.youthMovement.createMany({ data: youthMovements });
         yield prisma.user.createMany({ data: users });
         // Handle foreign key constraints
-        for (const item of jeugdbewegingUser) {
+        for (const item of youthMovementUser) {
             const userExists = yield prisma.user.findUnique({ where: { id: item.userId } });
-            const jeugdExists = yield prisma.jeugdbeweging.findUnique({ where: { id: item.jeugdbewegingId } });
+            const jeugdExists = yield prisma.youthMovement.findUnique({ where: { id: item.youthMovementId } });
             if (userExists && jeugdExists) {
-                yield prisma.jeugdbewegingUser.create({ data: item });
+                yield prisma.youthMovementUser.create({ data: item });
             }
             else {
-                console.warn(`❌ Skipping jeugdbewegingUser entry for userId ${item.userId} and jeugdbewegingId ${item.jeugdbewegingId}`);
+                console.warn(`❌ Skipping jeugdbewegingUser entry for userId ${item.userId} and jeugdbewegingId ${item.youthMovementId}`);
             }
         }
         yield prisma.invitation.createMany({ data: invitations });

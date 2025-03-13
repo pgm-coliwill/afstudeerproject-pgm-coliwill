@@ -33,7 +33,7 @@ export default function RegisterJeugdbewegingForms() {
   const onSubmit = async (data: z.infer<typeof schema>) => {
     setError(null);
     try {
-      const response = await fetch("/api/jeugdbewegingen/register", {
+      const response = await fetch("http://localhost:3001/api/youthMovements", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export default function RegisterJeugdbewegingForms() {
       }
 
       setSuccessMessage("Jeugdbeweging succesvol geregistreerd!");
-      setTimeout(() => router.push("/dashboard"), 3000); // Redirect after success
+      setTimeout(() => router.push("/dashboard"), 3000); 
     } catch (err: unknown) {
       console.error("Registratie fout:", err);
       if (err instanceof Error) {

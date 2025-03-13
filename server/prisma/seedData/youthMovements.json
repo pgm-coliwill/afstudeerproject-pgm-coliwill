@@ -4,9 +4,9 @@
     "name": "Scouts Antwerpen",
     "description": "Een avontuurlijke scoutsgroep in Antwerpen.",
     "city": "Antwerpen",
-    "postalCode": 2000,
+    "postalCode": "2000",
     "street": "Meir",
-    "houseNumber": 45,
+    "houseNumber": "45",
     "createdAt": "2024-03-01T10:00:00Z",
     "updatedAt": "2024-03-01T12:00:00Z"
   },
@@ -15,9 +15,9 @@
     "name": "Chiro Gent",
     "description": "Een sociale en dynamische Chiro-groep in Gent.",
     "city": "Gent",
-    "postalCode": 9000,
+    "postalCode": "9000",
     "street": "Vrijdagmarkt",
-    "houseNumber": 12,
+    "houseNumber": "67",
     "createdAt": "2024-03-02T11:00:00Z",
     "updatedAt": "2024-03-02T13:00:00Z"
   }
