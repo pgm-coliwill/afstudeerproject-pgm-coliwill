@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Amplify } from "aws-amplify";
 import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react";
+import { fetchAuthSession } from "aws-amplify/auth";
 import { I18n } from "aws-amplify/utils";
 import { translations } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
@@ -95,17 +96,38 @@ const Auth = ({ children }: { children: React.ReactNode }) => {
   const { user } = useAuthenticator((context) => [context.user]);
   const router = useRouter();
   const pathname = usePathname();
+  const [userRole, setUserRole] = useState<string | null>(null);
 
   const isSignUpPage = pathname.match(/\/signup$/);
   const isSignInPage = pathname.match(/\/signin$/);
-  const isDashboardPage =
-    pathname.startsWith("/dashboard") || pathname.startsWith("/admin");
+  const isDashboardPage = pathname.startsWith("/dashboard");
 
   useEffect(() => {
-    if (user && (isSignUpPage || isSignInPage)) {
-      router.push("/dashboard"); 
+    const fetchUserRole = async () => {
+      if (user) {
+        try {
+          const session = await fetchAuthSession();
+          const { idToken } = session.tokens ?? {};
+          const role = idToken?.payload["custom:role"] as string;
+          setUserRole(role || "ouder"); 
+        } catch (error) {
+          console.error("Failed to fetch user role", error);
+        }
+      }
+    };
+
+    fetchUserRole();
+  }, [user]);
+
+  useEffect(() => {
+    if (userRole) {
+      if (user && isSignInPage) {
+        router.push("/dashboard");
+      } else if (user && isSignUpPage && userRole === "admin") {
+        router.push("/registration/youth-movement");
+      }
     }
-  }, [user, isSignUpPage, isSignInPage, router]);
+  }, [user, userRole, isSignInPage, isSignUpPage, router]);
 
   if (!isSignInPage && !isSignUpPage && !isDashboardPage) {
     return <>{children}</>;

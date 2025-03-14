@@ -1,38 +1,42 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchUser = async () => {
+  const cognitoId = "eu-west-1:123e4567-e89b-12d3-a456-426614174000"; 
+  const response = await fetch(`http://localhost:3001/api/users/${cognitoId}`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch user");
+  }
+
+  return response.json();
+};
 
 export default function Page() {
-  const [userData, setUserData] = useState(null);
-  const [error, setError] = useState(null);
-
-  const testGetUser = async () => {
-    const cognitoId = "eu-west-1:123e4567-e89b-12d3-a456-426614174000"; // Replace with a valid Cognito ID
-    try {
-      const response = await fetch(
-        `http://localhost:3001/api/users/${cognitoId}`
-      );
-      if (!response.ok) throw new Error("Failed to fetch user");
-
-      const data = await response.json();
-      setUserData(data);
-      setError(null);
-    } catch (err) {
-      setError(err.message);
-      setUserData(null);
-    }
-  };
+  const { data: userData, error, isLoading, refetch } = useQuery({
+    queryKey: ["user"],
+    queryFn: fetchUser,
+    enabled: false, // ✅ Prevent auto-fetching on load
+  });
 
   return (
     <div className="p-6">
       <h1 className="text-xl font-bold">Dashboard</h1>
+      
+      {/* Fetch User Button */}
       <button
-        onClick={testGetUser}
+        onClick={() => refetch()} // ✅ Manually trigger fetch
         className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
       >
         Test Get User
       </button>
 
+      {/* Loading State */}
+      {isLoading && <p className="mt-4 text-blue-500">Loading...</p>}
+
+      {/* User Data Display */}
       {userData && (
         <div className="mt-4 p-4 bg-gray-100 rounded">
           <h2 className="font-semibold">User Data:</h2>
@@ -40,7 +44,8 @@ export default function Page() {
         </div>
       )}
 
-      {error && <p className="mt-4 text-red-500">Error: {error}</p>}
+      {/* Error Message */}
+      {error && <p className="mt-4 text-red-500">Error: {error.message}</p>}
     </div>
   );
 }
