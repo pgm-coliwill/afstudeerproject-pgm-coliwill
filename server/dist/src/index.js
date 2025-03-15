@@ -13,6 +13,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const youthMovementRoutes_1 = __importDefault(require("./routes/youthMovementRoutes"));
 const groupRoutes_1 = __importDefault(require("./routes/groupRoutes"));
+const inviteRoutes_1 = __importDefault(require("./routes/inviteRoutes"));
 /*CONFIGURATION */
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -30,6 +31,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRoutes_1.default);
 app.use("/api/youthMovements", youthMovementRoutes_1.default);
 app.use("/api/groups", groupRoutes_1.default);
+app.use("/api/invite", inviteRoutes_1.default);
 /*SERVER*/
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {

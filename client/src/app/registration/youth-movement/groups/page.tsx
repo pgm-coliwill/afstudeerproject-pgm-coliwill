@@ -4,8 +4,11 @@ import React from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { fetchCurrentYouthMovement } from "@/utils/fetchCurrentYouthMovement";
+import { useRouter } from "next/navigation";
 
 const addGroupsAPI = async (data: any) => {
+
+ 
   const response = await fetch("http://localhost:3001/api/groups", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -20,6 +23,7 @@ const addGroupsAPI = async (data: any) => {
 };
 
 export default function Groups() {
+  const router = useRouter();
   const { register, handleSubmit, control } = useForm({
     defaultValues: {
       groups: [{ name: "", minimumAge: "", maximumAge: "" }],
@@ -40,6 +44,7 @@ export default function Groups() {
     mutationFn: addGroupsAPI,
     onSuccess: () => {
       alert("Groups added successfully!");
+      router.push("/registration/youth-movement/invite");
     },
   });
 

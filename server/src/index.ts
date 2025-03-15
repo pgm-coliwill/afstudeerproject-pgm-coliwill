@@ -11,6 +11,7 @@ import { authenticate } from "./middleware/authMiddleware";
 import userRoutes from "./routes/userRoutes";
 import youthMovementRoutes from "./routes/youthMovementRoutes";
 import groupRoutes from "./routes/groupRoutes";
+import inviteRoutes from "./routes/inviteRoutes";
 
 /*CONFIGURATION */
 
@@ -33,6 +34,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRoutes);
 app.use("/api/youthMovements", youthMovementRoutes);
 app.use("/api/groups", groupRoutes);
+app.use("/api/invite", inviteRoutes);
 
 /*SERVER*/
 const PORT = process.env.PORT || 3002;
