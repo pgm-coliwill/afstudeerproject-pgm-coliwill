@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createYouthMovement = void 0;
+exports.getYouthMovementByUser = exports.createYouthMovement = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const createYouthMovement = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -46,3 +46,22 @@ const createYouthMovement = (req, res) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.createYouthMovement = createYouthMovement;
+const getYouthMovementByUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { userId } = req.params;
+    try {
+        console.log("📌 Fetching Youth Movement for User ID:", userId);
+        const youthMovement = yield prisma.youthMovement.findFirst({
+            where: { adminId: Number(userId) },
+        });
+        if (!youthMovement) {
+            res.status(404).json({ message: "No youth movement found for this user." });
+            return;
+        }
+        res.json(youthMovement);
+    }
+    catch (error) {
+        console.error("❌ Failed to fetch youth movement:", error);
+        res.status(500).json({ message: "Error fetching youth movement." });
+    }
+});
+exports.getYouthMovementByUser = getYouthMovementByUser;

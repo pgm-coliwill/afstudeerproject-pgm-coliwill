@@ -39,3 +39,25 @@ export const createYouthMovement = async (req: Request, res: Response): Promise<
     res.status(500).json({ message: "Error creating youth movement." });
   }
 };
+
+export const getYouthMovementByUser = async (req: Request, res: Response): Promise<void> => {
+  const { userId } = req.params;
+
+  try {
+    console.log("📌 Fetching Youth Movement for User ID:", userId);
+
+    const youthMovement = await prisma.youthMovement.findFirst({
+      where: { adminId: Number(userId) },
+    });
+
+    if (!youthMovement) {
+      res.status(404).json({ message: "No youth movement found for this user." });
+      return;
+    }
+
+    res.json(youthMovement);
+  } catch (error) {
+    console.error("❌ Failed to fetch youth movement:", error);
+    res.status(500).json({ message: "Error fetching youth movement." });
+  }
+};

@@ -2,35 +2,74 @@
 
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
+import { fetchCurrentProfile } from "@/utils/fetchCurrentProfile";
+import { signOut } from "aws-amplify/auth";
 
 const fetchUser = async () => {
-  const cognitoId = "eu-west-1:123e4567-e89b-12d3-a456-426614174000"; 
+  // Get the current user's Cognito ID
+  const profile = await fetchCurrentProfile();
+  const cognitoId = profile?.cognitoId;
+  console.log("Cognito ID:", cognitoId);
+
+  if (!cognitoId) {
+    throw new Error("Cognito ID is missing.");
+  }
+
+  // ✅ Fix: Ensure correct API endpoint
   const response = await fetch(`http://localhost:3001/api/users/${cognitoId}`);
 
   if (!response.ok) {
-    throw new Error("Failed to fetch user");
+    throw new Error("Failed to fetch user data");
   }
 
   return response.json();
 };
 
 export default function Page() {
-  const { data: userData, error, isLoading, refetch } = useQuery({
+
+
+
+
+  const {
+    data: userData,
+    error,
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["user"],
     queryFn: fetchUser,
     enabled: false, // ✅ Prevent auto-fetching on load
   });
 
+  // ✅ Logout Function
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      console.log("✅ User Logged Out");
+      window.location.reload(); 
+    } catch (error) {
+      console.error("❌ Logout failed:", error);
+    }
+  };
+
   return (
     <div className="p-6">
       <h1 className="text-xl font-bold">Dashboard</h1>
-      
+
       {/* Fetch User Button */}
       <button
         onClick={() => refetch()} // ✅ Manually trigger fetch
         className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
       >
         Test Get User
+      </button>
+
+      {/* Logout Button */}
+      <button
+        onClick={handleLogout} // ✅ Logout Button
+        className="mt-4 ml-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+      >
+        Logout
       </button>
 
       {/* Loading State */}

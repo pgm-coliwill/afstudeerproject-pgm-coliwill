@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
 interface AuthenticatedRequest extends Request {
-  user?: any; // ✅ Allow any user payload
+  user?: any; 
 }
 
 export const authenticate = (req: AuthenticatedRequest, res: Response, next: NextFunction) => {

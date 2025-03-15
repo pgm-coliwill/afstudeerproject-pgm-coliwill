@@ -24,7 +24,7 @@ export default function RegisterJeugdbewegingForms() {
   const router = useRouter();
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
-  // ✅ Fetch user profile (includes PostgreSQL `id`)
+
   const {
     data: profileData,
     error: profileError,
@@ -48,10 +48,9 @@ export default function RegisterJeugdbewegingForms() {
     resolver: zodResolver(schema),
   });
 
-  // ✅ Function to create a new youth movement
   const createYouthMovement = async (data: any) => {
     try {
-      // ✅ Fetch authentication session
+     
       const session = await fetchAuthSession();
       const idToken = session.tokens?.idToken?.toString();
   
@@ -59,13 +58,13 @@ export default function RegisterJeugdbewegingForms() {
         throw new Error("User is not authenticated.");
       }
   
-      console.log("🔑 Auth Token:", idToken); // ✅ Debug token
+      console.log("🔑 Auth Token:", idToken); 
   
       const response = await fetch("http://localhost:3001/api/youthMovements", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${idToken}`, // ✅ Include authentication token
+          Authorization: `Bearer ${idToken}`, 
         },
         body: JSON.stringify(data),
       });
@@ -89,7 +88,7 @@ export default function RegisterJeugdbewegingForms() {
     mutationFn: createYouthMovement,
     onSuccess: () => {
       setSuccessMessage("Jeugdbeweging succesvol geregistreerd!");
-      router.push("/dashboard");
+      router.push("/registration/youth-movement/groups");
     },
   });
 
