@@ -4,27 +4,27 @@
     "name": "Rakkers",
     "minimumAge": 8,
     "maximumAge": 10,
-    "jeugdbewegingId": 2
+    "youthMovementId": 2
   },
   {
     "id": 2,
     "name": "Toppers",
     "minimumAge": 10,
     "maximumAge": 12,
-    "jeugdbewegingId": 2
+    "youthMovementId": 2
   },
   {
     "id": 3,
     "name": "Wolven",
     "minimumAge": 8,
     "maximumAge": 12,
-    "jeugdbewegingId": 1
+    "youthMovementId": 1
   },
   {
     "id": 4,
     "name": "Jong Givers",
     "minimumAge": 12,
     "maximumAge": 16,
-    "jeugdbewegingId": 1
+    "youthMovementId": 1
   }
 ]

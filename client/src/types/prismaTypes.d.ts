@@ -14,20 +14,20 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Jeugdbeweging
+ * Model YouthMovement
  * 
  */
-export type Jeugdbeweging = $Result.DefaultSelection<Prisma.$JeugdbewegingPayload>
+export type YouthMovement = $Result.DefaultSelection<Prisma.$YouthMovementPayload>
 /**
  * Model User
  * 
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model JeugdbewegingUser
+ * Model YouthMovementUser
  * 
  */
-export type JeugdbewegingUser = $Result.DefaultSelection<Prisma.$JeugdbewegingUserPayload>
+export type YouthMovementUser = $Result.DefaultSelection<Prisma.$YouthMovementUserPayload>
 /**
  * Model Invitation
  * 
@@ -118,8 +118,8 @@ export const ParentRelation: typeof $Enums.ParentRelation
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Jeugdbewegings
- * const jeugdbewegings = await prisma.jeugdbeweging.findMany()
+ * // Fetch zero or more YouthMovements
+ * const youthMovements = await prisma.youthMovement.findMany()
  * ```
  *
  *
@@ -139,8 +139,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Jeugdbewegings
-   * const jeugdbewegings = await prisma.jeugdbeweging.findMany()
+   * // Fetch zero or more YouthMovements
+   * const youthMovements = await prisma.youthMovement.findMany()
    * ```
    *
    *
@@ -237,14 +237,14 @@ export class PrismaClient<
   }>, ClientOptions>
 
       /**
-   * `prisma.jeugdbeweging`: Exposes CRUD operations for the **Jeugdbeweging** model.
+   * `prisma.youthMovement`: Exposes CRUD operations for the **YouthMovement** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Jeugdbewegings
-    * const jeugdbewegings = await prisma.jeugdbeweging.findMany()
+    * // Fetch zero or more YouthMovements
+    * const youthMovements = await prisma.youthMovement.findMany()
     * ```
     */
-  get jeugdbeweging(): Prisma.JeugdbewegingDelegate<ExtArgs, ClientOptions>;
+  get youthMovement(): Prisma.YouthMovementDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.user`: Exposes CRUD operations for the **User** model.
@@ -257,14 +257,14 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.jeugdbewegingUser`: Exposes CRUD operations for the **JeugdbewegingUser** model.
+   * `prisma.youthMovementUser`: Exposes CRUD operations for the **YouthMovementUser** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more JeugdbewegingUsers
-    * const jeugdbewegingUsers = await prisma.jeugdbewegingUser.findMany()
+    * // Fetch zero or more YouthMovementUsers
+    * const youthMovementUsers = await prisma.youthMovementUser.findMany()
     * ```
     */
-  get jeugdbewegingUser(): Prisma.JeugdbewegingUserDelegate<ExtArgs, ClientOptions>;
+  get youthMovementUser(): Prisma.YouthMovementUserDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.invitation`: Exposes CRUD operations for the **Invitation** model.
@@ -805,9 +805,9 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Jeugdbeweging: 'Jeugdbeweging',
+    YouthMovement: 'YouthMovement',
     User: 'User',
-    JeugdbewegingUser: 'JeugdbewegingUser',
+    YouthMovementUser: 'YouthMovementUser',
     Invitation: 'Invitation',
     Group: 'Group',
     Post: 'Post',
@@ -833,81 +833,81 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "jeugdbeweging" | "user" | "jeugdbewegingUser" | "invitation" | "group" | "post" | "postLike" | "event" | "attendee" | "volunteer" | "leadersGroup" | "parentChild" | "message"
+      modelProps: "youthMovement" | "user" | "youthMovementUser" | "invitation" | "group" | "post" | "postLike" | "event" | "attendee" | "volunteer" | "leadersGroup" | "parentChild" | "message"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Jeugdbeweging: {
-        payload: Prisma.$JeugdbewegingPayload<ExtArgs>
-        fields: Prisma.JeugdbewegingFieldRefs
+      YouthMovement: {
+        payload: Prisma.$YouthMovementPayload<ExtArgs>
+        fields: Prisma.YouthMovementFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.JeugdbewegingFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload> | null
+            args: Prisma.YouthMovementFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.JeugdbewegingFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload>
+            args: Prisma.YouthMovementFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload>
           }
           findFirst: {
-            args: Prisma.JeugdbewegingFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload> | null
+            args: Prisma.YouthMovementFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.JeugdbewegingFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload>
+            args: Prisma.YouthMovementFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload>
           }
           findMany: {
-            args: Prisma.JeugdbewegingFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload>[]
+            args: Prisma.YouthMovementFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload>[]
           }
           create: {
-            args: Prisma.JeugdbewegingCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload>
+            args: Prisma.YouthMovementCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload>
           }
           createMany: {
-            args: Prisma.JeugdbewegingCreateManyArgs<ExtArgs>
+            args: Prisma.YouthMovementCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.JeugdbewegingCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload>[]
+            args: Prisma.YouthMovementCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload>[]
           }
           delete: {
-            args: Prisma.JeugdbewegingDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload>
+            args: Prisma.YouthMovementDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload>
           }
           update: {
-            args: Prisma.JeugdbewegingUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload>
+            args: Prisma.YouthMovementUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload>
           }
           deleteMany: {
-            args: Prisma.JeugdbewegingDeleteManyArgs<ExtArgs>
+            args: Prisma.YouthMovementDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.JeugdbewegingUpdateManyArgs<ExtArgs>
+            args: Prisma.YouthMovementUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.JeugdbewegingUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload>[]
+            args: Prisma.YouthMovementUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload>[]
           }
           upsert: {
-            args: Prisma.JeugdbewegingUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingPayload>
+            args: Prisma.YouthMovementUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementPayload>
           }
           aggregate: {
-            args: Prisma.JeugdbewegingAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateJeugdbeweging>
+            args: Prisma.YouthMovementAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateYouthMovement>
           }
           groupBy: {
-            args: Prisma.JeugdbewegingGroupByArgs<ExtArgs>
-            result: $Utils.Optional<JeugdbewegingGroupByOutputType>[]
+            args: Prisma.YouthMovementGroupByArgs<ExtArgs>
+            result: $Utils.Optional<YouthMovementGroupByOutputType>[]
           }
           count: {
-            args: Prisma.JeugdbewegingCountArgs<ExtArgs>
-            result: $Utils.Optional<JeugdbewegingCountAggregateOutputType> | number
+            args: Prisma.YouthMovementCountArgs<ExtArgs>
+            result: $Utils.Optional<YouthMovementCountAggregateOutputType> | number
           }
         }
       }
@@ -985,77 +985,77 @@ export namespace Prisma {
           }
         }
       }
-      JeugdbewegingUser: {
-        payload: Prisma.$JeugdbewegingUserPayload<ExtArgs>
-        fields: Prisma.JeugdbewegingUserFieldRefs
+      YouthMovementUser: {
+        payload: Prisma.$YouthMovementUserPayload<ExtArgs>
+        fields: Prisma.YouthMovementUserFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.JeugdbewegingUserFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload> | null
+            args: Prisma.YouthMovementUserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.JeugdbewegingUserFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload>
+            args: Prisma.YouthMovementUserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload>
           }
           findFirst: {
-            args: Prisma.JeugdbewegingUserFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload> | null
+            args: Prisma.YouthMovementUserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.JeugdbewegingUserFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload>
+            args: Prisma.YouthMovementUserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload>
           }
           findMany: {
-            args: Prisma.JeugdbewegingUserFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload>[]
+            args: Prisma.YouthMovementUserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload>[]
           }
           create: {
-            args: Prisma.JeugdbewegingUserCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload>
+            args: Prisma.YouthMovementUserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload>
           }
           createMany: {
-            args: Prisma.JeugdbewegingUserCreateManyArgs<ExtArgs>
+            args: Prisma.YouthMovementUserCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.JeugdbewegingUserCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload>[]
+            args: Prisma.YouthMovementUserCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload>[]
           }
           delete: {
-            args: Prisma.JeugdbewegingUserDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload>
+            args: Prisma.YouthMovementUserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload>
           }
           update: {
-            args: Prisma.JeugdbewegingUserUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload>
+            args: Prisma.YouthMovementUserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload>
           }
           deleteMany: {
-            args: Prisma.JeugdbewegingUserDeleteManyArgs<ExtArgs>
+            args: Prisma.YouthMovementUserDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.JeugdbewegingUserUpdateManyArgs<ExtArgs>
+            args: Prisma.YouthMovementUserUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.JeugdbewegingUserUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload>[]
+            args: Prisma.YouthMovementUserUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload>[]
           }
           upsert: {
-            args: Prisma.JeugdbewegingUserUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JeugdbewegingUserPayload>
+            args: Prisma.YouthMovementUserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YouthMovementUserPayload>
           }
           aggregate: {
-            args: Prisma.JeugdbewegingUserAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateJeugdbewegingUser>
+            args: Prisma.YouthMovementUserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateYouthMovementUser>
           }
           groupBy: {
-            args: Prisma.JeugdbewegingUserGroupByArgs<ExtArgs>
-            result: $Utils.Optional<JeugdbewegingUserGroupByOutputType>[]
+            args: Prisma.YouthMovementUserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<YouthMovementUserGroupByOutputType>[]
           }
           count: {
-            args: Prisma.JeugdbewegingUserCountArgs<ExtArgs>
-            result: $Utils.Optional<JeugdbewegingUserCountAggregateOutputType> | number
+            args: Prisma.YouthMovementUserCountArgs<ExtArgs>
+            result: $Utils.Optional<YouthMovementUserCountAggregateOutputType> | number
           }
         }
       }
@@ -1883,9 +1883,9 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    jeugdbeweging?: JeugdbewegingOmit
+    youthMovement?: YouthMovementOmit
     user?: UserOmit
-    jeugdbewegingUser?: JeugdbewegingUserOmit
+    youthMovementUser?: YouthMovementUserOmit
     invitation?: InvitationOmit
     group?: GroupOmit
     post?: PostOmit
@@ -1986,50 +1986,50 @@ export namespace Prisma {
 
 
   /**
-   * Count Type JeugdbewegingCountOutputType
+   * Count Type YouthMovementCountOutputType
    */
 
-  export type JeugdbewegingCountOutputType = {
+  export type YouthMovementCountOutputType = {
     groups: number
     users: number
     invites: number
   }
 
-  export type JeugdbewegingCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    groups?: boolean | JeugdbewegingCountOutputTypeCountGroupsArgs
-    users?: boolean | JeugdbewegingCountOutputTypeCountUsersArgs
-    invites?: boolean | JeugdbewegingCountOutputTypeCountInvitesArgs
+  export type YouthMovementCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    groups?: boolean | YouthMovementCountOutputTypeCountGroupsArgs
+    users?: boolean | YouthMovementCountOutputTypeCountUsersArgs
+    invites?: boolean | YouthMovementCountOutputTypeCountInvitesArgs
   }
 
   // Custom InputTypes
   /**
-   * JeugdbewegingCountOutputType without action
+   * YouthMovementCountOutputType without action
    */
-  export type JeugdbewegingCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingCountOutputType
+     * Select specific fields to fetch from the YouthMovementCountOutputType
      */
-    select?: JeugdbewegingCountOutputTypeSelect<ExtArgs> | null
+    select?: YouthMovementCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * JeugdbewegingCountOutputType without action
+   * YouthMovementCountOutputType without action
    */
-  export type JeugdbewegingCountOutputTypeCountGroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementCountOutputTypeCountGroupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: GroupWhereInput
   }
 
   /**
-   * JeugdbewegingCountOutputType without action
+   * YouthMovementCountOutputType without action
    */
-  export type JeugdbewegingCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JeugdbewegingUserWhereInput
+  export type YouthMovementCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YouthMovementUserWhereInput
   }
 
   /**
-   * JeugdbewegingCountOutputType without action
+   * YouthMovementCountOutputType without action
    */
-  export type JeugdbewegingCountOutputTypeCountInvitesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementCountOutputTypeCountInvitesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: InvitationWhereInput
   }
 
@@ -2039,7 +2039,7 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    jeugdbewegings: number
+    youthMovements: number
     posts: number
     postLikes: number
     messagesSent: number
@@ -2048,10 +2048,11 @@ export namespace Prisma {
     volunteers: number
     leadersGroups: number
     parentChild: number
+    adminOf: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jeugdbewegings?: boolean | UserCountOutputTypeCountJeugdbewegingsArgs
+    youthMovements?: boolean | UserCountOutputTypeCountYouthMovementsArgs
     posts?: boolean | UserCountOutputTypeCountPostsArgs
     postLikes?: boolean | UserCountOutputTypeCountPostLikesArgs
     messagesSent?: boolean | UserCountOutputTypeCountMessagesSentArgs
@@ -2060,6 +2061,7 @@ export namespace Prisma {
     volunteers?: boolean | UserCountOutputTypeCountVolunteersArgs
     leadersGroups?: boolean | UserCountOutputTypeCountLeadersGroupsArgs
     parentChild?: boolean | UserCountOutputTypeCountParentChildArgs
+    adminOf?: boolean | UserCountOutputTypeCountAdminOfArgs
   }
 
   // Custom InputTypes
@@ -2076,8 +2078,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountJeugdbewegingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JeugdbewegingUserWhereInput
+  export type UserCountOutputTypeCountYouthMovementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YouthMovementUserWhereInput
   }
 
   /**
@@ -2134,6 +2136,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountParentChildArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ParentChildWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountAdminOfArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YouthMovementWhereInput
   }
 
 
@@ -2271,54 +2280,54 @@ export namespace Prisma {
    */
 
   /**
-   * Model Jeugdbeweging
+   * Model YouthMovement
    */
 
-  export type AggregateJeugdbeweging = {
-    _count: JeugdbewegingCountAggregateOutputType | null
-    _avg: JeugdbewegingAvgAggregateOutputType | null
-    _sum: JeugdbewegingSumAggregateOutputType | null
-    _min: JeugdbewegingMinAggregateOutputType | null
-    _max: JeugdbewegingMaxAggregateOutputType | null
+  export type AggregateYouthMovement = {
+    _count: YouthMovementCountAggregateOutputType | null
+    _avg: YouthMovementAvgAggregateOutputType | null
+    _sum: YouthMovementSumAggregateOutputType | null
+    _min: YouthMovementMinAggregateOutputType | null
+    _max: YouthMovementMaxAggregateOutputType | null
   }
 
-  export type JeugdbewegingAvgAggregateOutputType = {
+  export type YouthMovementAvgAggregateOutputType = {
     id: number | null
-    postalCode: number | null
-    houseNumber: number | null
+    adminId: number | null
   }
 
-  export type JeugdbewegingSumAggregateOutputType = {
+  export type YouthMovementSumAggregateOutputType = {
     id: number | null
-    postalCode: number | null
-    houseNumber: number | null
+    adminId: number | null
   }
 
-  export type JeugdbewegingMinAggregateOutputType = {
+  export type YouthMovementMinAggregateOutputType = {
     id: number | null
     name: string | null
     description: string | null
     city: string | null
-    postalCode: number | null
+    postalCode: string | null
     street: string | null
-    houseNumber: number | null
+    houseNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    adminId: number | null
   }
 
-  export type JeugdbewegingMaxAggregateOutputType = {
+  export type YouthMovementMaxAggregateOutputType = {
     id: number | null
     name: string | null
     description: string | null
     city: string | null
-    postalCode: number | null
+    postalCode: string | null
     street: string | null
-    houseNumber: number | null
+    houseNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    adminId: number | null
   }
 
-  export type JeugdbewegingCountAggregateOutputType = {
+  export type YouthMovementCountAggregateOutputType = {
     id: number
     name: number
     description: number
@@ -2328,23 +2337,22 @@ export namespace Prisma {
     houseNumber: number
     createdAt: number
     updatedAt: number
+    adminId: number
     _all: number
   }
 
 
-  export type JeugdbewegingAvgAggregateInputType = {
+  export type YouthMovementAvgAggregateInputType = {
     id?: true
-    postalCode?: true
-    houseNumber?: true
+    adminId?: true
   }
 
-  export type JeugdbewegingSumAggregateInputType = {
+  export type YouthMovementSumAggregateInputType = {
     id?: true
-    postalCode?: true
-    houseNumber?: true
+    adminId?: true
   }
 
-  export type JeugdbewegingMinAggregateInputType = {
+  export type YouthMovementMinAggregateInputType = {
     id?: true
     name?: true
     description?: true
@@ -2354,9 +2362,10 @@ export namespace Prisma {
     houseNumber?: true
     createdAt?: true
     updatedAt?: true
+    adminId?: true
   }
 
-  export type JeugdbewegingMaxAggregateInputType = {
+  export type YouthMovementMaxAggregateInputType = {
     id?: true
     name?: true
     description?: true
@@ -2366,9 +2375,10 @@ export namespace Prisma {
     houseNumber?: true
     createdAt?: true
     updatedAt?: true
+    adminId?: true
   }
 
-  export type JeugdbewegingCountAggregateInputType = {
+  export type YouthMovementCountAggregateInputType = {
     id?: true
     name?: true
     description?: true
@@ -2378,127 +2388,129 @@ export namespace Prisma {
     houseNumber?: true
     createdAt?: true
     updatedAt?: true
+    adminId?: true
     _all?: true
   }
 
-  export type JeugdbewegingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Jeugdbeweging to aggregate.
+     * Filter which YouthMovement to aggregate.
      */
-    where?: JeugdbewegingWhereInput
+    where?: YouthMovementWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Jeugdbewegings to fetch.
+     * Determine the order of YouthMovements to fetch.
      */
-    orderBy?: JeugdbewegingOrderByWithRelationInput | JeugdbewegingOrderByWithRelationInput[]
+    orderBy?: YouthMovementOrderByWithRelationInput | YouthMovementOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: JeugdbewegingWhereUniqueInput
+    cursor?: YouthMovementWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Jeugdbewegings from the position of the cursor.
+     * Take `±n` YouthMovements from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Jeugdbewegings.
+     * Skip the first `n` YouthMovements.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Jeugdbewegings
+     * Count returned YouthMovements
     **/
-    _count?: true | JeugdbewegingCountAggregateInputType
+    _count?: true | YouthMovementCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: JeugdbewegingAvgAggregateInputType
+    _avg?: YouthMovementAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: JeugdbewegingSumAggregateInputType
+    _sum?: YouthMovementSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: JeugdbewegingMinAggregateInputType
+    _min?: YouthMovementMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: JeugdbewegingMaxAggregateInputType
+    _max?: YouthMovementMaxAggregateInputType
   }
 
-  export type GetJeugdbewegingAggregateType<T extends JeugdbewegingAggregateArgs> = {
-        [P in keyof T & keyof AggregateJeugdbeweging]: P extends '_count' | 'count'
+  export type GetYouthMovementAggregateType<T extends YouthMovementAggregateArgs> = {
+        [P in keyof T & keyof AggregateYouthMovement]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateJeugdbeweging[P]>
-      : GetScalarType<T[P], AggregateJeugdbeweging[P]>
+        : GetScalarType<T[P], AggregateYouthMovement[P]>
+      : GetScalarType<T[P], AggregateYouthMovement[P]>
   }
 
 
 
 
-  export type JeugdbewegingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JeugdbewegingWhereInput
-    orderBy?: JeugdbewegingOrderByWithAggregationInput | JeugdbewegingOrderByWithAggregationInput[]
-    by: JeugdbewegingScalarFieldEnum[] | JeugdbewegingScalarFieldEnum
-    having?: JeugdbewegingScalarWhereWithAggregatesInput
+  export type YouthMovementGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YouthMovementWhereInput
+    orderBy?: YouthMovementOrderByWithAggregationInput | YouthMovementOrderByWithAggregationInput[]
+    by: YouthMovementScalarFieldEnum[] | YouthMovementScalarFieldEnum
+    having?: YouthMovementScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: JeugdbewegingCountAggregateInputType | true
-    _avg?: JeugdbewegingAvgAggregateInputType
-    _sum?: JeugdbewegingSumAggregateInputType
-    _min?: JeugdbewegingMinAggregateInputType
-    _max?: JeugdbewegingMaxAggregateInputType
+    _count?: YouthMovementCountAggregateInputType | true
+    _avg?: YouthMovementAvgAggregateInputType
+    _sum?: YouthMovementSumAggregateInputType
+    _min?: YouthMovementMinAggregateInputType
+    _max?: YouthMovementMaxAggregateInputType
   }
 
-  export type JeugdbewegingGroupByOutputType = {
+  export type YouthMovementGroupByOutputType = {
     id: number
     name: string
     description: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt: Date
     updatedAt: Date
-    _count: JeugdbewegingCountAggregateOutputType | null
-    _avg: JeugdbewegingAvgAggregateOutputType | null
-    _sum: JeugdbewegingSumAggregateOutputType | null
-    _min: JeugdbewegingMinAggregateOutputType | null
-    _max: JeugdbewegingMaxAggregateOutputType | null
+    adminId: number
+    _count: YouthMovementCountAggregateOutputType | null
+    _avg: YouthMovementAvgAggregateOutputType | null
+    _sum: YouthMovementSumAggregateOutputType | null
+    _min: YouthMovementMinAggregateOutputType | null
+    _max: YouthMovementMaxAggregateOutputType | null
   }
 
-  type GetJeugdbewegingGroupByPayload<T extends JeugdbewegingGroupByArgs> = Prisma.PrismaPromise<
+  type GetYouthMovementGroupByPayload<T extends YouthMovementGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<JeugdbewegingGroupByOutputType, T['by']> &
+      PickEnumerable<YouthMovementGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof JeugdbewegingGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof YouthMovementGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], JeugdbewegingGroupByOutputType[P]>
-            : GetScalarType<T[P], JeugdbewegingGroupByOutputType[P]>
+              : GetScalarType<T[P], YouthMovementGroupByOutputType[P]>
+            : GetScalarType<T[P], YouthMovementGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type JeugdbewegingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type YouthMovementSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
@@ -2508,13 +2520,15 @@ export namespace Prisma {
     houseNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    groups?: boolean | Jeugdbeweging$groupsArgs<ExtArgs>
-    users?: boolean | Jeugdbeweging$usersArgs<ExtArgs>
-    invites?: boolean | Jeugdbeweging$invitesArgs<ExtArgs>
-    _count?: boolean | JeugdbewegingCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["jeugdbeweging"]>
+    adminId?: boolean
+    groups?: boolean | YouthMovement$groupsArgs<ExtArgs>
+    users?: boolean | YouthMovement$usersArgs<ExtArgs>
+    invites?: boolean | YouthMovement$invitesArgs<ExtArgs>
+    admin?: boolean | UserDefaultArgs<ExtArgs>
+    _count?: boolean | YouthMovementCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["youthMovement"]>
 
-  export type JeugdbewegingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type YouthMovementSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
@@ -2524,9 +2538,11 @@ export namespace Prisma {
     houseNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["jeugdbeweging"]>
+    adminId?: boolean
+    admin?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["youthMovement"]>
 
-  export type JeugdbewegingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type YouthMovementSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
@@ -2536,9 +2552,11 @@ export namespace Prisma {
     houseNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["jeugdbeweging"]>
+    adminId?: boolean
+    admin?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["youthMovement"]>
 
-  export type JeugdbewegingSelectScalar = {
+  export type YouthMovementSelectScalar = {
     id?: boolean
     name?: boolean
     description?: boolean
@@ -2548,165 +2566,173 @@ export namespace Prisma {
     houseNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    adminId?: boolean
   }
 
-  export type JeugdbewegingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "city" | "postalCode" | "street" | "houseNumber" | "createdAt" | "updatedAt", ExtArgs["result"]["jeugdbeweging"]>
-  export type JeugdbewegingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    groups?: boolean | Jeugdbeweging$groupsArgs<ExtArgs>
-    users?: boolean | Jeugdbeweging$usersArgs<ExtArgs>
-    invites?: boolean | Jeugdbeweging$invitesArgs<ExtArgs>
-    _count?: boolean | JeugdbewegingCountOutputTypeDefaultArgs<ExtArgs>
+  export type YouthMovementOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "city" | "postalCode" | "street" | "houseNumber" | "createdAt" | "updatedAt" | "adminId", ExtArgs["result"]["youthMovement"]>
+  export type YouthMovementInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    groups?: boolean | YouthMovement$groupsArgs<ExtArgs>
+    users?: boolean | YouthMovement$usersArgs<ExtArgs>
+    invites?: boolean | YouthMovement$invitesArgs<ExtArgs>
+    admin?: boolean | UserDefaultArgs<ExtArgs>
+    _count?: boolean | YouthMovementCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type JeugdbewegingIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type JeugdbewegingIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type YouthMovementIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    admin?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type YouthMovementIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    admin?: boolean | UserDefaultArgs<ExtArgs>
+  }
 
-  export type $JeugdbewegingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Jeugdbeweging"
+  export type $YouthMovementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "YouthMovement"
     objects: {
       groups: Prisma.$GroupPayload<ExtArgs>[]
-      users: Prisma.$JeugdbewegingUserPayload<ExtArgs>[]
+      users: Prisma.$YouthMovementUserPayload<ExtArgs>[]
       invites: Prisma.$InvitationPayload<ExtArgs>[]
+      admin: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
       description: string | null
       city: string
-      postalCode: number
+      postalCode: string
       street: string
-      houseNumber: number
+      houseNumber: string
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["jeugdbeweging"]>
+      adminId: number
+    }, ExtArgs["result"]["youthMovement"]>
     composites: {}
   }
 
-  type JeugdbewegingGetPayload<S extends boolean | null | undefined | JeugdbewegingDefaultArgs> = $Result.GetResult<Prisma.$JeugdbewegingPayload, S>
+  type YouthMovementGetPayload<S extends boolean | null | undefined | YouthMovementDefaultArgs> = $Result.GetResult<Prisma.$YouthMovementPayload, S>
 
-  type JeugdbewegingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<JeugdbewegingFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: JeugdbewegingCountAggregateInputType | true
+  type YouthMovementCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<YouthMovementFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: YouthMovementCountAggregateInputType | true
     }
 
-  export interface JeugdbewegingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Jeugdbeweging'], meta: { name: 'Jeugdbeweging' } }
+  export interface YouthMovementDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['YouthMovement'], meta: { name: 'YouthMovement' } }
     /**
-     * Find zero or one Jeugdbeweging that matches the filter.
-     * @param {JeugdbewegingFindUniqueArgs} args - Arguments to find a Jeugdbeweging
+     * Find zero or one YouthMovement that matches the filter.
+     * @param {YouthMovementFindUniqueArgs} args - Arguments to find a YouthMovement
      * @example
-     * // Get one Jeugdbeweging
-     * const jeugdbeweging = await prisma.jeugdbeweging.findUnique({
+     * // Get one YouthMovement
+     * const youthMovement = await prisma.youthMovement.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends JeugdbewegingFindUniqueArgs>(args: SelectSubset<T, JeugdbewegingFindUniqueArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    findUnique<T extends YouthMovementFindUniqueArgs>(args: SelectSubset<T, YouthMovementFindUniqueArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
 
     /**
-     * Find one Jeugdbeweging that matches the filter or throw an error with `error.code='P2025'`
+     * Find one YouthMovement that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {JeugdbewegingFindUniqueOrThrowArgs} args - Arguments to find a Jeugdbeweging
+     * @param {YouthMovementFindUniqueOrThrowArgs} args - Arguments to find a YouthMovement
      * @example
-     * // Get one Jeugdbeweging
-     * const jeugdbeweging = await prisma.jeugdbeweging.findUniqueOrThrow({
+     * // Get one YouthMovement
+     * const youthMovement = await prisma.youthMovement.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends JeugdbewegingFindUniqueOrThrowArgs>(args: SelectSubset<T, JeugdbewegingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+    findUniqueOrThrow<T extends YouthMovementFindUniqueOrThrowArgs>(args: SelectSubset<T, YouthMovementFindUniqueOrThrowArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Find the first Jeugdbeweging that matches the filter.
+     * Find the first YouthMovement that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingFindFirstArgs} args - Arguments to find a Jeugdbeweging
+     * @param {YouthMovementFindFirstArgs} args - Arguments to find a YouthMovement
      * @example
-     * // Get one Jeugdbeweging
-     * const jeugdbeweging = await prisma.jeugdbeweging.findFirst({
+     * // Get one YouthMovement
+     * const youthMovement = await prisma.youthMovement.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends JeugdbewegingFindFirstArgs>(args?: SelectSubset<T, JeugdbewegingFindFirstArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    findFirst<T extends YouthMovementFindFirstArgs>(args?: SelectSubset<T, YouthMovementFindFirstArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
 
     /**
-     * Find the first Jeugdbeweging that matches the filter or
+     * Find the first YouthMovement that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingFindFirstOrThrowArgs} args - Arguments to find a Jeugdbeweging
+     * @param {YouthMovementFindFirstOrThrowArgs} args - Arguments to find a YouthMovement
      * @example
-     * // Get one Jeugdbeweging
-     * const jeugdbeweging = await prisma.jeugdbeweging.findFirstOrThrow({
+     * // Get one YouthMovement
+     * const youthMovement = await prisma.youthMovement.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends JeugdbewegingFindFirstOrThrowArgs>(args?: SelectSubset<T, JeugdbewegingFindFirstOrThrowArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+    findFirstOrThrow<T extends YouthMovementFindFirstOrThrowArgs>(args?: SelectSubset<T, YouthMovementFindFirstOrThrowArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Find zero or more Jeugdbewegings that matches the filter.
+     * Find zero or more YouthMovements that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {YouthMovementFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Jeugdbewegings
-     * const jeugdbewegings = await prisma.jeugdbeweging.findMany()
+     * // Get all YouthMovements
+     * const youthMovements = await prisma.youthMovement.findMany()
      * 
-     * // Get first 10 Jeugdbewegings
-     * const jeugdbewegings = await prisma.jeugdbeweging.findMany({ take: 10 })
+     * // Get first 10 YouthMovements
+     * const youthMovements = await prisma.youthMovement.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const jeugdbewegingWithIdOnly = await prisma.jeugdbeweging.findMany({ select: { id: true } })
+     * const youthMovementWithIdOnly = await prisma.youthMovement.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends JeugdbewegingFindManyArgs>(args?: SelectSubset<T, JeugdbewegingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "findMany", ClientOptions>>
+    findMany<T extends YouthMovementFindManyArgs>(args?: SelectSubset<T, YouthMovementFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "findMany", ClientOptions>>
 
     /**
-     * Create a Jeugdbeweging.
-     * @param {JeugdbewegingCreateArgs} args - Arguments to create a Jeugdbeweging.
+     * Create a YouthMovement.
+     * @param {YouthMovementCreateArgs} args - Arguments to create a YouthMovement.
      * @example
-     * // Create one Jeugdbeweging
-     * const Jeugdbeweging = await prisma.jeugdbeweging.create({
+     * // Create one YouthMovement
+     * const YouthMovement = await prisma.youthMovement.create({
      *   data: {
-     *     // ... data to create a Jeugdbeweging
+     *     // ... data to create a YouthMovement
      *   }
      * })
      * 
      */
-    create<T extends JeugdbewegingCreateArgs>(args: SelectSubset<T, JeugdbewegingCreateArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+    create<T extends YouthMovementCreateArgs>(args: SelectSubset<T, YouthMovementCreateArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Create many Jeugdbewegings.
-     * @param {JeugdbewegingCreateManyArgs} args - Arguments to create many Jeugdbewegings.
+     * Create many YouthMovements.
+     * @param {YouthMovementCreateManyArgs} args - Arguments to create many YouthMovements.
      * @example
-     * // Create many Jeugdbewegings
-     * const jeugdbeweging = await prisma.jeugdbeweging.createMany({
+     * // Create many YouthMovements
+     * const youthMovement = await prisma.youthMovement.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends JeugdbewegingCreateManyArgs>(args?: SelectSubset<T, JeugdbewegingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends YouthMovementCreateManyArgs>(args?: SelectSubset<T, YouthMovementCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Jeugdbewegings and returns the data saved in the database.
-     * @param {JeugdbewegingCreateManyAndReturnArgs} args - Arguments to create many Jeugdbewegings.
+     * Create many YouthMovements and returns the data saved in the database.
+     * @param {YouthMovementCreateManyAndReturnArgs} args - Arguments to create many YouthMovements.
      * @example
-     * // Create many Jeugdbewegings
-     * const jeugdbeweging = await prisma.jeugdbeweging.createManyAndReturn({
+     * // Create many YouthMovements
+     * const youthMovement = await prisma.youthMovement.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Jeugdbewegings and only return the `id`
-     * const jeugdbewegingWithIdOnly = await prisma.jeugdbeweging.createManyAndReturn({
+     * // Create many YouthMovements and only return the `id`
+     * const youthMovementWithIdOnly = await prisma.youthMovement.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2716,28 +2742,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends JeugdbewegingCreateManyAndReturnArgs>(args?: SelectSubset<T, JeugdbewegingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+    createManyAndReturn<T extends YouthMovementCreateManyAndReturnArgs>(args?: SelectSubset<T, YouthMovementCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
 
     /**
-     * Delete a Jeugdbeweging.
-     * @param {JeugdbewegingDeleteArgs} args - Arguments to delete one Jeugdbeweging.
+     * Delete a YouthMovement.
+     * @param {YouthMovementDeleteArgs} args - Arguments to delete one YouthMovement.
      * @example
-     * // Delete one Jeugdbeweging
-     * const Jeugdbeweging = await prisma.jeugdbeweging.delete({
+     * // Delete one YouthMovement
+     * const YouthMovement = await prisma.youthMovement.delete({
      *   where: {
-     *     // ... filter to delete one Jeugdbeweging
+     *     // ... filter to delete one YouthMovement
      *   }
      * })
      * 
      */
-    delete<T extends JeugdbewegingDeleteArgs>(args: SelectSubset<T, JeugdbewegingDeleteArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+    delete<T extends YouthMovementDeleteArgs>(args: SelectSubset<T, YouthMovementDeleteArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Update one Jeugdbeweging.
-     * @param {JeugdbewegingUpdateArgs} args - Arguments to update one Jeugdbeweging.
+     * Update one YouthMovement.
+     * @param {YouthMovementUpdateArgs} args - Arguments to update one YouthMovement.
      * @example
-     * // Update one Jeugdbeweging
-     * const jeugdbeweging = await prisma.jeugdbeweging.update({
+     * // Update one YouthMovement
+     * const youthMovement = await prisma.youthMovement.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2747,30 +2773,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends JeugdbewegingUpdateArgs>(args: SelectSubset<T, JeugdbewegingUpdateArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+    update<T extends YouthMovementUpdateArgs>(args: SelectSubset<T, YouthMovementUpdateArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Delete zero or more Jeugdbewegings.
-     * @param {JeugdbewegingDeleteManyArgs} args - Arguments to filter Jeugdbewegings to delete.
+     * Delete zero or more YouthMovements.
+     * @param {YouthMovementDeleteManyArgs} args - Arguments to filter YouthMovements to delete.
      * @example
-     * // Delete a few Jeugdbewegings
-     * const { count } = await prisma.jeugdbeweging.deleteMany({
+     * // Delete a few YouthMovements
+     * const { count } = await prisma.youthMovement.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends JeugdbewegingDeleteManyArgs>(args?: SelectSubset<T, JeugdbewegingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends YouthMovementDeleteManyArgs>(args?: SelectSubset<T, YouthMovementDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Jeugdbewegings.
+     * Update zero or more YouthMovements.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {YouthMovementUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Jeugdbewegings
-     * const jeugdbeweging = await prisma.jeugdbeweging.updateMany({
+     * // Update many YouthMovements
+     * const youthMovement = await prisma.youthMovement.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2780,14 +2806,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends JeugdbewegingUpdateManyArgs>(args: SelectSubset<T, JeugdbewegingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends YouthMovementUpdateManyArgs>(args: SelectSubset<T, YouthMovementUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Jeugdbewegings and returns the data updated in the database.
-     * @param {JeugdbewegingUpdateManyAndReturnArgs} args - Arguments to update many Jeugdbewegings.
+     * Update zero or more YouthMovements and returns the data updated in the database.
+     * @param {YouthMovementUpdateManyAndReturnArgs} args - Arguments to update many YouthMovements.
      * @example
-     * // Update many Jeugdbewegings
-     * const jeugdbeweging = await prisma.jeugdbeweging.updateManyAndReturn({
+     * // Update many YouthMovements
+     * const youthMovement = await prisma.youthMovement.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2796,8 +2822,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Jeugdbewegings and only return the `id`
-     * const jeugdbewegingWithIdOnly = await prisma.jeugdbeweging.updateManyAndReturn({
+     * // Update zero or more YouthMovements and only return the `id`
+     * const youthMovementWithIdOnly = await prisma.youthMovement.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2810,56 +2836,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends JeugdbewegingUpdateManyAndReturnArgs>(args: SelectSubset<T, JeugdbewegingUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+    updateManyAndReturn<T extends YouthMovementUpdateManyAndReturnArgs>(args: SelectSubset<T, YouthMovementUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
 
     /**
-     * Create or update one Jeugdbeweging.
-     * @param {JeugdbewegingUpsertArgs} args - Arguments to update or create a Jeugdbeweging.
+     * Create or update one YouthMovement.
+     * @param {YouthMovementUpsertArgs} args - Arguments to update or create a YouthMovement.
      * @example
-     * // Update or create a Jeugdbeweging
-     * const jeugdbeweging = await prisma.jeugdbeweging.upsert({
+     * // Update or create a YouthMovement
+     * const youthMovement = await prisma.youthMovement.upsert({
      *   create: {
-     *     // ... data to create a Jeugdbeweging
+     *     // ... data to create a YouthMovement
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Jeugdbeweging we want to update
+     *     // ... the filter for the YouthMovement we want to update
      *   }
      * })
      */
-    upsert<T extends JeugdbewegingUpsertArgs>(args: SelectSubset<T, JeugdbewegingUpsertArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+    upsert<T extends YouthMovementUpsertArgs>(args: SelectSubset<T, YouthMovementUpsertArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
 
 
     /**
-     * Count the number of Jeugdbewegings.
+     * Count the number of YouthMovements.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingCountArgs} args - Arguments to filter Jeugdbewegings to count.
+     * @param {YouthMovementCountArgs} args - Arguments to filter YouthMovements to count.
      * @example
-     * // Count the number of Jeugdbewegings
-     * const count = await prisma.jeugdbeweging.count({
+     * // Count the number of YouthMovements
+     * const count = await prisma.youthMovement.count({
      *   where: {
-     *     // ... the filter for the Jeugdbewegings we want to count
+     *     // ... the filter for the YouthMovements we want to count
      *   }
      * })
     **/
-    count<T extends JeugdbewegingCountArgs>(
-      args?: Subset<T, JeugdbewegingCountArgs>,
+    count<T extends YouthMovementCountArgs>(
+      args?: Subset<T, YouthMovementCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], JeugdbewegingCountAggregateOutputType>
+          : GetScalarType<T['select'], YouthMovementCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Jeugdbeweging.
+     * Allows you to perform aggregations operations on a YouthMovement.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {YouthMovementAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2879,13 +2905,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends JeugdbewegingAggregateArgs>(args: Subset<T, JeugdbewegingAggregateArgs>): Prisma.PrismaPromise<GetJeugdbewegingAggregateType<T>>
+    aggregate<T extends YouthMovementAggregateArgs>(args: Subset<T, YouthMovementAggregateArgs>): Prisma.PrismaPromise<GetYouthMovementAggregateType<T>>
 
     /**
-     * Group by Jeugdbeweging.
+     * Group by YouthMovement.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingGroupByArgs} args - Group by arguments.
+     * @param {YouthMovementGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2900,14 +2926,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends JeugdbewegingGroupByArgs,
+      T extends YouthMovementGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: JeugdbewegingGroupByArgs['orderBy'] }
-        : { orderBy?: JeugdbewegingGroupByArgs['orderBy'] },
+        ? { orderBy: YouthMovementGroupByArgs['orderBy'] }
+        : { orderBy?: YouthMovementGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2956,24 +2982,25 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, JeugdbewegingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJeugdbewegingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, YouthMovementGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetYouthMovementGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Jeugdbeweging model
+   * Fields of the YouthMovement model
    */
-  readonly fields: JeugdbewegingFieldRefs;
+  readonly fields: YouthMovementFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Jeugdbeweging.
+   * The delegate class that acts as a "Promise-like" for YouthMovement.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__JeugdbewegingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__YouthMovementClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    groups<T extends Jeugdbeweging$groupsArgs<ExtArgs> = {}>(args?: Subset<T, Jeugdbeweging$groupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
-    users<T extends Jeugdbeweging$usersArgs<ExtArgs> = {}>(args?: Subset<T, Jeugdbeweging$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
-    invites<T extends Jeugdbeweging$invitesArgs<ExtArgs> = {}>(args?: Subset<T, Jeugdbeweging$invitesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    groups<T extends YouthMovement$groupsArgs<ExtArgs> = {}>(args?: Subset<T, YouthMovement$groupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    users<T extends YouthMovement$usersArgs<ExtArgs> = {}>(args?: Subset<T, YouthMovement$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    invites<T extends YouthMovement$invitesArgs<ExtArgs> = {}>(args?: Subset<T, YouthMovement$invitesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    admin<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3000,409 +3027,418 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Jeugdbeweging model
+   * Fields of the YouthMovement model
    */ 
-  interface JeugdbewegingFieldRefs {
-    readonly id: FieldRef<"Jeugdbeweging", 'Int'>
-    readonly name: FieldRef<"Jeugdbeweging", 'String'>
-    readonly description: FieldRef<"Jeugdbeweging", 'String'>
-    readonly city: FieldRef<"Jeugdbeweging", 'String'>
-    readonly postalCode: FieldRef<"Jeugdbeweging", 'Int'>
-    readonly street: FieldRef<"Jeugdbeweging", 'String'>
-    readonly houseNumber: FieldRef<"Jeugdbeweging", 'Int'>
-    readonly createdAt: FieldRef<"Jeugdbeweging", 'DateTime'>
-    readonly updatedAt: FieldRef<"Jeugdbeweging", 'DateTime'>
+  interface YouthMovementFieldRefs {
+    readonly id: FieldRef<"YouthMovement", 'Int'>
+    readonly name: FieldRef<"YouthMovement", 'String'>
+    readonly description: FieldRef<"YouthMovement", 'String'>
+    readonly city: FieldRef<"YouthMovement", 'String'>
+    readonly postalCode: FieldRef<"YouthMovement", 'String'>
+    readonly street: FieldRef<"YouthMovement", 'String'>
+    readonly houseNumber: FieldRef<"YouthMovement", 'String'>
+    readonly createdAt: FieldRef<"YouthMovement", 'DateTime'>
+    readonly updatedAt: FieldRef<"YouthMovement", 'DateTime'>
+    readonly adminId: FieldRef<"YouthMovement", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * Jeugdbeweging findUnique
+   * YouthMovement findUnique
    */
-  export type JeugdbewegingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Jeugdbeweging
+     * Select specific fields to fetch from the YouthMovement
      */
-    select?: JeugdbewegingSelect<ExtArgs> | null
+    select?: YouthMovementSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Jeugdbeweging
+     * Omit specific fields from the YouthMovement
      */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
+    omit?: YouthMovementOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingInclude<ExtArgs> | null
+    include?: YouthMovementInclude<ExtArgs> | null
     /**
-     * Filter, which Jeugdbeweging to fetch.
+     * Filter, which YouthMovement to fetch.
      */
-    where: JeugdbewegingWhereUniqueInput
+    where: YouthMovementWhereUniqueInput
   }
 
   /**
-   * Jeugdbeweging findUniqueOrThrow
+   * YouthMovement findUniqueOrThrow
    */
-  export type JeugdbewegingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Jeugdbeweging
+     * Select specific fields to fetch from the YouthMovement
      */
-    select?: JeugdbewegingSelect<ExtArgs> | null
+    select?: YouthMovementSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Jeugdbeweging
+     * Omit specific fields from the YouthMovement
      */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
+    omit?: YouthMovementOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingInclude<ExtArgs> | null
+    include?: YouthMovementInclude<ExtArgs> | null
     /**
-     * Filter, which Jeugdbeweging to fetch.
+     * Filter, which YouthMovement to fetch.
      */
-    where: JeugdbewegingWhereUniqueInput
+    where: YouthMovementWhereUniqueInput
   }
 
   /**
-   * Jeugdbeweging findFirst
+   * YouthMovement findFirst
    */
-  export type JeugdbewegingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Jeugdbeweging
+     * Select specific fields to fetch from the YouthMovement
      */
-    select?: JeugdbewegingSelect<ExtArgs> | null
+    select?: YouthMovementSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Jeugdbeweging
+     * Omit specific fields from the YouthMovement
      */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
+    omit?: YouthMovementOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingInclude<ExtArgs> | null
+    include?: YouthMovementInclude<ExtArgs> | null
     /**
-     * Filter, which Jeugdbeweging to fetch.
+     * Filter, which YouthMovement to fetch.
      */
-    where?: JeugdbewegingWhereInput
+    where?: YouthMovementWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Jeugdbewegings to fetch.
+     * Determine the order of YouthMovements to fetch.
      */
-    orderBy?: JeugdbewegingOrderByWithRelationInput | JeugdbewegingOrderByWithRelationInput[]
+    orderBy?: YouthMovementOrderByWithRelationInput | YouthMovementOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Jeugdbewegings.
+     * Sets the position for searching for YouthMovements.
      */
-    cursor?: JeugdbewegingWhereUniqueInput
+    cursor?: YouthMovementWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Jeugdbewegings from the position of the cursor.
+     * Take `±n` YouthMovements from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Jeugdbewegings.
+     * Skip the first `n` YouthMovements.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Jeugdbewegings.
+     * Filter by unique combinations of YouthMovements.
      */
-    distinct?: JeugdbewegingScalarFieldEnum | JeugdbewegingScalarFieldEnum[]
+    distinct?: YouthMovementScalarFieldEnum | YouthMovementScalarFieldEnum[]
   }
 
   /**
-   * Jeugdbeweging findFirstOrThrow
+   * YouthMovement findFirstOrThrow
    */
-  export type JeugdbewegingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Jeugdbeweging
+     * Select specific fields to fetch from the YouthMovement
      */
-    select?: JeugdbewegingSelect<ExtArgs> | null
+    select?: YouthMovementSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Jeugdbeweging
+     * Omit specific fields from the YouthMovement
      */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
+    omit?: YouthMovementOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingInclude<ExtArgs> | null
+    include?: YouthMovementInclude<ExtArgs> | null
     /**
-     * Filter, which Jeugdbeweging to fetch.
+     * Filter, which YouthMovement to fetch.
      */
-    where?: JeugdbewegingWhereInput
+    where?: YouthMovementWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Jeugdbewegings to fetch.
+     * Determine the order of YouthMovements to fetch.
      */
-    orderBy?: JeugdbewegingOrderByWithRelationInput | JeugdbewegingOrderByWithRelationInput[]
+    orderBy?: YouthMovementOrderByWithRelationInput | YouthMovementOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Jeugdbewegings.
+     * Sets the position for searching for YouthMovements.
      */
-    cursor?: JeugdbewegingWhereUniqueInput
+    cursor?: YouthMovementWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Jeugdbewegings from the position of the cursor.
+     * Take `±n` YouthMovements from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Jeugdbewegings.
+     * Skip the first `n` YouthMovements.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Jeugdbewegings.
+     * Filter by unique combinations of YouthMovements.
      */
-    distinct?: JeugdbewegingScalarFieldEnum | JeugdbewegingScalarFieldEnum[]
+    distinct?: YouthMovementScalarFieldEnum | YouthMovementScalarFieldEnum[]
   }
 
   /**
-   * Jeugdbeweging findMany
+   * YouthMovement findMany
    */
-  export type JeugdbewegingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Jeugdbeweging
+     * Select specific fields to fetch from the YouthMovement
      */
-    select?: JeugdbewegingSelect<ExtArgs> | null
+    select?: YouthMovementSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Jeugdbeweging
+     * Omit specific fields from the YouthMovement
      */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
+    omit?: YouthMovementOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingInclude<ExtArgs> | null
+    include?: YouthMovementInclude<ExtArgs> | null
     /**
-     * Filter, which Jeugdbewegings to fetch.
+     * Filter, which YouthMovements to fetch.
      */
-    where?: JeugdbewegingWhereInput
+    where?: YouthMovementWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Jeugdbewegings to fetch.
+     * Determine the order of YouthMovements to fetch.
      */
-    orderBy?: JeugdbewegingOrderByWithRelationInput | JeugdbewegingOrderByWithRelationInput[]
+    orderBy?: YouthMovementOrderByWithRelationInput | YouthMovementOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Jeugdbewegings.
+     * Sets the position for listing YouthMovements.
      */
-    cursor?: JeugdbewegingWhereUniqueInput
+    cursor?: YouthMovementWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Jeugdbewegings from the position of the cursor.
+     * Take `±n` YouthMovements from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Jeugdbewegings.
+     * Skip the first `n` YouthMovements.
      */
     skip?: number
-    distinct?: JeugdbewegingScalarFieldEnum | JeugdbewegingScalarFieldEnum[]
+    distinct?: YouthMovementScalarFieldEnum | YouthMovementScalarFieldEnum[]
   }
 
   /**
-   * Jeugdbeweging create
+   * YouthMovement create
    */
-  export type JeugdbewegingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Jeugdbeweging
+     * Select specific fields to fetch from the YouthMovement
      */
-    select?: JeugdbewegingSelect<ExtArgs> | null
+    select?: YouthMovementSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Jeugdbeweging
+     * Omit specific fields from the YouthMovement
      */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
+    omit?: YouthMovementOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingInclude<ExtArgs> | null
+    include?: YouthMovementInclude<ExtArgs> | null
     /**
-     * The data needed to create a Jeugdbeweging.
+     * The data needed to create a YouthMovement.
      */
-    data: XOR<JeugdbewegingCreateInput, JeugdbewegingUncheckedCreateInput>
+    data: XOR<YouthMovementCreateInput, YouthMovementUncheckedCreateInput>
   }
 
   /**
-   * Jeugdbeweging createMany
+   * YouthMovement createMany
    */
-  export type JeugdbewegingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Jeugdbewegings.
+     * The data used to create many YouthMovements.
      */
-    data: JeugdbewegingCreateManyInput | JeugdbewegingCreateManyInput[]
+    data: YouthMovementCreateManyInput | YouthMovementCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Jeugdbeweging createManyAndReturn
+   * YouthMovement createManyAndReturn
    */
-  export type JeugdbewegingCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Jeugdbeweging
+     * Select specific fields to fetch from the YouthMovement
      */
-    select?: JeugdbewegingSelectCreateManyAndReturn<ExtArgs> | null
+    select?: YouthMovementSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Jeugdbeweging
+     * Omit specific fields from the YouthMovement
      */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
+    omit?: YouthMovementOmit<ExtArgs> | null
     /**
-     * The data used to create many Jeugdbewegings.
+     * The data used to create many YouthMovements.
      */
-    data: JeugdbewegingCreateManyInput | JeugdbewegingCreateManyInput[]
+    data: YouthMovementCreateManyInput | YouthMovementCreateManyInput[]
     skipDuplicates?: boolean
-  }
-
-  /**
-   * Jeugdbeweging update
-   */
-  export type JeugdbewegingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Jeugdbeweging
-     */
-    select?: JeugdbewegingSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Jeugdbeweging
-     */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Jeugdbeweging.
-     */
-    data: XOR<JeugdbewegingUpdateInput, JeugdbewegingUncheckedUpdateInput>
-    /**
-     * Choose, which Jeugdbeweging to update.
-     */
-    where: JeugdbewegingWhereUniqueInput
+    include?: YouthMovementIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Jeugdbeweging updateMany
+   * YouthMovement update
    */
-  export type JeugdbewegingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Jeugdbewegings.
+     * Select specific fields to fetch from the YouthMovement
      */
-    data: XOR<JeugdbewegingUpdateManyMutationInput, JeugdbewegingUncheckedUpdateManyInput>
+    select?: YouthMovementSelect<ExtArgs> | null
     /**
-     * Filter which Jeugdbewegings to update
+     * Omit specific fields from the YouthMovement
      */
-    where?: JeugdbewegingWhereInput
+    omit?: YouthMovementOmit<ExtArgs> | null
     /**
-     * Limit how many Jeugdbewegings to update.
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YouthMovementInclude<ExtArgs> | null
+    /**
+     * The data needed to update a YouthMovement.
+     */
+    data: XOR<YouthMovementUpdateInput, YouthMovementUncheckedUpdateInput>
+    /**
+     * Choose, which YouthMovement to update.
+     */
+    where: YouthMovementWhereUniqueInput
+  }
+
+  /**
+   * YouthMovement updateMany
+   */
+  export type YouthMovementUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update YouthMovements.
+     */
+    data: XOR<YouthMovementUpdateManyMutationInput, YouthMovementUncheckedUpdateManyInput>
+    /**
+     * Filter which YouthMovements to update
+     */
+    where?: YouthMovementWhereInput
+    /**
+     * Limit how many YouthMovements to update.
      */
     limit?: number
   }
 
   /**
-   * Jeugdbeweging updateManyAndReturn
+   * YouthMovement updateManyAndReturn
    */
-  export type JeugdbewegingUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Jeugdbeweging
+     * Select specific fields to fetch from the YouthMovement
      */
-    select?: JeugdbewegingSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: YouthMovementSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Jeugdbeweging
+     * Omit specific fields from the YouthMovement
      */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
+    omit?: YouthMovementOmit<ExtArgs> | null
     /**
-     * The data used to update Jeugdbewegings.
+     * The data used to update YouthMovements.
      */
-    data: XOR<JeugdbewegingUpdateManyMutationInput, JeugdbewegingUncheckedUpdateManyInput>
+    data: XOR<YouthMovementUpdateManyMutationInput, YouthMovementUncheckedUpdateManyInput>
     /**
-     * Filter which Jeugdbewegings to update
+     * Filter which YouthMovements to update
      */
-    where?: JeugdbewegingWhereInput
+    where?: YouthMovementWhereInput
     /**
-     * Limit how many Jeugdbewegings to update.
+     * Limit how many YouthMovements to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YouthMovementIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * YouthMovement upsert
+   */
+  export type YouthMovementUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YouthMovement
+     */
+    select?: YouthMovementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YouthMovement
+     */
+    omit?: YouthMovementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YouthMovementInclude<ExtArgs> | null
+    /**
+     * The filter to search for the YouthMovement to update in case it exists.
+     */
+    where: YouthMovementWhereUniqueInput
+    /**
+     * In case the YouthMovement found by the `where` argument doesn't exist, create a new YouthMovement with this data.
+     */
+    create: XOR<YouthMovementCreateInput, YouthMovementUncheckedCreateInput>
+    /**
+     * In case the YouthMovement was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<YouthMovementUpdateInput, YouthMovementUncheckedUpdateInput>
+  }
+
+  /**
+   * YouthMovement delete
+   */
+  export type YouthMovementDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YouthMovement
+     */
+    select?: YouthMovementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YouthMovement
+     */
+    omit?: YouthMovementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YouthMovementInclude<ExtArgs> | null
+    /**
+     * Filter which YouthMovement to delete.
+     */
+    where: YouthMovementWhereUniqueInput
+  }
+
+  /**
+   * YouthMovement deleteMany
+   */
+  export type YouthMovementDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YouthMovements to delete
+     */
+    where?: YouthMovementWhereInput
+    /**
+     * Limit how many YouthMovements to delete.
      */
     limit?: number
   }
 
   /**
-   * Jeugdbeweging upsert
+   * YouthMovement.groups
    */
-  export type JeugdbewegingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Jeugdbeweging
-     */
-    select?: JeugdbewegingSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Jeugdbeweging
-     */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: JeugdbewegingInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Jeugdbeweging to update in case it exists.
-     */
-    where: JeugdbewegingWhereUniqueInput
-    /**
-     * In case the Jeugdbeweging found by the `where` argument doesn't exist, create a new Jeugdbeweging with this data.
-     */
-    create: XOR<JeugdbewegingCreateInput, JeugdbewegingUncheckedCreateInput>
-    /**
-     * In case the Jeugdbeweging was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<JeugdbewegingUpdateInput, JeugdbewegingUncheckedUpdateInput>
-  }
-
-  /**
-   * Jeugdbeweging delete
-   */
-  export type JeugdbewegingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Jeugdbeweging
-     */
-    select?: JeugdbewegingSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Jeugdbeweging
-     */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: JeugdbewegingInclude<ExtArgs> | null
-    /**
-     * Filter which Jeugdbeweging to delete.
-     */
-    where: JeugdbewegingWhereUniqueInput
-  }
-
-  /**
-   * Jeugdbeweging deleteMany
-   */
-  export type JeugdbewegingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Jeugdbewegings to delete
-     */
-    where?: JeugdbewegingWhereInput
-    /**
-     * Limit how many Jeugdbewegings to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Jeugdbeweging.groups
-   */
-  export type Jeugdbeweging$groupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovement$groupsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Group
      */
@@ -3424,33 +3460,33 @@ export namespace Prisma {
   }
 
   /**
-   * Jeugdbeweging.users
+   * YouthMovement.users
    */
-  export type Jeugdbeweging$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovement$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
-    where?: JeugdbewegingUserWhereInput
-    orderBy?: JeugdbewegingUserOrderByWithRelationInput | JeugdbewegingUserOrderByWithRelationInput[]
-    cursor?: JeugdbewegingUserWhereUniqueInput
+    include?: YouthMovementUserInclude<ExtArgs> | null
+    where?: YouthMovementUserWhereInput
+    orderBy?: YouthMovementUserOrderByWithRelationInput | YouthMovementUserOrderByWithRelationInput[]
+    cursor?: YouthMovementUserWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: JeugdbewegingUserScalarFieldEnum | JeugdbewegingUserScalarFieldEnum[]
+    distinct?: YouthMovementUserScalarFieldEnum | YouthMovementUserScalarFieldEnum[]
   }
 
   /**
-   * Jeugdbeweging.invites
+   * YouthMovement.invites
    */
-  export type Jeugdbeweging$invitesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovement$invitesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Invitation
      */
@@ -3472,21 +3508,21 @@ export namespace Prisma {
   }
 
   /**
-   * Jeugdbeweging without action
+   * YouthMovement without action
    */
-  export type JeugdbewegingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Jeugdbeweging
+     * Select specific fields to fetch from the YouthMovement
      */
-    select?: JeugdbewegingSelect<ExtArgs> | null
+    select?: YouthMovementSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Jeugdbeweging
+     * Omit specific fields from the YouthMovement
      */
-    omit?: JeugdbewegingOmit<ExtArgs> | null
+    omit?: YouthMovementOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingInclude<ExtArgs> | null
+    include?: YouthMovementInclude<ExtArgs> | null
   }
 
 
@@ -3712,7 +3748,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     imageUrl?: boolean
-    jeugdbewegings?: boolean | User$jeugdbewegingsArgs<ExtArgs>
+    youthMovements?: boolean | User$youthMovementsArgs<ExtArgs>
     posts?: boolean | User$postsArgs<ExtArgs>
     postLikes?: boolean | User$postLikesArgs<ExtArgs>
     messagesSent?: boolean | User$messagesSentArgs<ExtArgs>
@@ -3721,6 +3757,7 @@ export namespace Prisma {
     volunteers?: boolean | User$volunteersArgs<ExtArgs>
     leadersGroups?: boolean | User$leadersGroupsArgs<ExtArgs>
     parentChild?: boolean | User$parentChildArgs<ExtArgs>
+    adminOf?: boolean | User$adminOfArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3759,7 +3796,7 @@ export namespace Prisma {
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "email" | "cognitoId" | "createdAt" | "updatedAt" | "imageUrl", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jeugdbewegings?: boolean | User$jeugdbewegingsArgs<ExtArgs>
+    youthMovements?: boolean | User$youthMovementsArgs<ExtArgs>
     posts?: boolean | User$postsArgs<ExtArgs>
     postLikes?: boolean | User$postLikesArgs<ExtArgs>
     messagesSent?: boolean | User$messagesSentArgs<ExtArgs>
@@ -3768,6 +3805,7 @@ export namespace Prisma {
     volunteers?: boolean | User$volunteersArgs<ExtArgs>
     leadersGroups?: boolean | User$leadersGroupsArgs<ExtArgs>
     parentChild?: boolean | User$parentChildArgs<ExtArgs>
+    adminOf?: boolean | User$adminOfArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3776,7 +3814,7 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      jeugdbewegings: Prisma.$JeugdbewegingUserPayload<ExtArgs>[]
+      youthMovements: Prisma.$YouthMovementUserPayload<ExtArgs>[]
       posts: Prisma.$PostPayload<ExtArgs>[]
       postLikes: Prisma.$PostLikePayload<ExtArgs>[]
       messagesSent: Prisma.$MessagePayload<ExtArgs>[]
@@ -3785,6 +3823,7 @@ export namespace Prisma {
       volunteers: Prisma.$VolunteerPayload<ExtArgs>[]
       leadersGroups: Prisma.$LeadersGroupPayload<ExtArgs>[]
       parentChild: Prisma.$ParentChildPayload<ExtArgs>[]
+      adminOf: Prisma.$YouthMovementPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4189,7 +4228,7 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    jeugdbewegings<T extends User$jeugdbewegingsArgs<ExtArgs> = {}>(args?: Subset<T, User$jeugdbewegingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    youthMovements<T extends User$youthMovementsArgs<ExtArgs> = {}>(args?: Subset<T, User$youthMovementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     posts<T extends User$postsArgs<ExtArgs> = {}>(args?: Subset<T, User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     postLikes<T extends User$postLikesArgs<ExtArgs> = {}>(args?: Subset<T, User$postLikesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostLikePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     messagesSent<T extends User$messagesSentArgs<ExtArgs> = {}>(args?: Subset<T, User$messagesSentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
@@ -4198,6 +4237,7 @@ export namespace Prisma {
     volunteers<T extends User$volunteersArgs<ExtArgs> = {}>(args?: Subset<T, User$volunteersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VolunteerPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     leadersGroups<T extends User$leadersGroupsArgs<ExtArgs> = {}>(args?: Subset<T, User$leadersGroupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadersGroupPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     parentChild<T extends User$parentChildArgs<ExtArgs> = {}>(args?: Subset<T, User$parentChildArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParentChildPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    adminOf<T extends User$adminOfArgs<ExtArgs> = {}>(args?: Subset<T, User$adminOfArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4623,27 +4663,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.jeugdbewegings
+   * User.youthMovements
    */
-  export type User$jeugdbewegingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$youthMovementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
-    where?: JeugdbewegingUserWhereInput
-    orderBy?: JeugdbewegingUserOrderByWithRelationInput | JeugdbewegingUserOrderByWithRelationInput[]
-    cursor?: JeugdbewegingUserWhereUniqueInput
+    include?: YouthMovementUserInclude<ExtArgs> | null
+    where?: YouthMovementUserWhereInput
+    orderBy?: YouthMovementUserOrderByWithRelationInput | YouthMovementUserOrderByWithRelationInput[]
+    cursor?: YouthMovementUserWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: JeugdbewegingUserScalarFieldEnum | JeugdbewegingUserScalarFieldEnum[]
+    distinct?: YouthMovementUserScalarFieldEnum | YouthMovementUserScalarFieldEnum[]
   }
 
   /**
@@ -4839,6 +4879,30 @@ export namespace Prisma {
   }
 
   /**
+   * User.adminOf
+   */
+  export type User$adminOfArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YouthMovement
+     */
+    select?: YouthMovementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YouthMovement
+     */
+    omit?: YouthMovementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YouthMovementInclude<ExtArgs> | null
+    where?: YouthMovementWhereInput
+    orderBy?: YouthMovementOrderByWithRelationInput | YouthMovementOrderByWithRelationInput[]
+    cursor?: YouthMovementWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: YouthMovementScalarFieldEnum | YouthMovementScalarFieldEnum[]
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4858,387 +4922,387 @@ export namespace Prisma {
 
 
   /**
-   * Model JeugdbewegingUser
+   * Model YouthMovementUser
    */
 
-  export type AggregateJeugdbewegingUser = {
-    _count: JeugdbewegingUserCountAggregateOutputType | null
-    _avg: JeugdbewegingUserAvgAggregateOutputType | null
-    _sum: JeugdbewegingUserSumAggregateOutputType | null
-    _min: JeugdbewegingUserMinAggregateOutputType | null
-    _max: JeugdbewegingUserMaxAggregateOutputType | null
+  export type AggregateYouthMovementUser = {
+    _count: YouthMovementUserCountAggregateOutputType | null
+    _avg: YouthMovementUserAvgAggregateOutputType | null
+    _sum: YouthMovementUserSumAggregateOutputType | null
+    _min: YouthMovementUserMinAggregateOutputType | null
+    _max: YouthMovementUserMaxAggregateOutputType | null
   }
 
-  export type JeugdbewegingUserAvgAggregateOutputType = {
+  export type YouthMovementUserAvgAggregateOutputType = {
     id: number | null
     userId: number | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
   }
 
-  export type JeugdbewegingUserSumAggregateOutputType = {
+  export type YouthMovementUserSumAggregateOutputType = {
     id: number | null
     userId: number | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
   }
 
-  export type JeugdbewegingUserMinAggregateOutputType = {
+  export type YouthMovementUserMinAggregateOutputType = {
     id: number | null
     userId: number | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
     role: $Enums.Role | null
   }
 
-  export type JeugdbewegingUserMaxAggregateOutputType = {
+  export type YouthMovementUserMaxAggregateOutputType = {
     id: number | null
     userId: number | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
     role: $Enums.Role | null
   }
 
-  export type JeugdbewegingUserCountAggregateOutputType = {
+  export type YouthMovementUserCountAggregateOutputType = {
     id: number
     userId: number
-    jeugdbewegingId: number
+    youthMovementId: number
     role: number
     _all: number
   }
 
 
-  export type JeugdbewegingUserAvgAggregateInputType = {
+  export type YouthMovementUserAvgAggregateInputType = {
     id?: true
     userId?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
   }
 
-  export type JeugdbewegingUserSumAggregateInputType = {
+  export type YouthMovementUserSumAggregateInputType = {
     id?: true
     userId?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
   }
 
-  export type JeugdbewegingUserMinAggregateInputType = {
+  export type YouthMovementUserMinAggregateInputType = {
     id?: true
     userId?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
     role?: true
   }
 
-  export type JeugdbewegingUserMaxAggregateInputType = {
+  export type YouthMovementUserMaxAggregateInputType = {
     id?: true
     userId?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
     role?: true
   }
 
-  export type JeugdbewegingUserCountAggregateInputType = {
+  export type YouthMovementUserCountAggregateInputType = {
     id?: true
     userId?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
     role?: true
     _all?: true
   }
 
-  export type JeugdbewegingUserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which JeugdbewegingUser to aggregate.
+     * Filter which YouthMovementUser to aggregate.
      */
-    where?: JeugdbewegingUserWhereInput
+    where?: YouthMovementUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of JeugdbewegingUsers to fetch.
+     * Determine the order of YouthMovementUsers to fetch.
      */
-    orderBy?: JeugdbewegingUserOrderByWithRelationInput | JeugdbewegingUserOrderByWithRelationInput[]
+    orderBy?: YouthMovementUserOrderByWithRelationInput | YouthMovementUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: JeugdbewegingUserWhereUniqueInput
+    cursor?: YouthMovementUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` JeugdbewegingUsers from the position of the cursor.
+     * Take `±n` YouthMovementUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` JeugdbewegingUsers.
+     * Skip the first `n` YouthMovementUsers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned JeugdbewegingUsers
+     * Count returned YouthMovementUsers
     **/
-    _count?: true | JeugdbewegingUserCountAggregateInputType
+    _count?: true | YouthMovementUserCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: JeugdbewegingUserAvgAggregateInputType
+    _avg?: YouthMovementUserAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: JeugdbewegingUserSumAggregateInputType
+    _sum?: YouthMovementUserSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: JeugdbewegingUserMinAggregateInputType
+    _min?: YouthMovementUserMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: JeugdbewegingUserMaxAggregateInputType
+    _max?: YouthMovementUserMaxAggregateInputType
   }
 
-  export type GetJeugdbewegingUserAggregateType<T extends JeugdbewegingUserAggregateArgs> = {
-        [P in keyof T & keyof AggregateJeugdbewegingUser]: P extends '_count' | 'count'
+  export type GetYouthMovementUserAggregateType<T extends YouthMovementUserAggregateArgs> = {
+        [P in keyof T & keyof AggregateYouthMovementUser]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateJeugdbewegingUser[P]>
-      : GetScalarType<T[P], AggregateJeugdbewegingUser[P]>
+        : GetScalarType<T[P], AggregateYouthMovementUser[P]>
+      : GetScalarType<T[P], AggregateYouthMovementUser[P]>
   }
 
 
 
 
-  export type JeugdbewegingUserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JeugdbewegingUserWhereInput
-    orderBy?: JeugdbewegingUserOrderByWithAggregationInput | JeugdbewegingUserOrderByWithAggregationInput[]
-    by: JeugdbewegingUserScalarFieldEnum[] | JeugdbewegingUserScalarFieldEnum
-    having?: JeugdbewegingUserScalarWhereWithAggregatesInput
+  export type YouthMovementUserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YouthMovementUserWhereInput
+    orderBy?: YouthMovementUserOrderByWithAggregationInput | YouthMovementUserOrderByWithAggregationInput[]
+    by: YouthMovementUserScalarFieldEnum[] | YouthMovementUserScalarFieldEnum
+    having?: YouthMovementUserScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: JeugdbewegingUserCountAggregateInputType | true
-    _avg?: JeugdbewegingUserAvgAggregateInputType
-    _sum?: JeugdbewegingUserSumAggregateInputType
-    _min?: JeugdbewegingUserMinAggregateInputType
-    _max?: JeugdbewegingUserMaxAggregateInputType
+    _count?: YouthMovementUserCountAggregateInputType | true
+    _avg?: YouthMovementUserAvgAggregateInputType
+    _sum?: YouthMovementUserSumAggregateInputType
+    _min?: YouthMovementUserMinAggregateInputType
+    _max?: YouthMovementUserMaxAggregateInputType
   }
 
-  export type JeugdbewegingUserGroupByOutputType = {
+  export type YouthMovementUserGroupByOutputType = {
     id: number
     userId: number
-    jeugdbewegingId: number
+    youthMovementId: number
     role: $Enums.Role
-    _count: JeugdbewegingUserCountAggregateOutputType | null
-    _avg: JeugdbewegingUserAvgAggregateOutputType | null
-    _sum: JeugdbewegingUserSumAggregateOutputType | null
-    _min: JeugdbewegingUserMinAggregateOutputType | null
-    _max: JeugdbewegingUserMaxAggregateOutputType | null
+    _count: YouthMovementUserCountAggregateOutputType | null
+    _avg: YouthMovementUserAvgAggregateOutputType | null
+    _sum: YouthMovementUserSumAggregateOutputType | null
+    _min: YouthMovementUserMinAggregateOutputType | null
+    _max: YouthMovementUserMaxAggregateOutputType | null
   }
 
-  type GetJeugdbewegingUserGroupByPayload<T extends JeugdbewegingUserGroupByArgs> = Prisma.PrismaPromise<
+  type GetYouthMovementUserGroupByPayload<T extends YouthMovementUserGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<JeugdbewegingUserGroupByOutputType, T['by']> &
+      PickEnumerable<YouthMovementUserGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof JeugdbewegingUserGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof YouthMovementUserGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], JeugdbewegingUserGroupByOutputType[P]>
-            : GetScalarType<T[P], JeugdbewegingUserGroupByOutputType[P]>
+              : GetScalarType<T[P], YouthMovementUserGroupByOutputType[P]>
+            : GetScalarType<T[P], YouthMovementUserGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type JeugdbewegingUserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type YouthMovementUserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    jeugdbewegingId?: boolean
+    youthMovementId?: boolean
     role?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["jeugdbewegingUser"]>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["youthMovementUser"]>
 
-  export type JeugdbewegingUserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type YouthMovementUserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    jeugdbewegingId?: boolean
+    youthMovementId?: boolean
     role?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["jeugdbewegingUser"]>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["youthMovementUser"]>
 
-  export type JeugdbewegingUserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type YouthMovementUserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    jeugdbewegingId?: boolean
+    youthMovementId?: boolean
     role?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["jeugdbewegingUser"]>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["youthMovementUser"]>
 
-  export type JeugdbewegingUserSelectScalar = {
+  export type YouthMovementUserSelectScalar = {
     id?: boolean
     userId?: boolean
-    jeugdbewegingId?: boolean
+    youthMovementId?: boolean
     role?: boolean
   }
 
-  export type JeugdbewegingUserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "jeugdbewegingId" | "role", ExtArgs["result"]["jeugdbewegingUser"]>
-  export type JeugdbewegingUserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "youthMovementId" | "role", ExtArgs["result"]["youthMovementUser"]>
+  export type YouthMovementUserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }
-  export type JeugdbewegingUserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }
-  export type JeugdbewegingUserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }
 
-  export type $JeugdbewegingUserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "JeugdbewegingUser"
+  export type $YouthMovementUserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "YouthMovementUser"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      jeugdbeweging: Prisma.$JeugdbewegingPayload<ExtArgs>
+      youthMovement: Prisma.$YouthMovementPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       userId: number
-      jeugdbewegingId: number
+      youthMovementId: number
       role: $Enums.Role
-    }, ExtArgs["result"]["jeugdbewegingUser"]>
+    }, ExtArgs["result"]["youthMovementUser"]>
     composites: {}
   }
 
-  type JeugdbewegingUserGetPayload<S extends boolean | null | undefined | JeugdbewegingUserDefaultArgs> = $Result.GetResult<Prisma.$JeugdbewegingUserPayload, S>
+  type YouthMovementUserGetPayload<S extends boolean | null | undefined | YouthMovementUserDefaultArgs> = $Result.GetResult<Prisma.$YouthMovementUserPayload, S>
 
-  type JeugdbewegingUserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<JeugdbewegingUserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: JeugdbewegingUserCountAggregateInputType | true
+  type YouthMovementUserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<YouthMovementUserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: YouthMovementUserCountAggregateInputType | true
     }
 
-  export interface JeugdbewegingUserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JeugdbewegingUser'], meta: { name: 'JeugdbewegingUser' } }
+  export interface YouthMovementUserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['YouthMovementUser'], meta: { name: 'YouthMovementUser' } }
     /**
-     * Find zero or one JeugdbewegingUser that matches the filter.
-     * @param {JeugdbewegingUserFindUniqueArgs} args - Arguments to find a JeugdbewegingUser
+     * Find zero or one YouthMovementUser that matches the filter.
+     * @param {YouthMovementUserFindUniqueArgs} args - Arguments to find a YouthMovementUser
      * @example
-     * // Get one JeugdbewegingUser
-     * const jeugdbewegingUser = await prisma.jeugdbewegingUser.findUnique({
+     * // Get one YouthMovementUser
+     * const youthMovementUser = await prisma.youthMovementUser.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends JeugdbewegingUserFindUniqueArgs>(args: SelectSubset<T, JeugdbewegingUserFindUniqueArgs<ExtArgs>>): Prisma__JeugdbewegingUserClient<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    findUnique<T extends YouthMovementUserFindUniqueArgs>(args: SelectSubset<T, YouthMovementUserFindUniqueArgs<ExtArgs>>): Prisma__YouthMovementUserClient<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
 
     /**
-     * Find one JeugdbewegingUser that matches the filter or throw an error with `error.code='P2025'`
+     * Find one YouthMovementUser that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {JeugdbewegingUserFindUniqueOrThrowArgs} args - Arguments to find a JeugdbewegingUser
+     * @param {YouthMovementUserFindUniqueOrThrowArgs} args - Arguments to find a YouthMovementUser
      * @example
-     * // Get one JeugdbewegingUser
-     * const jeugdbewegingUser = await prisma.jeugdbewegingUser.findUniqueOrThrow({
+     * // Get one YouthMovementUser
+     * const youthMovementUser = await prisma.youthMovementUser.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends JeugdbewegingUserFindUniqueOrThrowArgs>(args: SelectSubset<T, JeugdbewegingUserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JeugdbewegingUserClient<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+    findUniqueOrThrow<T extends YouthMovementUserFindUniqueOrThrowArgs>(args: SelectSubset<T, YouthMovementUserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__YouthMovementUserClient<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Find the first JeugdbewegingUser that matches the filter.
+     * Find the first YouthMovementUser that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingUserFindFirstArgs} args - Arguments to find a JeugdbewegingUser
+     * @param {YouthMovementUserFindFirstArgs} args - Arguments to find a YouthMovementUser
      * @example
-     * // Get one JeugdbewegingUser
-     * const jeugdbewegingUser = await prisma.jeugdbewegingUser.findFirst({
+     * // Get one YouthMovementUser
+     * const youthMovementUser = await prisma.youthMovementUser.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends JeugdbewegingUserFindFirstArgs>(args?: SelectSubset<T, JeugdbewegingUserFindFirstArgs<ExtArgs>>): Prisma__JeugdbewegingUserClient<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    findFirst<T extends YouthMovementUserFindFirstArgs>(args?: SelectSubset<T, YouthMovementUserFindFirstArgs<ExtArgs>>): Prisma__YouthMovementUserClient<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
 
     /**
-     * Find the first JeugdbewegingUser that matches the filter or
+     * Find the first YouthMovementUser that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingUserFindFirstOrThrowArgs} args - Arguments to find a JeugdbewegingUser
+     * @param {YouthMovementUserFindFirstOrThrowArgs} args - Arguments to find a YouthMovementUser
      * @example
-     * // Get one JeugdbewegingUser
-     * const jeugdbewegingUser = await prisma.jeugdbewegingUser.findFirstOrThrow({
+     * // Get one YouthMovementUser
+     * const youthMovementUser = await prisma.youthMovementUser.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends JeugdbewegingUserFindFirstOrThrowArgs>(args?: SelectSubset<T, JeugdbewegingUserFindFirstOrThrowArgs<ExtArgs>>): Prisma__JeugdbewegingUserClient<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+    findFirstOrThrow<T extends YouthMovementUserFindFirstOrThrowArgs>(args?: SelectSubset<T, YouthMovementUserFindFirstOrThrowArgs<ExtArgs>>): Prisma__YouthMovementUserClient<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Find zero or more JeugdbewegingUsers that matches the filter.
+     * Find zero or more YouthMovementUsers that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingUserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {YouthMovementUserFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all JeugdbewegingUsers
-     * const jeugdbewegingUsers = await prisma.jeugdbewegingUser.findMany()
+     * // Get all YouthMovementUsers
+     * const youthMovementUsers = await prisma.youthMovementUser.findMany()
      * 
-     * // Get first 10 JeugdbewegingUsers
-     * const jeugdbewegingUsers = await prisma.jeugdbewegingUser.findMany({ take: 10 })
+     * // Get first 10 YouthMovementUsers
+     * const youthMovementUsers = await prisma.youthMovementUser.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const jeugdbewegingUserWithIdOnly = await prisma.jeugdbewegingUser.findMany({ select: { id: true } })
+     * const youthMovementUserWithIdOnly = await prisma.youthMovementUser.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends JeugdbewegingUserFindManyArgs>(args?: SelectSubset<T, JeugdbewegingUserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "findMany", ClientOptions>>
+    findMany<T extends YouthMovementUserFindManyArgs>(args?: SelectSubset<T, YouthMovementUserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "findMany", ClientOptions>>
 
     /**
-     * Create a JeugdbewegingUser.
-     * @param {JeugdbewegingUserCreateArgs} args - Arguments to create a JeugdbewegingUser.
+     * Create a YouthMovementUser.
+     * @param {YouthMovementUserCreateArgs} args - Arguments to create a YouthMovementUser.
      * @example
-     * // Create one JeugdbewegingUser
-     * const JeugdbewegingUser = await prisma.jeugdbewegingUser.create({
+     * // Create one YouthMovementUser
+     * const YouthMovementUser = await prisma.youthMovementUser.create({
      *   data: {
-     *     // ... data to create a JeugdbewegingUser
+     *     // ... data to create a YouthMovementUser
      *   }
      * })
      * 
      */
-    create<T extends JeugdbewegingUserCreateArgs>(args: SelectSubset<T, JeugdbewegingUserCreateArgs<ExtArgs>>): Prisma__JeugdbewegingUserClient<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+    create<T extends YouthMovementUserCreateArgs>(args: SelectSubset<T, YouthMovementUserCreateArgs<ExtArgs>>): Prisma__YouthMovementUserClient<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Create many JeugdbewegingUsers.
-     * @param {JeugdbewegingUserCreateManyArgs} args - Arguments to create many JeugdbewegingUsers.
+     * Create many YouthMovementUsers.
+     * @param {YouthMovementUserCreateManyArgs} args - Arguments to create many YouthMovementUsers.
      * @example
-     * // Create many JeugdbewegingUsers
-     * const jeugdbewegingUser = await prisma.jeugdbewegingUser.createMany({
+     * // Create many YouthMovementUsers
+     * const youthMovementUser = await prisma.youthMovementUser.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends JeugdbewegingUserCreateManyArgs>(args?: SelectSubset<T, JeugdbewegingUserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends YouthMovementUserCreateManyArgs>(args?: SelectSubset<T, YouthMovementUserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many JeugdbewegingUsers and returns the data saved in the database.
-     * @param {JeugdbewegingUserCreateManyAndReturnArgs} args - Arguments to create many JeugdbewegingUsers.
+     * Create many YouthMovementUsers and returns the data saved in the database.
+     * @param {YouthMovementUserCreateManyAndReturnArgs} args - Arguments to create many YouthMovementUsers.
      * @example
-     * // Create many JeugdbewegingUsers
-     * const jeugdbewegingUser = await prisma.jeugdbewegingUser.createManyAndReturn({
+     * // Create many YouthMovementUsers
+     * const youthMovementUser = await prisma.youthMovementUser.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many JeugdbewegingUsers and only return the `id`
-     * const jeugdbewegingUserWithIdOnly = await prisma.jeugdbewegingUser.createManyAndReturn({
+     * // Create many YouthMovementUsers and only return the `id`
+     * const youthMovementUserWithIdOnly = await prisma.youthMovementUser.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -5248,28 +5312,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends JeugdbewegingUserCreateManyAndReturnArgs>(args?: SelectSubset<T, JeugdbewegingUserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+    createManyAndReturn<T extends YouthMovementUserCreateManyAndReturnArgs>(args?: SelectSubset<T, YouthMovementUserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
 
     /**
-     * Delete a JeugdbewegingUser.
-     * @param {JeugdbewegingUserDeleteArgs} args - Arguments to delete one JeugdbewegingUser.
+     * Delete a YouthMovementUser.
+     * @param {YouthMovementUserDeleteArgs} args - Arguments to delete one YouthMovementUser.
      * @example
-     * // Delete one JeugdbewegingUser
-     * const JeugdbewegingUser = await prisma.jeugdbewegingUser.delete({
+     * // Delete one YouthMovementUser
+     * const YouthMovementUser = await prisma.youthMovementUser.delete({
      *   where: {
-     *     // ... filter to delete one JeugdbewegingUser
+     *     // ... filter to delete one YouthMovementUser
      *   }
      * })
      * 
      */
-    delete<T extends JeugdbewegingUserDeleteArgs>(args: SelectSubset<T, JeugdbewegingUserDeleteArgs<ExtArgs>>): Prisma__JeugdbewegingUserClient<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+    delete<T extends YouthMovementUserDeleteArgs>(args: SelectSubset<T, YouthMovementUserDeleteArgs<ExtArgs>>): Prisma__YouthMovementUserClient<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Update one JeugdbewegingUser.
-     * @param {JeugdbewegingUserUpdateArgs} args - Arguments to update one JeugdbewegingUser.
+     * Update one YouthMovementUser.
+     * @param {YouthMovementUserUpdateArgs} args - Arguments to update one YouthMovementUser.
      * @example
-     * // Update one JeugdbewegingUser
-     * const jeugdbewegingUser = await prisma.jeugdbewegingUser.update({
+     * // Update one YouthMovementUser
+     * const youthMovementUser = await prisma.youthMovementUser.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5279,30 +5343,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends JeugdbewegingUserUpdateArgs>(args: SelectSubset<T, JeugdbewegingUserUpdateArgs<ExtArgs>>): Prisma__JeugdbewegingUserClient<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+    update<T extends YouthMovementUserUpdateArgs>(args: SelectSubset<T, YouthMovementUserUpdateArgs<ExtArgs>>): Prisma__YouthMovementUserClient<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
 
     /**
-     * Delete zero or more JeugdbewegingUsers.
-     * @param {JeugdbewegingUserDeleteManyArgs} args - Arguments to filter JeugdbewegingUsers to delete.
+     * Delete zero or more YouthMovementUsers.
+     * @param {YouthMovementUserDeleteManyArgs} args - Arguments to filter YouthMovementUsers to delete.
      * @example
-     * // Delete a few JeugdbewegingUsers
-     * const { count } = await prisma.jeugdbewegingUser.deleteMany({
+     * // Delete a few YouthMovementUsers
+     * const { count } = await prisma.youthMovementUser.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends JeugdbewegingUserDeleteManyArgs>(args?: SelectSubset<T, JeugdbewegingUserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends YouthMovementUserDeleteManyArgs>(args?: SelectSubset<T, YouthMovementUserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more JeugdbewegingUsers.
+     * Update zero or more YouthMovementUsers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingUserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {YouthMovementUserUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many JeugdbewegingUsers
-     * const jeugdbewegingUser = await prisma.jeugdbewegingUser.updateMany({
+     * // Update many YouthMovementUsers
+     * const youthMovementUser = await prisma.youthMovementUser.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5312,14 +5376,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends JeugdbewegingUserUpdateManyArgs>(args: SelectSubset<T, JeugdbewegingUserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends YouthMovementUserUpdateManyArgs>(args: SelectSubset<T, YouthMovementUserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more JeugdbewegingUsers and returns the data updated in the database.
-     * @param {JeugdbewegingUserUpdateManyAndReturnArgs} args - Arguments to update many JeugdbewegingUsers.
+     * Update zero or more YouthMovementUsers and returns the data updated in the database.
+     * @param {YouthMovementUserUpdateManyAndReturnArgs} args - Arguments to update many YouthMovementUsers.
      * @example
-     * // Update many JeugdbewegingUsers
-     * const jeugdbewegingUser = await prisma.jeugdbewegingUser.updateManyAndReturn({
+     * // Update many YouthMovementUsers
+     * const youthMovementUser = await prisma.youthMovementUser.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5328,8 +5392,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more JeugdbewegingUsers and only return the `id`
-     * const jeugdbewegingUserWithIdOnly = await prisma.jeugdbewegingUser.updateManyAndReturn({
+     * // Update zero or more YouthMovementUsers and only return the `id`
+     * const youthMovementUserWithIdOnly = await prisma.youthMovementUser.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -5342,56 +5406,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends JeugdbewegingUserUpdateManyAndReturnArgs>(args: SelectSubset<T, JeugdbewegingUserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+    updateManyAndReturn<T extends YouthMovementUserUpdateManyAndReturnArgs>(args: SelectSubset<T, YouthMovementUserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
 
     /**
-     * Create or update one JeugdbewegingUser.
-     * @param {JeugdbewegingUserUpsertArgs} args - Arguments to update or create a JeugdbewegingUser.
+     * Create or update one YouthMovementUser.
+     * @param {YouthMovementUserUpsertArgs} args - Arguments to update or create a YouthMovementUser.
      * @example
-     * // Update or create a JeugdbewegingUser
-     * const jeugdbewegingUser = await prisma.jeugdbewegingUser.upsert({
+     * // Update or create a YouthMovementUser
+     * const youthMovementUser = await prisma.youthMovementUser.upsert({
      *   create: {
-     *     // ... data to create a JeugdbewegingUser
+     *     // ... data to create a YouthMovementUser
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the JeugdbewegingUser we want to update
+     *     // ... the filter for the YouthMovementUser we want to update
      *   }
      * })
      */
-    upsert<T extends JeugdbewegingUserUpsertArgs>(args: SelectSubset<T, JeugdbewegingUserUpsertArgs<ExtArgs>>): Prisma__JeugdbewegingUserClient<$Result.GetResult<Prisma.$JeugdbewegingUserPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+    upsert<T extends YouthMovementUserUpsertArgs>(args: SelectSubset<T, YouthMovementUserUpsertArgs<ExtArgs>>): Prisma__YouthMovementUserClient<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
 
 
     /**
-     * Count the number of JeugdbewegingUsers.
+     * Count the number of YouthMovementUsers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingUserCountArgs} args - Arguments to filter JeugdbewegingUsers to count.
+     * @param {YouthMovementUserCountArgs} args - Arguments to filter YouthMovementUsers to count.
      * @example
-     * // Count the number of JeugdbewegingUsers
-     * const count = await prisma.jeugdbewegingUser.count({
+     * // Count the number of YouthMovementUsers
+     * const count = await prisma.youthMovementUser.count({
      *   where: {
-     *     // ... the filter for the JeugdbewegingUsers we want to count
+     *     // ... the filter for the YouthMovementUsers we want to count
      *   }
      * })
     **/
-    count<T extends JeugdbewegingUserCountArgs>(
-      args?: Subset<T, JeugdbewegingUserCountArgs>,
+    count<T extends YouthMovementUserCountArgs>(
+      args?: Subset<T, YouthMovementUserCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], JeugdbewegingUserCountAggregateOutputType>
+          : GetScalarType<T['select'], YouthMovementUserCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a JeugdbewegingUser.
+     * Allows you to perform aggregations operations on a YouthMovementUser.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingUserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {YouthMovementUserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -5411,13 +5475,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends JeugdbewegingUserAggregateArgs>(args: Subset<T, JeugdbewegingUserAggregateArgs>): Prisma.PrismaPromise<GetJeugdbewegingUserAggregateType<T>>
+    aggregate<T extends YouthMovementUserAggregateArgs>(args: Subset<T, YouthMovementUserAggregateArgs>): Prisma.PrismaPromise<GetYouthMovementUserAggregateType<T>>
 
     /**
-     * Group by JeugdbewegingUser.
+     * Group by YouthMovementUser.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JeugdbewegingUserGroupByArgs} args - Group by arguments.
+     * @param {YouthMovementUserGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -5432,14 +5496,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends JeugdbewegingUserGroupByArgs,
+      T extends YouthMovementUserGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: JeugdbewegingUserGroupByArgs['orderBy'] }
-        : { orderBy?: JeugdbewegingUserGroupByArgs['orderBy'] },
+        ? { orderBy: YouthMovementUserGroupByArgs['orderBy'] }
+        : { orderBy?: YouthMovementUserGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -5488,23 +5552,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, JeugdbewegingUserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJeugdbewegingUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, YouthMovementUserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetYouthMovementUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the JeugdbewegingUser model
+   * Fields of the YouthMovementUser model
    */
-  readonly fields: JeugdbewegingUserFieldRefs;
+  readonly fields: YouthMovementUserFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for JeugdbewegingUser.
+   * The delegate class that acts as a "Promise-like" for YouthMovementUser.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__JeugdbewegingUserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__YouthMovementUserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
-    jeugdbeweging<T extends JeugdbewegingDefaultArgs<ExtArgs> = {}>(args?: Subset<T, JeugdbewegingDefaultArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    youthMovement<T extends YouthMovementDefaultArgs<ExtArgs> = {}>(args?: Subset<T, YouthMovementDefaultArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5531,424 +5595,424 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the JeugdbewegingUser model
+   * Fields of the YouthMovementUser model
    */ 
-  interface JeugdbewegingUserFieldRefs {
-    readonly id: FieldRef<"JeugdbewegingUser", 'Int'>
-    readonly userId: FieldRef<"JeugdbewegingUser", 'Int'>
-    readonly jeugdbewegingId: FieldRef<"JeugdbewegingUser", 'Int'>
-    readonly role: FieldRef<"JeugdbewegingUser", 'Role'>
+  interface YouthMovementUserFieldRefs {
+    readonly id: FieldRef<"YouthMovementUser", 'Int'>
+    readonly userId: FieldRef<"YouthMovementUser", 'Int'>
+    readonly youthMovementId: FieldRef<"YouthMovementUser", 'Int'>
+    readonly role: FieldRef<"YouthMovementUser", 'Role'>
   }
     
 
   // Custom InputTypes
   /**
-   * JeugdbewegingUser findUnique
+   * YouthMovementUser findUnique
    */
-  export type JeugdbewegingUserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
+    include?: YouthMovementUserInclude<ExtArgs> | null
     /**
-     * Filter, which JeugdbewegingUser to fetch.
+     * Filter, which YouthMovementUser to fetch.
      */
-    where: JeugdbewegingUserWhereUniqueInput
+    where: YouthMovementUserWhereUniqueInput
   }
 
   /**
-   * JeugdbewegingUser findUniqueOrThrow
+   * YouthMovementUser findUniqueOrThrow
    */
-  export type JeugdbewegingUserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
+    include?: YouthMovementUserInclude<ExtArgs> | null
     /**
-     * Filter, which JeugdbewegingUser to fetch.
+     * Filter, which YouthMovementUser to fetch.
      */
-    where: JeugdbewegingUserWhereUniqueInput
+    where: YouthMovementUserWhereUniqueInput
   }
 
   /**
-   * JeugdbewegingUser findFirst
+   * YouthMovementUser findFirst
    */
-  export type JeugdbewegingUserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
+    include?: YouthMovementUserInclude<ExtArgs> | null
     /**
-     * Filter, which JeugdbewegingUser to fetch.
+     * Filter, which YouthMovementUser to fetch.
      */
-    where?: JeugdbewegingUserWhereInput
+    where?: YouthMovementUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of JeugdbewegingUsers to fetch.
+     * Determine the order of YouthMovementUsers to fetch.
      */
-    orderBy?: JeugdbewegingUserOrderByWithRelationInput | JeugdbewegingUserOrderByWithRelationInput[]
+    orderBy?: YouthMovementUserOrderByWithRelationInput | YouthMovementUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for JeugdbewegingUsers.
+     * Sets the position for searching for YouthMovementUsers.
      */
-    cursor?: JeugdbewegingUserWhereUniqueInput
+    cursor?: YouthMovementUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` JeugdbewegingUsers from the position of the cursor.
+     * Take `±n` YouthMovementUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` JeugdbewegingUsers.
+     * Skip the first `n` YouthMovementUsers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of JeugdbewegingUsers.
+     * Filter by unique combinations of YouthMovementUsers.
      */
-    distinct?: JeugdbewegingUserScalarFieldEnum | JeugdbewegingUserScalarFieldEnum[]
+    distinct?: YouthMovementUserScalarFieldEnum | YouthMovementUserScalarFieldEnum[]
   }
 
   /**
-   * JeugdbewegingUser findFirstOrThrow
+   * YouthMovementUser findFirstOrThrow
    */
-  export type JeugdbewegingUserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
+    include?: YouthMovementUserInclude<ExtArgs> | null
     /**
-     * Filter, which JeugdbewegingUser to fetch.
+     * Filter, which YouthMovementUser to fetch.
      */
-    where?: JeugdbewegingUserWhereInput
+    where?: YouthMovementUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of JeugdbewegingUsers to fetch.
+     * Determine the order of YouthMovementUsers to fetch.
      */
-    orderBy?: JeugdbewegingUserOrderByWithRelationInput | JeugdbewegingUserOrderByWithRelationInput[]
+    orderBy?: YouthMovementUserOrderByWithRelationInput | YouthMovementUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for JeugdbewegingUsers.
+     * Sets the position for searching for YouthMovementUsers.
      */
-    cursor?: JeugdbewegingUserWhereUniqueInput
+    cursor?: YouthMovementUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` JeugdbewegingUsers from the position of the cursor.
+     * Take `±n` YouthMovementUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` JeugdbewegingUsers.
+     * Skip the first `n` YouthMovementUsers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of JeugdbewegingUsers.
+     * Filter by unique combinations of YouthMovementUsers.
      */
-    distinct?: JeugdbewegingUserScalarFieldEnum | JeugdbewegingUserScalarFieldEnum[]
+    distinct?: YouthMovementUserScalarFieldEnum | YouthMovementUserScalarFieldEnum[]
   }
 
   /**
-   * JeugdbewegingUser findMany
+   * YouthMovementUser findMany
    */
-  export type JeugdbewegingUserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
+    include?: YouthMovementUserInclude<ExtArgs> | null
     /**
-     * Filter, which JeugdbewegingUsers to fetch.
+     * Filter, which YouthMovementUsers to fetch.
      */
-    where?: JeugdbewegingUserWhereInput
+    where?: YouthMovementUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of JeugdbewegingUsers to fetch.
+     * Determine the order of YouthMovementUsers to fetch.
      */
-    orderBy?: JeugdbewegingUserOrderByWithRelationInput | JeugdbewegingUserOrderByWithRelationInput[]
+    orderBy?: YouthMovementUserOrderByWithRelationInput | YouthMovementUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing JeugdbewegingUsers.
+     * Sets the position for listing YouthMovementUsers.
      */
-    cursor?: JeugdbewegingUserWhereUniqueInput
+    cursor?: YouthMovementUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` JeugdbewegingUsers from the position of the cursor.
+     * Take `±n` YouthMovementUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` JeugdbewegingUsers.
+     * Skip the first `n` YouthMovementUsers.
      */
     skip?: number
-    distinct?: JeugdbewegingUserScalarFieldEnum | JeugdbewegingUserScalarFieldEnum[]
+    distinct?: YouthMovementUserScalarFieldEnum | YouthMovementUserScalarFieldEnum[]
   }
 
   /**
-   * JeugdbewegingUser create
+   * YouthMovementUser create
    */
-  export type JeugdbewegingUserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
+    include?: YouthMovementUserInclude<ExtArgs> | null
     /**
-     * The data needed to create a JeugdbewegingUser.
+     * The data needed to create a YouthMovementUser.
      */
-    data: XOR<JeugdbewegingUserCreateInput, JeugdbewegingUserUncheckedCreateInput>
+    data: XOR<YouthMovementUserCreateInput, YouthMovementUserUncheckedCreateInput>
   }
 
   /**
-   * JeugdbewegingUser createMany
+   * YouthMovementUser createMany
    */
-  export type JeugdbewegingUserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many JeugdbewegingUsers.
+     * The data used to create many YouthMovementUsers.
      */
-    data: JeugdbewegingUserCreateManyInput | JeugdbewegingUserCreateManyInput[]
+    data: YouthMovementUserCreateManyInput | YouthMovementUserCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * JeugdbewegingUser createManyAndReturn
+   * YouthMovementUser createManyAndReturn
    */
-  export type JeugdbewegingUserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelectCreateManyAndReturn<ExtArgs> | null
+    select?: YouthMovementUserSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
-     * The data used to create many JeugdbewegingUsers.
+     * The data used to create many YouthMovementUsers.
      */
-    data: JeugdbewegingUserCreateManyInput | JeugdbewegingUserCreateManyInput[]
+    data: YouthMovementUserCreateManyInput | YouthMovementUserCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: YouthMovementUserIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * JeugdbewegingUser update
+   * YouthMovementUser update
    */
-  export type JeugdbewegingUserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
+    include?: YouthMovementUserInclude<ExtArgs> | null
     /**
-     * The data needed to update a JeugdbewegingUser.
+     * The data needed to update a YouthMovementUser.
      */
-    data: XOR<JeugdbewegingUserUpdateInput, JeugdbewegingUserUncheckedUpdateInput>
+    data: XOR<YouthMovementUserUpdateInput, YouthMovementUserUncheckedUpdateInput>
     /**
-     * Choose, which JeugdbewegingUser to update.
+     * Choose, which YouthMovementUser to update.
      */
-    where: JeugdbewegingUserWhereUniqueInput
+    where: YouthMovementUserWhereUniqueInput
   }
 
   /**
-   * JeugdbewegingUser updateMany
+   * YouthMovementUser updateMany
    */
-  export type JeugdbewegingUserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update JeugdbewegingUsers.
+     * The data used to update YouthMovementUsers.
      */
-    data: XOR<JeugdbewegingUserUpdateManyMutationInput, JeugdbewegingUserUncheckedUpdateManyInput>
+    data: XOR<YouthMovementUserUpdateManyMutationInput, YouthMovementUserUncheckedUpdateManyInput>
     /**
-     * Filter which JeugdbewegingUsers to update
+     * Filter which YouthMovementUsers to update
      */
-    where?: JeugdbewegingUserWhereInput
+    where?: YouthMovementUserWhereInput
     /**
-     * Limit how many JeugdbewegingUsers to update.
+     * Limit how many YouthMovementUsers to update.
      */
     limit?: number
   }
 
   /**
-   * JeugdbewegingUser updateManyAndReturn
+   * YouthMovementUser updateManyAndReturn
    */
-  export type JeugdbewegingUserUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: YouthMovementUserSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
-     * The data used to update JeugdbewegingUsers.
+     * The data used to update YouthMovementUsers.
      */
-    data: XOR<JeugdbewegingUserUpdateManyMutationInput, JeugdbewegingUserUncheckedUpdateManyInput>
+    data: XOR<YouthMovementUserUpdateManyMutationInput, YouthMovementUserUncheckedUpdateManyInput>
     /**
-     * Filter which JeugdbewegingUsers to update
+     * Filter which YouthMovementUsers to update
      */
-    where?: JeugdbewegingUserWhereInput
+    where?: YouthMovementUserWhereInput
     /**
-     * Limit how many JeugdbewegingUsers to update.
+     * Limit how many YouthMovementUsers to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: YouthMovementUserIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * JeugdbewegingUser upsert
+   * YouthMovementUser upsert
    */
-  export type JeugdbewegingUserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
+    include?: YouthMovementUserInclude<ExtArgs> | null
     /**
-     * The filter to search for the JeugdbewegingUser to update in case it exists.
+     * The filter to search for the YouthMovementUser to update in case it exists.
      */
-    where: JeugdbewegingUserWhereUniqueInput
+    where: YouthMovementUserWhereUniqueInput
     /**
-     * In case the JeugdbewegingUser found by the `where` argument doesn't exist, create a new JeugdbewegingUser with this data.
+     * In case the YouthMovementUser found by the `where` argument doesn't exist, create a new YouthMovementUser with this data.
      */
-    create: XOR<JeugdbewegingUserCreateInput, JeugdbewegingUserUncheckedCreateInput>
+    create: XOR<YouthMovementUserCreateInput, YouthMovementUserUncheckedCreateInput>
     /**
-     * In case the JeugdbewegingUser was found with the provided `where` argument, update it with this data.
+     * In case the YouthMovementUser was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<JeugdbewegingUserUpdateInput, JeugdbewegingUserUncheckedUpdateInput>
+    update: XOR<YouthMovementUserUpdateInput, YouthMovementUserUncheckedUpdateInput>
   }
 
   /**
-   * JeugdbewegingUser delete
+   * YouthMovementUser delete
    */
-  export type JeugdbewegingUserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
+    include?: YouthMovementUserInclude<ExtArgs> | null
     /**
-     * Filter which JeugdbewegingUser to delete.
+     * Filter which YouthMovementUser to delete.
      */
-    where: JeugdbewegingUserWhereUniqueInput
+    where: YouthMovementUserWhereUniqueInput
   }
 
   /**
-   * JeugdbewegingUser deleteMany
+   * YouthMovementUser deleteMany
    */
-  export type JeugdbewegingUserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which JeugdbewegingUsers to delete
+     * Filter which YouthMovementUsers to delete
      */
-    where?: JeugdbewegingUserWhereInput
+    where?: YouthMovementUserWhereInput
     /**
-     * Limit how many JeugdbewegingUsers to delete.
+     * Limit how many YouthMovementUsers to delete.
      */
     limit?: number
   }
 
   /**
-   * JeugdbewegingUser without action
+   * YouthMovementUser without action
    */
-  export type JeugdbewegingUserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type YouthMovementUserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JeugdbewegingUser
+     * Select specific fields to fetch from the YouthMovementUser
      */
-    select?: JeugdbewegingUserSelect<ExtArgs> | null
+    select?: YouthMovementUserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the JeugdbewegingUser
+     * Omit specific fields from the YouthMovementUser
      */
-    omit?: JeugdbewegingUserOmit<ExtArgs> | null
+    omit?: YouthMovementUserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JeugdbewegingUserInclude<ExtArgs> | null
+    include?: YouthMovementUserInclude<ExtArgs> | null
   }
 
 
@@ -5966,19 +6030,19 @@ export namespace Prisma {
 
   export type InvitationAvgAggregateOutputType = {
     id: number | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
   }
 
   export type InvitationSumAggregateOutputType = {
     id: number | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
   }
 
   export type InvitationMinAggregateOutputType = {
     id: number | null
     email: string | null
     role: $Enums.Role | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
     code: string | null
     used: boolean | null
     sentAt: Date | null
@@ -5989,7 +6053,7 @@ export namespace Prisma {
     id: number | null
     email: string | null
     role: $Enums.Role | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
     code: string | null
     used: boolean | null
     sentAt: Date | null
@@ -6000,7 +6064,7 @@ export namespace Prisma {
     id: number
     email: number
     role: number
-    jeugdbewegingId: number
+    youthMovementId: number
     code: number
     used: number
     sentAt: number
@@ -6011,19 +6075,19 @@ export namespace Prisma {
 
   export type InvitationAvgAggregateInputType = {
     id?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
   }
 
   export type InvitationSumAggregateInputType = {
     id?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
   }
 
   export type InvitationMinAggregateInputType = {
     id?: true
     email?: true
     role?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
     code?: true
     used?: true
     sentAt?: true
@@ -6034,7 +6098,7 @@ export namespace Prisma {
     id?: true
     email?: true
     role?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
     code?: true
     used?: true
     sentAt?: true
@@ -6045,7 +6109,7 @@ export namespace Prisma {
     id?: true
     email?: true
     role?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
     code?: true
     used?: true
     sentAt?: true
@@ -6143,7 +6207,7 @@ export namespace Prisma {
     id: number
     email: string
     role: $Enums.Role
-    jeugdbewegingId: number
+    youthMovementId: number
     code: string
     used: boolean
     sentAt: Date
@@ -6173,70 +6237,70 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     role?: boolean
-    jeugdbewegingId?: boolean
+    youthMovementId?: boolean
     code?: boolean
     used?: boolean
     sentAt?: boolean
     expiresAt?: boolean
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["invitation"]>
 
   export type InvitationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     email?: boolean
     role?: boolean
-    jeugdbewegingId?: boolean
+    youthMovementId?: boolean
     code?: boolean
     used?: boolean
     sentAt?: boolean
     expiresAt?: boolean
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["invitation"]>
 
   export type InvitationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     email?: boolean
     role?: boolean
-    jeugdbewegingId?: boolean
+    youthMovementId?: boolean
     code?: boolean
     used?: boolean
     sentAt?: boolean
     expiresAt?: boolean
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["invitation"]>
 
   export type InvitationSelectScalar = {
     id?: boolean
     email?: boolean
     role?: boolean
-    jeugdbewegingId?: boolean
+    youthMovementId?: boolean
     code?: boolean
     used?: boolean
     sentAt?: boolean
     expiresAt?: boolean
   }
 
-  export type InvitationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "role" | "jeugdbewegingId" | "code" | "used" | "sentAt" | "expiresAt", ExtArgs["result"]["invitation"]>
+  export type InvitationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "role" | "youthMovementId" | "code" | "used" | "sentAt" | "expiresAt", ExtArgs["result"]["invitation"]>
   export type InvitationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }
   export type InvitationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }
   export type InvitationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }
 
   export type $InvitationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Invitation"
     objects: {
-      jeugdbeweging: Prisma.$JeugdbewegingPayload<ExtArgs>
+      youthMovement: Prisma.$YouthMovementPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       email: string
       role: $Enums.Role
-      jeugdbewegingId: number
+      youthMovementId: number
       code: string
       used: boolean
       sentAt: Date
@@ -6635,7 +6699,7 @@ export namespace Prisma {
    */
   export interface Prisma__InvitationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    jeugdbeweging<T extends JeugdbewegingDefaultArgs<ExtArgs> = {}>(args?: Subset<T, JeugdbewegingDefaultArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    youthMovement<T extends YouthMovementDefaultArgs<ExtArgs> = {}>(args?: Subset<T, YouthMovementDefaultArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6668,7 +6732,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Invitation", 'Int'>
     readonly email: FieldRef<"Invitation", 'String'>
     readonly role: FieldRef<"Invitation", 'Role'>
-    readonly jeugdbewegingId: FieldRef<"Invitation", 'Int'>
+    readonly youthMovementId: FieldRef<"Invitation", 'Int'>
     readonly code: FieldRef<"Invitation", 'String'>
     readonly used: FieldRef<"Invitation", 'Boolean'>
     readonly sentAt: FieldRef<"Invitation", 'DateTime'>
@@ -7103,14 +7167,14 @@ export namespace Prisma {
     id: number | null
     minimumAge: number | null
     maximumAge: number | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
   }
 
   export type GroupSumAggregateOutputType = {
     id: number | null
     minimumAge: number | null
     maximumAge: number | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
   }
 
   export type GroupMinAggregateOutputType = {
@@ -7118,7 +7182,7 @@ export namespace Prisma {
     name: string | null
     minimumAge: number | null
     maximumAge: number | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
   }
 
   export type GroupMaxAggregateOutputType = {
@@ -7126,7 +7190,7 @@ export namespace Prisma {
     name: string | null
     minimumAge: number | null
     maximumAge: number | null
-    jeugdbewegingId: number | null
+    youthMovementId: number | null
   }
 
   export type GroupCountAggregateOutputType = {
@@ -7134,7 +7198,7 @@ export namespace Prisma {
     name: number
     minimumAge: number
     maximumAge: number
-    jeugdbewegingId: number
+    youthMovementId: number
     _all: number
   }
 
@@ -7143,14 +7207,14 @@ export namespace Prisma {
     id?: true
     minimumAge?: true
     maximumAge?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
   }
 
   export type GroupSumAggregateInputType = {
     id?: true
     minimumAge?: true
     maximumAge?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
   }
 
   export type GroupMinAggregateInputType = {
@@ -7158,7 +7222,7 @@ export namespace Prisma {
     name?: true
     minimumAge?: true
     maximumAge?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
   }
 
   export type GroupMaxAggregateInputType = {
@@ -7166,7 +7230,7 @@ export namespace Prisma {
     name?: true
     minimumAge?: true
     maximumAge?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
   }
 
   export type GroupCountAggregateInputType = {
@@ -7174,7 +7238,7 @@ export namespace Prisma {
     name?: true
     minimumAge?: true
     maximumAge?: true
-    jeugdbewegingId?: true
+    youthMovementId?: true
     _all?: true
   }
 
@@ -7269,7 +7333,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbewegingId: number
+    youthMovementId: number
     _count: GroupCountAggregateOutputType | null
     _avg: GroupAvgAggregateOutputType | null
     _sum: GroupSumAggregateOutputType | null
@@ -7296,8 +7360,8 @@ export namespace Prisma {
     name?: boolean
     minimumAge?: boolean
     maximumAge?: boolean
-    jeugdbewegingId?: boolean
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovementId?: boolean
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
     posts?: boolean | Group$postsArgs<ExtArgs>
     events?: boolean | Group$eventsArgs<ExtArgs>
     leadersGroups?: boolean | Group$leadersGroupsArgs<ExtArgs>
@@ -7310,8 +7374,8 @@ export namespace Prisma {
     name?: boolean
     minimumAge?: boolean
     maximumAge?: boolean
-    jeugdbewegingId?: boolean
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovementId?: boolean
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["group"]>
 
   export type GroupSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7319,8 +7383,8 @@ export namespace Prisma {
     name?: boolean
     minimumAge?: boolean
     maximumAge?: boolean
-    jeugdbewegingId?: boolean
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovementId?: boolean
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["group"]>
 
   export type GroupSelectScalar = {
@@ -7328,12 +7392,12 @@ export namespace Prisma {
     name?: boolean
     minimumAge?: boolean
     maximumAge?: boolean
-    jeugdbewegingId?: boolean
+    youthMovementId?: boolean
   }
 
-  export type GroupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "minimumAge" | "maximumAge" | "jeugdbewegingId", ExtArgs["result"]["group"]>
+  export type GroupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "minimumAge" | "maximumAge" | "youthMovementId", ExtArgs["result"]["group"]>
   export type GroupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
     posts?: boolean | Group$postsArgs<ExtArgs>
     events?: boolean | Group$eventsArgs<ExtArgs>
     leadersGroups?: boolean | Group$leadersGroupsArgs<ExtArgs>
@@ -7341,16 +7405,16 @@ export namespace Prisma {
     _count?: boolean | GroupCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type GroupIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }
   export type GroupIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jeugdbeweging?: boolean | JeugdbewegingDefaultArgs<ExtArgs>
+    youthMovement?: boolean | YouthMovementDefaultArgs<ExtArgs>
   }
 
   export type $GroupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Group"
     objects: {
-      jeugdbeweging: Prisma.$JeugdbewegingPayload<ExtArgs>
+      youthMovement: Prisma.$YouthMovementPayload<ExtArgs>
       posts: Prisma.$PostPayload<ExtArgs>[]
       events: Prisma.$EventPayload<ExtArgs>[]
       leadersGroups: Prisma.$LeadersGroupPayload<ExtArgs>[]
@@ -7361,7 +7425,7 @@ export namespace Prisma {
       name: string
       minimumAge: number
       maximumAge: number
-      jeugdbewegingId: number
+      youthMovementId: number
     }, ExtArgs["result"]["group"]>
     composites: {}
   }
@@ -7756,7 +7820,7 @@ export namespace Prisma {
    */
   export interface Prisma__GroupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    jeugdbeweging<T extends JeugdbewegingDefaultArgs<ExtArgs> = {}>(args?: Subset<T, JeugdbewegingDefaultArgs<ExtArgs>>): Prisma__JeugdbewegingClient<$Result.GetResult<Prisma.$JeugdbewegingPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
+    youthMovement<T extends YouthMovementDefaultArgs<ExtArgs> = {}>(args?: Subset<T, YouthMovementDefaultArgs<ExtArgs>>): Prisma__YouthMovementClient<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     posts<T extends Group$postsArgs<ExtArgs> = {}>(args?: Subset<T, Group$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     events<T extends Group$eventsArgs<ExtArgs> = {}>(args?: Subset<T, Group$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     leadersGroups<T extends Group$leadersGroupsArgs<ExtArgs> = {}>(args?: Subset<T, Group$leadersGroupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadersGroupPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
@@ -7794,7 +7858,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Group", 'String'>
     readonly minimumAge: FieldRef<"Group", 'Int'>
     readonly maximumAge: FieldRef<"Group", 'Int'>
-    readonly jeugdbewegingId: FieldRef<"Group", 'Int'>
+    readonly youthMovementId: FieldRef<"Group", 'Int'>
   }
     
 
@@ -17340,7 +17404,7 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const JeugdbewegingScalarFieldEnum: {
+  export const YouthMovementScalarFieldEnum: {
     id: 'id',
     name: 'name',
     description: 'description',
@@ -17349,10 +17413,11 @@ export namespace Prisma {
     street: 'street',
     houseNumber: 'houseNumber',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    adminId: 'adminId'
   };
 
-  export type JeugdbewegingScalarFieldEnum = (typeof JeugdbewegingScalarFieldEnum)[keyof typeof JeugdbewegingScalarFieldEnum]
+  export type YouthMovementScalarFieldEnum = (typeof YouthMovementScalarFieldEnum)[keyof typeof YouthMovementScalarFieldEnum]
 
 
   export const UserScalarFieldEnum: {
@@ -17369,21 +17434,21 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const JeugdbewegingUserScalarFieldEnum: {
+  export const YouthMovementUserScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    jeugdbewegingId: 'jeugdbewegingId',
+    youthMovementId: 'youthMovementId',
     role: 'role'
   };
 
-  export type JeugdbewegingUserScalarFieldEnum = (typeof JeugdbewegingUserScalarFieldEnum)[keyof typeof JeugdbewegingUserScalarFieldEnum]
+  export type YouthMovementUserScalarFieldEnum = (typeof YouthMovementUserScalarFieldEnum)[keyof typeof YouthMovementUserScalarFieldEnum]
 
 
   export const InvitationScalarFieldEnum: {
     id: 'id',
     email: 'email',
     role: 'role',
-    jeugdbewegingId: 'jeugdbewegingId',
+    youthMovementId: 'youthMovementId',
     code: 'code',
     used: 'used',
     sentAt: 'sentAt',
@@ -17398,7 +17463,7 @@ export namespace Prisma {
     name: 'name',
     minimumAge: 'minimumAge',
     maximumAge: 'maximumAge',
-    jeugdbewegingId: 'jeugdbewegingId'
+    youthMovementId: 'youthMovementId'
   };
 
   export type GroupScalarFieldEnum = (typeof GroupScalarFieldEnum)[keyof typeof GroupScalarFieldEnum]
@@ -17618,25 +17683,27 @@ export namespace Prisma {
    */
 
 
-  export type JeugdbewegingWhereInput = {
-    AND?: JeugdbewegingWhereInput | JeugdbewegingWhereInput[]
-    OR?: JeugdbewegingWhereInput[]
-    NOT?: JeugdbewegingWhereInput | JeugdbewegingWhereInput[]
-    id?: IntFilter<"Jeugdbeweging"> | number
-    name?: StringFilter<"Jeugdbeweging"> | string
-    description?: StringNullableFilter<"Jeugdbeweging"> | string | null
-    city?: StringFilter<"Jeugdbeweging"> | string
-    postalCode?: IntFilter<"Jeugdbeweging"> | number
-    street?: StringFilter<"Jeugdbeweging"> | string
-    houseNumber?: IntFilter<"Jeugdbeweging"> | number
-    createdAt?: DateTimeFilter<"Jeugdbeweging"> | Date | string
-    updatedAt?: DateTimeFilter<"Jeugdbeweging"> | Date | string
+  export type YouthMovementWhereInput = {
+    AND?: YouthMovementWhereInput | YouthMovementWhereInput[]
+    OR?: YouthMovementWhereInput[]
+    NOT?: YouthMovementWhereInput | YouthMovementWhereInput[]
+    id?: IntFilter<"YouthMovement"> | number
+    name?: StringFilter<"YouthMovement"> | string
+    description?: StringNullableFilter<"YouthMovement"> | string | null
+    city?: StringFilter<"YouthMovement"> | string
+    postalCode?: StringFilter<"YouthMovement"> | string
+    street?: StringFilter<"YouthMovement"> | string
+    houseNumber?: StringFilter<"YouthMovement"> | string
+    createdAt?: DateTimeFilter<"YouthMovement"> | Date | string
+    updatedAt?: DateTimeFilter<"YouthMovement"> | Date | string
+    adminId?: IntFilter<"YouthMovement"> | number
     groups?: GroupListRelationFilter
-    users?: JeugdbewegingUserListRelationFilter
+    users?: YouthMovementUserListRelationFilter
     invites?: InvitationListRelationFilter
+    admin?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type JeugdbewegingOrderByWithRelationInput = {
+  export type YouthMovementOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
@@ -17646,30 +17713,34 @@ export namespace Prisma {
     houseNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    adminId?: SortOrder
     groups?: GroupOrderByRelationAggregateInput
-    users?: JeugdbewegingUserOrderByRelationAggregateInput
+    users?: YouthMovementUserOrderByRelationAggregateInput
     invites?: InvitationOrderByRelationAggregateInput
+    admin?: UserOrderByWithRelationInput
   }
 
-  export type JeugdbewegingWhereUniqueInput = Prisma.AtLeast<{
+  export type YouthMovementWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: JeugdbewegingWhereInput | JeugdbewegingWhereInput[]
-    OR?: JeugdbewegingWhereInput[]
-    NOT?: JeugdbewegingWhereInput | JeugdbewegingWhereInput[]
-    name?: StringFilter<"Jeugdbeweging"> | string
-    description?: StringNullableFilter<"Jeugdbeweging"> | string | null
-    city?: StringFilter<"Jeugdbeweging"> | string
-    postalCode?: IntFilter<"Jeugdbeweging"> | number
-    street?: StringFilter<"Jeugdbeweging"> | string
-    houseNumber?: IntFilter<"Jeugdbeweging"> | number
-    createdAt?: DateTimeFilter<"Jeugdbeweging"> | Date | string
-    updatedAt?: DateTimeFilter<"Jeugdbeweging"> | Date | string
+    AND?: YouthMovementWhereInput | YouthMovementWhereInput[]
+    OR?: YouthMovementWhereInput[]
+    NOT?: YouthMovementWhereInput | YouthMovementWhereInput[]
+    name?: StringFilter<"YouthMovement"> | string
+    description?: StringNullableFilter<"YouthMovement"> | string | null
+    city?: StringFilter<"YouthMovement"> | string
+    postalCode?: StringFilter<"YouthMovement"> | string
+    street?: StringFilter<"YouthMovement"> | string
+    houseNumber?: StringFilter<"YouthMovement"> | string
+    createdAt?: DateTimeFilter<"YouthMovement"> | Date | string
+    updatedAt?: DateTimeFilter<"YouthMovement"> | Date | string
+    adminId?: IntFilter<"YouthMovement"> | number
     groups?: GroupListRelationFilter
-    users?: JeugdbewegingUserListRelationFilter
+    users?: YouthMovementUserListRelationFilter
     invites?: InvitationListRelationFilter
+    admin?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
-  export type JeugdbewegingOrderByWithAggregationInput = {
+  export type YouthMovementOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
@@ -17679,26 +17750,28 @@ export namespace Prisma {
     houseNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: JeugdbewegingCountOrderByAggregateInput
-    _avg?: JeugdbewegingAvgOrderByAggregateInput
-    _max?: JeugdbewegingMaxOrderByAggregateInput
-    _min?: JeugdbewegingMinOrderByAggregateInput
-    _sum?: JeugdbewegingSumOrderByAggregateInput
+    adminId?: SortOrder
+    _count?: YouthMovementCountOrderByAggregateInput
+    _avg?: YouthMovementAvgOrderByAggregateInput
+    _max?: YouthMovementMaxOrderByAggregateInput
+    _min?: YouthMovementMinOrderByAggregateInput
+    _sum?: YouthMovementSumOrderByAggregateInput
   }
 
-  export type JeugdbewegingScalarWhereWithAggregatesInput = {
-    AND?: JeugdbewegingScalarWhereWithAggregatesInput | JeugdbewegingScalarWhereWithAggregatesInput[]
-    OR?: JeugdbewegingScalarWhereWithAggregatesInput[]
-    NOT?: JeugdbewegingScalarWhereWithAggregatesInput | JeugdbewegingScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Jeugdbeweging"> | number
-    name?: StringWithAggregatesFilter<"Jeugdbeweging"> | string
-    description?: StringNullableWithAggregatesFilter<"Jeugdbeweging"> | string | null
-    city?: StringWithAggregatesFilter<"Jeugdbeweging"> | string
-    postalCode?: IntWithAggregatesFilter<"Jeugdbeweging"> | number
-    street?: StringWithAggregatesFilter<"Jeugdbeweging"> | string
-    houseNumber?: IntWithAggregatesFilter<"Jeugdbeweging"> | number
-    createdAt?: DateTimeWithAggregatesFilter<"Jeugdbeweging"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Jeugdbeweging"> | Date | string
+  export type YouthMovementScalarWhereWithAggregatesInput = {
+    AND?: YouthMovementScalarWhereWithAggregatesInput | YouthMovementScalarWhereWithAggregatesInput[]
+    OR?: YouthMovementScalarWhereWithAggregatesInput[]
+    NOT?: YouthMovementScalarWhereWithAggregatesInput | YouthMovementScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"YouthMovement"> | number
+    name?: StringWithAggregatesFilter<"YouthMovement"> | string
+    description?: StringNullableWithAggregatesFilter<"YouthMovement"> | string | null
+    city?: StringWithAggregatesFilter<"YouthMovement"> | string
+    postalCode?: StringWithAggregatesFilter<"YouthMovement"> | string
+    street?: StringWithAggregatesFilter<"YouthMovement"> | string
+    houseNumber?: StringWithAggregatesFilter<"YouthMovement"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"YouthMovement"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"YouthMovement"> | Date | string
+    adminId?: IntWithAggregatesFilter<"YouthMovement"> | number
   }
 
   export type UserWhereInput = {
@@ -17713,7 +17786,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     imageUrl?: StringNullableFilter<"User"> | string | null
-    jeugdbewegings?: JeugdbewegingUserListRelationFilter
+    youthMovements?: YouthMovementUserListRelationFilter
     posts?: PostListRelationFilter
     postLikes?: PostLikeListRelationFilter
     messagesSent?: MessageListRelationFilter
@@ -17722,6 +17795,7 @@ export namespace Prisma {
     volunteers?: VolunteerListRelationFilter
     leadersGroups?: LeadersGroupListRelationFilter
     parentChild?: ParentChildListRelationFilter
+    adminOf?: YouthMovementListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -17733,7 +17807,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     imageUrl?: SortOrderInput | SortOrder
-    jeugdbewegings?: JeugdbewegingUserOrderByRelationAggregateInput
+    youthMovements?: YouthMovementUserOrderByRelationAggregateInput
     posts?: PostOrderByRelationAggregateInput
     postLikes?: PostLikeOrderByRelationAggregateInput
     messagesSent?: MessageOrderByRelationAggregateInput
@@ -17742,6 +17816,7 @@ export namespace Prisma {
     volunteers?: VolunteerOrderByRelationAggregateInput
     leadersGroups?: LeadersGroupOrderByRelationAggregateInput
     parentChild?: ParentChildOrderByRelationAggregateInput
+    adminOf?: YouthMovementOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -17756,7 +17831,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     imageUrl?: StringNullableFilter<"User"> | string | null
-    jeugdbewegings?: JeugdbewegingUserListRelationFilter
+    youthMovements?: YouthMovementUserListRelationFilter
     posts?: PostListRelationFilter
     postLikes?: PostLikeListRelationFilter
     messagesSent?: MessageListRelationFilter
@@ -17765,6 +17840,7 @@ export namespace Prisma {
     volunteers?: VolunteerListRelationFilter
     leadersGroups?: LeadersGroupListRelationFilter
     parentChild?: ParentChildListRelationFilter
+    adminOf?: YouthMovementListRelationFilter
   }, "id" | "email" | "cognitoId">
 
   export type UserOrderByWithAggregationInput = {
@@ -17797,60 +17873,60 @@ export namespace Prisma {
     imageUrl?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
-  export type JeugdbewegingUserWhereInput = {
-    AND?: JeugdbewegingUserWhereInput | JeugdbewegingUserWhereInput[]
-    OR?: JeugdbewegingUserWhereInput[]
-    NOT?: JeugdbewegingUserWhereInput | JeugdbewegingUserWhereInput[]
-    id?: IntFilter<"JeugdbewegingUser"> | number
-    userId?: IntFilter<"JeugdbewegingUser"> | number
-    jeugdbewegingId?: IntFilter<"JeugdbewegingUser"> | number
-    role?: EnumRoleFilter<"JeugdbewegingUser"> | $Enums.Role
+  export type YouthMovementUserWhereInput = {
+    AND?: YouthMovementUserWhereInput | YouthMovementUserWhereInput[]
+    OR?: YouthMovementUserWhereInput[]
+    NOT?: YouthMovementUserWhereInput | YouthMovementUserWhereInput[]
+    id?: IntFilter<"YouthMovementUser"> | number
+    userId?: IntFilter<"YouthMovementUser"> | number
+    youthMovementId?: IntFilter<"YouthMovementUser"> | number
+    role?: EnumRoleFilter<"YouthMovementUser"> | $Enums.Role
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    jeugdbeweging?: XOR<JeugdbewegingScalarRelationFilter, JeugdbewegingWhereInput>
+    youthMovement?: XOR<YouthMovementScalarRelationFilter, YouthMovementWhereInput>
   }
 
-  export type JeugdbewegingUserOrderByWithRelationInput = {
+  export type YouthMovementUserOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     role?: SortOrder
     user?: UserOrderByWithRelationInput
-    jeugdbeweging?: JeugdbewegingOrderByWithRelationInput
+    youthMovement?: YouthMovementOrderByWithRelationInput
   }
 
-  export type JeugdbewegingUserWhereUniqueInput = Prisma.AtLeast<{
+  export type YouthMovementUserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    userId_jeugdbewegingId?: JeugdbewegingUserUserIdJeugdbewegingIdCompoundUniqueInput
-    AND?: JeugdbewegingUserWhereInput | JeugdbewegingUserWhereInput[]
-    OR?: JeugdbewegingUserWhereInput[]
-    NOT?: JeugdbewegingUserWhereInput | JeugdbewegingUserWhereInput[]
-    userId?: IntFilter<"JeugdbewegingUser"> | number
-    jeugdbewegingId?: IntFilter<"JeugdbewegingUser"> | number
-    role?: EnumRoleFilter<"JeugdbewegingUser"> | $Enums.Role
+    userId_youthMovementId?: YouthMovementUserUserIdYouthMovementIdCompoundUniqueInput
+    AND?: YouthMovementUserWhereInput | YouthMovementUserWhereInput[]
+    OR?: YouthMovementUserWhereInput[]
+    NOT?: YouthMovementUserWhereInput | YouthMovementUserWhereInput[]
+    userId?: IntFilter<"YouthMovementUser"> | number
+    youthMovementId?: IntFilter<"YouthMovementUser"> | number
+    role?: EnumRoleFilter<"YouthMovementUser"> | $Enums.Role
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    jeugdbeweging?: XOR<JeugdbewegingScalarRelationFilter, JeugdbewegingWhereInput>
-  }, "id" | "userId_jeugdbewegingId">
+    youthMovement?: XOR<YouthMovementScalarRelationFilter, YouthMovementWhereInput>
+  }, "id" | "userId_youthMovementId">
 
-  export type JeugdbewegingUserOrderByWithAggregationInput = {
+  export type YouthMovementUserOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     role?: SortOrder
-    _count?: JeugdbewegingUserCountOrderByAggregateInput
-    _avg?: JeugdbewegingUserAvgOrderByAggregateInput
-    _max?: JeugdbewegingUserMaxOrderByAggregateInput
-    _min?: JeugdbewegingUserMinOrderByAggregateInput
-    _sum?: JeugdbewegingUserSumOrderByAggregateInput
+    _count?: YouthMovementUserCountOrderByAggregateInput
+    _avg?: YouthMovementUserAvgOrderByAggregateInput
+    _max?: YouthMovementUserMaxOrderByAggregateInput
+    _min?: YouthMovementUserMinOrderByAggregateInput
+    _sum?: YouthMovementUserSumOrderByAggregateInput
   }
 
-  export type JeugdbewegingUserScalarWhereWithAggregatesInput = {
-    AND?: JeugdbewegingUserScalarWhereWithAggregatesInput | JeugdbewegingUserScalarWhereWithAggregatesInput[]
-    OR?: JeugdbewegingUserScalarWhereWithAggregatesInput[]
-    NOT?: JeugdbewegingUserScalarWhereWithAggregatesInput | JeugdbewegingUserScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"JeugdbewegingUser"> | number
-    userId?: IntWithAggregatesFilter<"JeugdbewegingUser"> | number
-    jeugdbewegingId?: IntWithAggregatesFilter<"JeugdbewegingUser"> | number
-    role?: EnumRoleWithAggregatesFilter<"JeugdbewegingUser"> | $Enums.Role
+  export type YouthMovementUserScalarWhereWithAggregatesInput = {
+    AND?: YouthMovementUserScalarWhereWithAggregatesInput | YouthMovementUserScalarWhereWithAggregatesInput[]
+    OR?: YouthMovementUserScalarWhereWithAggregatesInput[]
+    NOT?: YouthMovementUserScalarWhereWithAggregatesInput | YouthMovementUserScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"YouthMovementUser"> | number
+    userId?: IntWithAggregatesFilter<"YouthMovementUser"> | number
+    youthMovementId?: IntWithAggregatesFilter<"YouthMovementUser"> | number
+    role?: EnumRoleWithAggregatesFilter<"YouthMovementUser"> | $Enums.Role
   }
 
   export type InvitationWhereInput = {
@@ -17860,24 +17936,24 @@ export namespace Prisma {
     id?: IntFilter<"Invitation"> | number
     email?: StringFilter<"Invitation"> | string
     role?: EnumRoleFilter<"Invitation"> | $Enums.Role
-    jeugdbewegingId?: IntFilter<"Invitation"> | number
+    youthMovementId?: IntFilter<"Invitation"> | number
     code?: StringFilter<"Invitation"> | string
     used?: BoolFilter<"Invitation"> | boolean
     sentAt?: DateTimeFilter<"Invitation"> | Date | string
     expiresAt?: DateTimeNullableFilter<"Invitation"> | Date | string | null
-    jeugdbeweging?: XOR<JeugdbewegingScalarRelationFilter, JeugdbewegingWhereInput>
+    youthMovement?: XOR<YouthMovementScalarRelationFilter, YouthMovementWhereInput>
   }
 
   export type InvitationOrderByWithRelationInput = {
     id?: SortOrder
     email?: SortOrder
     role?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     code?: SortOrder
     used?: SortOrder
     sentAt?: SortOrder
     expiresAt?: SortOrderInput | SortOrder
-    jeugdbeweging?: JeugdbewegingOrderByWithRelationInput
+    youthMovement?: YouthMovementOrderByWithRelationInput
   }
 
   export type InvitationWhereUniqueInput = Prisma.AtLeast<{
@@ -17888,18 +17964,18 @@ export namespace Prisma {
     OR?: InvitationWhereInput[]
     NOT?: InvitationWhereInput | InvitationWhereInput[]
     role?: EnumRoleFilter<"Invitation"> | $Enums.Role
-    jeugdbewegingId?: IntFilter<"Invitation"> | number
+    youthMovementId?: IntFilter<"Invitation"> | number
     used?: BoolFilter<"Invitation"> | boolean
     sentAt?: DateTimeFilter<"Invitation"> | Date | string
     expiresAt?: DateTimeNullableFilter<"Invitation"> | Date | string | null
-    jeugdbeweging?: XOR<JeugdbewegingScalarRelationFilter, JeugdbewegingWhereInput>
+    youthMovement?: XOR<YouthMovementScalarRelationFilter, YouthMovementWhereInput>
   }, "id" | "email" | "code">
 
   export type InvitationOrderByWithAggregationInput = {
     id?: SortOrder
     email?: SortOrder
     role?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     code?: SortOrder
     used?: SortOrder
     sentAt?: SortOrder
@@ -17918,7 +17994,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Invitation"> | number
     email?: StringWithAggregatesFilter<"Invitation"> | string
     role?: EnumRoleWithAggregatesFilter<"Invitation"> | $Enums.Role
-    jeugdbewegingId?: IntWithAggregatesFilter<"Invitation"> | number
+    youthMovementId?: IntWithAggregatesFilter<"Invitation"> | number
     code?: StringWithAggregatesFilter<"Invitation"> | string
     used?: BoolWithAggregatesFilter<"Invitation"> | boolean
     sentAt?: DateTimeWithAggregatesFilter<"Invitation"> | Date | string
@@ -17933,8 +18009,8 @@ export namespace Prisma {
     name?: StringFilter<"Group"> | string
     minimumAge?: IntFilter<"Group"> | number
     maximumAge?: IntFilter<"Group"> | number
-    jeugdbewegingId?: IntFilter<"Group"> | number
-    jeugdbeweging?: XOR<JeugdbewegingScalarRelationFilter, JeugdbewegingWhereInput>
+    youthMovementId?: IntFilter<"Group"> | number
+    youthMovement?: XOR<YouthMovementScalarRelationFilter, YouthMovementWhereInput>
     posts?: PostListRelationFilter
     events?: EventListRelationFilter
     leadersGroups?: LeadersGroupListRelationFilter
@@ -17946,8 +18022,8 @@ export namespace Prisma {
     name?: SortOrder
     minimumAge?: SortOrder
     maximumAge?: SortOrder
-    jeugdbewegingId?: SortOrder
-    jeugdbeweging?: JeugdbewegingOrderByWithRelationInput
+    youthMovementId?: SortOrder
+    youthMovement?: YouthMovementOrderByWithRelationInput
     posts?: PostOrderByRelationAggregateInput
     events?: EventOrderByRelationAggregateInput
     leadersGroups?: LeadersGroupOrderByRelationAggregateInput
@@ -17962,8 +18038,8 @@ export namespace Prisma {
     name?: StringFilter<"Group"> | string
     minimumAge?: IntFilter<"Group"> | number
     maximumAge?: IntFilter<"Group"> | number
-    jeugdbewegingId?: IntFilter<"Group"> | number
-    jeugdbeweging?: XOR<JeugdbewegingScalarRelationFilter, JeugdbewegingWhereInput>
+    youthMovementId?: IntFilter<"Group"> | number
+    youthMovement?: XOR<YouthMovementScalarRelationFilter, YouthMovementWhereInput>
     posts?: PostListRelationFilter
     events?: EventListRelationFilter
     leadersGroups?: LeadersGroupListRelationFilter
@@ -17975,7 +18051,7 @@ export namespace Prisma {
     name?: SortOrder
     minimumAge?: SortOrder
     maximumAge?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     _count?: GroupCountOrderByAggregateInput
     _avg?: GroupAvgOrderByAggregateInput
     _max?: GroupMaxOrderByAggregateInput
@@ -17991,7 +18067,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Group"> | string
     minimumAge?: IntWithAggregatesFilter<"Group"> | number
     maximumAge?: IntWithAggregatesFilter<"Group"> | number
-    jeugdbewegingId?: IntWithAggregatesFilter<"Group"> | number
+    youthMovementId?: IntWithAggregatesFilter<"Group"> | number
   }
 
   export type PostWhereInput = {
@@ -18495,97 +18571,103 @@ export namespace Prisma {
     readAt?: DateTimeNullableWithAggregatesFilter<"Message"> | Date | string | null
   }
 
-  export type JeugdbewegingCreateInput = {
+  export type YouthMovementCreateInput = {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    groups?: GroupCreateNestedManyWithoutJeugdbewegingInput
-    users?: JeugdbewegingUserCreateNestedManyWithoutJeugdbewegingInput
-    invites?: InvitationCreateNestedManyWithoutJeugdbewegingInput
+    groups?: GroupCreateNestedManyWithoutYouthMovementInput
+    users?: YouthMovementUserCreateNestedManyWithoutYouthMovementInput
+    invites?: InvitationCreateNestedManyWithoutYouthMovementInput
+    admin: UserCreateNestedOneWithoutAdminOfInput
   }
 
-  export type JeugdbewegingUncheckedCreateInput = {
+  export type YouthMovementUncheckedCreateInput = {
     id?: number
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    groups?: GroupUncheckedCreateNestedManyWithoutJeugdbewegingInput
-    users?: JeugdbewegingUserUncheckedCreateNestedManyWithoutJeugdbewegingInput
-    invites?: InvitationUncheckedCreateNestedManyWithoutJeugdbewegingInput
+    adminId: number
+    groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
+    users?: YouthMovementUserUncheckedCreateNestedManyWithoutYouthMovementInput
+    invites?: InvitationUncheckedCreateNestedManyWithoutYouthMovementInput
   }
 
-  export type JeugdbewegingUpdateInput = {
+  export type YouthMovementUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    groups?: GroupUpdateManyWithoutJeugdbewegingNestedInput
-    users?: JeugdbewegingUserUpdateManyWithoutJeugdbewegingNestedInput
-    invites?: InvitationUpdateManyWithoutJeugdbewegingNestedInput
+    groups?: GroupUpdateManyWithoutYouthMovementNestedInput
+    users?: YouthMovementUserUpdateManyWithoutYouthMovementNestedInput
+    invites?: InvitationUpdateManyWithoutYouthMovementNestedInput
+    admin?: UserUpdateOneRequiredWithoutAdminOfNestedInput
   }
 
-  export type JeugdbewegingUncheckedUpdateInput = {
+  export type YouthMovementUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    groups?: GroupUncheckedUpdateManyWithoutJeugdbewegingNestedInput
-    users?: JeugdbewegingUserUncheckedUpdateManyWithoutJeugdbewegingNestedInput
-    invites?: InvitationUncheckedUpdateManyWithoutJeugdbewegingNestedInput
+    adminId?: IntFieldUpdateOperationsInput | number
+    groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
+    users?: YouthMovementUserUncheckedUpdateManyWithoutYouthMovementNestedInput
+    invites?: InvitationUncheckedUpdateManyWithoutYouthMovementNestedInput
   }
 
-  export type JeugdbewegingCreateManyInput = {
+  export type YouthMovementCreateManyInput = {
     id?: number
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    adminId: number
   }
 
-  export type JeugdbewegingUpdateManyMutationInput = {
+  export type YouthMovementUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type JeugdbewegingUncheckedUpdateManyInput = {
+  export type YouthMovementUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    adminId?: IntFieldUpdateOperationsInput | number
   }
 
   export type UserCreateInput = {
@@ -18596,7 +18678,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutUserInput
     postLikes?: PostLikeCreateNestedManyWithoutUserInput
     messagesSent?: MessageCreateNestedManyWithoutSenderInput
@@ -18605,6 +18687,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -18616,7 +18699,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutUserInput
     postLikes?: PostLikeUncheckedCreateNestedManyWithoutUserInput
     messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
@@ -18625,6 +18708,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserUpdateInput = {
@@ -18635,7 +18719,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUpdateManyWithoutSenderNestedInput
@@ -18644,6 +18728,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -18655,7 +18740,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUncheckedUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
@@ -18664,6 +18749,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -18698,47 +18784,47 @@ export namespace Prisma {
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type JeugdbewegingUserCreateInput = {
+  export type YouthMovementUserCreateInput = {
     role: $Enums.Role
-    user: UserCreateNestedOneWithoutJeugdbewegingsInput
-    jeugdbeweging: JeugdbewegingCreateNestedOneWithoutUsersInput
+    user: UserCreateNestedOneWithoutYouthMovementsInput
+    youthMovement: YouthMovementCreateNestedOneWithoutUsersInput
   }
 
-  export type JeugdbewegingUserUncheckedCreateInput = {
+  export type YouthMovementUserUncheckedCreateInput = {
     id?: number
     userId: number
-    jeugdbewegingId: number
+    youthMovementId: number
     role: $Enums.Role
   }
 
-  export type JeugdbewegingUserUpdateInput = {
+  export type YouthMovementUserUpdateInput = {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    user?: UserUpdateOneRequiredWithoutJeugdbewegingsNestedInput
-    jeugdbeweging?: JeugdbewegingUpdateOneRequiredWithoutUsersNestedInput
+    user?: UserUpdateOneRequiredWithoutYouthMovementsNestedInput
+    youthMovement?: YouthMovementUpdateOneRequiredWithoutUsersNestedInput
   }
 
-  export type JeugdbewegingUserUncheckedUpdateInput = {
+  export type YouthMovementUserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
-  export type JeugdbewegingUserCreateManyInput = {
+  export type YouthMovementUserCreateManyInput = {
     id?: number
     userId: number
-    jeugdbewegingId: number
+    youthMovementId: number
     role: $Enums.Role
   }
 
-  export type JeugdbewegingUserUpdateManyMutationInput = {
+  export type YouthMovementUserUpdateManyMutationInput = {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
-  export type JeugdbewegingUserUncheckedUpdateManyInput = {
+  export type YouthMovementUserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
@@ -18749,14 +18835,14 @@ export namespace Prisma {
     used?: boolean
     sentAt?: Date | string
     expiresAt?: Date | string | null
-    jeugdbeweging: JeugdbewegingCreateNestedOneWithoutInvitesInput
+    youthMovement: YouthMovementCreateNestedOneWithoutInvitesInput
   }
 
   export type InvitationUncheckedCreateInput = {
     id?: number
     email: string
     role: $Enums.Role
-    jeugdbewegingId: number
+    youthMovementId: number
     code: string
     used?: boolean
     sentAt?: Date | string
@@ -18770,14 +18856,14 @@ export namespace Prisma {
     used?: BoolFieldUpdateOperationsInput | boolean
     sentAt?: DateTimeFieldUpdateOperationsInput | Date | string
     expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    jeugdbeweging?: JeugdbewegingUpdateOneRequiredWithoutInvitesNestedInput
+    youthMovement?: YouthMovementUpdateOneRequiredWithoutInvitesNestedInput
   }
 
   export type InvitationUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     code?: StringFieldUpdateOperationsInput | string
     used?: BoolFieldUpdateOperationsInput | boolean
     sentAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18788,7 +18874,7 @@ export namespace Prisma {
     id?: number
     email: string
     role: $Enums.Role
-    jeugdbewegingId: number
+    youthMovementId: number
     code: string
     used?: boolean
     sentAt?: Date | string
@@ -18808,7 +18894,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     code?: StringFieldUpdateOperationsInput | string
     used?: BoolFieldUpdateOperationsInput | boolean
     sentAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18819,7 +18905,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbeweging: JeugdbewegingCreateNestedOneWithoutGroupsInput
+    youthMovement: YouthMovementCreateNestedOneWithoutGroupsInput
     posts?: PostCreateNestedManyWithoutGroupInput
     events?: EventCreateNestedManyWithoutGroupInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutGroupInput
@@ -18831,7 +18917,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbewegingId: number
+    youthMovementId: number
     posts?: PostUncheckedCreateNestedManyWithoutGroupInput
     events?: EventUncheckedCreateNestedManyWithoutGroupInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutGroupInput
@@ -18842,7 +18928,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbeweging?: JeugdbewegingUpdateOneRequiredWithoutGroupsNestedInput
+    youthMovement?: YouthMovementUpdateOneRequiredWithoutGroupsNestedInput
     posts?: PostUpdateManyWithoutGroupNestedInput
     events?: EventUpdateManyWithoutGroupNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutGroupNestedInput
@@ -18854,7 +18940,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     posts?: PostUncheckedUpdateManyWithoutGroupNestedInput
     events?: EventUncheckedUpdateManyWithoutGroupNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutGroupNestedInput
@@ -18866,7 +18952,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbewegingId: number
+    youthMovementId: number
   }
 
   export type GroupUpdateManyMutationInput = {
@@ -18880,7 +18966,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
   }
 
   export type PostCreateInput = {
@@ -19386,16 +19472,21 @@ export namespace Prisma {
     none?: GroupWhereInput
   }
 
-  export type JeugdbewegingUserListRelationFilter = {
-    every?: JeugdbewegingUserWhereInput
-    some?: JeugdbewegingUserWhereInput
-    none?: JeugdbewegingUserWhereInput
+  export type YouthMovementUserListRelationFilter = {
+    every?: YouthMovementUserWhereInput
+    some?: YouthMovementUserWhereInput
+    none?: YouthMovementUserWhereInput
   }
 
   export type InvitationListRelationFilter = {
     every?: InvitationWhereInput
     some?: InvitationWhereInput
     none?: InvitationWhereInput
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
   }
 
   export type SortOrderInput = {
@@ -19407,7 +19498,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type JeugdbewegingUserOrderByRelationAggregateInput = {
+  export type YouthMovementUserOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19415,7 +19506,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type JeugdbewegingCountOrderByAggregateInput = {
+  export type YouthMovementCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -19425,27 +19516,15 @@ export namespace Prisma {
     houseNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    adminId?: SortOrder
   }
 
-  export type JeugdbewegingAvgOrderByAggregateInput = {
+  export type YouthMovementAvgOrderByAggregateInput = {
     id?: SortOrder
-    postalCode?: SortOrder
-    houseNumber?: SortOrder
+    adminId?: SortOrder
   }
 
-  export type JeugdbewegingMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    description?: SortOrder
-    city?: SortOrder
-    postalCode?: SortOrder
-    street?: SortOrder
-    houseNumber?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type JeugdbewegingMinOrderByAggregateInput = {
+  export type YouthMovementMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -19455,12 +19534,25 @@ export namespace Prisma {
     houseNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    adminId?: SortOrder
   }
 
-  export type JeugdbewegingSumOrderByAggregateInput = {
+  export type YouthMovementMinOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    city?: SortOrder
     postalCode?: SortOrder
+    street?: SortOrder
     houseNumber?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    adminId?: SortOrder
+  }
+
+  export type YouthMovementSumOrderByAggregateInput = {
+    id?: SortOrder
+    adminId?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -19571,6 +19663,12 @@ export namespace Prisma {
     none?: ParentChildWhereInput
   }
 
+  export type YouthMovementListRelationFilter = {
+    every?: YouthMovementWhereInput
+    some?: YouthMovementWhereInput
+    none?: YouthMovementWhereInput
+  }
+
   export type PostOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -19596,6 +19694,10 @@ export namespace Prisma {
   }
 
   export type ParentChildOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type YouthMovementOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19647,52 +19749,47 @@ export namespace Prisma {
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
+  export type YouthMovementScalarRelationFilter = {
+    is?: YouthMovementWhereInput
+    isNot?: YouthMovementWhereInput
   }
 
-  export type JeugdbewegingScalarRelationFilter = {
-    is?: JeugdbewegingWhereInput
-    isNot?: JeugdbewegingWhereInput
-  }
-
-  export type JeugdbewegingUserUserIdJeugdbewegingIdCompoundUniqueInput = {
+  export type YouthMovementUserUserIdYouthMovementIdCompoundUniqueInput = {
     userId: number
-    jeugdbewegingId: number
+    youthMovementId: number
   }
 
-  export type JeugdbewegingUserCountOrderByAggregateInput = {
+  export type YouthMovementUserCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     role?: SortOrder
   }
 
-  export type JeugdbewegingUserAvgOrderByAggregateInput = {
+  export type YouthMovementUserAvgOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
   }
 
-  export type JeugdbewegingUserMaxOrderByAggregateInput = {
+  export type YouthMovementUserMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     role?: SortOrder
   }
 
-  export type JeugdbewegingUserMinOrderByAggregateInput = {
+  export type YouthMovementUserMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     role?: SortOrder
   }
 
-  export type JeugdbewegingUserSumOrderByAggregateInput = {
+  export type YouthMovementUserSumOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
   }
 
   export type EnumRoleWithAggregatesFilter<$PrismaModel = never> = {
@@ -19725,7 +19822,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     role?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     code?: SortOrder
     used?: SortOrder
     sentAt?: SortOrder
@@ -19734,14 +19831,14 @@ export namespace Prisma {
 
   export type InvitationAvgOrderByAggregateInput = {
     id?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
   }
 
   export type InvitationMaxOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
     role?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     code?: SortOrder
     used?: SortOrder
     sentAt?: SortOrder
@@ -19752,7 +19849,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     role?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
     code?: SortOrder
     used?: SortOrder
     sentAt?: SortOrder
@@ -19761,7 +19858,7 @@ export namespace Prisma {
 
   export type InvitationSumOrderByAggregateInput = {
     id?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -19801,14 +19898,14 @@ export namespace Prisma {
     name?: SortOrder
     minimumAge?: SortOrder
     maximumAge?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
   }
 
   export type GroupAvgOrderByAggregateInput = {
     id?: SortOrder
     minimumAge?: SortOrder
     maximumAge?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
   }
 
   export type GroupMaxOrderByAggregateInput = {
@@ -19816,7 +19913,7 @@ export namespace Prisma {
     name?: SortOrder
     minimumAge?: SortOrder
     maximumAge?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
   }
 
   export type GroupMinOrderByAggregateInput = {
@@ -19824,14 +19921,14 @@ export namespace Prisma {
     name?: SortOrder
     minimumAge?: SortOrder
     maximumAge?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
   }
 
   export type GroupSumOrderByAggregateInput = {
     id?: SortOrder
     minimumAge?: SortOrder
     maximumAge?: SortOrder
-    jeugdbewegingId?: SortOrder
+    youthMovementId?: SortOrder
   }
 
   export type IntNullableFilter<$PrismaModel = never> = {
@@ -20195,45 +20292,51 @@ export namespace Prisma {
     receiverId?: SortOrder
   }
 
-  export type GroupCreateNestedManyWithoutJeugdbewegingInput = {
-    create?: XOR<GroupCreateWithoutJeugdbewegingInput, GroupUncheckedCreateWithoutJeugdbewegingInput> | GroupCreateWithoutJeugdbewegingInput[] | GroupUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: GroupCreateOrConnectWithoutJeugdbewegingInput | GroupCreateOrConnectWithoutJeugdbewegingInput[]
-    createMany?: GroupCreateManyJeugdbewegingInputEnvelope
+  export type GroupCreateNestedManyWithoutYouthMovementInput = {
+    create?: XOR<GroupCreateWithoutYouthMovementInput, GroupUncheckedCreateWithoutYouthMovementInput> | GroupCreateWithoutYouthMovementInput[] | GroupUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: GroupCreateOrConnectWithoutYouthMovementInput | GroupCreateOrConnectWithoutYouthMovementInput[]
+    createMany?: GroupCreateManyYouthMovementInputEnvelope
     connect?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
   }
 
-  export type JeugdbewegingUserCreateNestedManyWithoutJeugdbewegingInput = {
-    create?: XOR<JeugdbewegingUserCreateWithoutJeugdbewegingInput, JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput> | JeugdbewegingUserCreateWithoutJeugdbewegingInput[] | JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: JeugdbewegingUserCreateOrConnectWithoutJeugdbewegingInput | JeugdbewegingUserCreateOrConnectWithoutJeugdbewegingInput[]
-    createMany?: JeugdbewegingUserCreateManyJeugdbewegingInputEnvelope
-    connect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
+  export type YouthMovementUserCreateNestedManyWithoutYouthMovementInput = {
+    create?: XOR<YouthMovementUserCreateWithoutYouthMovementInput, YouthMovementUserUncheckedCreateWithoutYouthMovementInput> | YouthMovementUserCreateWithoutYouthMovementInput[] | YouthMovementUserUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: YouthMovementUserCreateOrConnectWithoutYouthMovementInput | YouthMovementUserCreateOrConnectWithoutYouthMovementInput[]
+    createMany?: YouthMovementUserCreateManyYouthMovementInputEnvelope
+    connect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
   }
 
-  export type InvitationCreateNestedManyWithoutJeugdbewegingInput = {
-    create?: XOR<InvitationCreateWithoutJeugdbewegingInput, InvitationUncheckedCreateWithoutJeugdbewegingInput> | InvitationCreateWithoutJeugdbewegingInput[] | InvitationUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: InvitationCreateOrConnectWithoutJeugdbewegingInput | InvitationCreateOrConnectWithoutJeugdbewegingInput[]
-    createMany?: InvitationCreateManyJeugdbewegingInputEnvelope
+  export type InvitationCreateNestedManyWithoutYouthMovementInput = {
+    create?: XOR<InvitationCreateWithoutYouthMovementInput, InvitationUncheckedCreateWithoutYouthMovementInput> | InvitationCreateWithoutYouthMovementInput[] | InvitationUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutYouthMovementInput | InvitationCreateOrConnectWithoutYouthMovementInput[]
+    createMany?: InvitationCreateManyYouthMovementInputEnvelope
     connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
   }
 
-  export type GroupUncheckedCreateNestedManyWithoutJeugdbewegingInput = {
-    create?: XOR<GroupCreateWithoutJeugdbewegingInput, GroupUncheckedCreateWithoutJeugdbewegingInput> | GroupCreateWithoutJeugdbewegingInput[] | GroupUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: GroupCreateOrConnectWithoutJeugdbewegingInput | GroupCreateOrConnectWithoutJeugdbewegingInput[]
-    createMany?: GroupCreateManyJeugdbewegingInputEnvelope
+  export type UserCreateNestedOneWithoutAdminOfInput = {
+    create?: XOR<UserCreateWithoutAdminOfInput, UserUncheckedCreateWithoutAdminOfInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAdminOfInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type GroupUncheckedCreateNestedManyWithoutYouthMovementInput = {
+    create?: XOR<GroupCreateWithoutYouthMovementInput, GroupUncheckedCreateWithoutYouthMovementInput> | GroupCreateWithoutYouthMovementInput[] | GroupUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: GroupCreateOrConnectWithoutYouthMovementInput | GroupCreateOrConnectWithoutYouthMovementInput[]
+    createMany?: GroupCreateManyYouthMovementInputEnvelope
     connect?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
   }
 
-  export type JeugdbewegingUserUncheckedCreateNestedManyWithoutJeugdbewegingInput = {
-    create?: XOR<JeugdbewegingUserCreateWithoutJeugdbewegingInput, JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput> | JeugdbewegingUserCreateWithoutJeugdbewegingInput[] | JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: JeugdbewegingUserCreateOrConnectWithoutJeugdbewegingInput | JeugdbewegingUserCreateOrConnectWithoutJeugdbewegingInput[]
-    createMany?: JeugdbewegingUserCreateManyJeugdbewegingInputEnvelope
-    connect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
+  export type YouthMovementUserUncheckedCreateNestedManyWithoutYouthMovementInput = {
+    create?: XOR<YouthMovementUserCreateWithoutYouthMovementInput, YouthMovementUserUncheckedCreateWithoutYouthMovementInput> | YouthMovementUserCreateWithoutYouthMovementInput[] | YouthMovementUserUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: YouthMovementUserCreateOrConnectWithoutYouthMovementInput | YouthMovementUserCreateOrConnectWithoutYouthMovementInput[]
+    createMany?: YouthMovementUserCreateManyYouthMovementInputEnvelope
+    connect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
   }
 
-  export type InvitationUncheckedCreateNestedManyWithoutJeugdbewegingInput = {
-    create?: XOR<InvitationCreateWithoutJeugdbewegingInput, InvitationUncheckedCreateWithoutJeugdbewegingInput> | InvitationCreateWithoutJeugdbewegingInput[] | InvitationUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: InvitationCreateOrConnectWithoutJeugdbewegingInput | InvitationCreateOrConnectWithoutJeugdbewegingInput[]
-    createMany?: InvitationCreateManyJeugdbewegingInputEnvelope
+  export type InvitationUncheckedCreateNestedManyWithoutYouthMovementInput = {
+    create?: XOR<InvitationCreateWithoutYouthMovementInput, InvitationUncheckedCreateWithoutYouthMovementInput> | InvitationCreateWithoutYouthMovementInput[] | InvitationUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutYouthMovementInput | InvitationCreateOrConnectWithoutYouthMovementInput[]
+    createMany?: InvitationCreateManyYouthMovementInputEnvelope
     connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
   }
 
@@ -20245,6 +20348,60 @@ export namespace Prisma {
     set?: string | null
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type GroupUpdateManyWithoutYouthMovementNestedInput = {
+    create?: XOR<GroupCreateWithoutYouthMovementInput, GroupUncheckedCreateWithoutYouthMovementInput> | GroupCreateWithoutYouthMovementInput[] | GroupUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: GroupCreateOrConnectWithoutYouthMovementInput | GroupCreateOrConnectWithoutYouthMovementInput[]
+    upsert?: GroupUpsertWithWhereUniqueWithoutYouthMovementInput | GroupUpsertWithWhereUniqueWithoutYouthMovementInput[]
+    createMany?: GroupCreateManyYouthMovementInputEnvelope
+    set?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
+    disconnect?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
+    delete?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
+    connect?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
+    update?: GroupUpdateWithWhereUniqueWithoutYouthMovementInput | GroupUpdateWithWhereUniqueWithoutYouthMovementInput[]
+    updateMany?: GroupUpdateManyWithWhereWithoutYouthMovementInput | GroupUpdateManyWithWhereWithoutYouthMovementInput[]
+    deleteMany?: GroupScalarWhereInput | GroupScalarWhereInput[]
+  }
+
+  export type YouthMovementUserUpdateManyWithoutYouthMovementNestedInput = {
+    create?: XOR<YouthMovementUserCreateWithoutYouthMovementInput, YouthMovementUserUncheckedCreateWithoutYouthMovementInput> | YouthMovementUserCreateWithoutYouthMovementInput[] | YouthMovementUserUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: YouthMovementUserCreateOrConnectWithoutYouthMovementInput | YouthMovementUserCreateOrConnectWithoutYouthMovementInput[]
+    upsert?: YouthMovementUserUpsertWithWhereUniqueWithoutYouthMovementInput | YouthMovementUserUpsertWithWhereUniqueWithoutYouthMovementInput[]
+    createMany?: YouthMovementUserCreateManyYouthMovementInputEnvelope
+    set?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    disconnect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    delete?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    connect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    update?: YouthMovementUserUpdateWithWhereUniqueWithoutYouthMovementInput | YouthMovementUserUpdateWithWhereUniqueWithoutYouthMovementInput[]
+    updateMany?: YouthMovementUserUpdateManyWithWhereWithoutYouthMovementInput | YouthMovementUserUpdateManyWithWhereWithoutYouthMovementInput[]
+    deleteMany?: YouthMovementUserScalarWhereInput | YouthMovementUserScalarWhereInput[]
+  }
+
+  export type InvitationUpdateManyWithoutYouthMovementNestedInput = {
+    create?: XOR<InvitationCreateWithoutYouthMovementInput, InvitationUncheckedCreateWithoutYouthMovementInput> | InvitationCreateWithoutYouthMovementInput[] | InvitationUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutYouthMovementInput | InvitationCreateOrConnectWithoutYouthMovementInput[]
+    upsert?: InvitationUpsertWithWhereUniqueWithoutYouthMovementInput | InvitationUpsertWithWhereUniqueWithoutYouthMovementInput[]
+    createMany?: InvitationCreateManyYouthMovementInputEnvelope
+    set?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    disconnect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    delete?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    update?: InvitationUpdateWithWhereUniqueWithoutYouthMovementInput | InvitationUpdateWithWhereUniqueWithoutYouthMovementInput[]
+    updateMany?: InvitationUpdateManyWithWhereWithoutYouthMovementInput | InvitationUpdateManyWithWhereWithoutYouthMovementInput[]
+    deleteMany?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutAdminOfNestedInput = {
+    create?: XOR<UserCreateWithoutAdminOfInput, UserUncheckedCreateWithoutAdminOfInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAdminOfInput
+    upsert?: UserUpsertWithoutAdminOfInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAdminOfInput, UserUpdateWithoutAdminOfInput>, UserUncheckedUpdateWithoutAdminOfInput>
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -20253,99 +20410,53 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
-  export type GroupUpdateManyWithoutJeugdbewegingNestedInput = {
-    create?: XOR<GroupCreateWithoutJeugdbewegingInput, GroupUncheckedCreateWithoutJeugdbewegingInput> | GroupCreateWithoutJeugdbewegingInput[] | GroupUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: GroupCreateOrConnectWithoutJeugdbewegingInput | GroupCreateOrConnectWithoutJeugdbewegingInput[]
-    upsert?: GroupUpsertWithWhereUniqueWithoutJeugdbewegingInput | GroupUpsertWithWhereUniqueWithoutJeugdbewegingInput[]
-    createMany?: GroupCreateManyJeugdbewegingInputEnvelope
+  export type GroupUncheckedUpdateManyWithoutYouthMovementNestedInput = {
+    create?: XOR<GroupCreateWithoutYouthMovementInput, GroupUncheckedCreateWithoutYouthMovementInput> | GroupCreateWithoutYouthMovementInput[] | GroupUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: GroupCreateOrConnectWithoutYouthMovementInput | GroupCreateOrConnectWithoutYouthMovementInput[]
+    upsert?: GroupUpsertWithWhereUniqueWithoutYouthMovementInput | GroupUpsertWithWhereUniqueWithoutYouthMovementInput[]
+    createMany?: GroupCreateManyYouthMovementInputEnvelope
     set?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
     disconnect?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
     delete?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
     connect?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
-    update?: GroupUpdateWithWhereUniqueWithoutJeugdbewegingInput | GroupUpdateWithWhereUniqueWithoutJeugdbewegingInput[]
-    updateMany?: GroupUpdateManyWithWhereWithoutJeugdbewegingInput | GroupUpdateManyWithWhereWithoutJeugdbewegingInput[]
+    update?: GroupUpdateWithWhereUniqueWithoutYouthMovementInput | GroupUpdateWithWhereUniqueWithoutYouthMovementInput[]
+    updateMany?: GroupUpdateManyWithWhereWithoutYouthMovementInput | GroupUpdateManyWithWhereWithoutYouthMovementInput[]
     deleteMany?: GroupScalarWhereInput | GroupScalarWhereInput[]
   }
 
-  export type JeugdbewegingUserUpdateManyWithoutJeugdbewegingNestedInput = {
-    create?: XOR<JeugdbewegingUserCreateWithoutJeugdbewegingInput, JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput> | JeugdbewegingUserCreateWithoutJeugdbewegingInput[] | JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: JeugdbewegingUserCreateOrConnectWithoutJeugdbewegingInput | JeugdbewegingUserCreateOrConnectWithoutJeugdbewegingInput[]
-    upsert?: JeugdbewegingUserUpsertWithWhereUniqueWithoutJeugdbewegingInput | JeugdbewegingUserUpsertWithWhereUniqueWithoutJeugdbewegingInput[]
-    createMany?: JeugdbewegingUserCreateManyJeugdbewegingInputEnvelope
-    set?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    disconnect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    delete?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    connect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    update?: JeugdbewegingUserUpdateWithWhereUniqueWithoutJeugdbewegingInput | JeugdbewegingUserUpdateWithWhereUniqueWithoutJeugdbewegingInput[]
-    updateMany?: JeugdbewegingUserUpdateManyWithWhereWithoutJeugdbewegingInput | JeugdbewegingUserUpdateManyWithWhereWithoutJeugdbewegingInput[]
-    deleteMany?: JeugdbewegingUserScalarWhereInput | JeugdbewegingUserScalarWhereInput[]
+  export type YouthMovementUserUncheckedUpdateManyWithoutYouthMovementNestedInput = {
+    create?: XOR<YouthMovementUserCreateWithoutYouthMovementInput, YouthMovementUserUncheckedCreateWithoutYouthMovementInput> | YouthMovementUserCreateWithoutYouthMovementInput[] | YouthMovementUserUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: YouthMovementUserCreateOrConnectWithoutYouthMovementInput | YouthMovementUserCreateOrConnectWithoutYouthMovementInput[]
+    upsert?: YouthMovementUserUpsertWithWhereUniqueWithoutYouthMovementInput | YouthMovementUserUpsertWithWhereUniqueWithoutYouthMovementInput[]
+    createMany?: YouthMovementUserCreateManyYouthMovementInputEnvelope
+    set?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    disconnect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    delete?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    connect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    update?: YouthMovementUserUpdateWithWhereUniqueWithoutYouthMovementInput | YouthMovementUserUpdateWithWhereUniqueWithoutYouthMovementInput[]
+    updateMany?: YouthMovementUserUpdateManyWithWhereWithoutYouthMovementInput | YouthMovementUserUpdateManyWithWhereWithoutYouthMovementInput[]
+    deleteMany?: YouthMovementUserScalarWhereInput | YouthMovementUserScalarWhereInput[]
   }
 
-  export type InvitationUpdateManyWithoutJeugdbewegingNestedInput = {
-    create?: XOR<InvitationCreateWithoutJeugdbewegingInput, InvitationUncheckedCreateWithoutJeugdbewegingInput> | InvitationCreateWithoutJeugdbewegingInput[] | InvitationUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: InvitationCreateOrConnectWithoutJeugdbewegingInput | InvitationCreateOrConnectWithoutJeugdbewegingInput[]
-    upsert?: InvitationUpsertWithWhereUniqueWithoutJeugdbewegingInput | InvitationUpsertWithWhereUniqueWithoutJeugdbewegingInput[]
-    createMany?: InvitationCreateManyJeugdbewegingInputEnvelope
+  export type InvitationUncheckedUpdateManyWithoutYouthMovementNestedInput = {
+    create?: XOR<InvitationCreateWithoutYouthMovementInput, InvitationUncheckedCreateWithoutYouthMovementInput> | InvitationCreateWithoutYouthMovementInput[] | InvitationUncheckedCreateWithoutYouthMovementInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutYouthMovementInput | InvitationCreateOrConnectWithoutYouthMovementInput[]
+    upsert?: InvitationUpsertWithWhereUniqueWithoutYouthMovementInput | InvitationUpsertWithWhereUniqueWithoutYouthMovementInput[]
+    createMany?: InvitationCreateManyYouthMovementInputEnvelope
     set?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
     disconnect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
     delete?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
     connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
-    update?: InvitationUpdateWithWhereUniqueWithoutJeugdbewegingInput | InvitationUpdateWithWhereUniqueWithoutJeugdbewegingInput[]
-    updateMany?: InvitationUpdateManyWithWhereWithoutJeugdbewegingInput | InvitationUpdateManyWithWhereWithoutJeugdbewegingInput[]
+    update?: InvitationUpdateWithWhereUniqueWithoutYouthMovementInput | InvitationUpdateWithWhereUniqueWithoutYouthMovementInput[]
+    updateMany?: InvitationUpdateManyWithWhereWithoutYouthMovementInput | InvitationUpdateManyWithWhereWithoutYouthMovementInput[]
     deleteMany?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
   }
 
-  export type GroupUncheckedUpdateManyWithoutJeugdbewegingNestedInput = {
-    create?: XOR<GroupCreateWithoutJeugdbewegingInput, GroupUncheckedCreateWithoutJeugdbewegingInput> | GroupCreateWithoutJeugdbewegingInput[] | GroupUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: GroupCreateOrConnectWithoutJeugdbewegingInput | GroupCreateOrConnectWithoutJeugdbewegingInput[]
-    upsert?: GroupUpsertWithWhereUniqueWithoutJeugdbewegingInput | GroupUpsertWithWhereUniqueWithoutJeugdbewegingInput[]
-    createMany?: GroupCreateManyJeugdbewegingInputEnvelope
-    set?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
-    disconnect?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
-    delete?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
-    connect?: GroupWhereUniqueInput | GroupWhereUniqueInput[]
-    update?: GroupUpdateWithWhereUniqueWithoutJeugdbewegingInput | GroupUpdateWithWhereUniqueWithoutJeugdbewegingInput[]
-    updateMany?: GroupUpdateManyWithWhereWithoutJeugdbewegingInput | GroupUpdateManyWithWhereWithoutJeugdbewegingInput[]
-    deleteMany?: GroupScalarWhereInput | GroupScalarWhereInput[]
-  }
-
-  export type JeugdbewegingUserUncheckedUpdateManyWithoutJeugdbewegingNestedInput = {
-    create?: XOR<JeugdbewegingUserCreateWithoutJeugdbewegingInput, JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput> | JeugdbewegingUserCreateWithoutJeugdbewegingInput[] | JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: JeugdbewegingUserCreateOrConnectWithoutJeugdbewegingInput | JeugdbewegingUserCreateOrConnectWithoutJeugdbewegingInput[]
-    upsert?: JeugdbewegingUserUpsertWithWhereUniqueWithoutJeugdbewegingInput | JeugdbewegingUserUpsertWithWhereUniqueWithoutJeugdbewegingInput[]
-    createMany?: JeugdbewegingUserCreateManyJeugdbewegingInputEnvelope
-    set?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    disconnect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    delete?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    connect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    update?: JeugdbewegingUserUpdateWithWhereUniqueWithoutJeugdbewegingInput | JeugdbewegingUserUpdateWithWhereUniqueWithoutJeugdbewegingInput[]
-    updateMany?: JeugdbewegingUserUpdateManyWithWhereWithoutJeugdbewegingInput | JeugdbewegingUserUpdateManyWithWhereWithoutJeugdbewegingInput[]
-    deleteMany?: JeugdbewegingUserScalarWhereInput | JeugdbewegingUserScalarWhereInput[]
-  }
-
-  export type InvitationUncheckedUpdateManyWithoutJeugdbewegingNestedInput = {
-    create?: XOR<InvitationCreateWithoutJeugdbewegingInput, InvitationUncheckedCreateWithoutJeugdbewegingInput> | InvitationCreateWithoutJeugdbewegingInput[] | InvitationUncheckedCreateWithoutJeugdbewegingInput[]
-    connectOrCreate?: InvitationCreateOrConnectWithoutJeugdbewegingInput | InvitationCreateOrConnectWithoutJeugdbewegingInput[]
-    upsert?: InvitationUpsertWithWhereUniqueWithoutJeugdbewegingInput | InvitationUpsertWithWhereUniqueWithoutJeugdbewegingInput[]
-    createMany?: InvitationCreateManyJeugdbewegingInputEnvelope
-    set?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
-    disconnect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
-    delete?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
-    connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
-    update?: InvitationUpdateWithWhereUniqueWithoutJeugdbewegingInput | InvitationUpdateWithWhereUniqueWithoutJeugdbewegingInput[]
-    updateMany?: InvitationUpdateManyWithWhereWithoutJeugdbewegingInput | InvitationUpdateManyWithWhereWithoutJeugdbewegingInput[]
-    deleteMany?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
-  }
-
-  export type JeugdbewegingUserCreateNestedManyWithoutUserInput = {
-    create?: XOR<JeugdbewegingUserCreateWithoutUserInput, JeugdbewegingUserUncheckedCreateWithoutUserInput> | JeugdbewegingUserCreateWithoutUserInput[] | JeugdbewegingUserUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JeugdbewegingUserCreateOrConnectWithoutUserInput | JeugdbewegingUserCreateOrConnectWithoutUserInput[]
-    createMany?: JeugdbewegingUserCreateManyUserInputEnvelope
-    connect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
+  export type YouthMovementUserCreateNestedManyWithoutUserInput = {
+    create?: XOR<YouthMovementUserCreateWithoutUserInput, YouthMovementUserUncheckedCreateWithoutUserInput> | YouthMovementUserCreateWithoutUserInput[] | YouthMovementUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: YouthMovementUserCreateOrConnectWithoutUserInput | YouthMovementUserCreateOrConnectWithoutUserInput[]
+    createMany?: YouthMovementUserCreateManyUserInputEnvelope
+    connect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
   }
 
   export type PostCreateNestedManyWithoutUserInput = {
@@ -20404,11 +20515,18 @@ export namespace Prisma {
     connect?: ParentChildWhereUniqueInput | ParentChildWhereUniqueInput[]
   }
 
-  export type JeugdbewegingUserUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<JeugdbewegingUserCreateWithoutUserInput, JeugdbewegingUserUncheckedCreateWithoutUserInput> | JeugdbewegingUserCreateWithoutUserInput[] | JeugdbewegingUserUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JeugdbewegingUserCreateOrConnectWithoutUserInput | JeugdbewegingUserCreateOrConnectWithoutUserInput[]
-    createMany?: JeugdbewegingUserCreateManyUserInputEnvelope
-    connect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
+  export type YouthMovementCreateNestedManyWithoutAdminInput = {
+    create?: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput> | YouthMovementCreateWithoutAdminInput[] | YouthMovementUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutAdminInput | YouthMovementCreateOrConnectWithoutAdminInput[]
+    createMany?: YouthMovementCreateManyAdminInputEnvelope
+    connect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+  }
+
+  export type YouthMovementUserUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<YouthMovementUserCreateWithoutUserInput, YouthMovementUserUncheckedCreateWithoutUserInput> | YouthMovementUserCreateWithoutUserInput[] | YouthMovementUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: YouthMovementUserCreateOrConnectWithoutUserInput | YouthMovementUserCreateOrConnectWithoutUserInput[]
+    createMany?: YouthMovementUserCreateManyUserInputEnvelope
+    connect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
   }
 
   export type PostUncheckedCreateNestedManyWithoutUserInput = {
@@ -20467,18 +20585,25 @@ export namespace Prisma {
     connect?: ParentChildWhereUniqueInput | ParentChildWhereUniqueInput[]
   }
 
-  export type JeugdbewegingUserUpdateManyWithoutUserNestedInput = {
-    create?: XOR<JeugdbewegingUserCreateWithoutUserInput, JeugdbewegingUserUncheckedCreateWithoutUserInput> | JeugdbewegingUserCreateWithoutUserInput[] | JeugdbewegingUserUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JeugdbewegingUserCreateOrConnectWithoutUserInput | JeugdbewegingUserCreateOrConnectWithoutUserInput[]
-    upsert?: JeugdbewegingUserUpsertWithWhereUniqueWithoutUserInput | JeugdbewegingUserUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: JeugdbewegingUserCreateManyUserInputEnvelope
-    set?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    disconnect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    delete?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    connect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    update?: JeugdbewegingUserUpdateWithWhereUniqueWithoutUserInput | JeugdbewegingUserUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: JeugdbewegingUserUpdateManyWithWhereWithoutUserInput | JeugdbewegingUserUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: JeugdbewegingUserScalarWhereInput | JeugdbewegingUserScalarWhereInput[]
+  export type YouthMovementUncheckedCreateNestedManyWithoutAdminInput = {
+    create?: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput> | YouthMovementCreateWithoutAdminInput[] | YouthMovementUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutAdminInput | YouthMovementCreateOrConnectWithoutAdminInput[]
+    createMany?: YouthMovementCreateManyAdminInputEnvelope
+    connect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+  }
+
+  export type YouthMovementUserUpdateManyWithoutUserNestedInput = {
+    create?: XOR<YouthMovementUserCreateWithoutUserInput, YouthMovementUserUncheckedCreateWithoutUserInput> | YouthMovementUserCreateWithoutUserInput[] | YouthMovementUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: YouthMovementUserCreateOrConnectWithoutUserInput | YouthMovementUserCreateOrConnectWithoutUserInput[]
+    upsert?: YouthMovementUserUpsertWithWhereUniqueWithoutUserInput | YouthMovementUserUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: YouthMovementUserCreateManyUserInputEnvelope
+    set?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    disconnect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    delete?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    connect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    update?: YouthMovementUserUpdateWithWhereUniqueWithoutUserInput | YouthMovementUserUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: YouthMovementUserUpdateManyWithWhereWithoutUserInput | YouthMovementUserUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: YouthMovementUserScalarWhereInput | YouthMovementUserScalarWhereInput[]
   }
 
   export type PostUpdateManyWithoutUserNestedInput = {
@@ -20593,18 +20718,32 @@ export namespace Prisma {
     deleteMany?: ParentChildScalarWhereInput | ParentChildScalarWhereInput[]
   }
 
-  export type JeugdbewegingUserUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<JeugdbewegingUserCreateWithoutUserInput, JeugdbewegingUserUncheckedCreateWithoutUserInput> | JeugdbewegingUserCreateWithoutUserInput[] | JeugdbewegingUserUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: JeugdbewegingUserCreateOrConnectWithoutUserInput | JeugdbewegingUserCreateOrConnectWithoutUserInput[]
-    upsert?: JeugdbewegingUserUpsertWithWhereUniqueWithoutUserInput | JeugdbewegingUserUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: JeugdbewegingUserCreateManyUserInputEnvelope
-    set?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    disconnect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    delete?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    connect?: JeugdbewegingUserWhereUniqueInput | JeugdbewegingUserWhereUniqueInput[]
-    update?: JeugdbewegingUserUpdateWithWhereUniqueWithoutUserInput | JeugdbewegingUserUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: JeugdbewegingUserUpdateManyWithWhereWithoutUserInput | JeugdbewegingUserUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: JeugdbewegingUserScalarWhereInput | JeugdbewegingUserScalarWhereInput[]
+  export type YouthMovementUpdateManyWithoutAdminNestedInput = {
+    create?: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput> | YouthMovementCreateWithoutAdminInput[] | YouthMovementUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutAdminInput | YouthMovementCreateOrConnectWithoutAdminInput[]
+    upsert?: YouthMovementUpsertWithWhereUniqueWithoutAdminInput | YouthMovementUpsertWithWhereUniqueWithoutAdminInput[]
+    createMany?: YouthMovementCreateManyAdminInputEnvelope
+    set?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    disconnect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    delete?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    connect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    update?: YouthMovementUpdateWithWhereUniqueWithoutAdminInput | YouthMovementUpdateWithWhereUniqueWithoutAdminInput[]
+    updateMany?: YouthMovementUpdateManyWithWhereWithoutAdminInput | YouthMovementUpdateManyWithWhereWithoutAdminInput[]
+    deleteMany?: YouthMovementScalarWhereInput | YouthMovementScalarWhereInput[]
+  }
+
+  export type YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<YouthMovementUserCreateWithoutUserInput, YouthMovementUserUncheckedCreateWithoutUserInput> | YouthMovementUserCreateWithoutUserInput[] | YouthMovementUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: YouthMovementUserCreateOrConnectWithoutUserInput | YouthMovementUserCreateOrConnectWithoutUserInput[]
+    upsert?: YouthMovementUserUpsertWithWhereUniqueWithoutUserInput | YouthMovementUserUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: YouthMovementUserCreateManyUserInputEnvelope
+    set?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    disconnect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    delete?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    connect?: YouthMovementUserWhereUniqueInput | YouthMovementUserWhereUniqueInput[]
+    update?: YouthMovementUserUpdateWithWhereUniqueWithoutUserInput | YouthMovementUserUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: YouthMovementUserUpdateManyWithWhereWithoutUserInput | YouthMovementUserUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: YouthMovementUserScalarWhereInput | YouthMovementUserScalarWhereInput[]
   }
 
   export type PostUncheckedUpdateManyWithoutUserNestedInput = {
@@ -20719,42 +20858,56 @@ export namespace Prisma {
     deleteMany?: ParentChildScalarWhereInput | ParentChildScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutJeugdbewegingsInput = {
-    create?: XOR<UserCreateWithoutJeugdbewegingsInput, UserUncheckedCreateWithoutJeugdbewegingsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutJeugdbewegingsInput
+  export type YouthMovementUncheckedUpdateManyWithoutAdminNestedInput = {
+    create?: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput> | YouthMovementCreateWithoutAdminInput[] | YouthMovementUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutAdminInput | YouthMovementCreateOrConnectWithoutAdminInput[]
+    upsert?: YouthMovementUpsertWithWhereUniqueWithoutAdminInput | YouthMovementUpsertWithWhereUniqueWithoutAdminInput[]
+    createMany?: YouthMovementCreateManyAdminInputEnvelope
+    set?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    disconnect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    delete?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    connect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    update?: YouthMovementUpdateWithWhereUniqueWithoutAdminInput | YouthMovementUpdateWithWhereUniqueWithoutAdminInput[]
+    updateMany?: YouthMovementUpdateManyWithWhereWithoutAdminInput | YouthMovementUpdateManyWithWhereWithoutAdminInput[]
+    deleteMany?: YouthMovementScalarWhereInput | YouthMovementScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutYouthMovementsInput = {
+    create?: XOR<UserCreateWithoutYouthMovementsInput, UserUncheckedCreateWithoutYouthMovementsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutYouthMovementsInput
     connect?: UserWhereUniqueInput
   }
 
-  export type JeugdbewegingCreateNestedOneWithoutUsersInput = {
-    create?: XOR<JeugdbewegingCreateWithoutUsersInput, JeugdbewegingUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: JeugdbewegingCreateOrConnectWithoutUsersInput
-    connect?: JeugdbewegingWhereUniqueInput
+  export type YouthMovementCreateNestedOneWithoutUsersInput = {
+    create?: XOR<YouthMovementCreateWithoutUsersInput, YouthMovementUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutUsersInput
+    connect?: YouthMovementWhereUniqueInput
   }
 
   export type EnumRoleFieldUpdateOperationsInput = {
     set?: $Enums.Role
   }
 
-  export type UserUpdateOneRequiredWithoutJeugdbewegingsNestedInput = {
-    create?: XOR<UserCreateWithoutJeugdbewegingsInput, UserUncheckedCreateWithoutJeugdbewegingsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutJeugdbewegingsInput
-    upsert?: UserUpsertWithoutJeugdbewegingsInput
+  export type UserUpdateOneRequiredWithoutYouthMovementsNestedInput = {
+    create?: XOR<UserCreateWithoutYouthMovementsInput, UserUncheckedCreateWithoutYouthMovementsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutYouthMovementsInput
+    upsert?: UserUpsertWithoutYouthMovementsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutJeugdbewegingsInput, UserUpdateWithoutJeugdbewegingsInput>, UserUncheckedUpdateWithoutJeugdbewegingsInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutYouthMovementsInput, UserUpdateWithoutYouthMovementsInput>, UserUncheckedUpdateWithoutYouthMovementsInput>
   }
 
-  export type JeugdbewegingUpdateOneRequiredWithoutUsersNestedInput = {
-    create?: XOR<JeugdbewegingCreateWithoutUsersInput, JeugdbewegingUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: JeugdbewegingCreateOrConnectWithoutUsersInput
-    upsert?: JeugdbewegingUpsertWithoutUsersInput
-    connect?: JeugdbewegingWhereUniqueInput
-    update?: XOR<XOR<JeugdbewegingUpdateToOneWithWhereWithoutUsersInput, JeugdbewegingUpdateWithoutUsersInput>, JeugdbewegingUncheckedUpdateWithoutUsersInput>
+  export type YouthMovementUpdateOneRequiredWithoutUsersNestedInput = {
+    create?: XOR<YouthMovementCreateWithoutUsersInput, YouthMovementUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutUsersInput
+    upsert?: YouthMovementUpsertWithoutUsersInput
+    connect?: YouthMovementWhereUniqueInput
+    update?: XOR<XOR<YouthMovementUpdateToOneWithWhereWithoutUsersInput, YouthMovementUpdateWithoutUsersInput>, YouthMovementUncheckedUpdateWithoutUsersInput>
   }
 
-  export type JeugdbewegingCreateNestedOneWithoutInvitesInput = {
-    create?: XOR<JeugdbewegingCreateWithoutInvitesInput, JeugdbewegingUncheckedCreateWithoutInvitesInput>
-    connectOrCreate?: JeugdbewegingCreateOrConnectWithoutInvitesInput
-    connect?: JeugdbewegingWhereUniqueInput
+  export type YouthMovementCreateNestedOneWithoutInvitesInput = {
+    create?: XOR<YouthMovementCreateWithoutInvitesInput, YouthMovementUncheckedCreateWithoutInvitesInput>
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutInvitesInput
+    connect?: YouthMovementWhereUniqueInput
   }
 
   export type BoolFieldUpdateOperationsInput = {
@@ -20765,18 +20918,18 @@ export namespace Prisma {
     set?: Date | string | null
   }
 
-  export type JeugdbewegingUpdateOneRequiredWithoutInvitesNestedInput = {
-    create?: XOR<JeugdbewegingCreateWithoutInvitesInput, JeugdbewegingUncheckedCreateWithoutInvitesInput>
-    connectOrCreate?: JeugdbewegingCreateOrConnectWithoutInvitesInput
-    upsert?: JeugdbewegingUpsertWithoutInvitesInput
-    connect?: JeugdbewegingWhereUniqueInput
-    update?: XOR<XOR<JeugdbewegingUpdateToOneWithWhereWithoutInvitesInput, JeugdbewegingUpdateWithoutInvitesInput>, JeugdbewegingUncheckedUpdateWithoutInvitesInput>
+  export type YouthMovementUpdateOneRequiredWithoutInvitesNestedInput = {
+    create?: XOR<YouthMovementCreateWithoutInvitesInput, YouthMovementUncheckedCreateWithoutInvitesInput>
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutInvitesInput
+    upsert?: YouthMovementUpsertWithoutInvitesInput
+    connect?: YouthMovementWhereUniqueInput
+    update?: XOR<XOR<YouthMovementUpdateToOneWithWhereWithoutInvitesInput, YouthMovementUpdateWithoutInvitesInput>, YouthMovementUncheckedUpdateWithoutInvitesInput>
   }
 
-  export type JeugdbewegingCreateNestedOneWithoutGroupsInput = {
-    create?: XOR<JeugdbewegingCreateWithoutGroupsInput, JeugdbewegingUncheckedCreateWithoutGroupsInput>
-    connectOrCreate?: JeugdbewegingCreateOrConnectWithoutGroupsInput
-    connect?: JeugdbewegingWhereUniqueInput
+  export type YouthMovementCreateNestedOneWithoutGroupsInput = {
+    create?: XOR<YouthMovementCreateWithoutGroupsInput, YouthMovementUncheckedCreateWithoutGroupsInput>
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutGroupsInput
+    connect?: YouthMovementWhereUniqueInput
   }
 
   export type PostCreateNestedManyWithoutGroupInput = {
@@ -20835,12 +20988,12 @@ export namespace Prisma {
     connect?: ParentChildWhereUniqueInput | ParentChildWhereUniqueInput[]
   }
 
-  export type JeugdbewegingUpdateOneRequiredWithoutGroupsNestedInput = {
-    create?: XOR<JeugdbewegingCreateWithoutGroupsInput, JeugdbewegingUncheckedCreateWithoutGroupsInput>
-    connectOrCreate?: JeugdbewegingCreateOrConnectWithoutGroupsInput
-    upsert?: JeugdbewegingUpsertWithoutGroupsInput
-    connect?: JeugdbewegingWhereUniqueInput
-    update?: XOR<XOR<JeugdbewegingUpdateToOneWithWhereWithoutGroupsInput, JeugdbewegingUpdateWithoutGroupsInput>, JeugdbewegingUncheckedUpdateWithoutGroupsInput>
+  export type YouthMovementUpdateOneRequiredWithoutGroupsNestedInput = {
+    create?: XOR<YouthMovementCreateWithoutGroupsInput, YouthMovementUncheckedCreateWithoutGroupsInput>
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutGroupsInput
+    upsert?: YouthMovementUpsertWithoutGroupsInput
+    connect?: YouthMovementWhereUniqueInput
+    update?: XOR<XOR<YouthMovementUpdateToOneWithWhereWithoutGroupsInput, YouthMovementUpdateWithoutGroupsInput>, YouthMovementUncheckedUpdateWithoutGroupsInput>
   }
 
   export type PostUpdateManyWithoutGroupNestedInput = {
@@ -21542,7 +21695,7 @@ export namespace Prisma {
     _max?: NestedEnumParentRelationFilter<$PrismaModel>
   }
 
-  export type GroupCreateWithoutJeugdbewegingInput = {
+  export type GroupCreateWithoutYouthMovementInput = {
     name: string
     minimumAge: number
     maximumAge: number
@@ -21552,7 +21705,7 @@ export namespace Prisma {
     parentChild?: ParentChildCreateNestedManyWithoutGroupInput
   }
 
-  export type GroupUncheckedCreateWithoutJeugdbewegingInput = {
+  export type GroupUncheckedCreateWithoutYouthMovementInput = {
     id?: number
     name: string
     minimumAge: number
@@ -21563,38 +21716,38 @@ export namespace Prisma {
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutGroupInput
   }
 
-  export type GroupCreateOrConnectWithoutJeugdbewegingInput = {
+  export type GroupCreateOrConnectWithoutYouthMovementInput = {
     where: GroupWhereUniqueInput
-    create: XOR<GroupCreateWithoutJeugdbewegingInput, GroupUncheckedCreateWithoutJeugdbewegingInput>
+    create: XOR<GroupCreateWithoutYouthMovementInput, GroupUncheckedCreateWithoutYouthMovementInput>
   }
 
-  export type GroupCreateManyJeugdbewegingInputEnvelope = {
-    data: GroupCreateManyJeugdbewegingInput | GroupCreateManyJeugdbewegingInput[]
+  export type GroupCreateManyYouthMovementInputEnvelope = {
+    data: GroupCreateManyYouthMovementInput | GroupCreateManyYouthMovementInput[]
     skipDuplicates?: boolean
   }
 
-  export type JeugdbewegingUserCreateWithoutJeugdbewegingInput = {
+  export type YouthMovementUserCreateWithoutYouthMovementInput = {
     role: $Enums.Role
-    user: UserCreateNestedOneWithoutJeugdbewegingsInput
+    user: UserCreateNestedOneWithoutYouthMovementsInput
   }
 
-  export type JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput = {
+  export type YouthMovementUserUncheckedCreateWithoutYouthMovementInput = {
     id?: number
     userId: number
     role: $Enums.Role
   }
 
-  export type JeugdbewegingUserCreateOrConnectWithoutJeugdbewegingInput = {
-    where: JeugdbewegingUserWhereUniqueInput
-    create: XOR<JeugdbewegingUserCreateWithoutJeugdbewegingInput, JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput>
+  export type YouthMovementUserCreateOrConnectWithoutYouthMovementInput = {
+    where: YouthMovementUserWhereUniqueInput
+    create: XOR<YouthMovementUserCreateWithoutYouthMovementInput, YouthMovementUserUncheckedCreateWithoutYouthMovementInput>
   }
 
-  export type JeugdbewegingUserCreateManyJeugdbewegingInputEnvelope = {
-    data: JeugdbewegingUserCreateManyJeugdbewegingInput | JeugdbewegingUserCreateManyJeugdbewegingInput[]
+  export type YouthMovementUserCreateManyYouthMovementInputEnvelope = {
+    data: YouthMovementUserCreateManyYouthMovementInput | YouthMovementUserCreateManyYouthMovementInput[]
     skipDuplicates?: boolean
   }
 
-  export type InvitationCreateWithoutJeugdbewegingInput = {
+  export type InvitationCreateWithoutYouthMovementInput = {
     email: string
     role: $Enums.Role
     code: string
@@ -21603,7 +21756,7 @@ export namespace Prisma {
     expiresAt?: Date | string | null
   }
 
-  export type InvitationUncheckedCreateWithoutJeugdbewegingInput = {
+  export type InvitationUncheckedCreateWithoutYouthMovementInput = {
     id?: number
     email: string
     role: $Enums.Role
@@ -21613,30 +21766,74 @@ export namespace Prisma {
     expiresAt?: Date | string | null
   }
 
-  export type InvitationCreateOrConnectWithoutJeugdbewegingInput = {
+  export type InvitationCreateOrConnectWithoutYouthMovementInput = {
     where: InvitationWhereUniqueInput
-    create: XOR<InvitationCreateWithoutJeugdbewegingInput, InvitationUncheckedCreateWithoutJeugdbewegingInput>
+    create: XOR<InvitationCreateWithoutYouthMovementInput, InvitationUncheckedCreateWithoutYouthMovementInput>
   }
 
-  export type InvitationCreateManyJeugdbewegingInputEnvelope = {
-    data: InvitationCreateManyJeugdbewegingInput | InvitationCreateManyJeugdbewegingInput[]
+  export type InvitationCreateManyYouthMovementInputEnvelope = {
+    data: InvitationCreateManyYouthMovementInput | InvitationCreateManyYouthMovementInput[]
     skipDuplicates?: boolean
   }
 
-  export type GroupUpsertWithWhereUniqueWithoutJeugdbewegingInput = {
-    where: GroupWhereUniqueInput
-    update: XOR<GroupUpdateWithoutJeugdbewegingInput, GroupUncheckedUpdateWithoutJeugdbewegingInput>
-    create: XOR<GroupCreateWithoutJeugdbewegingInput, GroupUncheckedCreateWithoutJeugdbewegingInput>
+  export type UserCreateWithoutAdminOfInput = {
+    firstName: string
+    lastName: string
+    email: string
+    cognitoId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    imageUrl?: string | null
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
+    posts?: PostCreateNestedManyWithoutUserInput
+    postLikes?: PostLikeCreateNestedManyWithoutUserInput
+    messagesSent?: MessageCreateNestedManyWithoutSenderInput
+    messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
+    attendees?: AttendeeCreateNestedManyWithoutUserInput
+    volunteers?: VolunteerCreateNestedManyWithoutUserInput
+    leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
+    parentChild?: ParentChildCreateNestedManyWithoutParentInput
   }
 
-  export type GroupUpdateWithWhereUniqueWithoutJeugdbewegingInput = {
-    where: GroupWhereUniqueInput
-    data: XOR<GroupUpdateWithoutJeugdbewegingInput, GroupUncheckedUpdateWithoutJeugdbewegingInput>
+  export type UserUncheckedCreateWithoutAdminOfInput = {
+    id?: number
+    firstName: string
+    lastName: string
+    email: string
+    cognitoId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    imageUrl?: string | null
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
+    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    postLikes?: PostLikeUncheckedCreateNestedManyWithoutUserInput
+    messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
+    messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
+    attendees?: AttendeeUncheckedCreateNestedManyWithoutUserInput
+    volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
+    leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
+    parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
   }
 
-  export type GroupUpdateManyWithWhereWithoutJeugdbewegingInput = {
+  export type UserCreateOrConnectWithoutAdminOfInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutAdminOfInput, UserUncheckedCreateWithoutAdminOfInput>
+  }
+
+  export type GroupUpsertWithWhereUniqueWithoutYouthMovementInput = {
+    where: GroupWhereUniqueInput
+    update: XOR<GroupUpdateWithoutYouthMovementInput, GroupUncheckedUpdateWithoutYouthMovementInput>
+    create: XOR<GroupCreateWithoutYouthMovementInput, GroupUncheckedCreateWithoutYouthMovementInput>
+  }
+
+  export type GroupUpdateWithWhereUniqueWithoutYouthMovementInput = {
+    where: GroupWhereUniqueInput
+    data: XOR<GroupUpdateWithoutYouthMovementInput, GroupUncheckedUpdateWithoutYouthMovementInput>
+  }
+
+  export type GroupUpdateManyWithWhereWithoutYouthMovementInput = {
     where: GroupScalarWhereInput
-    data: XOR<GroupUpdateManyMutationInput, GroupUncheckedUpdateManyWithoutJeugdbewegingInput>
+    data: XOR<GroupUpdateManyMutationInput, GroupUncheckedUpdateManyWithoutYouthMovementInput>
   }
 
   export type GroupScalarWhereInput = {
@@ -21647,49 +21844,49 @@ export namespace Prisma {
     name?: StringFilter<"Group"> | string
     minimumAge?: IntFilter<"Group"> | number
     maximumAge?: IntFilter<"Group"> | number
-    jeugdbewegingId?: IntFilter<"Group"> | number
+    youthMovementId?: IntFilter<"Group"> | number
   }
 
-  export type JeugdbewegingUserUpsertWithWhereUniqueWithoutJeugdbewegingInput = {
-    where: JeugdbewegingUserWhereUniqueInput
-    update: XOR<JeugdbewegingUserUpdateWithoutJeugdbewegingInput, JeugdbewegingUserUncheckedUpdateWithoutJeugdbewegingInput>
-    create: XOR<JeugdbewegingUserCreateWithoutJeugdbewegingInput, JeugdbewegingUserUncheckedCreateWithoutJeugdbewegingInput>
+  export type YouthMovementUserUpsertWithWhereUniqueWithoutYouthMovementInput = {
+    where: YouthMovementUserWhereUniqueInput
+    update: XOR<YouthMovementUserUpdateWithoutYouthMovementInput, YouthMovementUserUncheckedUpdateWithoutYouthMovementInput>
+    create: XOR<YouthMovementUserCreateWithoutYouthMovementInput, YouthMovementUserUncheckedCreateWithoutYouthMovementInput>
   }
 
-  export type JeugdbewegingUserUpdateWithWhereUniqueWithoutJeugdbewegingInput = {
-    where: JeugdbewegingUserWhereUniqueInput
-    data: XOR<JeugdbewegingUserUpdateWithoutJeugdbewegingInput, JeugdbewegingUserUncheckedUpdateWithoutJeugdbewegingInput>
+  export type YouthMovementUserUpdateWithWhereUniqueWithoutYouthMovementInput = {
+    where: YouthMovementUserWhereUniqueInput
+    data: XOR<YouthMovementUserUpdateWithoutYouthMovementInput, YouthMovementUserUncheckedUpdateWithoutYouthMovementInput>
   }
 
-  export type JeugdbewegingUserUpdateManyWithWhereWithoutJeugdbewegingInput = {
-    where: JeugdbewegingUserScalarWhereInput
-    data: XOR<JeugdbewegingUserUpdateManyMutationInput, JeugdbewegingUserUncheckedUpdateManyWithoutJeugdbewegingInput>
+  export type YouthMovementUserUpdateManyWithWhereWithoutYouthMovementInput = {
+    where: YouthMovementUserScalarWhereInput
+    data: XOR<YouthMovementUserUpdateManyMutationInput, YouthMovementUserUncheckedUpdateManyWithoutYouthMovementInput>
   }
 
-  export type JeugdbewegingUserScalarWhereInput = {
-    AND?: JeugdbewegingUserScalarWhereInput | JeugdbewegingUserScalarWhereInput[]
-    OR?: JeugdbewegingUserScalarWhereInput[]
-    NOT?: JeugdbewegingUserScalarWhereInput | JeugdbewegingUserScalarWhereInput[]
-    id?: IntFilter<"JeugdbewegingUser"> | number
-    userId?: IntFilter<"JeugdbewegingUser"> | number
-    jeugdbewegingId?: IntFilter<"JeugdbewegingUser"> | number
-    role?: EnumRoleFilter<"JeugdbewegingUser"> | $Enums.Role
+  export type YouthMovementUserScalarWhereInput = {
+    AND?: YouthMovementUserScalarWhereInput | YouthMovementUserScalarWhereInput[]
+    OR?: YouthMovementUserScalarWhereInput[]
+    NOT?: YouthMovementUserScalarWhereInput | YouthMovementUserScalarWhereInput[]
+    id?: IntFilter<"YouthMovementUser"> | number
+    userId?: IntFilter<"YouthMovementUser"> | number
+    youthMovementId?: IntFilter<"YouthMovementUser"> | number
+    role?: EnumRoleFilter<"YouthMovementUser"> | $Enums.Role
   }
 
-  export type InvitationUpsertWithWhereUniqueWithoutJeugdbewegingInput = {
+  export type InvitationUpsertWithWhereUniqueWithoutYouthMovementInput = {
     where: InvitationWhereUniqueInput
-    update: XOR<InvitationUpdateWithoutJeugdbewegingInput, InvitationUncheckedUpdateWithoutJeugdbewegingInput>
-    create: XOR<InvitationCreateWithoutJeugdbewegingInput, InvitationUncheckedCreateWithoutJeugdbewegingInput>
+    update: XOR<InvitationUpdateWithoutYouthMovementInput, InvitationUncheckedUpdateWithoutYouthMovementInput>
+    create: XOR<InvitationCreateWithoutYouthMovementInput, InvitationUncheckedCreateWithoutYouthMovementInput>
   }
 
-  export type InvitationUpdateWithWhereUniqueWithoutJeugdbewegingInput = {
+  export type InvitationUpdateWithWhereUniqueWithoutYouthMovementInput = {
     where: InvitationWhereUniqueInput
-    data: XOR<InvitationUpdateWithoutJeugdbewegingInput, InvitationUncheckedUpdateWithoutJeugdbewegingInput>
+    data: XOR<InvitationUpdateWithoutYouthMovementInput, InvitationUncheckedUpdateWithoutYouthMovementInput>
   }
 
-  export type InvitationUpdateManyWithWhereWithoutJeugdbewegingInput = {
+  export type InvitationUpdateManyWithWhereWithoutYouthMovementInput = {
     where: InvitationScalarWhereInput
-    data: XOR<InvitationUpdateManyMutationInput, InvitationUncheckedUpdateManyWithoutJeugdbewegingInput>
+    data: XOR<InvitationUpdateManyMutationInput, InvitationUncheckedUpdateManyWithoutYouthMovementInput>
   }
 
   export type InvitationScalarWhereInput = {
@@ -21699,31 +21896,81 @@ export namespace Prisma {
     id?: IntFilter<"Invitation"> | number
     email?: StringFilter<"Invitation"> | string
     role?: EnumRoleFilter<"Invitation"> | $Enums.Role
-    jeugdbewegingId?: IntFilter<"Invitation"> | number
+    youthMovementId?: IntFilter<"Invitation"> | number
     code?: StringFilter<"Invitation"> | string
     used?: BoolFilter<"Invitation"> | boolean
     sentAt?: DateTimeFilter<"Invitation"> | Date | string
     expiresAt?: DateTimeNullableFilter<"Invitation"> | Date | string | null
   }
 
-  export type JeugdbewegingUserCreateWithoutUserInput = {
-    role: $Enums.Role
-    jeugdbeweging: JeugdbewegingCreateNestedOneWithoutUsersInput
+  export type UserUpsertWithoutAdminOfInput = {
+    update: XOR<UserUpdateWithoutAdminOfInput, UserUncheckedUpdateWithoutAdminOfInput>
+    create: XOR<UserCreateWithoutAdminOfInput, UserUncheckedCreateWithoutAdminOfInput>
+    where?: UserWhereInput
   }
 
-  export type JeugdbewegingUserUncheckedCreateWithoutUserInput = {
+  export type UserUpdateToOneWithWhereWithoutAdminOfInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutAdminOfInput, UserUncheckedUpdateWithoutAdminOfInput>
+  }
+
+  export type UserUpdateWithoutAdminOfInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    cognitoId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
+    posts?: PostUpdateManyWithoutUserNestedInput
+    postLikes?: PostLikeUpdateManyWithoutUserNestedInput
+    messagesSent?: MessageUpdateManyWithoutSenderNestedInput
+    messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
+    attendees?: AttendeeUpdateManyWithoutUserNestedInput
+    volunteers?: VolunteerUpdateManyWithoutUserNestedInput
+    leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
+    parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutAdminOfInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    cognitoId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
+    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    postLikes?: PostLikeUncheckedUpdateManyWithoutUserNestedInput
+    messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
+    messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
+    attendees?: AttendeeUncheckedUpdateManyWithoutUserNestedInput
+    volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
+    leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
+    parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+  }
+
+  export type YouthMovementUserCreateWithoutUserInput = {
+    role: $Enums.Role
+    youthMovement: YouthMovementCreateNestedOneWithoutUsersInput
+  }
+
+  export type YouthMovementUserUncheckedCreateWithoutUserInput = {
     id?: number
-    jeugdbewegingId: number
+    youthMovementId: number
     role: $Enums.Role
   }
 
-  export type JeugdbewegingUserCreateOrConnectWithoutUserInput = {
-    where: JeugdbewegingUserWhereUniqueInput
-    create: XOR<JeugdbewegingUserCreateWithoutUserInput, JeugdbewegingUserUncheckedCreateWithoutUserInput>
+  export type YouthMovementUserCreateOrConnectWithoutUserInput = {
+    where: YouthMovementUserWhereUniqueInput
+    create: XOR<YouthMovementUserCreateWithoutUserInput, YouthMovementUserUncheckedCreateWithoutUserInput>
   }
 
-  export type JeugdbewegingUserCreateManyUserInputEnvelope = {
-    data: JeugdbewegingUserCreateManyUserInput | JeugdbewegingUserCreateManyUserInput[]
+  export type YouthMovementUserCreateManyUserInputEnvelope = {
+    data: YouthMovementUserCreateManyUserInput | YouthMovementUserCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -21911,20 +22158,59 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type JeugdbewegingUserUpsertWithWhereUniqueWithoutUserInput = {
-    where: JeugdbewegingUserWhereUniqueInput
-    update: XOR<JeugdbewegingUserUpdateWithoutUserInput, JeugdbewegingUserUncheckedUpdateWithoutUserInput>
-    create: XOR<JeugdbewegingUserCreateWithoutUserInput, JeugdbewegingUserUncheckedCreateWithoutUserInput>
+  export type YouthMovementCreateWithoutAdminInput = {
+    name: string
+    description?: string | null
+    city: string
+    postalCode: string
+    street: string
+    houseNumber: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    groups?: GroupCreateNestedManyWithoutYouthMovementInput
+    users?: YouthMovementUserCreateNestedManyWithoutYouthMovementInput
+    invites?: InvitationCreateNestedManyWithoutYouthMovementInput
   }
 
-  export type JeugdbewegingUserUpdateWithWhereUniqueWithoutUserInput = {
-    where: JeugdbewegingUserWhereUniqueInput
-    data: XOR<JeugdbewegingUserUpdateWithoutUserInput, JeugdbewegingUserUncheckedUpdateWithoutUserInput>
+  export type YouthMovementUncheckedCreateWithoutAdminInput = {
+    id?: number
+    name: string
+    description?: string | null
+    city: string
+    postalCode: string
+    street: string
+    houseNumber: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
+    users?: YouthMovementUserUncheckedCreateNestedManyWithoutYouthMovementInput
+    invites?: InvitationUncheckedCreateNestedManyWithoutYouthMovementInput
   }
 
-  export type JeugdbewegingUserUpdateManyWithWhereWithoutUserInput = {
-    where: JeugdbewegingUserScalarWhereInput
-    data: XOR<JeugdbewegingUserUpdateManyMutationInput, JeugdbewegingUserUncheckedUpdateManyWithoutUserInput>
+  export type YouthMovementCreateOrConnectWithoutAdminInput = {
+    where: YouthMovementWhereUniqueInput
+    create: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput>
+  }
+
+  export type YouthMovementCreateManyAdminInputEnvelope = {
+    data: YouthMovementCreateManyAdminInput | YouthMovementCreateManyAdminInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type YouthMovementUserUpsertWithWhereUniqueWithoutUserInput = {
+    where: YouthMovementUserWhereUniqueInput
+    update: XOR<YouthMovementUserUpdateWithoutUserInput, YouthMovementUserUncheckedUpdateWithoutUserInput>
+    create: XOR<YouthMovementUserCreateWithoutUserInput, YouthMovementUserUncheckedCreateWithoutUserInput>
+  }
+
+  export type YouthMovementUserUpdateWithWhereUniqueWithoutUserInput = {
+    where: YouthMovementUserWhereUniqueInput
+    data: XOR<YouthMovementUserUpdateWithoutUserInput, YouthMovementUserUncheckedUpdateWithoutUserInput>
+  }
+
+  export type YouthMovementUserUpdateManyWithWhereWithoutUserInput = {
+    where: YouthMovementUserScalarWhereInput
+    data: XOR<YouthMovementUserUpdateManyMutationInput, YouthMovementUserUncheckedUpdateManyWithoutUserInput>
   }
 
   export type PostUpsertWithWhereUniqueWithoutUserInput = {
@@ -22130,7 +22416,39 @@ export namespace Prisma {
     relation?: EnumParentRelationFilter<"ParentChild"> | $Enums.ParentRelation
   }
 
-  export type UserCreateWithoutJeugdbewegingsInput = {
+  export type YouthMovementUpsertWithWhereUniqueWithoutAdminInput = {
+    where: YouthMovementWhereUniqueInput
+    update: XOR<YouthMovementUpdateWithoutAdminInput, YouthMovementUncheckedUpdateWithoutAdminInput>
+    create: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput>
+  }
+
+  export type YouthMovementUpdateWithWhereUniqueWithoutAdminInput = {
+    where: YouthMovementWhereUniqueInput
+    data: XOR<YouthMovementUpdateWithoutAdminInput, YouthMovementUncheckedUpdateWithoutAdminInput>
+  }
+
+  export type YouthMovementUpdateManyWithWhereWithoutAdminInput = {
+    where: YouthMovementScalarWhereInput
+    data: XOR<YouthMovementUpdateManyMutationInput, YouthMovementUncheckedUpdateManyWithoutAdminInput>
+  }
+
+  export type YouthMovementScalarWhereInput = {
+    AND?: YouthMovementScalarWhereInput | YouthMovementScalarWhereInput[]
+    OR?: YouthMovementScalarWhereInput[]
+    NOT?: YouthMovementScalarWhereInput | YouthMovementScalarWhereInput[]
+    id?: IntFilter<"YouthMovement"> | number
+    name?: StringFilter<"YouthMovement"> | string
+    description?: StringNullableFilter<"YouthMovement"> | string | null
+    city?: StringFilter<"YouthMovement"> | string
+    postalCode?: StringFilter<"YouthMovement"> | string
+    street?: StringFilter<"YouthMovement"> | string
+    houseNumber?: StringFilter<"YouthMovement"> | string
+    createdAt?: DateTimeFilter<"YouthMovement"> | Date | string
+    updatedAt?: DateTimeFilter<"YouthMovement"> | Date | string
+    adminId?: IntFilter<"YouthMovement"> | number
+  }
+
+  export type UserCreateWithoutYouthMovementsInput = {
     firstName: string
     lastName: string
     email: string
@@ -22146,9 +22464,10 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
-  export type UserUncheckedCreateWithoutJeugdbewegingsInput = {
+  export type UserUncheckedCreateWithoutYouthMovementsInput = {
     id?: number
     firstName: string
     lastName: string
@@ -22165,57 +22484,60 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
-  export type UserCreateOrConnectWithoutJeugdbewegingsInput = {
+  export type UserCreateOrConnectWithoutYouthMovementsInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutJeugdbewegingsInput, UserUncheckedCreateWithoutJeugdbewegingsInput>
+    create: XOR<UserCreateWithoutYouthMovementsInput, UserUncheckedCreateWithoutYouthMovementsInput>
   }
 
-  export type JeugdbewegingCreateWithoutUsersInput = {
+  export type YouthMovementCreateWithoutUsersInput = {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    groups?: GroupCreateNestedManyWithoutJeugdbewegingInput
-    invites?: InvitationCreateNestedManyWithoutJeugdbewegingInput
+    groups?: GroupCreateNestedManyWithoutYouthMovementInput
+    invites?: InvitationCreateNestedManyWithoutYouthMovementInput
+    admin: UserCreateNestedOneWithoutAdminOfInput
   }
 
-  export type JeugdbewegingUncheckedCreateWithoutUsersInput = {
+  export type YouthMovementUncheckedCreateWithoutUsersInput = {
     id?: number
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    groups?: GroupUncheckedCreateNestedManyWithoutJeugdbewegingInput
-    invites?: InvitationUncheckedCreateNestedManyWithoutJeugdbewegingInput
+    adminId: number
+    groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
+    invites?: InvitationUncheckedCreateNestedManyWithoutYouthMovementInput
   }
 
-  export type JeugdbewegingCreateOrConnectWithoutUsersInput = {
-    where: JeugdbewegingWhereUniqueInput
-    create: XOR<JeugdbewegingCreateWithoutUsersInput, JeugdbewegingUncheckedCreateWithoutUsersInput>
+  export type YouthMovementCreateOrConnectWithoutUsersInput = {
+    where: YouthMovementWhereUniqueInput
+    create: XOR<YouthMovementCreateWithoutUsersInput, YouthMovementUncheckedCreateWithoutUsersInput>
   }
 
-  export type UserUpsertWithoutJeugdbewegingsInput = {
-    update: XOR<UserUpdateWithoutJeugdbewegingsInput, UserUncheckedUpdateWithoutJeugdbewegingsInput>
-    create: XOR<UserCreateWithoutJeugdbewegingsInput, UserUncheckedCreateWithoutJeugdbewegingsInput>
+  export type UserUpsertWithoutYouthMovementsInput = {
+    update: XOR<UserUpdateWithoutYouthMovementsInput, UserUncheckedUpdateWithoutYouthMovementsInput>
+    create: XOR<UserCreateWithoutYouthMovementsInput, UserUncheckedCreateWithoutYouthMovementsInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutJeugdbewegingsInput = {
+  export type UserUpdateToOneWithWhereWithoutYouthMovementsInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutJeugdbewegingsInput, UserUncheckedUpdateWithoutJeugdbewegingsInput>
+    data: XOR<UserUpdateWithoutYouthMovementsInput, UserUncheckedUpdateWithoutYouthMovementsInput>
   }
 
-  export type UserUpdateWithoutJeugdbewegingsInput = {
+  export type UserUpdateWithoutYouthMovementsInput = {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -22231,9 +22553,10 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutJeugdbewegingsInput = {
+  export type UserUncheckedUpdateWithoutYouthMovementsInput = {
     id?: IntFieldUpdateOperationsInput | number
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
@@ -22250,146 +22573,155 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
-  export type JeugdbewegingUpsertWithoutUsersInput = {
-    update: XOR<JeugdbewegingUpdateWithoutUsersInput, JeugdbewegingUncheckedUpdateWithoutUsersInput>
-    create: XOR<JeugdbewegingCreateWithoutUsersInput, JeugdbewegingUncheckedCreateWithoutUsersInput>
-    where?: JeugdbewegingWhereInput
+  export type YouthMovementUpsertWithoutUsersInput = {
+    update: XOR<YouthMovementUpdateWithoutUsersInput, YouthMovementUncheckedUpdateWithoutUsersInput>
+    create: XOR<YouthMovementCreateWithoutUsersInput, YouthMovementUncheckedCreateWithoutUsersInput>
+    where?: YouthMovementWhereInput
   }
 
-  export type JeugdbewegingUpdateToOneWithWhereWithoutUsersInput = {
-    where?: JeugdbewegingWhereInput
-    data: XOR<JeugdbewegingUpdateWithoutUsersInput, JeugdbewegingUncheckedUpdateWithoutUsersInput>
+  export type YouthMovementUpdateToOneWithWhereWithoutUsersInput = {
+    where?: YouthMovementWhereInput
+    data: XOR<YouthMovementUpdateWithoutUsersInput, YouthMovementUncheckedUpdateWithoutUsersInput>
   }
 
-  export type JeugdbewegingUpdateWithoutUsersInput = {
+  export type YouthMovementUpdateWithoutUsersInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    groups?: GroupUpdateManyWithoutJeugdbewegingNestedInput
-    invites?: InvitationUpdateManyWithoutJeugdbewegingNestedInput
+    groups?: GroupUpdateManyWithoutYouthMovementNestedInput
+    invites?: InvitationUpdateManyWithoutYouthMovementNestedInput
+    admin?: UserUpdateOneRequiredWithoutAdminOfNestedInput
   }
 
-  export type JeugdbewegingUncheckedUpdateWithoutUsersInput = {
+  export type YouthMovementUncheckedUpdateWithoutUsersInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    groups?: GroupUncheckedUpdateManyWithoutJeugdbewegingNestedInput
-    invites?: InvitationUncheckedUpdateManyWithoutJeugdbewegingNestedInput
+    adminId?: IntFieldUpdateOperationsInput | number
+    groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
+    invites?: InvitationUncheckedUpdateManyWithoutYouthMovementNestedInput
   }
 
-  export type JeugdbewegingCreateWithoutInvitesInput = {
+  export type YouthMovementCreateWithoutInvitesInput = {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    groups?: GroupCreateNestedManyWithoutJeugdbewegingInput
-    users?: JeugdbewegingUserCreateNestedManyWithoutJeugdbewegingInput
+    groups?: GroupCreateNestedManyWithoutYouthMovementInput
+    users?: YouthMovementUserCreateNestedManyWithoutYouthMovementInput
+    admin: UserCreateNestedOneWithoutAdminOfInput
   }
 
-  export type JeugdbewegingUncheckedCreateWithoutInvitesInput = {
+  export type YouthMovementUncheckedCreateWithoutInvitesInput = {
     id?: number
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    groups?: GroupUncheckedCreateNestedManyWithoutJeugdbewegingInput
-    users?: JeugdbewegingUserUncheckedCreateNestedManyWithoutJeugdbewegingInput
+    adminId: number
+    groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
+    users?: YouthMovementUserUncheckedCreateNestedManyWithoutYouthMovementInput
   }
 
-  export type JeugdbewegingCreateOrConnectWithoutInvitesInput = {
-    where: JeugdbewegingWhereUniqueInput
-    create: XOR<JeugdbewegingCreateWithoutInvitesInput, JeugdbewegingUncheckedCreateWithoutInvitesInput>
+  export type YouthMovementCreateOrConnectWithoutInvitesInput = {
+    where: YouthMovementWhereUniqueInput
+    create: XOR<YouthMovementCreateWithoutInvitesInput, YouthMovementUncheckedCreateWithoutInvitesInput>
   }
 
-  export type JeugdbewegingUpsertWithoutInvitesInput = {
-    update: XOR<JeugdbewegingUpdateWithoutInvitesInput, JeugdbewegingUncheckedUpdateWithoutInvitesInput>
-    create: XOR<JeugdbewegingCreateWithoutInvitesInput, JeugdbewegingUncheckedCreateWithoutInvitesInput>
-    where?: JeugdbewegingWhereInput
+  export type YouthMovementUpsertWithoutInvitesInput = {
+    update: XOR<YouthMovementUpdateWithoutInvitesInput, YouthMovementUncheckedUpdateWithoutInvitesInput>
+    create: XOR<YouthMovementCreateWithoutInvitesInput, YouthMovementUncheckedCreateWithoutInvitesInput>
+    where?: YouthMovementWhereInput
   }
 
-  export type JeugdbewegingUpdateToOneWithWhereWithoutInvitesInput = {
-    where?: JeugdbewegingWhereInput
-    data: XOR<JeugdbewegingUpdateWithoutInvitesInput, JeugdbewegingUncheckedUpdateWithoutInvitesInput>
+  export type YouthMovementUpdateToOneWithWhereWithoutInvitesInput = {
+    where?: YouthMovementWhereInput
+    data: XOR<YouthMovementUpdateWithoutInvitesInput, YouthMovementUncheckedUpdateWithoutInvitesInput>
   }
 
-  export type JeugdbewegingUpdateWithoutInvitesInput = {
+  export type YouthMovementUpdateWithoutInvitesInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    groups?: GroupUpdateManyWithoutJeugdbewegingNestedInput
-    users?: JeugdbewegingUserUpdateManyWithoutJeugdbewegingNestedInput
+    groups?: GroupUpdateManyWithoutYouthMovementNestedInput
+    users?: YouthMovementUserUpdateManyWithoutYouthMovementNestedInput
+    admin?: UserUpdateOneRequiredWithoutAdminOfNestedInput
   }
 
-  export type JeugdbewegingUncheckedUpdateWithoutInvitesInput = {
+  export type YouthMovementUncheckedUpdateWithoutInvitesInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    groups?: GroupUncheckedUpdateManyWithoutJeugdbewegingNestedInput
-    users?: JeugdbewegingUserUncheckedUpdateManyWithoutJeugdbewegingNestedInput
+    adminId?: IntFieldUpdateOperationsInput | number
+    groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
+    users?: YouthMovementUserUncheckedUpdateManyWithoutYouthMovementNestedInput
   }
 
-  export type JeugdbewegingCreateWithoutGroupsInput = {
+  export type YouthMovementCreateWithoutGroupsInput = {
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    users?: JeugdbewegingUserCreateNestedManyWithoutJeugdbewegingInput
-    invites?: InvitationCreateNestedManyWithoutJeugdbewegingInput
+    users?: YouthMovementUserCreateNestedManyWithoutYouthMovementInput
+    invites?: InvitationCreateNestedManyWithoutYouthMovementInput
+    admin: UserCreateNestedOneWithoutAdminOfInput
   }
 
-  export type JeugdbewegingUncheckedCreateWithoutGroupsInput = {
+  export type YouthMovementUncheckedCreateWithoutGroupsInput = {
     id?: number
     name: string
     description?: string | null
     city: string
-    postalCode: number
+    postalCode: string
     street: string
-    houseNumber: number
+    houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    users?: JeugdbewegingUserUncheckedCreateNestedManyWithoutJeugdbewegingInput
-    invites?: InvitationUncheckedCreateNestedManyWithoutJeugdbewegingInput
+    adminId: number
+    users?: YouthMovementUserUncheckedCreateNestedManyWithoutYouthMovementInput
+    invites?: InvitationUncheckedCreateNestedManyWithoutYouthMovementInput
   }
 
-  export type JeugdbewegingCreateOrConnectWithoutGroupsInput = {
-    where: JeugdbewegingWhereUniqueInput
-    create: XOR<JeugdbewegingCreateWithoutGroupsInput, JeugdbewegingUncheckedCreateWithoutGroupsInput>
+  export type YouthMovementCreateOrConnectWithoutGroupsInput = {
+    where: YouthMovementWhereUniqueInput
+    create: XOR<YouthMovementCreateWithoutGroupsInput, YouthMovementUncheckedCreateWithoutGroupsInput>
   }
 
   export type PostCreateWithoutGroupInput = {
@@ -22504,42 +22836,44 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type JeugdbewegingUpsertWithoutGroupsInput = {
-    update: XOR<JeugdbewegingUpdateWithoutGroupsInput, JeugdbewegingUncheckedUpdateWithoutGroupsInput>
-    create: XOR<JeugdbewegingCreateWithoutGroupsInput, JeugdbewegingUncheckedCreateWithoutGroupsInput>
-    where?: JeugdbewegingWhereInput
+  export type YouthMovementUpsertWithoutGroupsInput = {
+    update: XOR<YouthMovementUpdateWithoutGroupsInput, YouthMovementUncheckedUpdateWithoutGroupsInput>
+    create: XOR<YouthMovementCreateWithoutGroupsInput, YouthMovementUncheckedCreateWithoutGroupsInput>
+    where?: YouthMovementWhereInput
   }
 
-  export type JeugdbewegingUpdateToOneWithWhereWithoutGroupsInput = {
-    where?: JeugdbewegingWhereInput
-    data: XOR<JeugdbewegingUpdateWithoutGroupsInput, JeugdbewegingUncheckedUpdateWithoutGroupsInput>
+  export type YouthMovementUpdateToOneWithWhereWithoutGroupsInput = {
+    where?: YouthMovementWhereInput
+    data: XOR<YouthMovementUpdateWithoutGroupsInput, YouthMovementUncheckedUpdateWithoutGroupsInput>
   }
 
-  export type JeugdbewegingUpdateWithoutGroupsInput = {
+  export type YouthMovementUpdateWithoutGroupsInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: JeugdbewegingUserUpdateManyWithoutJeugdbewegingNestedInput
-    invites?: InvitationUpdateManyWithoutJeugdbewegingNestedInput
+    users?: YouthMovementUserUpdateManyWithoutYouthMovementNestedInput
+    invites?: InvitationUpdateManyWithoutYouthMovementNestedInput
+    admin?: UserUpdateOneRequiredWithoutAdminOfNestedInput
   }
 
-  export type JeugdbewegingUncheckedUpdateWithoutGroupsInput = {
+  export type YouthMovementUncheckedUpdateWithoutGroupsInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     city?: StringFieldUpdateOperationsInput | string
-    postalCode?: IntFieldUpdateOperationsInput | number
+    postalCode?: StringFieldUpdateOperationsInput | string
     street?: StringFieldUpdateOperationsInput | string
-    houseNumber?: IntFieldUpdateOperationsInput | number
+    houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: JeugdbewegingUserUncheckedUpdateManyWithoutJeugdbewegingNestedInput
-    invites?: InvitationUncheckedUpdateManyWithoutJeugdbewegingNestedInput
+    adminId?: IntFieldUpdateOperationsInput | number
+    users?: YouthMovementUserUncheckedUpdateManyWithoutYouthMovementNestedInput
+    invites?: InvitationUncheckedUpdateManyWithoutYouthMovementNestedInput
   }
 
   export type PostUpsertWithWhereUniqueWithoutGroupInput = {
@@ -22630,7 +22964,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
     postLikes?: PostLikeCreateNestedManyWithoutUserInput
     messagesSent?: MessageCreateNestedManyWithoutSenderInput
     messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
@@ -22638,6 +22972,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutPostsInput = {
@@ -22649,7 +22984,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
     postLikes?: PostLikeUncheckedCreateNestedManyWithoutUserInput
     messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
     messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
@@ -22657,6 +22992,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutPostsInput = {
@@ -22668,7 +23004,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbeweging: JeugdbewegingCreateNestedOneWithoutGroupsInput
+    youthMovement: YouthMovementCreateNestedOneWithoutGroupsInput
     events?: EventCreateNestedManyWithoutGroupInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutGroupInput
     parentChild?: ParentChildCreateNestedManyWithoutGroupInput
@@ -22679,7 +23015,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbewegingId: number
+    youthMovementId: number
     events?: EventUncheckedCreateNestedManyWithoutGroupInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutGroupInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutGroupInput
@@ -22730,7 +23066,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUpdateManyWithoutSenderNestedInput
     messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
@@ -22738,6 +23074,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPostsInput = {
@@ -22749,7 +23086,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUncheckedUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
@@ -22757,6 +23094,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type GroupUpsertWithoutPostsInput = {
@@ -22774,7 +23112,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbeweging?: JeugdbewegingUpdateOneRequiredWithoutGroupsNestedInput
+    youthMovement?: YouthMovementUpdateOneRequiredWithoutGroupsNestedInput
     events?: EventUpdateManyWithoutGroupNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutGroupNestedInput
     parentChild?: ParentChildUpdateManyWithoutGroupNestedInput
@@ -22785,7 +23123,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     events?: EventUncheckedUpdateManyWithoutGroupNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutGroupNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutGroupNestedInput
@@ -22843,7 +23181,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutUserInput
     messagesSent?: MessageCreateNestedManyWithoutSenderInput
     messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
@@ -22851,6 +23189,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutPostLikesInput = {
@@ -22862,7 +23201,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutUserInput
     messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
     messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
@@ -22870,6 +23209,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutPostLikesInput = {
@@ -22930,7 +23270,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUpdateManyWithoutSenderNestedInput
     messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
@@ -22938,6 +23278,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPostLikesInput = {
@@ -22949,7 +23290,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
     messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
@@ -22957,13 +23298,14 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type GroupCreateWithoutEventsInput = {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbeweging: JeugdbewegingCreateNestedOneWithoutGroupsInput
+    youthMovement: YouthMovementCreateNestedOneWithoutGroupsInput
     posts?: PostCreateNestedManyWithoutGroupInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutGroupInput
     parentChild?: ParentChildCreateNestedManyWithoutGroupInput
@@ -22974,7 +23316,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbewegingId: number
+    youthMovementId: number
     posts?: PostUncheckedCreateNestedManyWithoutGroupInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutGroupInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutGroupInput
@@ -23038,7 +23380,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbeweging?: JeugdbewegingUpdateOneRequiredWithoutGroupsNestedInput
+    youthMovement?: YouthMovementUpdateOneRequiredWithoutGroupsNestedInput
     posts?: PostUpdateManyWithoutGroupNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutGroupNestedInput
     parentChild?: ParentChildUpdateManyWithoutGroupNestedInput
@@ -23049,7 +23391,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     posts?: PostUncheckedUpdateManyWithoutGroupNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutGroupNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutGroupNestedInput
@@ -23127,7 +23469,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutUserInput
     postLikes?: PostLikeCreateNestedManyWithoutUserInput
     messagesSent?: MessageCreateNestedManyWithoutSenderInput
@@ -23135,6 +23477,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutAttendeesInput = {
@@ -23146,7 +23489,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutUserInput
     postLikes?: PostLikeUncheckedCreateNestedManyWithoutUserInput
     messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
@@ -23154,6 +23497,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutAttendeesInput = {
@@ -23218,7 +23562,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUpdateManyWithoutSenderNestedInput
@@ -23226,6 +23570,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAttendeesInput = {
@@ -23237,7 +23582,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUncheckedUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
@@ -23245,6 +23590,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type EventCreateWithoutVolunteersInput = {
@@ -23287,7 +23633,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutUserInput
     postLikes?: PostLikeCreateNestedManyWithoutUserInput
     messagesSent?: MessageCreateNestedManyWithoutSenderInput
@@ -23295,6 +23641,7 @@ export namespace Prisma {
     attendees?: AttendeeCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutVolunteersInput = {
@@ -23306,7 +23653,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutUserInput
     postLikes?: PostLikeUncheckedCreateNestedManyWithoutUserInput
     messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
@@ -23314,6 +23661,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutVolunteersInput = {
@@ -23378,7 +23726,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUpdateManyWithoutSenderNestedInput
@@ -23386,6 +23734,7 @@ export namespace Prisma {
     attendees?: AttendeeUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutVolunteersInput = {
@@ -23397,7 +23746,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUncheckedUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
@@ -23405,6 +23754,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type UserCreateWithoutLeadersGroupsInput = {
@@ -23415,7 +23765,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutUserInput
     postLikes?: PostLikeCreateNestedManyWithoutUserInput
     messagesSent?: MessageCreateNestedManyWithoutSenderInput
@@ -23423,6 +23773,7 @@ export namespace Prisma {
     attendees?: AttendeeCreateNestedManyWithoutUserInput
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutLeadersGroupsInput = {
@@ -23434,7 +23785,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutUserInput
     postLikes?: PostLikeUncheckedCreateNestedManyWithoutUserInput
     messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
@@ -23442,6 +23793,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedCreateNestedManyWithoutUserInput
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutLeadersGroupsInput = {
@@ -23453,7 +23805,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbeweging: JeugdbewegingCreateNestedOneWithoutGroupsInput
+    youthMovement: YouthMovementCreateNestedOneWithoutGroupsInput
     posts?: PostCreateNestedManyWithoutGroupInput
     events?: EventCreateNestedManyWithoutGroupInput
     parentChild?: ParentChildCreateNestedManyWithoutGroupInput
@@ -23464,7 +23816,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbewegingId: number
+    youthMovementId: number
     posts?: PostUncheckedCreateNestedManyWithoutGroupInput
     events?: EventUncheckedCreateNestedManyWithoutGroupInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutGroupInput
@@ -23494,7 +23846,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUpdateManyWithoutSenderNestedInput
@@ -23502,6 +23854,7 @@ export namespace Prisma {
     attendees?: AttendeeUpdateManyWithoutUserNestedInput
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutLeadersGroupsInput = {
@@ -23513,7 +23866,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUncheckedUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
@@ -23521,6 +23874,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedUpdateManyWithoutUserNestedInput
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type GroupUpsertWithoutLeadersGroupsInput = {
@@ -23538,7 +23892,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbeweging?: JeugdbewegingUpdateOneRequiredWithoutGroupsNestedInput
+    youthMovement?: YouthMovementUpdateOneRequiredWithoutGroupsNestedInput
     posts?: PostUpdateManyWithoutGroupNestedInput
     events?: EventUpdateManyWithoutGroupNestedInput
     parentChild?: ParentChildUpdateManyWithoutGroupNestedInput
@@ -23549,7 +23903,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     posts?: PostUncheckedUpdateManyWithoutGroupNestedInput
     events?: EventUncheckedUpdateManyWithoutGroupNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutGroupNestedInput
@@ -23563,7 +23917,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutUserInput
     postLikes?: PostLikeCreateNestedManyWithoutUserInput
     messagesSent?: MessageCreateNestedManyWithoutSenderInput
@@ -23571,6 +23925,7 @@ export namespace Prisma {
     attendees?: AttendeeCreateNestedManyWithoutUserInput
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutParentChildInput = {
@@ -23582,7 +23937,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutUserInput
     postLikes?: PostLikeUncheckedCreateNestedManyWithoutUserInput
     messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
@@ -23590,6 +23945,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedCreateNestedManyWithoutUserInput
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutParentChildInput = {
@@ -23601,7 +23957,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbeweging: JeugdbewegingCreateNestedOneWithoutGroupsInput
+    youthMovement: YouthMovementCreateNestedOneWithoutGroupsInput
     posts?: PostCreateNestedManyWithoutGroupInput
     events?: EventCreateNestedManyWithoutGroupInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutGroupInput
@@ -23612,7 +23968,7 @@ export namespace Prisma {
     name: string
     minimumAge: number
     maximumAge: number
-    jeugdbewegingId: number
+    youthMovementId: number
     posts?: PostUncheckedCreateNestedManyWithoutGroupInput
     events?: EventUncheckedCreateNestedManyWithoutGroupInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutGroupInput
@@ -23642,7 +23998,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUpdateManyWithoutSenderNestedInput
@@ -23650,6 +24006,7 @@ export namespace Prisma {
     attendees?: AttendeeUpdateManyWithoutUserNestedInput
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutParentChildInput = {
@@ -23661,7 +24018,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUncheckedUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
@@ -23669,6 +24026,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedUpdateManyWithoutUserNestedInput
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type GroupUpsertWithoutParentChildInput = {
@@ -23686,7 +24044,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbeweging?: JeugdbewegingUpdateOneRequiredWithoutGroupsNestedInput
+    youthMovement?: YouthMovementUpdateOneRequiredWithoutGroupsNestedInput
     posts?: PostUpdateManyWithoutGroupNestedInput
     events?: EventUpdateManyWithoutGroupNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutGroupNestedInput
@@ -23697,7 +24055,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     posts?: PostUncheckedUpdateManyWithoutGroupNestedInput
     events?: EventUncheckedUpdateManyWithoutGroupNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutGroupNestedInput
@@ -23711,7 +24069,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutUserInput
     postLikes?: PostLikeCreateNestedManyWithoutUserInput
     messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
@@ -23719,6 +24077,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutMessagesSentInput = {
@@ -23730,7 +24089,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutUserInput
     postLikes?: PostLikeUncheckedCreateNestedManyWithoutUserInput
     messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
@@ -23738,6 +24097,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutMessagesSentInput = {
@@ -23753,7 +24113,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutUserInput
     postLikes?: PostLikeCreateNestedManyWithoutUserInput
     messagesSent?: MessageCreateNestedManyWithoutSenderInput
@@ -23761,6 +24121,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutMessagesReceivedInput = {
@@ -23772,7 +24133,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     imageUrl?: string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedCreateNestedManyWithoutUserInput
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutUserInput
     postLikes?: PostLikeUncheckedCreateNestedManyWithoutUserInput
     messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
@@ -23780,6 +24141,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutMessagesReceivedInput = {
@@ -23806,7 +24168,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUpdateManyWithoutUserNestedInput
     messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
@@ -23814,6 +24176,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutMessagesSentInput = {
@@ -23825,7 +24188,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUncheckedUpdateManyWithoutUserNestedInput
     messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
@@ -23833,6 +24196,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUpsertWithoutMessagesReceivedInput = {
@@ -23854,7 +24218,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUpdateManyWithoutSenderNestedInput
@@ -23862,6 +24226,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutMessagesReceivedInput = {
@@ -23873,7 +24238,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    jeugdbewegings?: JeugdbewegingUserUncheckedUpdateManyWithoutUserNestedInput
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutUserNestedInput
     postLikes?: PostLikeUncheckedUpdateManyWithoutUserNestedInput
     messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
@@ -23881,22 +24246,23 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
-  export type GroupCreateManyJeugdbewegingInput = {
+  export type GroupCreateManyYouthMovementInput = {
     id?: number
     name: string
     minimumAge: number
     maximumAge: number
   }
 
-  export type JeugdbewegingUserCreateManyJeugdbewegingInput = {
+  export type YouthMovementUserCreateManyYouthMovementInput = {
     id?: number
     userId: number
     role: $Enums.Role
   }
 
-  export type InvitationCreateManyJeugdbewegingInput = {
+  export type InvitationCreateManyYouthMovementInput = {
     id?: number
     email: string
     role: $Enums.Role
@@ -23906,7 +24272,7 @@ export namespace Prisma {
     expiresAt?: Date | string | null
   }
 
-  export type GroupUpdateWithoutJeugdbewegingInput = {
+  export type GroupUpdateWithoutYouthMovementInput = {
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
@@ -23916,7 +24282,7 @@ export namespace Prisma {
     parentChild?: ParentChildUpdateManyWithoutGroupNestedInput
   }
 
-  export type GroupUncheckedUpdateWithoutJeugdbewegingInput = {
+  export type GroupUncheckedUpdateWithoutYouthMovementInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
@@ -23927,31 +24293,31 @@ export namespace Prisma {
     parentChild?: ParentChildUncheckedUpdateManyWithoutGroupNestedInput
   }
 
-  export type GroupUncheckedUpdateManyWithoutJeugdbewegingInput = {
+  export type GroupUncheckedUpdateManyWithoutYouthMovementInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     minimumAge?: IntFieldUpdateOperationsInput | number
     maximumAge?: IntFieldUpdateOperationsInput | number
   }
 
-  export type JeugdbewegingUserUpdateWithoutJeugdbewegingInput = {
+  export type YouthMovementUserUpdateWithoutYouthMovementInput = {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    user?: UserUpdateOneRequiredWithoutJeugdbewegingsNestedInput
+    user?: UserUpdateOneRequiredWithoutYouthMovementsNestedInput
   }
 
-  export type JeugdbewegingUserUncheckedUpdateWithoutJeugdbewegingInput = {
+  export type YouthMovementUserUncheckedUpdateWithoutYouthMovementInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
-  export type JeugdbewegingUserUncheckedUpdateManyWithoutJeugdbewegingInput = {
+  export type YouthMovementUserUncheckedUpdateManyWithoutYouthMovementInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
-  export type InvitationUpdateWithoutJeugdbewegingInput = {
+  export type InvitationUpdateWithoutYouthMovementInput = {
     email?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     code?: StringFieldUpdateOperationsInput | string
@@ -23960,7 +24326,7 @@ export namespace Prisma {
     expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type InvitationUncheckedUpdateWithoutJeugdbewegingInput = {
+  export type InvitationUncheckedUpdateWithoutYouthMovementInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -23970,7 +24336,7 @@ export namespace Prisma {
     expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type InvitationUncheckedUpdateManyWithoutJeugdbewegingInput = {
+  export type InvitationUncheckedUpdateManyWithoutYouthMovementInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -23980,9 +24346,9 @@ export namespace Prisma {
     expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type JeugdbewegingUserCreateManyUserInput = {
+  export type YouthMovementUserCreateManyUserInput = {
     id?: number
-    jeugdbewegingId: number
+    youthMovementId: number
     role: $Enums.Role
   }
 
@@ -24041,20 +24407,32 @@ export namespace Prisma {
     relation: $Enums.ParentRelation
   }
 
-  export type JeugdbewegingUserUpdateWithoutUserInput = {
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    jeugdbeweging?: JeugdbewegingUpdateOneRequiredWithoutUsersNestedInput
+  export type YouthMovementCreateManyAdminInput = {
+    id?: number
+    name: string
+    description?: string | null
+    city: string
+    postalCode: string
+    street: string
+    houseNumber: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type JeugdbewegingUserUncheckedUpdateWithoutUserInput = {
+  export type YouthMovementUserUpdateWithoutUserInput = {
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    youthMovement?: YouthMovementUpdateOneRequiredWithoutUsersNestedInput
+  }
+
+  export type YouthMovementUserUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
-  export type JeugdbewegingUserUncheckedUpdateManyWithoutUserInput = {
+  export type YouthMovementUserUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    jeugdbewegingId?: IntFieldUpdateOperationsInput | number
+    youthMovementId?: IntFieldUpdateOperationsInput | number
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
@@ -24215,6 +24593,47 @@ export namespace Prisma {
     childName?: StringFieldUpdateOperationsInput | string
     groupId?: IntFieldUpdateOperationsInput | number
     relation?: EnumParentRelationFieldUpdateOperationsInput | $Enums.ParentRelation
+  }
+
+  export type YouthMovementUpdateWithoutAdminInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: StringFieldUpdateOperationsInput | string
+    postalCode?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
+    houseNumber?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    groups?: GroupUpdateManyWithoutYouthMovementNestedInput
+    users?: YouthMovementUserUpdateManyWithoutYouthMovementNestedInput
+    invites?: InvitationUpdateManyWithoutYouthMovementNestedInput
+  }
+
+  export type YouthMovementUncheckedUpdateWithoutAdminInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: StringFieldUpdateOperationsInput | string
+    postalCode?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
+    houseNumber?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
+    users?: YouthMovementUserUncheckedUpdateManyWithoutYouthMovementNestedInput
+    invites?: InvitationUncheckedUpdateManyWithoutYouthMovementNestedInput
+  }
+
+  export type YouthMovementUncheckedUpdateManyWithoutAdminInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: StringFieldUpdateOperationsInput | string
+    postalCode?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
+    houseNumber?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostCreateManyGroupInput = {

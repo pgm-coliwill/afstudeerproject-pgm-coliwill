@@ -7,101 +7,105 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Jeugdbeweging {
-  id          Int     @id @default(autoincrement())
+model YouthMovement {
+  id          Int      @id @default(autoincrement())
   name        String
   description String?
   city        String
-  postalCode  Int
+  postalCode  String
   street      String
-  houseNumber Int
+  houseNumber String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  groups    Group[]
-  users     JeugdbewegingUser[]
-  invites   Invitation[]
+  groups  Group[]
+  users   YouthMovementUser[]
+  invites Invitation[]
+
+  adminId Int
+  admin   User @relation(fields: [adminId], references: [id], onDelete: Cascade)
 }
 
 model User {
-  id           Int     @id @default(autoincrement())
-  firstName    String
-  lastName     String
-  email        String  @unique
-  cognitoId    String  @unique
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  imageUrl     String?
-  jeugdbewegings JeugdbewegingUser[]
-  posts          Post[]
-  postLikes      PostLike[]
-  messagesSent   Message[] @relation("Sender")
-  messagesReceived Message[] @relation("Receiver")
-  attendees      Attendee[]
-  volunteers     Volunteer[]
-  leadersGroups  LeadersGroup[]
-  parentChild    ParentChild[]
+  id               Int                 @id @default(autoincrement())
+  firstName        String
+  lastName         String
+  email            String              @unique
+  cognitoId        String              @unique
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+  imageUrl         String?
+  youthMovements   YouthMovementUser[]
+  posts            Post[]
+  postLikes        PostLike[]
+  messagesSent     Message[]           @relation("Sender")
+  messagesReceived Message[]           @relation("Receiver")
+  attendees        Attendee[]
+  volunteers       Volunteer[]
+  leadersGroups    LeadersGroup[]
+  parentChild      ParentChild[]
+  adminOf          YouthMovement[]
 }
 
-model JeugdbewegingUser {
-  id               Int            @id @default(autoincrement())
-  userId           Int
-  jeugdbewegingId  Int
-  role             Role
+model YouthMovementUser {
+  id              Int  @id @default(autoincrement())
+  userId          Int
+  youthMovementId Int
+  role            Role
 
-  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  jeugdbeweging   Jeugdbeweging   @relation(fields: [jeugdbewegingId], references: [id], onDelete: Cascade)
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  youthMovement YouthMovement @relation(fields: [youthMovementId], references: [id], onDelete: Cascade)
 
-  @@unique([userId, jeugdbewegingId]) // Ensures a user can't have multiple roles in the same movement
+  @@unique([userId, youthMovementId]) // Ensures a user can't have multiple roles in the same movement
 }
 
 model Invitation {
-  id               Int      @id @default(autoincrement())
+  id              Int       @id @default(autoincrement())
   email           String    @unique
   role            Role
-  jeugdbewegingId Int
+  youthMovementId Int
   code            String    @unique
   used            Boolean   @default(false)
   sentAt          DateTime  @default(now())
   expiresAt       DateTime?
 
-  jeugdbeweging   Jeugdbeweging @relation(fields: [jeugdbewegingId], references: [id], onDelete: Cascade)
+  youthMovement YouthMovement @relation(fields: [youthMovementId], references: [id], onDelete: Cascade)
 }
 
 model Group {
-  id              Int       @id @default(autoincrement())
-  name           String
-  minimumAge     Int
-  maximumAge     Int
-  jeugdbewegingId Int
+  id              Int    @id @default(autoincrement())
+  name            String
+  minimumAge      Int
+  maximumAge      Int
+  youthMovementId Int
 
-  jeugdbeweging  Jeugdbeweging @relation(fields: [jeugdbewegingId], references: [id], onDelete: Cascade)
-  posts          Post[]
-  events         Event[]
-  leadersGroups  LeadersGroup[]
-  parentChild    ParentChild[]
+  youthMovement YouthMovement  @relation(fields: [youthMovementId], references: [id], onDelete: Cascade)
+  posts         Post[]
+  events        Event[]
+  leadersGroups LeadersGroup[]
+  parentChild   ParentChild[]
 }
 
 model Post {
-  id              Int      @id @default(autoincrement())
-  title           String
-  body            String
-  userId          Int
-  groupId         Int?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  image           String?
+  id               Int      @id @default(autoincrement())
+  title            String
+  body             String
+  userId           Int
+  groupId          Int?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  image            String?
   amountOfComments Int      @default(0)
 
-  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  group   Group? @relation(fields: [groupId], references: [id], onDelete: SetNull)
-  likes   PostLike[]
+  user  User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  group Group?     @relation(fields: [groupId], references: [id], onDelete: SetNull)
+  likes PostLike[]
 }
 
 model PostLike {
-  id      Int  @id @default(autoincrement())
-  postId  Int
-  userId  Int
+  id        Int      @id @default(autoincrement())
+  postId    Int
+  userId    Int
   createdAt DateTime @default(now())
 
   post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
@@ -109,42 +113,42 @@ model PostLike {
 }
 
 model Event {
-  id         Int      @id @default(autoincrement())
-  name       String
-  body       String
-  image      String?
-  type       String
-  eventDate  DateTime
-  location   String?
-  signUp     Boolean  @default(false)
-  volunteer  Boolean  @default(false)
-  groupId    Int?
+  id        Int      @id @default(autoincrement())
+  name      String
+  body      String
+  image     String?
+  type      String
+  eventDate DateTime
+  location  String?
+  signUp    Boolean  @default(false)
+  volunteer Boolean  @default(false)
+  groupId   Int?
 
-  group      Group?   @relation(fields: [groupId], references: [id], onDelete: SetNull)
+  group      Group?      @relation(fields: [groupId], references: [id], onDelete: SetNull)
   attendees  Attendee[]
   volunteers Volunteer[]
 }
 
 model Attendee {
-  id       Int  @id @default(autoincrement())
-  eventId  Int
-  userId   Int
+  id      Int @id @default(autoincrement())
+  eventId Int
+  userId  Int
 
   event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
   user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Volunteer {
-  id       Int  @id @default(autoincrement())
-  eventId  Int
-  userId   Int
+  id      Int @id @default(autoincrement())
+  eventId Int
+  userId  Int
 
   event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
   user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model LeadersGroup {
-  id      Int  @id @default(autoincrement())
+  id      Int @id @default(autoincrement())
   userId  Int
   groupId Int
 
@@ -153,7 +157,7 @@ model LeadersGroup {
 }
 
 model ParentChild {
-  id        Int         @id @default(autoincrement())
+  id        Int            @id @default(autoincrement())
   parentId  Int
   childName String
   groupId   Int
@@ -164,11 +168,11 @@ model ParentChild {
 }
 
 model Message {
-  id         Int     @id @default(autoincrement())
+  id         Int       @id @default(autoincrement())
   senderId   Int
   receiverId Int
   message    String
-  sentAt     DateTime @default(now())
+  sentAt     DateTime  @default(now())
   readAt     DateTime?
 
   sender   User @relation("Sender", fields: [senderId], references: [id], onDelete: Cascade)
