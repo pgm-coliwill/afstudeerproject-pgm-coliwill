@@ -8,7 +8,8 @@
     "street": "Meir",
     "houseNumber": "45",
     "createdAt": "2024-03-01T10:00:00Z",
-    "updatedAt": "2024-03-01T12:00:00Z"
+    "updatedAt": "2024-03-01T12:00:00Z",
+    "adminId": 2
   },
   {
     "id": 2,
@@ -19,6 +20,7 @@
     "street": "Vrijdagmarkt",
     "houseNumber": "67",
     "createdAt": "2024-03-02T11:00:00Z",
-    "updatedAt": "2024-03-02T13:00:00Z"
+    "updatedAt": "2024-03-02T13:00:00Z",
+    "adminId": 1
   }
 ]

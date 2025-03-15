@@ -22,7 +22,7 @@ export const getUser = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-export const createUser = async (
+export const createAdmin = async (
   req: Request,
   res: Response
 ): Promise<void> => {

@@ -1,12 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import styles from "@/styles/forms/RegisterForms.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { fetchCurrentProfile, ProfileInfo } from "@/utils/fetchCurrentProfile";
+import { fetchAuthSession } from "aws-amplify/auth";
 
 const schema = z.object({
   name: z.string().min(2, "Naam is verplicht"),
@@ -18,6 +21,25 @@ const schema = z.object({
 });
 
 export default function RegisterJeugdbewegingForms() {
+  const router = useRouter();
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
+  // ✅ Fetch user profile (includes PostgreSQL `id`)
+  const {
+    data: profileData,
+    error: profileError,
+    isLoading,
+  } = useQuery<ProfileInfo | null>({
+    queryKey: ["currentProfile"],
+    queryFn: fetchCurrentProfile,
+  });
+
+  useEffect(() => {
+    if (profileData) {
+      console.log("Authenticated User Profile:", profileData);
+    }
+  }, [profileData]);
+
   const {
     register,
     handleSubmit,
@@ -26,35 +48,64 @@ export default function RegisterJeugdbewegingForms() {
     resolver: zodResolver(schema),
   });
 
-  const router = useRouter();
-  const [error, setError] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
-
-  const onSubmit = async (data: z.infer<typeof schema>) => {
-    setError(null);
+  // ✅ Function to create a new youth movement
+  const createYouthMovement = async (data: any) => {
     try {
+      // ✅ Fetch authentication session
+      const session = await fetchAuthSession();
+      const idToken = session.tokens?.idToken?.toString();
+  
+      if (!idToken) {
+        throw new Error("User is not authenticated.");
+      }
+  
+      console.log("🔑 Auth Token:", idToken); // ✅ Debug token
+  
       const response = await fetch("http://localhost:3001/api/youthMovements", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${idToken}`, // ✅ Include authentication token
         },
         body: JSON.stringify(data),
       });
-
+  
       if (!response.ok) {
-        throw new Error("Fout bij het registreren van de jeugdbeweging.");
+        throw new Error(`Error: ${response.status}`);
       }
-
-      setSuccessMessage("Jeugdbeweging succesvol geregistreerd!");
-      setTimeout(() => router.push("/dashboard"), 3000); 
-    } catch (err: unknown) {
-      console.error("Registratie fout:", err);
-      if (err instanceof Error) {
-        setError(err.message || "Er is een fout opgetreden bij het registreren.");
-      } else {
-        setError("Er is een fout opgetreden bij het registreren.");
-      }
+  
+      return response.json();
+    } catch (error) {
+      console.error("❌ Error creating youth movement:", error);
+      throw error;
     }
+  };
+  // ✅ Mutation to create youth movement
+  const {
+    mutate,
+    isLoading: isMutating,
+    error,
+  } = useMutation({
+    mutationFn: createYouthMovement,
+    onSuccess: () => {
+      setSuccessMessage("Jeugdbeweging succesvol geregistreerd!");
+      router.push("/dashboard");
+    },
+  });
+
+  // ✅ Submit handler
+  const onSubmit = (data: any) => {
+    if (!profileData) {
+      console.error("❌ User profile is not available.");
+      return;
+    }
+  
+    console.log("📌 Submitting Youth Movement Data:", { ...data, adminId: profileData.id }); // ✅ Debug adminId
+  
+    mutate({
+      ...data,
+      adminId: profileData.id, // ✅ Send `adminId`
+    });
   };
 
   return (
@@ -63,6 +114,12 @@ export default function RegisterJeugdbewegingForms() {
         <Image src="/images/logo.svg" alt="logo" width={200} height={200} />
       </div>
 
+      {/* ✅ Show loading state */}
+      {isLoading && <p>Loading user profile...</p>}
+      {profileError && (
+        <p className="error">Error fetching profile: {profileError.message}</p>
+      )}
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="name">Naam jeugdbeweging</label>
         <input type="text" id="name" {...register("name")} />
@@ -70,7 +127,9 @@ export default function RegisterJeugdbewegingForms() {
 
         <label htmlFor="description">Beschrijving</label>
         <textarea id="description" {...register("description")} />
-        {errors.description && <p className="error">{errors.description.message}</p>}
+        {errors.description && (
+          <p className="error">{errors.description.message}</p>
+        )}
 
         <div className={styles.flexForm}>
           <div>
@@ -81,30 +140,41 @@ export default function RegisterJeugdbewegingForms() {
           <div>
             <label htmlFor="postalCode">Postcode</label>
             <input type="text" id="postalCode" {...register("postalCode")} />
-            {errors.postalCode && <p className="error">{errors.postalCode.message}</p>}
+            {errors.postalCode && (
+              <p className="error">{errors.postalCode.message}</p>
+            )}
           </div>
         </div>
 
         <div className={styles.flexForm}>
           <div>
-            <label htmlFor="street">Straatnaam</label>
+            <label htmlFor="street">Straat</label>
             <input type="text" id="street" {...register("street")} />
             {errors.street && <p className="error">{errors.street.message}</p>}
           </div>
           <div>
             <label htmlFor="houseNumber">Huisnummer</label>
             <input type="text" id="houseNumber" {...register("houseNumber")} />
-            {errors.houseNumber && <p className="error">{errors.houseNumber.message}</p>}
+            {errors.houseNumber && (
+              <p className="error">{errors.houseNumber.message}</p>
+            )}
           </div>
         </div>
 
-        {error && <p className="error">{error}</p>}
-        {successMessage && <p className="success">{successMessage}</p>}
-
-        <button type="submit" className={styles.submitButton}>
-          Registreer
+        <button
+          type="submit"
+          className={styles.submitButton}
+          disabled={isMutating}
+        >
+          {isMutating ? "Bezig met registreren..." : "Registreer"}
         </button>
       </form>
+
+      {/* ✅ Success Message */}
+      {successMessage && <p className="success">{successMessage}</p>}
+
+      {/* ✅ Display API error message */}
+      {error && <p className="error">Fout bij registratie: {error.message}</p>}
     </div>
   );
 }

@@ -37,8 +37,8 @@ async function deleteAllData() {
   await prisma.group.deleteMany();
   await prisma.invitation.deleteMany();
   await prisma.youthMovementUser.deleteMany();
+  await prisma.youthMovement.deleteMany(); // ✅ Delete YouthMovements before Users
   await prisma.user.deleteMany();
-  await prisma.youthMovement.deleteMany();
   console.log("🗑 All existing data cleared.");
 }
 
@@ -48,9 +48,9 @@ async function main() {
   // Delete all existing data
   await deleteAllData();
 
-  // Load JSON data for each model
-  const youthMovements = JSON.parse(fs.readFileSync(path.join(dataDirectory, "youthMovements.json"), "utf-8"));
+  // Load JSON data
   const users = JSON.parse(fs.readFileSync(path.join(dataDirectory, "users.json"), "utf-8"));
+  const youthMovements = JSON.parse(fs.readFileSync(path.join(dataDirectory, "youthMovements.json"), "utf-8"));
   const youthMovementUser = JSON.parse(fs.readFileSync(path.join(dataDirectory, "youthMovementsUser.json"), "utf-8"));
   const invitations = JSON.parse(fs.readFileSync(path.join(dataDirectory, "invitations.json"), "utf-8"));
   const groups = JSON.parse(fs.readFileSync(path.join(dataDirectory, "groups.json"), "utf-8"));
@@ -63,11 +63,28 @@ async function main() {
   const parentChild = JSON.parse(fs.readFileSync(path.join(dataDirectory, "parentChild.json"), "utf-8"));
   const messages = JSON.parse(fs.readFileSync(path.join(dataDirectory, "messages.json"), "utf-8"));
 
-  // Seed each model in the correct order
-  await prisma.youthMovement.createMany({ data: youthMovements });
+  // ✅ STEP 1: Seed Users FIRST
   await prisma.user.createMany({ data: users });
+  console.log("✅ Users seeded");
 
-  // Handle foreign key constraints
+  // ✅ STEP 2: Ensure adminId exists before inserting YouthMovements
+  const validYouthMovements = [];
+  for (const movement of youthMovements) {
+    const adminExists = await prisma.user.findUnique({ where: { id: movement.adminId } });
+    if (adminExists) {
+      validYouthMovements.push(movement);
+    } else {
+      console.warn(`❌ Skipping youthMovement with adminId ${movement.adminId} (Admin does not exist)`);
+    }
+  }
+
+  // ✅ Insert YouthMovements only if they have a valid adminId
+  if (validYouthMovements.length > 0) {
+    await prisma.youthMovement.createMany({ data: validYouthMovements });
+    console.log("✅ YouthMovements seeded");
+  }
+
+  // ✅ STEP 3: Seed YouthMovementUser with foreign key validation
   for (const item of youthMovementUser) {
     const userExists = await prisma.user.findUnique({ where: { id: item.userId } });
     const jeugdExists = await prisma.youthMovement.findUnique({ where: { id: item.youthMovementId } });
@@ -75,10 +92,11 @@ async function main() {
     if (userExists && jeugdExists) {
       await prisma.youthMovementUser.create({ data: item });
     } else {
-      console.warn(`❌ Skipping jeugdbewegingUser entry for userId ${item.userId} and jeugdbewegingId ${item.youthMovementId}`);
+      console.warn(`❌ Skipping youthMovementUser for userId ${item.userId} and youthMovementId ${item.youthMovementId}`);
     }
   }
 
+  // ✅ STEP 4: Insert remaining data
   await prisma.invitation.createMany({ data: invitations });
   await prisma.group.createMany({ data: groups });
   await prisma.post.createMany({ data: posts });
@@ -88,7 +106,7 @@ async function main() {
   await prisma.attendee.createMany({ data: attendees });
   await prisma.leadersGroup.createMany({ data: leadersGroups });
 
-  // Handle parent-child relationship
+  // ✅ STEP 5: Handle Parent-Child relationships
   for (const item of parentChild) {
     const parentExists = await prisma.user.findUnique({ where: { id: item.parentId } });
 
@@ -99,11 +117,13 @@ async function main() {
     }
   }
 
+  // ✅ STEP 6: Seed Messages
   await prisma.message.createMany({ data: messages });
 
   console.log("✅ Seeding completed successfully!");
 }
 
+// Run the seeding script
 main()
   .catch((e) => console.error(e))
   .finally(async () => await prisma.$disconnect());

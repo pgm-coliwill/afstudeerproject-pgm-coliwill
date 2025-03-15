@@ -1,48 +1,26 @@
-import { NextFunction, Request, Response } from "express";
-import jwt, { JwtPayload } from "jsonwebtoken";
+import { Request, Response, NextFunction } from "express";
+import jwt from "jsonwebtoken";
 
-interface DecodedToken extends JwtPayload {
-  sub: string;
-  "custom:role"?: string;
+interface AuthenticatedRequest extends Request {
+  user?: any; // ✅ Allow any user payload
 }
 
-declare global {
-  namespace Express {
-    interface Request {
-      user?: {
-        id: string;
-        role?: string;
-      };
-    }
+export const authenticate = (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    console.error("❌ Missing or invalid authorization header");
+    return res.status(403).json({ message: "Unauthorized: Missing token" });
   }
-}
 
-export const authMiddleware = (allowedRoles: string[]) => {
-  return (req: Request, res: Response, next: NextFunction): void => {
-    const token = req.headers.authorization?.split(" ")[1];
-    if (!token) {
-      res.status(401).json({ message: "Unauthorized" });
-      return;
-    }
+  const token = authHeader.split(" ")[1];
 
-    try {
-      const decoded = jwt.decode(token) as DecodedToken;
-      const userRole = decoded["custom:role"] || "";
-      req.user = {
-        id: decoded.sub,
-        role: userRole,
-      };
-
-      const hasAccess = allowedRoles.includes(userRole.toLowerCase());
-      if (!hasAccess) {
-        res.status(403).json({ message: "Forbidden" });
-        return;
-      }
-    } catch (error) {
-      console.error("failed to decode token", error);
-      res.status(400).json({ message: "Invalid token" });
-      return;
-    }
+  try {
+    const decoded = jwt.verify(token, process.env.COGNITO_JWT_SECRET!);
+    req.user = decoded;
+    console.log("✅ Authenticated user:", req.user);
     next();
-  };
+  } catch (error) {
+    console.error("❌ Token verification failed:", error);
+    return res.status(403).json({ message: "Invalid or expired token" });
+  }
 };

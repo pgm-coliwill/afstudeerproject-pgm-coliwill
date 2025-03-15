@@ -1,11 +1,11 @@
 import express from "express";
-import { getUser, createUser } from "../controllers/userController";
+import { getUser, createAdmin } from "../controllers/userController";
 
 
 const router = express.Router();
 
 router.get("/:cognitoId", getUser);
-router.post("/", createUser);
+router.post("/", createAdmin);
 
 
 

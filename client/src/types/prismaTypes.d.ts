@@ -2048,6 +2048,7 @@ export namespace Prisma {
     volunteers: number
     leadersGroups: number
     parentChild: number
+    adminOf: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2060,6 +2061,7 @@ export namespace Prisma {
     volunteers?: boolean | UserCountOutputTypeCountVolunteersArgs
     leadersGroups?: boolean | UserCountOutputTypeCountLeadersGroupsArgs
     parentChild?: boolean | UserCountOutputTypeCountParentChildArgs
+    adminOf?: boolean | UserCountOutputTypeCountAdminOfArgs
   }
 
   // Custom InputTypes
@@ -2134,6 +2136,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountParentChildArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ParentChildWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountAdminOfArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YouthMovementWhereInput
   }
 
 
@@ -2284,10 +2293,12 @@ export namespace Prisma {
 
   export type YouthMovementAvgAggregateOutputType = {
     id: number | null
+    adminId: number | null
   }
 
   export type YouthMovementSumAggregateOutputType = {
     id: number | null
+    adminId: number | null
   }
 
   export type YouthMovementMinAggregateOutputType = {
@@ -2300,6 +2311,7 @@ export namespace Prisma {
     houseNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    adminId: number | null
   }
 
   export type YouthMovementMaxAggregateOutputType = {
@@ -2312,6 +2324,7 @@ export namespace Prisma {
     houseNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    adminId: number | null
   }
 
   export type YouthMovementCountAggregateOutputType = {
@@ -2324,16 +2337,19 @@ export namespace Prisma {
     houseNumber: number
     createdAt: number
     updatedAt: number
+    adminId: number
     _all: number
   }
 
 
   export type YouthMovementAvgAggregateInputType = {
     id?: true
+    adminId?: true
   }
 
   export type YouthMovementSumAggregateInputType = {
     id?: true
+    adminId?: true
   }
 
   export type YouthMovementMinAggregateInputType = {
@@ -2346,6 +2362,7 @@ export namespace Prisma {
     houseNumber?: true
     createdAt?: true
     updatedAt?: true
+    adminId?: true
   }
 
   export type YouthMovementMaxAggregateInputType = {
@@ -2358,6 +2375,7 @@ export namespace Prisma {
     houseNumber?: true
     createdAt?: true
     updatedAt?: true
+    adminId?: true
   }
 
   export type YouthMovementCountAggregateInputType = {
@@ -2370,6 +2388,7 @@ export namespace Prisma {
     houseNumber?: true
     createdAt?: true
     updatedAt?: true
+    adminId?: true
     _all?: true
   }
 
@@ -2469,6 +2488,7 @@ export namespace Prisma {
     houseNumber: string
     createdAt: Date
     updatedAt: Date
+    adminId: number
     _count: YouthMovementCountAggregateOutputType | null
     _avg: YouthMovementAvgAggregateOutputType | null
     _sum: YouthMovementSumAggregateOutputType | null
@@ -2500,9 +2520,11 @@ export namespace Prisma {
     houseNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    adminId?: boolean
     groups?: boolean | YouthMovement$groupsArgs<ExtArgs>
     users?: boolean | YouthMovement$usersArgs<ExtArgs>
     invites?: boolean | YouthMovement$invitesArgs<ExtArgs>
+    admin?: boolean | UserDefaultArgs<ExtArgs>
     _count?: boolean | YouthMovementCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["youthMovement"]>
 
@@ -2516,6 +2538,8 @@ export namespace Prisma {
     houseNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    adminId?: boolean
+    admin?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["youthMovement"]>
 
   export type YouthMovementSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2528,6 +2552,8 @@ export namespace Prisma {
     houseNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    adminId?: boolean
+    admin?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["youthMovement"]>
 
   export type YouthMovementSelectScalar = {
@@ -2540,17 +2566,23 @@ export namespace Prisma {
     houseNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    adminId?: boolean
   }
 
-  export type YouthMovementOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "city" | "postalCode" | "street" | "houseNumber" | "createdAt" | "updatedAt", ExtArgs["result"]["youthMovement"]>
+  export type YouthMovementOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "city" | "postalCode" | "street" | "houseNumber" | "createdAt" | "updatedAt" | "adminId", ExtArgs["result"]["youthMovement"]>
   export type YouthMovementInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     groups?: boolean | YouthMovement$groupsArgs<ExtArgs>
     users?: boolean | YouthMovement$usersArgs<ExtArgs>
     invites?: boolean | YouthMovement$invitesArgs<ExtArgs>
+    admin?: boolean | UserDefaultArgs<ExtArgs>
     _count?: boolean | YouthMovementCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type YouthMovementIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type YouthMovementIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type YouthMovementIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    admin?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type YouthMovementIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    admin?: boolean | UserDefaultArgs<ExtArgs>
+  }
 
   export type $YouthMovementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "YouthMovement"
@@ -2558,6 +2590,7 @@ export namespace Prisma {
       groups: Prisma.$GroupPayload<ExtArgs>[]
       users: Prisma.$YouthMovementUserPayload<ExtArgs>[]
       invites: Prisma.$InvitationPayload<ExtArgs>[]
+      admin: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2569,6 +2602,7 @@ export namespace Prisma {
       houseNumber: string
       createdAt: Date
       updatedAt: Date
+      adminId: number
     }, ExtArgs["result"]["youthMovement"]>
     composites: {}
   }
@@ -2966,6 +3000,7 @@ export namespace Prisma {
     groups<T extends YouthMovement$groupsArgs<ExtArgs> = {}>(args?: Subset<T, YouthMovement$groupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GroupPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     users<T extends YouthMovement$usersArgs<ExtArgs> = {}>(args?: Subset<T, YouthMovement$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementUserPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     invites<T extends YouthMovement$invitesArgs<ExtArgs> = {}>(args?: Subset<T, YouthMovement$invitesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    admin<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3004,6 +3039,7 @@ export namespace Prisma {
     readonly houseNumber: FieldRef<"YouthMovement", 'String'>
     readonly createdAt: FieldRef<"YouthMovement", 'DateTime'>
     readonly updatedAt: FieldRef<"YouthMovement", 'DateTime'>
+    readonly adminId: FieldRef<"YouthMovement", 'Int'>
   }
     
 
@@ -3253,6 +3289,10 @@ export namespace Prisma {
      */
     data: YouthMovementCreateManyInput | YouthMovementCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YouthMovementIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3323,6 +3363,10 @@ export namespace Prisma {
      * Limit how many YouthMovements to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YouthMovementIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3713,6 +3757,7 @@ export namespace Prisma {
     volunteers?: boolean | User$volunteersArgs<ExtArgs>
     leadersGroups?: boolean | User$leadersGroupsArgs<ExtArgs>
     parentChild?: boolean | User$parentChildArgs<ExtArgs>
+    adminOf?: boolean | User$adminOfArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3760,6 +3805,7 @@ export namespace Prisma {
     volunteers?: boolean | User$volunteersArgs<ExtArgs>
     leadersGroups?: boolean | User$leadersGroupsArgs<ExtArgs>
     parentChild?: boolean | User$parentChildArgs<ExtArgs>
+    adminOf?: boolean | User$adminOfArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3777,6 +3823,7 @@ export namespace Prisma {
       volunteers: Prisma.$VolunteerPayload<ExtArgs>[]
       leadersGroups: Prisma.$LeadersGroupPayload<ExtArgs>[]
       parentChild: Prisma.$ParentChildPayload<ExtArgs>[]
+      adminOf: Prisma.$YouthMovementPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4190,6 +4237,7 @@ export namespace Prisma {
     volunteers<T extends User$volunteersArgs<ExtArgs> = {}>(args?: Subset<T, User$volunteersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VolunteerPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     leadersGroups<T extends User$leadersGroupsArgs<ExtArgs> = {}>(args?: Subset<T, User$leadersGroupsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadersGroupPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     parentChild<T extends User$parentChildArgs<ExtArgs> = {}>(args?: Subset<T, User$parentChildArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParentChildPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    adminOf<T extends User$adminOfArgs<ExtArgs> = {}>(args?: Subset<T, User$adminOfArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YouthMovementPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4828,6 +4876,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ParentChildScalarFieldEnum | ParentChildScalarFieldEnum[]
+  }
+
+  /**
+   * User.adminOf
+   */
+  export type User$adminOfArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YouthMovement
+     */
+    select?: YouthMovementSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the YouthMovement
+     */
+    omit?: YouthMovementOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: YouthMovementInclude<ExtArgs> | null
+    where?: YouthMovementWhereInput
+    orderBy?: YouthMovementOrderByWithRelationInput | YouthMovementOrderByWithRelationInput[]
+    cursor?: YouthMovementWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: YouthMovementScalarFieldEnum | YouthMovementScalarFieldEnum[]
   }
 
   /**
@@ -17341,7 +17413,8 @@ export namespace Prisma {
     street: 'street',
     houseNumber: 'houseNumber',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    adminId: 'adminId'
   };
 
   export type YouthMovementScalarFieldEnum = (typeof YouthMovementScalarFieldEnum)[keyof typeof YouthMovementScalarFieldEnum]
@@ -17623,9 +17696,11 @@ export namespace Prisma {
     houseNumber?: StringFilter<"YouthMovement"> | string
     createdAt?: DateTimeFilter<"YouthMovement"> | Date | string
     updatedAt?: DateTimeFilter<"YouthMovement"> | Date | string
+    adminId?: IntFilter<"YouthMovement"> | number
     groups?: GroupListRelationFilter
     users?: YouthMovementUserListRelationFilter
     invites?: InvitationListRelationFilter
+    admin?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type YouthMovementOrderByWithRelationInput = {
@@ -17638,9 +17713,11 @@ export namespace Prisma {
     houseNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    adminId?: SortOrder
     groups?: GroupOrderByRelationAggregateInput
     users?: YouthMovementUserOrderByRelationAggregateInput
     invites?: InvitationOrderByRelationAggregateInput
+    admin?: UserOrderByWithRelationInput
   }
 
   export type YouthMovementWhereUniqueInput = Prisma.AtLeast<{
@@ -17656,9 +17733,11 @@ export namespace Prisma {
     houseNumber?: StringFilter<"YouthMovement"> | string
     createdAt?: DateTimeFilter<"YouthMovement"> | Date | string
     updatedAt?: DateTimeFilter<"YouthMovement"> | Date | string
+    adminId?: IntFilter<"YouthMovement"> | number
     groups?: GroupListRelationFilter
     users?: YouthMovementUserListRelationFilter
     invites?: InvitationListRelationFilter
+    admin?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type YouthMovementOrderByWithAggregationInput = {
@@ -17671,6 +17750,7 @@ export namespace Prisma {
     houseNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    adminId?: SortOrder
     _count?: YouthMovementCountOrderByAggregateInput
     _avg?: YouthMovementAvgOrderByAggregateInput
     _max?: YouthMovementMaxOrderByAggregateInput
@@ -17691,6 +17771,7 @@ export namespace Prisma {
     houseNumber?: StringWithAggregatesFilter<"YouthMovement"> | string
     createdAt?: DateTimeWithAggregatesFilter<"YouthMovement"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"YouthMovement"> | Date | string
+    adminId?: IntWithAggregatesFilter<"YouthMovement"> | number
   }
 
   export type UserWhereInput = {
@@ -17714,6 +17795,7 @@ export namespace Prisma {
     volunteers?: VolunteerListRelationFilter
     leadersGroups?: LeadersGroupListRelationFilter
     parentChild?: ParentChildListRelationFilter
+    adminOf?: YouthMovementListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -17734,6 +17816,7 @@ export namespace Prisma {
     volunteers?: VolunteerOrderByRelationAggregateInput
     leadersGroups?: LeadersGroupOrderByRelationAggregateInput
     parentChild?: ParentChildOrderByRelationAggregateInput
+    adminOf?: YouthMovementOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -17757,6 +17840,7 @@ export namespace Prisma {
     volunteers?: VolunteerListRelationFilter
     leadersGroups?: LeadersGroupListRelationFilter
     parentChild?: ParentChildListRelationFilter
+    adminOf?: YouthMovementListRelationFilter
   }, "id" | "email" | "cognitoId">
 
   export type UserOrderByWithAggregationInput = {
@@ -18499,6 +18583,7 @@ export namespace Prisma {
     groups?: GroupCreateNestedManyWithoutYouthMovementInput
     users?: YouthMovementUserCreateNestedManyWithoutYouthMovementInput
     invites?: InvitationCreateNestedManyWithoutYouthMovementInput
+    admin: UserCreateNestedOneWithoutAdminOfInput
   }
 
   export type YouthMovementUncheckedCreateInput = {
@@ -18511,6 +18596,7 @@ export namespace Prisma {
     houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    adminId: number
     groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
     users?: YouthMovementUserUncheckedCreateNestedManyWithoutYouthMovementInput
     invites?: InvitationUncheckedCreateNestedManyWithoutYouthMovementInput
@@ -18528,6 +18614,7 @@ export namespace Prisma {
     groups?: GroupUpdateManyWithoutYouthMovementNestedInput
     users?: YouthMovementUserUpdateManyWithoutYouthMovementNestedInput
     invites?: InvitationUpdateManyWithoutYouthMovementNestedInput
+    admin?: UserUpdateOneRequiredWithoutAdminOfNestedInput
   }
 
   export type YouthMovementUncheckedUpdateInput = {
@@ -18540,6 +18627,7 @@ export namespace Prisma {
     houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    adminId?: IntFieldUpdateOperationsInput | number
     groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
     users?: YouthMovementUserUncheckedUpdateManyWithoutYouthMovementNestedInput
     invites?: InvitationUncheckedUpdateManyWithoutYouthMovementNestedInput
@@ -18555,6 +18643,7 @@ export namespace Prisma {
     houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    adminId: number
   }
 
   export type YouthMovementUpdateManyMutationInput = {
@@ -18578,6 +18667,7 @@ export namespace Prisma {
     houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    adminId?: IntFieldUpdateOperationsInput | number
   }
 
   export type UserCreateInput = {
@@ -18597,6 +18687,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -18617,6 +18708,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserUpdateInput = {
@@ -18636,6 +18728,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -18656,6 +18749,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -19390,6 +19484,11 @@ export namespace Prisma {
     none?: InvitationWhereInput
   }
 
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -19417,10 +19516,12 @@ export namespace Prisma {
     houseNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    adminId?: SortOrder
   }
 
   export type YouthMovementAvgOrderByAggregateInput = {
     id?: SortOrder
+    adminId?: SortOrder
   }
 
   export type YouthMovementMaxOrderByAggregateInput = {
@@ -19433,6 +19534,7 @@ export namespace Prisma {
     houseNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    adminId?: SortOrder
   }
 
   export type YouthMovementMinOrderByAggregateInput = {
@@ -19445,10 +19547,12 @@ export namespace Prisma {
     houseNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    adminId?: SortOrder
   }
 
   export type YouthMovementSumOrderByAggregateInput = {
     id?: SortOrder
+    adminId?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -19559,6 +19663,12 @@ export namespace Prisma {
     none?: ParentChildWhereInput
   }
 
+  export type YouthMovementListRelationFilter = {
+    every?: YouthMovementWhereInput
+    some?: YouthMovementWhereInput
+    none?: YouthMovementWhereInput
+  }
+
   export type PostOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -19584,6 +19694,10 @@ export namespace Prisma {
   }
 
   export type ParentChildOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type YouthMovementOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19633,11 +19747,6 @@ export namespace Prisma {
     in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
     notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
-  }
-
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
   }
 
   export type YouthMovementScalarRelationFilter = {
@@ -20204,6 +20313,12 @@ export namespace Prisma {
     connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
   }
 
+  export type UserCreateNestedOneWithoutAdminOfInput = {
+    create?: XOR<UserCreateWithoutAdminOfInput, UserUncheckedCreateWithoutAdminOfInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAdminOfInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type GroupUncheckedCreateNestedManyWithoutYouthMovementInput = {
     create?: XOR<GroupCreateWithoutYouthMovementInput, GroupUncheckedCreateWithoutYouthMovementInput> | GroupCreateWithoutYouthMovementInput[] | GroupUncheckedCreateWithoutYouthMovementInput[]
     connectOrCreate?: GroupCreateOrConnectWithoutYouthMovementInput | GroupCreateOrConnectWithoutYouthMovementInput[]
@@ -20277,6 +20392,14 @@ export namespace Prisma {
     update?: InvitationUpdateWithWhereUniqueWithoutYouthMovementInput | InvitationUpdateWithWhereUniqueWithoutYouthMovementInput[]
     updateMany?: InvitationUpdateManyWithWhereWithoutYouthMovementInput | InvitationUpdateManyWithWhereWithoutYouthMovementInput[]
     deleteMany?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutAdminOfNestedInput = {
+    create?: XOR<UserCreateWithoutAdminOfInput, UserUncheckedCreateWithoutAdminOfInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAdminOfInput
+    upsert?: UserUpsertWithoutAdminOfInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAdminOfInput, UserUpdateWithoutAdminOfInput>, UserUncheckedUpdateWithoutAdminOfInput>
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -20392,6 +20515,13 @@ export namespace Prisma {
     connect?: ParentChildWhereUniqueInput | ParentChildWhereUniqueInput[]
   }
 
+  export type YouthMovementCreateNestedManyWithoutAdminInput = {
+    create?: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput> | YouthMovementCreateWithoutAdminInput[] | YouthMovementUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutAdminInput | YouthMovementCreateOrConnectWithoutAdminInput[]
+    createMany?: YouthMovementCreateManyAdminInputEnvelope
+    connect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+  }
+
   export type YouthMovementUserUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<YouthMovementUserCreateWithoutUserInput, YouthMovementUserUncheckedCreateWithoutUserInput> | YouthMovementUserCreateWithoutUserInput[] | YouthMovementUserUncheckedCreateWithoutUserInput[]
     connectOrCreate?: YouthMovementUserCreateOrConnectWithoutUserInput | YouthMovementUserCreateOrConnectWithoutUserInput[]
@@ -20453,6 +20583,13 @@ export namespace Prisma {
     connectOrCreate?: ParentChildCreateOrConnectWithoutParentInput | ParentChildCreateOrConnectWithoutParentInput[]
     createMany?: ParentChildCreateManyParentInputEnvelope
     connect?: ParentChildWhereUniqueInput | ParentChildWhereUniqueInput[]
+  }
+
+  export type YouthMovementUncheckedCreateNestedManyWithoutAdminInput = {
+    create?: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput> | YouthMovementCreateWithoutAdminInput[] | YouthMovementUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutAdminInput | YouthMovementCreateOrConnectWithoutAdminInput[]
+    createMany?: YouthMovementCreateManyAdminInputEnvelope
+    connect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
   }
 
   export type YouthMovementUserUpdateManyWithoutUserNestedInput = {
@@ -20581,6 +20718,20 @@ export namespace Prisma {
     deleteMany?: ParentChildScalarWhereInput | ParentChildScalarWhereInput[]
   }
 
+  export type YouthMovementUpdateManyWithoutAdminNestedInput = {
+    create?: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput> | YouthMovementCreateWithoutAdminInput[] | YouthMovementUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutAdminInput | YouthMovementCreateOrConnectWithoutAdminInput[]
+    upsert?: YouthMovementUpsertWithWhereUniqueWithoutAdminInput | YouthMovementUpsertWithWhereUniqueWithoutAdminInput[]
+    createMany?: YouthMovementCreateManyAdminInputEnvelope
+    set?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    disconnect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    delete?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    connect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    update?: YouthMovementUpdateWithWhereUniqueWithoutAdminInput | YouthMovementUpdateWithWhereUniqueWithoutAdminInput[]
+    updateMany?: YouthMovementUpdateManyWithWhereWithoutAdminInput | YouthMovementUpdateManyWithWhereWithoutAdminInput[]
+    deleteMany?: YouthMovementScalarWhereInput | YouthMovementScalarWhereInput[]
+  }
+
   export type YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<YouthMovementUserCreateWithoutUserInput, YouthMovementUserUncheckedCreateWithoutUserInput> | YouthMovementUserCreateWithoutUserInput[] | YouthMovementUserUncheckedCreateWithoutUserInput[]
     connectOrCreate?: YouthMovementUserCreateOrConnectWithoutUserInput | YouthMovementUserCreateOrConnectWithoutUserInput[]
@@ -20705,6 +20856,20 @@ export namespace Prisma {
     update?: ParentChildUpdateWithWhereUniqueWithoutParentInput | ParentChildUpdateWithWhereUniqueWithoutParentInput[]
     updateMany?: ParentChildUpdateManyWithWhereWithoutParentInput | ParentChildUpdateManyWithWhereWithoutParentInput[]
     deleteMany?: ParentChildScalarWhereInput | ParentChildScalarWhereInput[]
+  }
+
+  export type YouthMovementUncheckedUpdateManyWithoutAdminNestedInput = {
+    create?: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput> | YouthMovementCreateWithoutAdminInput[] | YouthMovementUncheckedCreateWithoutAdminInput[]
+    connectOrCreate?: YouthMovementCreateOrConnectWithoutAdminInput | YouthMovementCreateOrConnectWithoutAdminInput[]
+    upsert?: YouthMovementUpsertWithWhereUniqueWithoutAdminInput | YouthMovementUpsertWithWhereUniqueWithoutAdminInput[]
+    createMany?: YouthMovementCreateManyAdminInputEnvelope
+    set?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    disconnect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    delete?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    connect?: YouthMovementWhereUniqueInput | YouthMovementWhereUniqueInput[]
+    update?: YouthMovementUpdateWithWhereUniqueWithoutAdminInput | YouthMovementUpdateWithWhereUniqueWithoutAdminInput[]
+    updateMany?: YouthMovementUpdateManyWithWhereWithoutAdminInput | YouthMovementUpdateManyWithWhereWithoutAdminInput[]
+    deleteMany?: YouthMovementScalarWhereInput | YouthMovementScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutYouthMovementsInput = {
@@ -21611,6 +21776,50 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type UserCreateWithoutAdminOfInput = {
+    firstName: string
+    lastName: string
+    email: string
+    cognitoId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    imageUrl?: string | null
+    youthMovements?: YouthMovementUserCreateNestedManyWithoutUserInput
+    posts?: PostCreateNestedManyWithoutUserInput
+    postLikes?: PostLikeCreateNestedManyWithoutUserInput
+    messagesSent?: MessageCreateNestedManyWithoutSenderInput
+    messagesReceived?: MessageCreateNestedManyWithoutReceiverInput
+    attendees?: AttendeeCreateNestedManyWithoutUserInput
+    volunteers?: VolunteerCreateNestedManyWithoutUserInput
+    leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
+    parentChild?: ParentChildCreateNestedManyWithoutParentInput
+  }
+
+  export type UserUncheckedCreateWithoutAdminOfInput = {
+    id?: number
+    firstName: string
+    lastName: string
+    email: string
+    cognitoId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    imageUrl?: string | null
+    youthMovements?: YouthMovementUserUncheckedCreateNestedManyWithoutUserInput
+    posts?: PostUncheckedCreateNestedManyWithoutUserInput
+    postLikes?: PostLikeUncheckedCreateNestedManyWithoutUserInput
+    messagesSent?: MessageUncheckedCreateNestedManyWithoutSenderInput
+    messagesReceived?: MessageUncheckedCreateNestedManyWithoutReceiverInput
+    attendees?: AttendeeUncheckedCreateNestedManyWithoutUserInput
+    volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
+    leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
+    parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+  }
+
+  export type UserCreateOrConnectWithoutAdminOfInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutAdminOfInput, UserUncheckedCreateWithoutAdminOfInput>
+  }
+
   export type GroupUpsertWithWhereUniqueWithoutYouthMovementInput = {
     where: GroupWhereUniqueInput
     update: XOR<GroupUpdateWithoutYouthMovementInput, GroupUncheckedUpdateWithoutYouthMovementInput>
@@ -21692,6 +21901,56 @@ export namespace Prisma {
     used?: BoolFilter<"Invitation"> | boolean
     sentAt?: DateTimeFilter<"Invitation"> | Date | string
     expiresAt?: DateTimeNullableFilter<"Invitation"> | Date | string | null
+  }
+
+  export type UserUpsertWithoutAdminOfInput = {
+    update: XOR<UserUpdateWithoutAdminOfInput, UserUncheckedUpdateWithoutAdminOfInput>
+    create: XOR<UserCreateWithoutAdminOfInput, UserUncheckedCreateWithoutAdminOfInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutAdminOfInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutAdminOfInput, UserUncheckedUpdateWithoutAdminOfInput>
+  }
+
+  export type UserUpdateWithoutAdminOfInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    cognitoId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youthMovements?: YouthMovementUserUpdateManyWithoutUserNestedInput
+    posts?: PostUpdateManyWithoutUserNestedInput
+    postLikes?: PostLikeUpdateManyWithoutUserNestedInput
+    messagesSent?: MessageUpdateManyWithoutSenderNestedInput
+    messagesReceived?: MessageUpdateManyWithoutReceiverNestedInput
+    attendees?: AttendeeUpdateManyWithoutUserNestedInput
+    volunteers?: VolunteerUpdateManyWithoutUserNestedInput
+    leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
+    parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutAdminOfInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    cognitoId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youthMovements?: YouthMovementUserUncheckedUpdateManyWithoutUserNestedInput
+    posts?: PostUncheckedUpdateManyWithoutUserNestedInput
+    postLikes?: PostLikeUncheckedUpdateManyWithoutUserNestedInput
+    messagesSent?: MessageUncheckedUpdateManyWithoutSenderNestedInput
+    messagesReceived?: MessageUncheckedUpdateManyWithoutReceiverNestedInput
+    attendees?: AttendeeUncheckedUpdateManyWithoutUserNestedInput
+    volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
+    leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
+    parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
   }
 
   export type YouthMovementUserCreateWithoutUserInput = {
@@ -21896,6 +22155,45 @@ export namespace Prisma {
 
   export type ParentChildCreateManyParentInputEnvelope = {
     data: ParentChildCreateManyParentInput | ParentChildCreateManyParentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type YouthMovementCreateWithoutAdminInput = {
+    name: string
+    description?: string | null
+    city: string
+    postalCode: string
+    street: string
+    houseNumber: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    groups?: GroupCreateNestedManyWithoutYouthMovementInput
+    users?: YouthMovementUserCreateNestedManyWithoutYouthMovementInput
+    invites?: InvitationCreateNestedManyWithoutYouthMovementInput
+  }
+
+  export type YouthMovementUncheckedCreateWithoutAdminInput = {
+    id?: number
+    name: string
+    description?: string | null
+    city: string
+    postalCode: string
+    street: string
+    houseNumber: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
+    users?: YouthMovementUserUncheckedCreateNestedManyWithoutYouthMovementInput
+    invites?: InvitationUncheckedCreateNestedManyWithoutYouthMovementInput
+  }
+
+  export type YouthMovementCreateOrConnectWithoutAdminInput = {
+    where: YouthMovementWhereUniqueInput
+    create: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput>
+  }
+
+  export type YouthMovementCreateManyAdminInputEnvelope = {
+    data: YouthMovementCreateManyAdminInput | YouthMovementCreateManyAdminInput[]
     skipDuplicates?: boolean
   }
 
@@ -22118,6 +22416,38 @@ export namespace Prisma {
     relation?: EnumParentRelationFilter<"ParentChild"> | $Enums.ParentRelation
   }
 
+  export type YouthMovementUpsertWithWhereUniqueWithoutAdminInput = {
+    where: YouthMovementWhereUniqueInput
+    update: XOR<YouthMovementUpdateWithoutAdminInput, YouthMovementUncheckedUpdateWithoutAdminInput>
+    create: XOR<YouthMovementCreateWithoutAdminInput, YouthMovementUncheckedCreateWithoutAdminInput>
+  }
+
+  export type YouthMovementUpdateWithWhereUniqueWithoutAdminInput = {
+    where: YouthMovementWhereUniqueInput
+    data: XOR<YouthMovementUpdateWithoutAdminInput, YouthMovementUncheckedUpdateWithoutAdminInput>
+  }
+
+  export type YouthMovementUpdateManyWithWhereWithoutAdminInput = {
+    where: YouthMovementScalarWhereInput
+    data: XOR<YouthMovementUpdateManyMutationInput, YouthMovementUncheckedUpdateManyWithoutAdminInput>
+  }
+
+  export type YouthMovementScalarWhereInput = {
+    AND?: YouthMovementScalarWhereInput | YouthMovementScalarWhereInput[]
+    OR?: YouthMovementScalarWhereInput[]
+    NOT?: YouthMovementScalarWhereInput | YouthMovementScalarWhereInput[]
+    id?: IntFilter<"YouthMovement"> | number
+    name?: StringFilter<"YouthMovement"> | string
+    description?: StringNullableFilter<"YouthMovement"> | string | null
+    city?: StringFilter<"YouthMovement"> | string
+    postalCode?: StringFilter<"YouthMovement"> | string
+    street?: StringFilter<"YouthMovement"> | string
+    houseNumber?: StringFilter<"YouthMovement"> | string
+    createdAt?: DateTimeFilter<"YouthMovement"> | Date | string
+    updatedAt?: DateTimeFilter<"YouthMovement"> | Date | string
+    adminId?: IntFilter<"YouthMovement"> | number
+  }
+
   export type UserCreateWithoutYouthMovementsInput = {
     firstName: string
     lastName: string
@@ -22134,6 +22464,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutYouthMovementsInput = {
@@ -22153,6 +22484,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutYouthMovementsInput = {
@@ -22171,6 +22503,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     groups?: GroupCreateNestedManyWithoutYouthMovementInput
     invites?: InvitationCreateNestedManyWithoutYouthMovementInput
+    admin: UserCreateNestedOneWithoutAdminOfInput
   }
 
   export type YouthMovementUncheckedCreateWithoutUsersInput = {
@@ -22183,6 +22516,7 @@ export namespace Prisma {
     houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    adminId: number
     groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
     invites?: InvitationUncheckedCreateNestedManyWithoutYouthMovementInput
   }
@@ -22219,6 +22553,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutYouthMovementsInput = {
@@ -22238,6 +22573,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type YouthMovementUpsertWithoutUsersInput = {
@@ -22262,6 +22598,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groups?: GroupUpdateManyWithoutYouthMovementNestedInput
     invites?: InvitationUpdateManyWithoutYouthMovementNestedInput
+    admin?: UserUpdateOneRequiredWithoutAdminOfNestedInput
   }
 
   export type YouthMovementUncheckedUpdateWithoutUsersInput = {
@@ -22274,6 +22611,7 @@ export namespace Prisma {
     houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    adminId?: IntFieldUpdateOperationsInput | number
     groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
     invites?: InvitationUncheckedUpdateManyWithoutYouthMovementNestedInput
   }
@@ -22289,6 +22627,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     groups?: GroupCreateNestedManyWithoutYouthMovementInput
     users?: YouthMovementUserCreateNestedManyWithoutYouthMovementInput
+    admin: UserCreateNestedOneWithoutAdminOfInput
   }
 
   export type YouthMovementUncheckedCreateWithoutInvitesInput = {
@@ -22301,6 +22640,7 @@ export namespace Prisma {
     houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    adminId: number
     groups?: GroupUncheckedCreateNestedManyWithoutYouthMovementInput
     users?: YouthMovementUserUncheckedCreateNestedManyWithoutYouthMovementInput
   }
@@ -22332,6 +22672,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     groups?: GroupUpdateManyWithoutYouthMovementNestedInput
     users?: YouthMovementUserUpdateManyWithoutYouthMovementNestedInput
+    admin?: UserUpdateOneRequiredWithoutAdminOfNestedInput
   }
 
   export type YouthMovementUncheckedUpdateWithoutInvitesInput = {
@@ -22344,6 +22685,7 @@ export namespace Prisma {
     houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    adminId?: IntFieldUpdateOperationsInput | number
     groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
     users?: YouthMovementUserUncheckedUpdateManyWithoutYouthMovementNestedInput
   }
@@ -22359,6 +22701,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     users?: YouthMovementUserCreateNestedManyWithoutYouthMovementInput
     invites?: InvitationCreateNestedManyWithoutYouthMovementInput
+    admin: UserCreateNestedOneWithoutAdminOfInput
   }
 
   export type YouthMovementUncheckedCreateWithoutGroupsInput = {
@@ -22371,6 +22714,7 @@ export namespace Prisma {
     houseNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    adminId: number
     users?: YouthMovementUserUncheckedCreateNestedManyWithoutYouthMovementInput
     invites?: InvitationUncheckedCreateNestedManyWithoutYouthMovementInput
   }
@@ -22514,6 +22858,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     users?: YouthMovementUserUpdateManyWithoutYouthMovementNestedInput
     invites?: InvitationUpdateManyWithoutYouthMovementNestedInput
+    admin?: UserUpdateOneRequiredWithoutAdminOfNestedInput
   }
 
   export type YouthMovementUncheckedUpdateWithoutGroupsInput = {
@@ -22526,6 +22871,7 @@ export namespace Prisma {
     houseNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    adminId?: IntFieldUpdateOperationsInput | number
     users?: YouthMovementUserUncheckedUpdateManyWithoutYouthMovementNestedInput
     invites?: InvitationUncheckedUpdateManyWithoutYouthMovementNestedInput
   }
@@ -22626,6 +22972,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutPostsInput = {
@@ -22645,6 +22992,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutPostsInput = {
@@ -22726,6 +23074,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPostsInput = {
@@ -22745,6 +23094,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type GroupUpsertWithoutPostsInput = {
@@ -22839,6 +23189,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutPostLikesInput = {
@@ -22858,6 +23209,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutPostLikesInput = {
@@ -22926,6 +23278,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPostLikesInput = {
@@ -22945,6 +23298,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type GroupCreateWithoutEventsInput = {
@@ -23123,6 +23477,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutAttendeesInput = {
@@ -23142,6 +23497,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutAttendeesInput = {
@@ -23214,6 +23570,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAttendeesInput = {
@@ -23233,6 +23590,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type EventCreateWithoutVolunteersInput = {
@@ -23283,6 +23641,7 @@ export namespace Prisma {
     attendees?: AttendeeCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutVolunteersInput = {
@@ -23302,6 +23661,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutVolunteersInput = {
@@ -23374,6 +23734,7 @@ export namespace Prisma {
     attendees?: AttendeeUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutVolunteersInput = {
@@ -23393,6 +23754,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type UserCreateWithoutLeadersGroupsInput = {
@@ -23411,6 +23773,7 @@ export namespace Prisma {
     attendees?: AttendeeCreateNestedManyWithoutUserInput
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutLeadersGroupsInput = {
@@ -23430,6 +23793,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedCreateNestedManyWithoutUserInput
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutLeadersGroupsInput = {
@@ -23490,6 +23854,7 @@ export namespace Prisma {
     attendees?: AttendeeUpdateManyWithoutUserNestedInput
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutLeadersGroupsInput = {
@@ -23509,6 +23874,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedUpdateManyWithoutUserNestedInput
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type GroupUpsertWithoutLeadersGroupsInput = {
@@ -23559,6 +23925,7 @@ export namespace Prisma {
     attendees?: AttendeeCreateNestedManyWithoutUserInput
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutParentChildInput = {
@@ -23578,6 +23945,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedCreateNestedManyWithoutUserInput
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutParentChildInput = {
@@ -23638,6 +24006,7 @@ export namespace Prisma {
     attendees?: AttendeeUpdateManyWithoutUserNestedInput
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutParentChildInput = {
@@ -23657,6 +24026,7 @@ export namespace Prisma {
     attendees?: AttendeeUncheckedUpdateManyWithoutUserNestedInput
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type GroupUpsertWithoutParentChildInput = {
@@ -23707,6 +24077,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutMessagesSentInput = {
@@ -23726,6 +24097,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutMessagesSentInput = {
@@ -23749,6 +24121,7 @@ export namespace Prisma {
     volunteers?: VolunteerCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupCreateNestedManyWithoutUserInput
     parentChild?: ParentChildCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementCreateNestedManyWithoutAdminInput
   }
 
   export type UserUncheckedCreateWithoutMessagesReceivedInput = {
@@ -23768,6 +24141,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutUserInput
     leadersGroups?: LeadersGroupUncheckedCreateNestedManyWithoutUserInput
     parentChild?: ParentChildUncheckedCreateNestedManyWithoutParentInput
+    adminOf?: YouthMovementUncheckedCreateNestedManyWithoutAdminInput
   }
 
   export type UserCreateOrConnectWithoutMessagesReceivedInput = {
@@ -23802,6 +24176,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutMessagesSentInput = {
@@ -23821,6 +24196,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUpsertWithoutMessagesReceivedInput = {
@@ -23850,6 +24226,7 @@ export namespace Prisma {
     volunteers?: VolunteerUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUpdateManyWithoutAdminNestedInput
   }
 
   export type UserUncheckedUpdateWithoutMessagesReceivedInput = {
@@ -23869,6 +24246,7 @@ export namespace Prisma {
     volunteers?: VolunteerUncheckedUpdateManyWithoutUserNestedInput
     leadersGroups?: LeadersGroupUncheckedUpdateManyWithoutUserNestedInput
     parentChild?: ParentChildUncheckedUpdateManyWithoutParentNestedInput
+    adminOf?: YouthMovementUncheckedUpdateManyWithoutAdminNestedInput
   }
 
   export type GroupCreateManyYouthMovementInput = {
@@ -24027,6 +24405,18 @@ export namespace Prisma {
     childName: string
     groupId: number
     relation: $Enums.ParentRelation
+  }
+
+  export type YouthMovementCreateManyAdminInput = {
+    id?: number
+    name: string
+    description?: string | null
+    city: string
+    postalCode: string
+    street: string
+    houseNumber: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type YouthMovementUserUpdateWithoutUserInput = {
@@ -24203,6 +24593,47 @@ export namespace Prisma {
     childName?: StringFieldUpdateOperationsInput | string
     groupId?: IntFieldUpdateOperationsInput | number
     relation?: EnumParentRelationFieldUpdateOperationsInput | $Enums.ParentRelation
+  }
+
+  export type YouthMovementUpdateWithoutAdminInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: StringFieldUpdateOperationsInput | string
+    postalCode?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
+    houseNumber?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    groups?: GroupUpdateManyWithoutYouthMovementNestedInput
+    users?: YouthMovementUserUpdateManyWithoutYouthMovementNestedInput
+    invites?: InvitationUpdateManyWithoutYouthMovementNestedInput
+  }
+
+  export type YouthMovementUncheckedUpdateWithoutAdminInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: StringFieldUpdateOperationsInput | string
+    postalCode?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
+    houseNumber?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    groups?: GroupUncheckedUpdateManyWithoutYouthMovementNestedInput
+    users?: YouthMovementUserUncheckedUpdateManyWithoutYouthMovementNestedInput
+    invites?: InvitationUncheckedUpdateManyWithoutYouthMovementNestedInput
+  }
+
+  export type YouthMovementUncheckedUpdateManyWithoutAdminInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: StringFieldUpdateOperationsInput | string
+    postalCode?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
+    houseNumber?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PostCreateManyGroupInput = {

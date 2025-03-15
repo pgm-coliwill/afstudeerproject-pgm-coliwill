@@ -3,35 +3,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.authMiddleware = void 0;
+exports.authenticate = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const authMiddleware = (allowedRoles) => {
-    return (req, res, next) => {
-        var _a;
-        const token = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(" ")[1];
-        if (!token) {
-            res.status(401).json({ message: "Unauthorized" });
-            return;
-        }
-        try {
-            const decoded = jsonwebtoken_1.default.decode(token);
-            const userRole = decoded["custom:role"] || "";
-            req.user = {
-                id: decoded.sub,
-                role: userRole,
-            };
-            const hasAccess = allowedRoles.includes(userRole.toLowerCase());
-            if (!hasAccess) {
-                res.status(403).json({ message: "Forbidden" });
-                return;
-            }
-        }
-        catch (error) {
-            console.error("failed to decode token", error);
-            res.status(400).json({ message: "Invalid token" });
-            return;
-        }
+const authenticate = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+        console.error("❌ Missing or invalid authorization header");
+        return res.status(403).json({ message: "Unauthorized: Missing token" });
+    }
+    const token = authHeader.split(" ")[1];
+    try {
+        const decoded = jsonwebtoken_1.default.verify(token, process.env.COGNITO_JWT_SECRET);
+        req.user = decoded;
+        console.log("✅ Authenticated user:", req.user);
         next();
-    };
+    }
+    catch (error) {
+        console.error("❌ Token verification failed:", error);
+        return res.status(403).json({ message: "Invalid or expired token" });
+    }
 };
-exports.authMiddleware = authMiddleware;
+exports.authenticate = authenticate;

@@ -7,5 +7,5 @@ const express_1 = __importDefault(require("express"));
 const userController_1 = require("../controllers/userController");
 const router = express_1.default.Router();
 router.get("/:cognitoId", userController_1.getUser);
-router.post("/", userController_1.createUser);
+router.post("/", userController_1.createAdmin);
 exports.default = router;

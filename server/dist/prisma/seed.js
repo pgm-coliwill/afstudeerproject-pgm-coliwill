@@ -45,8 +45,8 @@ function deleteAllData() {
         yield prisma.group.deleteMany();
         yield prisma.invitation.deleteMany();
         yield prisma.youthMovementUser.deleteMany();
+        yield prisma.youthMovement.deleteMany(); // ✅ Delete YouthMovements before Users
         yield prisma.user.deleteMany();
-        yield prisma.youthMovement.deleteMany();
         console.log("🗑 All existing data cleared.");
     });
 }
@@ -55,9 +55,9 @@ function main() {
         const dataDirectory = path_1.default.join(__dirname, "seedData");
         // Delete all existing data
         yield deleteAllData();
-        // Load JSON data for each model
-        const youthMovements = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "youthMovements.json"), "utf-8"));
+        // Load JSON data
         const users = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "users.json"), "utf-8"));
+        const youthMovements = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "youthMovements.json"), "utf-8"));
         const youthMovementUser = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "youthMovementsUser.json"), "utf-8"));
         const invitations = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "invitations.json"), "utf-8"));
         const groups = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "groups.json"), "utf-8"));
@@ -69,10 +69,26 @@ function main() {
         const leadersGroups = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "leadersGroups.json"), "utf-8"));
         const parentChild = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "parentChild.json"), "utf-8"));
         const messages = JSON.parse(fs_1.default.readFileSync(path_1.default.join(dataDirectory, "messages.json"), "utf-8"));
-        // Seed each model in the correct order
-        yield prisma.youthMovement.createMany({ data: youthMovements });
+        // ✅ STEP 1: Seed Users FIRST
         yield prisma.user.createMany({ data: users });
-        // Handle foreign key constraints
+        console.log("✅ Users seeded");
+        // ✅ STEP 2: Ensure adminId exists before inserting YouthMovements
+        const validYouthMovements = [];
+        for (const movement of youthMovements) {
+            const adminExists = yield prisma.user.findUnique({ where: { id: movement.adminId } });
+            if (adminExists) {
+                validYouthMovements.push(movement);
+            }
+            else {
+                console.warn(`❌ Skipping youthMovement with adminId ${movement.adminId} (Admin does not exist)`);
+            }
+        }
+        // ✅ Insert YouthMovements only if they have a valid adminId
+        if (validYouthMovements.length > 0) {
+            yield prisma.youthMovement.createMany({ data: validYouthMovements });
+            console.log("✅ YouthMovements seeded");
+        }
+        // ✅ STEP 3: Seed YouthMovementUser with foreign key validation
         for (const item of youthMovementUser) {
             const userExists = yield prisma.user.findUnique({ where: { id: item.userId } });
             const jeugdExists = yield prisma.youthMovement.findUnique({ where: { id: item.youthMovementId } });
@@ -80,9 +96,10 @@ function main() {
                 yield prisma.youthMovementUser.create({ data: item });
             }
             else {
-                console.warn(`❌ Skipping jeugdbewegingUser entry for userId ${item.userId} and jeugdbewegingId ${item.youthMovementId}`);
+                console.warn(`❌ Skipping youthMovementUser for userId ${item.userId} and youthMovementId ${item.youthMovementId}`);
             }
         }
+        // ✅ STEP 4: Insert remaining data
         yield prisma.invitation.createMany({ data: invitations });
         yield prisma.group.createMany({ data: groups });
         yield prisma.post.createMany({ data: posts });
@@ -91,7 +108,7 @@ function main() {
         yield prisma.volunteer.createMany({ data: volunteers });
         yield prisma.attendee.createMany({ data: attendees });
         yield prisma.leadersGroup.createMany({ data: leadersGroups });
-        // Handle parent-child relationship
+        // ✅ STEP 5: Handle Parent-Child relationships
         for (const item of parentChild) {
             const parentExists = yield prisma.user.findUnique({ where: { id: item.parentId } });
             if (parentExists) {
@@ -101,10 +118,12 @@ function main() {
                 console.warn(`❌ Skipping ParentChild entry for parentId ${item.parentId}`);
             }
         }
+        // ✅ STEP 6: Seed Messages
         yield prisma.message.createMany({ data: messages });
         console.log("✅ Seeding completed successfully!");
     });
 }
+// Run the seeding script
 main()
     .catch((e) => console.error(e))
     .finally(() => __awaiter(void 0, void 0, void 0, function* () { return yield prisma.$disconnect(); }));

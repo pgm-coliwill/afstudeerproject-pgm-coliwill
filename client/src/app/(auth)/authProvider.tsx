@@ -109,7 +109,7 @@ const Auth = ({ children }: { children: React.ReactNode }) => {
           const session = await fetchAuthSession();
           const { idToken } = session.tokens ?? {};
           const role = idToken?.payload["custom:role"] as string;
-          setUserRole(role || "ouder"); 
+          setUserRole(role || "ouder");
         } catch (error) {
           console.error("Failed to fetch user role", error);
         }
@@ -124,7 +124,7 @@ const Auth = ({ children }: { children: React.ReactNode }) => {
       if (user && isSignInPage) {
         router.push("/dashboard");
       } else if (user && isSignUpPage && userRole === "admin") {
-        router.push("/registration/youth-movement");
+        router.push("/registration/admin");
       }
     }
   }, [user, userRole, isSignInPage, isSignUpPage, router]);
