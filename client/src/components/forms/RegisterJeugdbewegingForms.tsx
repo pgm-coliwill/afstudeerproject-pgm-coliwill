@@ -48,7 +48,17 @@ export default function RegisterJeugdbewegingForms() {
     resolver: zodResolver(schema),
   });
 
-  const createYouthMovement = async (data: any) => {
+  interface YouthMovementData {
+    name: string;
+    description?: string;
+    city: string;
+    postalCode: string;
+    street: string;
+    houseNumber: string;
+    adminId?: number;
+  }
+
+  const createYouthMovement = async (data: YouthMovementData) => {
     try {
      
       const session = await fetchAuthSession();
@@ -82,7 +92,6 @@ export default function RegisterJeugdbewegingForms() {
   // ✅ Mutation to create youth movement
   const {
     mutate,
-    isLoading: isMutating,
     error,
   } = useMutation({
     mutationFn: createYouthMovement,
@@ -93,7 +102,7 @@ export default function RegisterJeugdbewegingForms() {
   });
 
   // ✅ Submit handler
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: YouthMovementData) => {
     if (!profileData) {
       console.error("❌ User profile is not available.");
       return;
@@ -163,9 +172,8 @@ export default function RegisterJeugdbewegingForms() {
         <button
           type="submit"
           className={styles.submitButton}
-          disabled={isMutating}
         >
-          {isMutating ? "Bezig met registreren..." : "Registreer"}
+          Registreer
         </button>
       </form>
 

@@ -8,4 +8,5 @@ const userController_1 = require("../controllers/userController");
 const router = express_1.default.Router();
 router.get("/:cognitoId", userController_1.getUser);
 router.post("/", userController_1.createAdmin);
+router.post("/create", userController_1.createUser);
 exports.default = router;

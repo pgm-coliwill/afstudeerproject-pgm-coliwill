@@ -5,7 +5,13 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { fetchCurrentYouthMovement } from "@/utils/fetchCurrentYouthMovement";
 
-const sendInvites = async (data: any) => {
+interface InviteData {
+  emails: string[];
+  role: "ouder" | "leider";
+  youthMovementId: number;
+}
+
+const sendInvites = async (data: InviteData) => {
   const response = await fetch("http://localhost:3001/api/invite", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -21,15 +27,15 @@ const sendInvites = async (data: any) => {
 
 export default function InviteForm({ role }: { role: "ouder" | "leider" }) {
   const { register, handleSubmit, control } = useForm({
-    defaultValues: { emails: [""] },
+    defaultValues: { emails: [""], role, youthMovementId: 0 },
   });
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "emails",
+    name: "emails" as never,
   });
 
-  // ✅ Fetch the current youth movement ID
+
   const { data: youthMovement, isLoading, error } = useQuery({
     queryKey: ["currentYouthMovement"],
     queryFn: fetchCurrentYouthMovement,
@@ -42,7 +48,7 @@ export default function InviteForm({ role }: { role: "ouder" | "leider" }) {
     },
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: InviteData) => {
     if (!youthMovement) {
       alert("No youth movement found!");
       console.error("❌ No youth movement data available.");
@@ -52,13 +58,13 @@ export default function InviteForm({ role }: { role: "ouder" | "leider" }) {
     console.log("📌 Submitting Invite Data:", {
       ...data,
       role,
-      youthMovementId: youthMovement.id, // ✅ Use the fetched ID
+      youthMovementId: youthMovement.id, 
     });
 
     mutation.mutate({
       ...data,
       role,
-      youthMovementId: youthMovement.id, // ✅ Dynamically set ID
+      youthMovementId: youthMovement.id,
     });
   };
 

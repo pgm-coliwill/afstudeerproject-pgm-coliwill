@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.inviteUsers = void 0;
+exports.getInviteCode = exports.inviteUsers = void 0;
 const client_1 = require("@prisma/client");
 const aws_sdk_1 = __importDefault(require("aws-sdk"));
 const crypto_1 = __importDefault(require("crypto"));
@@ -41,7 +41,6 @@ const inviteUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             res.status(400).json({ message: "Invalid youth movement ID." });
             return;
         }
-        // ✅ Create Invitations & Send Emails
         const invitations = yield Promise.all(emails.map((email) => __awaiter(void 0, void 0, void 0, function* () {
             const inviteCode = crypto_1.default.randomBytes(6).toString("hex"); // Generate unique code
             const invitation = yield prisma.invitation.create({
@@ -54,7 +53,6 @@ const inviteUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
                     expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Expires in 7 days
                 },
             });
-            // ✅ Send email via AWS SES
             yield sendEmail(email, inviteCode, youthMovement.name, role);
             return invitation;
         })));
@@ -67,18 +65,15 @@ const inviteUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.inviteUsers = inviteUsers;
-// ✅ Function to Send Email via AWS SES
 const sendEmail = (toEmail, inviteCode, youthMovementName, role) => __awaiter(void 0, void 0, void 0, function* () {
     const subject = `Uitnodiging voor ${youthMovementName}`;
     const body = `
     Je bent uitgenodigd om je aan te sluiten bij ${youthMovementName} als ${role}.
     Gebruik deze code om je te registreren: ${inviteCode}
     De code vervalt over 7 dagen.
-    
-    Registreer nu: http://localhost:3000/signup?code=${inviteCode}
   `;
     const params = {
-        Source: "cwillems1903@gmail.com", // ✅ Must be verified in AWS SES
+        Source: "cwillems1903@gmail.com",
         Destination: { ToAddresses: [toEmail] },
         Message: {
             Subject: { Data: subject },
@@ -95,3 +90,22 @@ const sendEmail = (toEmail, inviteCode, youthMovementName, role) => __awaiter(vo
         console.error(`❌ Failed to send email to ${toEmail}:`, error);
     }
 });
+const getInviteCode = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { code } = req.params;
+    try {
+        console.log("📌 Fetching Invitation for Code:", code);
+        const invitation = yield prisma.invitation.findUnique({
+            where: { code },
+        });
+        if (!invitation) {
+            res.status(404).json({ message: "Invitation not found." });
+            return;
+        }
+        res.json(invitation);
+    }
+    catch (error) {
+        console.error("❌ Failed to fetch invitation:", error);
+        res.status(500).json({ message: "Error fetching invitation." });
+    }
+});
+exports.getInviteCode = getInviteCode;

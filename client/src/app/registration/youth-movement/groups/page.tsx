@@ -5,6 +5,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { fetchCurrentYouthMovement } from "@/utils/fetchCurrentYouthMovement";
 import { useRouter } from "next/navigation";
+import { Group } from "@/types/prismaTypes";
 
 const addGroupsAPI = async (data: any) => {
 
@@ -59,7 +60,7 @@ export default function Groups() {
         ...group,
         minimumAge: Number(group.minimumAge),
         maximumAge: Number(group.maximumAge),
-        youthMovementId: youthMovement.id, // ✅ Attach youthMovementId
+        youthMovementId: youthMovement.id, 
       })),
     });
   };

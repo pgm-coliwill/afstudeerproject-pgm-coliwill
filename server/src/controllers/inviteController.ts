@@ -37,7 +37,7 @@ export const inviteUsers = async (req: Request, res: Response): Promise<void> =>
       return;
     }
 
-    // ✅ Create Invitations & Send Emails
+   
     const invitations = await Promise.all(
       emails.map(async (email: string) => {
         const inviteCode = crypto.randomBytes(6).toString("hex"); // Generate unique code
@@ -53,7 +53,7 @@ export const inviteUsers = async (req: Request, res: Response): Promise<void> =>
           },
         });
 
-        // ✅ Send email via AWS SES
+        
         await sendEmail(email, inviteCode, youthMovement.name, role);
 
         return invitation;
@@ -68,19 +68,17 @@ export const inviteUsers = async (req: Request, res: Response): Promise<void> =>
   }
 };
 
-// ✅ Function to Send Email via AWS SES
+
 const sendEmail = async (toEmail: string, inviteCode: string, youthMovementName: string, role: string) => {
   const subject = `Uitnodiging voor ${youthMovementName}`;
   const body = `
     Je bent uitgenodigd om je aan te sluiten bij ${youthMovementName} als ${role}.
     Gebruik deze code om je te registreren: ${inviteCode}
     De code vervalt over 7 dagen.
-    
-    Registreer nu: http://localhost:3000/signup?code=${inviteCode}
   `;
 
   const params = {
-    Source: "cwillems1903@gmail.com", // ✅ Must be verified in AWS SES
+    Source: "cwillems1903@gmail.com", 
     Destination: { ToAddresses: [toEmail] },
     Message: {
       Subject: { Data: subject },
@@ -95,5 +93,27 @@ const sendEmail = async (toEmail: string, inviteCode: string, youthMovementName:
     console.log(`✅ Email sent to ${toEmail}`);
   } catch (error) {
     console.error(`❌ Failed to send email to ${toEmail}:`, error);
+  }
+};
+
+export const getInviteCode = async (req: Request, res: Response): Promise<void> => {
+  const { code } = req.params;
+
+  try {
+    console.log("📌 Fetching Invitation for Code:", code);
+
+    const invitation = await prisma.invitation.findUnique({
+      where: { code },
+    });
+
+    if (!invitation) {
+      res.status(404).json({ message: "Invitation not found." });
+      return;
+    }
+
+    res.json(invitation);
+  } catch (error) {
+    console.error("❌ Failed to fetch invitation:", error);
+    res.status(500).json({ message: "Error fetching invitation." });
   }
 };
