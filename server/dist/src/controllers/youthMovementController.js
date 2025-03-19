@@ -14,14 +14,13 @@ const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const createYouthMovement = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log("📌 Received Youth Movement Data:", req.body); // ✅ Debug input
         const { name, description, city, postalCode, street, houseNumber, adminId } = req.body;
-        // ✅ Log missing fields
-        if (!name || !city || !postalCode || !street || !houseNumber || !adminId) {
-            console.error("❌ Missing fields:", { name, city, postalCode, street, houseNumber, adminId });
-            res.status(400).json({ message: "Missing required fields." });
+        console.log("📌 Creating Youth Movement:", { name, city, adminId });
+        if (!adminId) {
+            res.status(400).json({ message: "Admin ID is required." });
             return;
         }
+        // ✅ Create the Youth Movement
         const youthMovement = yield prisma.youthMovement.create({
             data: {
                 name,
@@ -30,14 +29,18 @@ const createYouthMovement = (req, res) => __awaiter(void 0, void 0, void 0, func
                 postalCode,
                 street,
                 houseNumber,
-                admin: {
-                    connect: {
-                        id: adminId,
-                    },
-                },
+                adminId,
             },
         });
         console.log("✅ Youth Movement Created:", youthMovement);
+        yield prisma.youthMovementUser.create({
+            data: {
+                userId: adminId,
+                youthMovementId: youthMovement.id,
+                role: "leider",
+            },
+        });
+        console.log("✅ Admin assigned as leader");
         res.status(201).json(youthMovement);
     }
     catch (error) {

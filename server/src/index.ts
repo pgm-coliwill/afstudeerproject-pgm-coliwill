@@ -12,6 +12,8 @@ import userRoutes from "./routes/userRoutes";
 import youthMovementRoutes from "./routes/youthMovementRoutes";
 import groupRoutes from "./routes/groupRoutes";
 import inviteRoutes from "./routes/inviteRoutes";
+import leadersGroupRoutes from "./routes/leadersGroupRoutes";
+import parentChildRoutes from "./routes/parentChildRoutes";
 
 /*CONFIGURATION */
 
@@ -35,6 +37,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/youthMovements", youthMovementRoutes);
 app.use("/api/groups", groupRoutes);
 app.use("/api/invite", inviteRoutes);
+app.use("/api/leadersGroups", leadersGroupRoutes);
+app.use("/api/parentChild", parentChildRoutes);
 
 /*SERVER*/
 const PORT = process.env.PORT || 3002;

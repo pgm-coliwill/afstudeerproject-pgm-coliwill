@@ -67,7 +67,9 @@ export default function Code() {
     onSuccess: () => {
       console.log("✅ User created successfully");
       alert("Account created successfully!");
-      router.push("/dashboard");
+      if (userData?.role === "ouder") router.push("/registration/parent-groups");
+      else
+      router.push("/registration/leader-groups");
     },
     onError: (error: { message: string }) => {
       console.error("❌ Error creating user:", error);

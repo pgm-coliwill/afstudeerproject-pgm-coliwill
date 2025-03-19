@@ -28,19 +28,19 @@ const createGroups = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 exports.createGroups = createGroups;
 const getGroupsFromYouthMovement = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { youthMovementId } = req.params;
+    console.log("📌 Received request to fetch groups for Youth Movement ID:", youthMovementId); // Debugging log
     try {
-        const youthMovementIdNumber = parseInt(youthMovementId, 10);
-        if (isNaN(youthMovementIdNumber)) {
-            console.error("❌ Invalid youthMovementId:", youthMovementId);
-            res.status(400).json({ message: "Invalid youth movement ID." });
-            return;
-        }
         const groups = yield prisma.group.findMany({
             where: {
-                youthMovementId: youthMovementIdNumber, // Use converted number
+                youthMovementId: Number(youthMovementId),
             },
         });
-        console.log(`✅ Groups fetched for Youth Movement ID ${youthMovementIdNumber}:`, groups);
+        console.log("✅ Groups found:", groups); // Debugging log
+        if (!groups.length) {
+            console.warn("⚠️ No groups found for Youth Movement ID:", youthMovementId);
+            res.status(404).json({ message: "No groups found." });
+            return;
+        }
         res.json(groups);
     }
     catch (error) {

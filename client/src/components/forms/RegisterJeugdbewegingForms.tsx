@@ -112,7 +112,7 @@ export default function RegisterJeugdbewegingForms() {
   
     mutate({
       ...data,
-      adminId: profileData.id, // ✅ Send `adminId`
+      adminId: profileData.id, 
     });
   };
 
@@ -122,7 +122,7 @@ export default function RegisterJeugdbewegingForms() {
         <Image src="/images/logo.svg" alt="logo" width={200} height={200} />
       </div>
 
-      {/* ✅ Show loading state */}
+    
       {isLoading && <p>Loading user profile...</p>}
       {profileError && (
         <p className="error">Error fetching profile: {profileError.message}</p>
