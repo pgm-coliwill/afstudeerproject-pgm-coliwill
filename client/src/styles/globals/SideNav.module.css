@@ -1,0 +1,82 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #1e293b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  position: fixed;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.closed {
+  width: 80px;
+}
+
+.open {
+  width: 250px;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.menu {
+  flex-grow: 1;
+  padding: 20px 10px;
+}
+
+/* Menu item container */
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.2s, padding 0.3s;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.menuItem:hover {
+  background: #334155;
+}
+
+/* Icon styling */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  font-size: 22px;
+}
+
+/* Text visibility */
+.text {
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.textHidden {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.textVisible {
+  opacity: 1;
+  width: auto;
+}
+
+/* Footer */
+.footer {
+  padding: 10px;
+  border-top: 1px solid #334155;
+}
