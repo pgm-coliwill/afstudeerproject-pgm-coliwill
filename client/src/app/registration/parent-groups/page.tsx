@@ -176,7 +176,7 @@ export default function ParentGroups() {
               <button
                 type="button"
                 onClick={() => remove(index)}
-                className="mt-2 bg-red-500 text-white px-4 py-2 rounded"
+                className=""
               >
                 ❌ Verwijder kind
               </button>
@@ -187,7 +187,7 @@ export default function ParentGroups() {
         {/* Add Child Button */}
         <button
           type="button"
-          onClick={() => append({ childName: "", groupId: 0, relation: "moeder" })} // ✅ groupId starts as number
+          onClick={() => append({ childName: "", groupId: 0, relation: "moeder" })} 
           className="mt-4 bg-green-500 text-white px-4 py-2 rounded w-full"
         >
           ➕ Voeg kind toe
