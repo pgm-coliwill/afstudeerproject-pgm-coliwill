@@ -112,6 +112,6 @@
   },
 
   "include": ["src/**/*", "src/data/**/*.json", "prisma/**/*"],
-  "exclude": ["node_modules", "dist", "../client", "src/types/prismaTypes.d.ts"]
+  "exclude": ["node_modules", "dist", "../client", "../client/src/types/prismaTypes.d.ts"]
 
 }
