@@ -6,8 +6,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { fetchCurrentYouthMovement } from "@/utils/fetchCurrentYouthMovement";
 import { useRouter } from "next/navigation";
 
-const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
-
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 interface Group {
   name: string;
@@ -17,8 +16,6 @@ interface Group {
 }
 
 const addGroupsAPI = async (data: { groups: Group[] }) => {
-
- 
   const response = await fetch(`${base_url}/api/groups`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -64,13 +61,22 @@ export default function Groups() {
       return;
     }
 
+    const visibleGroups = data.groups.map((group) => ({
+      ...group,
+      minimumAge: Number(group.minimumAge),
+      maximumAge: Number(group.maximumAge),
+      youthMovementId: youthMovement.id,
+    }));
+
+    const defaultGroup = {
+      name: "algemeen",
+      minimumAge: 0,
+      maximumAge: 99,
+      youthMovementId: youthMovement.id,
+    };
+
     mutation.mutate({
-      groups: data.groups.map((group: { name: string; minimumAge: string; maximumAge: string }) => ({
-        ...group,
-        minimumAge: Number(group.minimumAge),
-        maximumAge: Number(group.maximumAge),
-        youthMovementId: youthMovement.id, 
-      })),
+      groups: [...visibleGroups, defaultGroup],
     });
   };
 

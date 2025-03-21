@@ -72,7 +72,7 @@ export default function RegisterJeugdbewegingForms() {
   
       console.log("🔑 Auth Token:", idToken); 
   
-      const response = await fetch(`${base_url}/youthMovements`, {
+      const response = await fetch(`${base_url}/api/youthMovements`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
