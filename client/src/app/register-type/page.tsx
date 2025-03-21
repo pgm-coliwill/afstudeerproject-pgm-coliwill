@@ -10,14 +10,13 @@ export default function ChooseRegister() {
       <div className={styles.background}></div>
       <div className={styles.cardContainer}>
         <Link href={"/signup?role=ouder"}>
-          {" "}
           <BenefitsCardHero
             title="Ik ben een ouder"
             description="Ik heb een code ontvangen via mail en wil me graag registreren als ouder."
           />
         </Link>
 
-        <Link href={"/register/leiders"}>
+        <Link href={"/signup?role=leider"}>
           <BenefitsCardHero
             title="Ik ben een leider"
             description="Ik heb een code ontvangen via mail en wil me graag inschrijven als leider."

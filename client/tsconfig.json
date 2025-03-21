@@ -29,7 +29,8 @@
       "@pageStyles/*": ["./src/styles/pages/*"],
       "@componentsStyles/*": ["./src/styles/components/*"],
       "@layoutStyles/*": ["./src/styles/layouts/*"],
-      "@layouts/*": ["./src/layouts/*"]
+      "@layouts/*": ["./src/layouts/*"],
+      
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

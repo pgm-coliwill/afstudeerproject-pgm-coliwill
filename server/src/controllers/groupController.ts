@@ -17,3 +17,29 @@ export const createGroups = async (req: Request, res: Response): Promise<void> =
     res.status(500).json({ message: "Error creating groups." });
   }
 };
+
+export const getGroupsFromYouthMovement = async (req: Request, res: Response): Promise<void> => {
+  const { youthMovementId } = req.params;
+  console.log("📌 Received request to fetch groups for Youth Movement ID:", youthMovementId); // Debugging log
+
+  try {
+    const groups = await prisma.group.findMany({
+      where: {
+        youthMovementId: Number(youthMovementId),
+      },
+    });
+
+    console.log("✅ Groups found:", groups); // Debugging log
+
+    if (!groups.length) {
+      console.warn("⚠️ No groups found for Youth Movement ID:", youthMovementId);
+      res.status(404).json({ message: "No groups found." });
+      return;
+    }
+
+    res.json(groups);
+  } catch (error) {
+    console.error("❌ Failed to get groups:", error);
+    res.status(500).json({ message: "Error getting groups." });
+  }
+};

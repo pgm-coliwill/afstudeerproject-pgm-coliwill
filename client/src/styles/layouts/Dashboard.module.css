@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+/* Content adjusts based on sidebar state */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+/* When sidebar is open, main content moves right */
+.contentOpen {
+  margin-left: 250px; /* Sidebar width */
+}
+
+/* When sidebar is closed, main content expands */
+.contentClosed {
+  margin-left: 80px; /* Closed sidebar width */
+}

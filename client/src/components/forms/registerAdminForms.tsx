@@ -43,7 +43,7 @@ export default function RegisterAdminForms() {
     resolver: zodResolver(schema),
   });
 
-  const createAdmin = async (data: any) => {
+  const createAdmin = async (data: { firstName: string; lastName: string; email: string; cognitoId: string }) => {
     try {
       const response = await fetch("http://localhost:3001/api/users", {
         method: "POST",
@@ -66,20 +66,20 @@ export default function RegisterAdminForms() {
     }
   };
 
-  const { mutate, isLoading: isMutating } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: createAdmin,
     onSuccess: () => {
       console.log("Admin successfully registered!");
       setSuccessMessage("Admin geregistreerd!");
       setTimeout(() => router.push("/registration/youth-movement"), 2000);
     },
-    onError: (err: any) => {
+    onError: (err: Error) => {
       console.error("Registration failed:", err);
       setError(err.message || "Er is een fout opgetreden bij het registreren.");
     },
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: { firstName: string; lastName: string }) => {
     console.log("Form submitted!", data);
 
     if (!userData) {
@@ -116,8 +116,8 @@ export default function RegisterAdminForms() {
         <input type="text" id="lastName" {...register("lastName")} />
         {errors.lastName && <p className="error">{errors.lastName.message}</p>}
 
-        <button type="submit" disabled={isMutating}>
-          {isMutating ? "Registreren..." : "Registreer"}
+        <button type="submit" >
+          Registreer
         </button>
       </form>
 

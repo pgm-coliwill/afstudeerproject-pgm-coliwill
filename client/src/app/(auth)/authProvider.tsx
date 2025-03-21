@@ -125,6 +125,12 @@ const Auth = ({ children }: { children: React.ReactNode }) => {
         router.push("/dashboard");
       } else if (user && isSignUpPage && userRole === "admin") {
         router.push("/registration/admin");
+      } else if (
+        user &&
+        isSignUpPage &&
+        (userRole === "leider" || userRole === "ouder")
+      ) {
+        router.push("/registration/code");
       }
     }
   }, [user, userRole, isSignInPage, isSignUpPage, router]);

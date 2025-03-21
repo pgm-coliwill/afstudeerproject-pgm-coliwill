@@ -1,42 +1,51 @@
-import {  getCurrentUser } from "aws-amplify/auth";
+import { getCurrentUser } from "aws-amplify/auth";
 
 export type ProfileInfo = {
-  id: number;        // User's database ID from PostgreSQL
+  id: number;
   firstName: string;
   lastName: string;
-  cognitoId: string; // Cognito ID (sub)
+  cognitoId: string; 
+  role: string; 
+  youthMovementId: number | null;
+  youthMovementName: string | null; 
 };
 
 export const fetchCurrentProfile = async (): Promise<ProfileInfo | null> => {
   try {
-    // ✅ Get authenticated user from Cognito
+    console.log("🔄 Fetching current profile...");
+
+
     const user = await getCurrentUser();
 
     if (!user || !user.username) {
       throw new Error("User not authenticated");
     }
 
-    // ✅ Get the user's Cognito ID (sub)
-    const cognitoId = user.username; 
+    const cognitoId = user.username;
 
-    // ✅ Fetch user profile from PostgreSQL using Cognito ID
+    console.log("✅ Cognito ID:", cognitoId);
+
     const response = await fetch(`http://localhost:3001/api/users/${cognitoId}`);
 
     if (!response.ok) {
       throw new Error("User not found in database");
     }
 
-    // ✅ Parse and return the user profile from PostgreSQL
     const userProfile = await response.json();
+    console.log("✅ User Profile from DB:", userProfile);
 
     return {
-      id: userProfile.id,           // PostgreSQL user ID
+      id: userProfile.id,            
       firstName: userProfile.firstName,
       lastName: userProfile.lastName,
-      cognitoId: userProfile.cognitoId, // Cognito ID from PostgreSQL
+      cognitoId: userProfile.cognitoId, 
+      role: userProfile.role,        
+      youthMovementId: userProfile.youthMovementId || null, 
+      youthMovementName: userProfile.youthMovementName || null,
     };
   } catch (error) {
-    console.error("Error fetching user profile:", error);
+    console.error("❌ Error fetching user profile:", error);
     return null;
   }
 };
+
