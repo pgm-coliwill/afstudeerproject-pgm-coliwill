@@ -50,7 +50,7 @@ export default function CreatePost() {
   });
 
   // ✅ Mutation to submit post
-  const { mutate, isLoading: isSubmitting } = useMutation({
+  const { mutate} = useMutation({
     mutationFn: async (data: FormData) => {
       const formData = new FormData();
       formData.append("title", data.title);
@@ -141,8 +141,8 @@ export default function CreatePost() {
 
               {/* Buttons */}
               <div className={styles.buttonGroup}>
-                <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
-                  {isSubmitting ? "Posten..." : "Post aanmaken"}
+                <button type="submit" className={styles.submitButton} >
+                  Post aanmaken
                 </button>
                 <button type="button" className={styles.cancelButton} onClick={() => setShowModal(false)}>
                   Annuleren

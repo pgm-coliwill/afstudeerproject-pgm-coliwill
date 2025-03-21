@@ -85,10 +85,20 @@ exports.getPostsByYouthMovement = getPostsByYouthMovement;
 const updatePost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const { title, body } = req.body;
+    const image = req.file ? req.file.location : null;
     try {
+        const existingPost = yield prisma.post.findUnique({ where: { id: Number(id) } });
+        if (!existingPost) {
+            res.status(404).json({ error: "Post not found" });
+            return;
+        }
         const updatedPost = yield prisma.post.update({
             where: { id: Number(id) },
-            data: { title, body },
+            data: {
+                title,
+                body,
+                image: image || existingPost.image, // If a new image is uploaded, use it. Otherwise, keep old.
+            },
         });
         res.status(200).json(updatedPost);
     }

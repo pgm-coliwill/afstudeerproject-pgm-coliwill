@@ -8,13 +8,13 @@ import { z } from "zod";
 import { fetchCurrentProfile } from "@/utils/fetchCurrentProfile";
 import { useRouter } from "next/navigation";
 
-// ✅ Define the schema for validation
+
 const schema = z.object({
   children: z
     .array(
       z.object({
         childName: z.string().min(2, "Naam van het kind is verplicht"),
-        groupId: z.coerce.number().min(1, "Selecteer een groep"), // ✅ Ensure groupId is a number
+        groupId: z.coerce.number().min(1, "Selecteer een groep"), 
         relation: z.enum(["moeder", "vader", "voogd", "stiefouder"], {
           errorMap: () => ({ message: "Selecteer een relatie" }),
         }),
@@ -56,7 +56,7 @@ export default function ParentGroups() {
   });
 
   // ✅ Mutation to submit the form
-  const { mutate, isLoading: isSubmitting } = useMutation({
+  const { mutate} = useMutation({
     mutationFn: async (data: FormData) => {
       if (!profileData) {
         throw new Error("Parent profile not found.");
@@ -198,7 +198,6 @@ export default function ParentGroups() {
           <button
             type="submit"
             className="bg-blue-500 text-white px-4 py-2 rounded flex-1"
-            disabled={isSubmitting}
           >
            Opslaan
           </button>

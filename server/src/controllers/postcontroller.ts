@@ -84,22 +84,33 @@ export const getPostsByYouthMovement = async (
   }
 };
 
-export const updatePost = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const { title, body } = req.body;
+export const updatePost = async (req: Request, res: Response): Promise<void> => {
+  const { id } = req.params
+  const { title, body } = req.body
+  const image = req.file ? (req.file as any).location : null
 
   try {
+    const existingPost = await prisma.post.findUnique({ where: { id: Number(id) } })
+    if (!existingPost) {
+      res.status(404).json({ error: "Post not found" })
+      return
+    }
+
     const updatedPost = await prisma.post.update({
       where: { id: Number(id) },
-      data: { title, body },
-    });
+      data: {
+        title,
+        body,
+        image: image || existingPost.image, // If a new image is uploaded, use it. Otherwise, keep old.
+      },
+    })
 
-    res.status(200).json(updatedPost);
+    res.status(200).json(updatedPost)
   } catch (error) {
-    console.error("❌ Error updating post:", error);
-    res.status(500).json({ error: "Failed to update post" });
+    console.error("❌ Error updating post:", error)
+    res.status(500).json({ error: "Failed to update post" })
   }
-};
+}
 
 // ✅ Delete a post
 export const deletePost = async (req: Request, res: Response) => {

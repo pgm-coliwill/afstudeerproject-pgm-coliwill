@@ -32,6 +32,7 @@ export default function PostCard({
   const [isEditing, setIsEditing] = useState(false)
   const [editedTitle, setEditedTitle] = useState(title)
   const [editedBody, setEditedBody] = useState(body)
+  const [newImageFile, setNewImageFile] = useState<File | null>(null)
 
   const formattedDate = new Date(createdAt).toLocaleDateString()
   const isAuthor = user?.id === currentUserId
@@ -52,11 +53,17 @@ export default function PostCard({
 
   const handleEditSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const formData = new FormData()
+    formData.append("title", editedTitle)
+    formData.append("body", editedBody)
+    if (newImageFile) {
+      formData.append("image", newImageFile)
+    }
+
     try {
       await fetch(`http://localhost:3001/api/posts/${id}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: editedTitle, body: editedBody }),
+        body: formData,
       })
       setIsEditing(false)
       window.location.reload()
@@ -118,6 +125,11 @@ export default function PostCard({
                 className={styles.textarea}
                 value={editedBody}
                 onChange={(e) => setEditedBody(e.target.value)}
+              />
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setNewImageFile(e.target.files?.[0] || null)}
               />
               <div className={styles.modalActions}>
                 <button type="submit">Opslaan</button>
