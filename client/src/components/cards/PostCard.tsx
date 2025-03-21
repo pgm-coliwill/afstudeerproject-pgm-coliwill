@@ -5,6 +5,8 @@ import styles from '@/styles/cards/PostCard.module.css'
 import { Heart, MessageCircle, MoreVertical, Trash2, Pencil } from "lucide-react"
 import Image from "next/image"
 
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
+
 type PostCardProps = {
   id: number
   title: string
@@ -42,7 +44,7 @@ export default function PostCard({
     if (!confirmed) return
 
     try {
-      await fetch(`http://localhost:3001/api/posts/${id}`, {
+      await fetch(`${base_url}/api/posts/${id}`, {
         method: "DELETE",
       })
       window.location.reload()
@@ -61,7 +63,7 @@ export default function PostCard({
     }
 
     try {
-      await fetch(`http://localhost:3001/api/posts/${id}`, {
+      await fetch(`${base_url}/api/posts/${id}`, {
         method: "PUT",
         body: formData,
       })

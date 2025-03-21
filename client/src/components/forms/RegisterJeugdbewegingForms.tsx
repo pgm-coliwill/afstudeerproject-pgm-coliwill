@@ -11,6 +11,8 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { fetchCurrentProfile, ProfileInfo } from "@/utils/fetchCurrentProfile";
 import { fetchAuthSession } from "aws-amplify/auth";
 
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
+
 const schema = z.object({
   name: z.string().min(2, "Naam is verplicht"),
   description: z.string().optional(),
@@ -70,7 +72,7 @@ export default function RegisterJeugdbewegingForms() {
   
       console.log("🔑 Auth Token:", idToken); 
   
-      const response = await fetch("http://localhost:3001/api/youthMovements", {
+      const response = await fetch(`${base_url}/youthMovements`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

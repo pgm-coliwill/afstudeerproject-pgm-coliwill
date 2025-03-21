@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { fetchCurrentUser, UserInfo } from "@/utils/fetchCurrentUser";
 
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
+
 const schema = z.object({
   firstName: z.string().min(2, "Voornaam is verplicht"),
   lastName: z.string().min(2, "Familienaam is verplicht"),
@@ -45,7 +47,7 @@ export default function RegisterAdminForms() {
 
   const createAdmin = async (data: { firstName: string; lastName: string; email: string; cognitoId: string }) => {
     try {
-      const response = await fetch("http://localhost:3001/api/users", {
+      const response = await fetch(`${base_url}/api/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

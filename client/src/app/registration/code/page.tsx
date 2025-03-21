@@ -9,6 +9,8 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { fetchCurrentUser, UserInfo } from "@/utils/fetchCurrentUser";
 import styles from "@/styles/forms/RegisterForms.module.css";
 
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
+
 // ✅ Define validation schema for form inputs
 const schema = z.object({
   code: z.string().min(6, "Code is invalid"),
@@ -18,7 +20,7 @@ const schema = z.object({
 
 // ✅ API call to fetch the invitation details
 const fetchInvitation = async (code: string) => {
-  const response = await fetch(`http://localhost:3001/api/invite/${code}`);
+  const response = await fetch(`${base_url}/api/invite/${code}`);
   if (!response.ok) throw new Error("Invalid invitation code.");
   return response.json();
 };
@@ -32,7 +34,7 @@ const createUser = async (data: {
   lastName: string;
   youthMovementId: number;
 }) => {
-  const response = await fetch("http://localhost:3001/api/users/create", {
+  const response = await fetch(`${base_url}/api/users/create`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),

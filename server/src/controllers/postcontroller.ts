@@ -19,7 +19,7 @@ export const createPost = async (
 ): Promise<void> => {
   try {
     const { title, body, userId, groupId } = req.body;
-    const image = req.file ? (req.file as any).location : null; // S3 file URL
+    const image = req.file ? (req.file as any).location : null; 
 
     // ✅ Validate required fields
     if (!title || !body || !userId) {
