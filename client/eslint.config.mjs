@@ -11,10 +11,13 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
   {
-    // 👇 this is the key part — custom rules override
+    ignores: ["src/types/prismaTypes.d.ts"], // 👈 ignore generated types
     rules: {
       "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/no-explicit-any": "off", // optional
+      "@typescript-eslint/no-unused-vars": "off",  // optional
     },
   },
 ];
