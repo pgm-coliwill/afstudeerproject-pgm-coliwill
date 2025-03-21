@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import path from "path";
 
 dotenv.config();
-console.log("🪣 ENV BUCKET:", process.env.AWS_S3_BUCKET_NAME);
+console.log("ENV BUCKET:", process.env.AWS_S3_BUCKET_NAME);
 
 const s3 = new S3Client({
   region: process.env.AWS_REGION!,

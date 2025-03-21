@@ -11,7 +11,7 @@ const client_s3_1 = require("@aws-sdk/client-s3");
 const dotenv_1 = __importDefault(require("dotenv"));
 const path_1 = __importDefault(require("path"));
 dotenv_1.default.config();
-console.log("🪣 ENV BUCKET:", process.env.AWS_S3_BUCKET_NAME);
+console.log("ENV BUCKET:", process.env.AWS_S3_BUCKET_NAME);
 const s3 = new client_s3_1.S3Client({
     region: process.env.AWS_REGION,
     credentials: {
