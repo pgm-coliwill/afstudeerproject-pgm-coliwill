@@ -16,6 +16,7 @@ const groupRoutes_1 = __importDefault(require("./routes/groupRoutes"));
 const inviteRoutes_1 = __importDefault(require("./routes/inviteRoutes"));
 const leadersGroupRoutes_1 = __importDefault(require("./routes/leadersGroupRoutes"));
 const parentChildRoutes_1 = __importDefault(require("./routes/parentChildRoutes"));
+const postRoutes_1 = __importDefault(require("./routes/postRoutes"));
 /*CONFIGURATION */
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -36,6 +37,7 @@ app.use("/api/groups", groupRoutes_1.default);
 app.use("/api/invite", inviteRoutes_1.default);
 app.use("/api/leadersGroups", leadersGroupRoutes_1.default);
 app.use("/api/parentChild", parentChildRoutes_1.default);
+app.use("/api/posts", postRoutes_1.default);
 /*SERVER*/
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {

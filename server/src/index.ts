@@ -14,6 +14,7 @@ import groupRoutes from "./routes/groupRoutes";
 import inviteRoutes from "./routes/inviteRoutes";
 import leadersGroupRoutes from "./routes/leadersGroupRoutes";
 import parentChildRoutes from "./routes/parentChildRoutes";
+import postRoutes from "./routes/postRoutes";
 
 /*CONFIGURATION */
 
@@ -39,6 +40,7 @@ app.use("/api/groups", groupRoutes);
 app.use("/api/invite", inviteRoutes);
 app.use("/api/leadersGroups", leadersGroupRoutes);
 app.use("/api/parentChild", parentChildRoutes);
+app.use("/api/posts", postRoutes);
 
 /*SERVER*/
 const PORT = process.env.PORT || 3002;

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import styles from "@/styles/globals/SideNav.module.css";
 import { Home, Calendar, MessageCircle, Users, ClipboardPen, Settings } from "lucide-react";
@@ -13,13 +13,9 @@ const sidebarItems = [
   { title: "Inschrijvingen", url: "/dashboard/registrations", icon: <ClipboardPen /> },
 ];
 
-const settingsItems = [
-  { title: "Instellingen", url: "/dashboard/settings", icon: <Settings /> },
-];
+const settingsItems = [{ title: "Instellingen", url: "/dashboard/settings", icon: <Settings /> }];
 
-export default function SideNav() {
-  const [isOpen, setIsOpen] = useState(true);
-
+export default function SideNav({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (open: boolean) => void }) {
   return (
     <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
       {/* Sidebar Toggle Button */}
