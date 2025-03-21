@@ -11,6 +11,7 @@ const client_s3_1 = require("@aws-sdk/client-s3");
 const dotenv_1 = __importDefault(require("dotenv"));
 const path_1 = __importDefault(require("path"));
 dotenv_1.default.config();
+console.log("🪣 ENV BUCKET:", process.env.AWS_S3_BUCKET_NAME);
 const s3 = new client_s3_1.S3Client({
     region: process.env.AWS_REGION,
     credentials: {
@@ -21,7 +22,7 @@ const s3 = new client_s3_1.S3Client({
 exports.uploadToS3 = (0, multer_1.default)({
     storage: (0, multer_s3_1.default)({
         s3,
-        bucket: process.env.AWS_BUCKET_NAME,
+        bucket: process.env.AWS_S3_BUCKET_NAME,
         metadata: (req, file, cb) => {
             cb(null, { fieldName: file.fieldname });
         },

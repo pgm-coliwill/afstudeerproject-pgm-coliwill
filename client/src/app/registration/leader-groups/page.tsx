@@ -5,6 +5,8 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { fetchCurrentProfile } from "@/utils/fetchCurrentProfile";
 import { useRouter } from "next/navigation";
 
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
+
 type Group = {
   id: number;
   name: string;
@@ -25,7 +27,7 @@ export default function LeaderGroups() {
     queryKey: ["groups", profileData?.youthMovementId],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:3001/api/groups/youthMovement/${profileData?.youthMovementId}`
+        `${base_url}/api/groups/youthMovement/${profileData?.youthMovementId}`
       );
       if (!response.ok) throw new Error("Failed to fetch groups");
       return response.json();
@@ -36,7 +38,7 @@ export default function LeaderGroups() {
   // ✅ Mutation to submit selected groups
   const { mutate} = useMutation({
     mutationFn: async () => {
-      const response = await fetch("http://localhost:3001/api/leadersGroups", {
+      const response = await fetch(`${base_url}/api/leadersGroups`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

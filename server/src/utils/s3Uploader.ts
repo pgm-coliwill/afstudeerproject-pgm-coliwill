@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import path from "path";
 
 dotenv.config();
+console.log("🪣 ENV BUCKET:", process.env.AWS_S3_BUCKET_NAME);
 
 const s3 = new S3Client({
   region: process.env.AWS_REGION!,
@@ -18,7 +19,7 @@ const s3 = new S3Client({
 export const uploadToS3 = multer({
   storage: multerS3({
     s3,
-    bucket: process.env.AWS_BUCKET_NAME!,
+    bucket: process.env.AWS_S3_BUCKET_NAME!,
     metadata: (req, file, cb) => {
       cb(null, { fieldName: file.fieldname });
     },

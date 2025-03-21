@@ -24,7 +24,7 @@ exports.uploadMiddleware = s3Uploader_1.uploadToS3.single("image");
 const createPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { title, body, userId, groupId } = req.body;
-        const image = req.file ? req.file.location : null; // S3 file URL
+        const image = req.file ? req.file.location : null;
         // ✅ Validate required fields
         if (!title || !body || !userId) {
             res.status(400).json({ error: "Title, body, and userId are required." });

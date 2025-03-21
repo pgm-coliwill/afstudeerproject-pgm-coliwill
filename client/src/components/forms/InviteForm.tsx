@@ -5,6 +5,8 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { fetchCurrentYouthMovement } from "@/utils/fetchCurrentYouthMovement";
 
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
+
 interface InviteData {
   emails: string[];
   role: "ouder" | "leider";
@@ -12,7 +14,7 @@ interface InviteData {
 }
 
 const sendInvites = async (data: InviteData) => {
-  const response = await fetch("http://localhost:3001/api/invite", {
+  const response = await fetch(`${base_url}/api/invite`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),

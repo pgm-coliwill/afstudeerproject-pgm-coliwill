@@ -6,6 +6,10 @@ import PostCard from "@/components/cards/PostCard"
 import { fetchCurrentProfile } from "@/utils/fetchCurrentProfile"
 import styles from "@/styles/cards/AllPosts.module.css"
 
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
+
+
+
 type Post = {
   id: number
   title: string
@@ -34,7 +38,7 @@ export default function AllPosts() {
     queryKey: ["posts", profile?.youthMovementId],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:3001/api/posts/youthMovement/${profile?.youthMovementId}`
+        `${base_url}/api/posts/youthMovement/${profile?.youthMovementId}`
       )
       if (!res.ok) throw new Error("Failed to fetch posts")
       return res.json()

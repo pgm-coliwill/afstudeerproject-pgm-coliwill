@@ -8,6 +8,7 @@ import { z } from "zod";
 import { fetchCurrentProfile } from "@/utils/fetchCurrentProfile";
 import { useRouter } from "next/navigation";
 
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
 
 const schema = z.object({
   children: z
@@ -47,7 +48,7 @@ export default function ParentGroups() {
     queryFn: async () => {
       if (!profileData?.youthMovementId) return [];
       const response = await fetch(
-        `http://localhost:3001/api/groups/youthMovement/${profileData.youthMovementId}`
+        `${base_url}/api/groups/youthMovement/${profileData.youthMovementId}`
       );
       if (!response.ok) throw new Error("Failed to fetch groups");
       return response.json();
@@ -62,7 +63,7 @@ export default function ParentGroups() {
         throw new Error("Parent profile not found.");
       }
 
-      const response = await fetch("http://localhost:3001/api/parentChild", {
+      const response = await fetch(`${base_url}/api/parentChild`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(

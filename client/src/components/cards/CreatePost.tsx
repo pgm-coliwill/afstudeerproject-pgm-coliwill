@@ -8,7 +8,9 @@ import { z } from "zod";
 import { fetchCurrentProfile } from "@/utils/fetchCurrentProfile";
 import styles from "@/styles/cards/CreatePost.module.css";
 
-// ✅ Define schema for validation
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
+
+
 const schema = z.object({
   title: z.string().min(3, "Titel moet minstens 3 karakters bevatten"),
   body: z.string().min(10, "Bericht moet minstens 10 karakters bevatten"),
@@ -16,7 +18,7 @@ const schema = z.object({
   image: z.instanceof(FileList).optional(),
 });
 
-// ✅ Define form data type
+
 type FormData = {
   title: string;
   body: string;
@@ -41,7 +43,7 @@ export default function CreatePost() {
     queryFn: async () => {
       if (!profileData?.youthMovementId) return [];
       const response = await fetch(
-        `http://localhost:3001/api/groups/youthMovement/${profileData.youthMovementId}`
+        `${base_url}/api/groups/youthMovement/${profileData.youthMovementId}`
       );
       if (!response.ok) throw new Error("Failed to fetch groups");
       return response.json();
