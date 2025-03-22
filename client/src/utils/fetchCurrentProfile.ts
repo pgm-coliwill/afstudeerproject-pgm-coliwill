@@ -1,5 +1,7 @@
 import { getCurrentUser } from "aws-amplify/auth";
 
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 export type ProfileInfo = {
   id: number;
   firstName: string;
@@ -25,7 +27,7 @@ export const fetchCurrentProfile = async (): Promise<ProfileInfo | null> => {
 
     console.log("✅ Cognito ID:", cognitoId);
 
-    const response = await fetch(`http://localhost:3001/api/users/${cognitoId}`);
+    const response = await fetch(`${baseUrl}/api/users/${cognitoId}`);
 
     if (!response.ok) {
       throw new Error("User not found in database");
