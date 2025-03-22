@@ -63,7 +63,7 @@ export default function CreatePost() {
       }
       formData.append("userId", String(profileData?.id));
 
-      const response = await fetch("http://localhost:3001/api/posts", {
+      const response = await fetch(`${base_url}/api/posts`, {
         method: "POST",
         body: formData,
       });
