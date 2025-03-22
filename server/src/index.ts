@@ -5,6 +5,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import { authenticate } from "./middleware/authMiddleware";
+import http from "http";
 
 /*ROUTE IMPORT*/
 
@@ -15,6 +16,8 @@ import inviteRoutes from "./routes/inviteRoutes";
 import leadersGroupRoutes from "./routes/leadersGroupRoutes";
 import parentChildRoutes from "./routes/parentChildRoutes";
 import postRoutes from "./routes/postRoutes";
+import messageRoutes from "./routes/messageRoutes";
+import youthMovementUserRoutes from "./routes/youthMovementUserRoutes";
 
 /*CONFIGURATION */
 
@@ -41,9 +44,68 @@ app.use("/api/invite", inviteRoutes);
 app.use("/api/leadersGroups", leadersGroupRoutes);
 app.use("/api/parentChild", parentChildRoutes);
 app.use("/api/posts", postRoutes);
+app.use("/api/messages", messageRoutes);
+app.use("/api/youthMovementUsers", youthMovementUserRoutes);
 
-/*SERVER*/
+/*SERVER + SOCKET.IO*/
+
+import { Server as SocketIOServer } from "socket.io";
+import { PrismaClient } from "@prisma/client";
+
+const server = http.createServer(app);
+const io = new SocketIOServer(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
+
+const prisma = new PrismaClient();
+
+io.on("connection", (socket) => {
+  console.log("🟢 User connected:", socket.id);
+
+  // Join a user-specific room
+  socket.on("join", (userId: number) => {
+    socket.join(userId.toString());
+    console.log(`User ${userId} joined room ${userId}`);
+  });
+
+  // Handle sending messages
+  socket.on("send_message", async ({ senderId, receiverId, message }) => {
+    try {
+      // Persist to database
+      const saved = await prisma.message.create({
+        data: {
+          senderId,
+          receiverId,
+          message,
+        },
+        include: {
+          sender: {
+            select: {
+              firstName: true,
+              lastName: true,
+            },
+          },
+        },
+      });
+
+      // Emit message to receiver
+      io.to(receiverId.toString()).emit("receive_message", saved);
+      // Optionally emit back to sender for confirmation
+      io.to(senderId.toString()).emit("message_sent", saved);
+    } catch (err) {
+      console.error("❌ Error saving message:", err);
+    }
+  });
+
+  socket.on("disconnect", () => {
+    console.log("🔴 User disconnected:", socket.id);
+  });
+});
+
 const PORT = process.env.PORT || 3002;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+server.listen(PORT, () => {
+  console.log(`🚀 Server with Socket.IO is running on port ${PORT}`);
 });

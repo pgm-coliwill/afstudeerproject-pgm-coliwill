@@ -8,7 +8,7 @@ import { Home, Calendar, MessageCircle, Users, ClipboardPen, Settings } from "lu
 const sidebarItems = [
   { title: "Home", url: "/dashboard", icon: <Home /> },
   { title: "Evenementen", url: "/dashboard/events", icon: <Calendar /> },
-  { title: "Berichten", url: "/dashboard/messages", icon: <MessageCircle /> },
+  { title: "Berichten", url: "/dashboard/chat", icon: <MessageCircle /> },
   { title: "Groepen", url: "/dashboard/groups", icon: <Users /> },
   { title: "Inschrijvingen", url: "/dashboard/registrations", icon: <ClipboardPen /> },
 ];
