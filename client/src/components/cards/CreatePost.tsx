@@ -96,10 +96,13 @@ export default function CreatePost() {
 
   return (
     <div className={styles.container}>
-      {/* Button to Open Modal */}
-      <button className={styles.openButton} onClick={() => setShowModal(true)}>
-        Maak post
-      </button>
+
+      {(profileData?.role === "leider" || profileData?.role === "admin") && (
+        <button className={styles.openButton} onClick={() => setShowModal(true)}>
+          Maak post
+        </button>
+      )}
+     
 
       {/* Modal Overlay */}
       {showModal && (
