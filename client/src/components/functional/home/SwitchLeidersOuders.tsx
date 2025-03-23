@@ -5,12 +5,12 @@ import styles from "@pageStyles/Home.module.css";
 import BenefitsCardHero from "@components/cards/BenefitsCardHero";
 
 export default function SwitchLeidersOuders() {
-  // State to track active category
+ 
   const [activeCategory, setActiveCategory] = useState<"leiders" | "ouders">("leiders");
 
   return (
     <>
-      {/* Toggle Buttons */}
+     
       <div className={`container ${styles.buttonContainer}`}>
         <button 
           className={activeCategory === "leiders" ? "primary" : "secondary"} 
@@ -26,7 +26,7 @@ export default function SwitchLeidersOuders() {
         </button>
       </div>
 
-      {/* Conditionally Render Cards */}
+      
       <div className={`container ${styles.cardGrid}`}>
         {activeCategory === "leiders" ? (
           <>

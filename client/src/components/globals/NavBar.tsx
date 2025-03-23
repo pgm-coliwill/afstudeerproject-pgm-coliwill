@@ -16,10 +16,10 @@ export default function Navbar() {
   return (
     <div className={styles.navbarContainer}>
       <nav className={`container ${styles.navbar}`}>
-        {/* Logo */}
+       
         <Image src="/images/logo.svg" alt="logo" width={100} height={100} />
 
-        {/* Desktop Navigation Links */}
+   
         <ul className={styles.navlinks}>
           <li>
             <Link href="#">Home</Link>
@@ -35,7 +35,6 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Desktop Authentication Buttons */}
         <div className={styles.authContainer}>
           {user ? (
             <button className="primary">
@@ -53,16 +52,16 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Hamburger Button for Mobile */}
+ 
         <button className={styles.hamburger} onClick={() => setIsOpen(true)}>
           ☰
         </button>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+   
       {isOpen && (
         <div className={styles.mobileMenu}>
-          {/* Close Button */}
+ 
           <button className={styles.closeMenu} onClick={closeMenu}>
             X
           </button>
@@ -92,10 +91,10 @@ export default function Navbar() {
           </ul>
           <div className={styles.mobileAuthContainer}>
             <button className="primary" onClick={closeMenu}>
-              <Link href="#">Registreer</Link>
+              <Link href="/register-type">Registreer</Link>
             </button>
             <button className="secondary" onClick={closeMenu}>
-              <Link href="#">Login</Link>
+              <Link href="/dashboard">Login</Link>
             </button>
           </div>
         </div>

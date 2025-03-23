@@ -91,7 +91,7 @@ export default function RegisterJeugdbewegingForms() {
       throw error;
     }
   };
-  // ✅ Mutation to create youth movement
+
   const {
     mutate,
     error,
@@ -103,7 +103,7 @@ export default function RegisterJeugdbewegingForms() {
     },
   });
 
-  // ✅ Submit handler
+
   const onSubmit = (data: YouthMovementData) => {
     if (!profileData) {
       console.error("❌ User profile is not available.");
@@ -179,10 +179,10 @@ export default function RegisterJeugdbewegingForms() {
         </button>
       </form>
 
-      {/* ✅ Success Message */}
+    
       {successMessage && <p className="success">{successMessage}</p>}
 
-      {/* ✅ Display API error message */}
+   
       {error && <p className="error">Fout bij registratie: {error.message}</p>}
     </div>
   );

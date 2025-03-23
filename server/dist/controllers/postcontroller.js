@@ -11,26 +11,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deletePost = exports.updatePost = exports.getPostsByYouthMovement = exports.createPost = exports.uploadMiddleware = void 0;
 const client_1 = require("@prisma/client");
-const s3Uploader_1 = require("../utils/s3Uploader"); // ✅ We'll use this for middleware
+const s3Uploader_1 = require("../utils/s3Uploader");
 const prisma = new client_1.PrismaClient();
-/**
- * ✅ Middleware for handling file uploads to S3.
- * Attach this to your POST /posts route.
- */
 exports.uploadMiddleware = s3Uploader_1.uploadToS3.single("image");
-/**
- * ✅ Create a new post
- */
 const createPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { title, body, userId, groupId } = req.body;
         const image = req.file ? req.file.location : null;
-        // ✅ Validate required fields
         if (!title || !body || !userId) {
             res.status(400).json({ error: "Title, body, and userId are required." });
             return;
         }
-        // ✅ Create post in the database
         const post = yield prisma.post.create({
             data: {
                 title,
@@ -43,7 +34,7 @@ const createPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(201).json(post);
     }
     catch (error) {
-        console.error("❌ Error creating post with S3:", error);
+        console.error("Error creating post with S3:", error);
         res.status(500).json({ error: "Failed to create post." });
     }
 });
@@ -77,7 +68,7 @@ const getPostsByYouthMovement = (req, res) => __awaiter(void 0, void 0, void 0, 
         res.status(200).json(posts);
     }
     catch (error) {
-        console.error("❌ Error fetching posts:", error);
+        console.error("Error fetching posts:", error);
         res.status(500).json({ error: "Failed to fetch posts" });
     }
 });
@@ -97,18 +88,17 @@ const updatePost = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             data: {
                 title,
                 body,
-                image: image || existingPost.image, // If a new image is uploaded, use it. Otherwise, keep old.
+                image: image || existingPost.image,
             },
         });
         res.status(200).json(updatedPost);
     }
     catch (error) {
-        console.error("❌ Error updating post:", error);
+        console.error("Error updating post:", error);
         res.status(500).json({ error: "Failed to update post" });
     }
 });
 exports.updatePost = updatePost;
-// ✅ Delete a post
 const deletePost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     try {
@@ -116,7 +106,7 @@ const deletePost = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(200).json({ message: "Post deleted successfully." });
     }
     catch (error) {
-        console.error("❌ Error deleting post:", error);
+        console.error("Error deleting post:", error);
         res.status(500).json({ error: "Failed to delete post" });
     }
 });

@@ -28,21 +28,20 @@ const inviteUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         const { emails, role, youthMovementId } = req.body;
         console.log("📌 Received Request Data:", { emails, role, youthMovementId });
         if (!emails || !role || !youthMovementId) {
-            console.error("❌ Missing required fields.");
+            console.error("Missing required fields.");
             res.status(400).json({ message: "Missing required fields." });
             return;
         }
-        // ✅ Check if youthMovementId exists in DB
         const youthMovement = yield prisma.youthMovement.findUnique({
             where: { id: youthMovementId },
         });
         if (!youthMovement) {
-            console.error("❌ Invalid youthMovementId:", youthMovementId);
+            console.error("Invalid youthMovementId:", youthMovementId);
             res.status(400).json({ message: "Invalid youth movement ID." });
             return;
         }
         const invitations = yield Promise.all(emails.map((email) => __awaiter(void 0, void 0, void 0, function* () {
-            const inviteCode = crypto_1.default.randomBytes(6).toString("hex"); // Generate unique code
+            const inviteCode = crypto_1.default.randomBytes(6).toString("hex");
             const invitation = yield prisma.invitation.create({
                 data: {
                     email,
@@ -50,7 +49,7 @@ const inviteUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
                     youthMovementId,
                     code: inviteCode,
                     sentAt: new Date(),
-                    expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Expires in 7 days
+                    expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
                 },
             });
             yield sendEmail(email, inviteCode, youthMovement.name, role);
@@ -87,7 +86,7 @@ const sendEmail = (toEmail, inviteCode, youthMovementName, role) => __awaiter(vo
         console.log(`✅ Email sent to ${toEmail}`);
     }
     catch (error) {
-        console.error(`❌ Failed to send email to ${toEmail}:`, error);
+        console.error(`Failed to send email to ${toEmail}:`, error);
     }
 });
 const getInviteCode = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -104,7 +103,7 @@ const getInviteCode = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.json(invitation);
     }
     catch (error) {
-        console.error("❌ Failed to fetch invitation:", error);
+        console.error("Failed to fetch invitation:", error);
         res.status(500).json({ message: "Error fetching invitation." });
     }
 });

@@ -18,6 +18,7 @@ import parentChildRoutes from "./routes/parentChildRoutes";
 import postRoutes from "./routes/postRoutes";
 import messageRoutes from "./routes/messageRoutes";
 import youthMovementUserRoutes from "./routes/youthMovementUserRoutes";
+import eventRoutes from "./routes/eventRoutes";
 
 /*CONFIGURATION */
 
@@ -46,8 +47,9 @@ app.use("/api/parentChild", parentChildRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/youthMovementUsers", youthMovementUserRoutes);
+app.use("/api/events", eventRoutes);
 
-/*SERVER + SOCKET.IO*/
+/*SOCKET.IO*/
 
 import { Server as SocketIOServer } from "socket.io";
 import { PrismaClient } from "@prisma/client";
@@ -65,16 +67,16 @@ const prisma = new PrismaClient();
 io.on("connection", (socket) => {
   console.log("🟢 User connected:", socket.id);
 
-  // Join a user-specific room
+  
   socket.on("join", (userId: number) => {
     socket.join(userId.toString());
     console.log(`User ${userId} joined room ${userId}`);
   });
 
-  // Handle sending messages
+
   socket.on("send_message", async ({ senderId, receiverId, message }) => {
     try {
-      // Persist to database
+      
       const saved = await prisma.message.create({
         data: {
           senderId,
@@ -91,21 +93,21 @@ io.on("connection", (socket) => {
         },
       });
 
-      // Emit message to receiver
+    
       io.to(receiverId.toString()).emit("receive_message", saved);
-      // Optionally emit back to sender for confirmation
+    
       io.to(senderId.toString()).emit("message_sent", saved);
     } catch (err) {
-      console.error("❌ Error saving message:", err);
+      console.error("Error saving message:", err);
     }
   });
 
   socket.on("disconnect", () => {
-    console.log("🔴 User disconnected:", socket.id);
+    console.log("User disconnected:", socket.id);
   });
 });
 
 const PORT = process.env.PORT || 3002;
 server.listen(PORT, () => {
-  console.log(`🚀 Server with Socket.IO is running on port ${PORT}`);
+  console.log(`Server with Socket.IO is running on port ${PORT}`);
 });

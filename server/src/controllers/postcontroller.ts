@@ -1,18 +1,13 @@
 import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
-import { uploadToS3 } from "../utils/s3Uploader"; // ✅ We'll use this for middleware
+import { uploadToS3 } from "../utils/s3Uploader"; 
 
 const prisma = new PrismaClient();
 
-/**
- * ✅ Middleware for handling file uploads to S3.
- * Attach this to your POST /posts route.
- */
+
 export const uploadMiddleware = uploadToS3.single("image");
 
-/**
- * ✅ Create a new post
- */
+
 export const createPost = async (
   req: Request,
   res: Response
@@ -21,13 +16,12 @@ export const createPost = async (
     const { title, body, userId, groupId } = req.body;
     const image = req.file ? (req.file as any).location : null; 
 
-    // ✅ Validate required fields
     if (!title || !body || !userId) {
       res.status(400).json({ error: "Title, body, and userId are required." });
       return;
     }
 
-    // ✅ Create post in the database
+
     const post = await prisma.post.create({
       data: {
         title,
@@ -40,7 +34,7 @@ export const createPost = async (
 
     res.status(201).json(post);
   } catch (error) {
-    console.error("❌ Error creating post with S3:", error);
+    console.error("Error creating post with S3:", error);
     res.status(500).json({ error: "Failed to create post." });
   }
 };
@@ -79,7 +73,7 @@ export const getPostsByYouthMovement = async (
 
     res.status(200).json(posts);
   } catch (error) {
-    console.error("❌ Error fetching posts:", error);
+    console.error("Error fetching posts:", error);
     res.status(500).json({ error: "Failed to fetch posts" });
   }
 };
@@ -101,18 +95,18 @@ export const updatePost = async (req: Request, res: Response): Promise<void> => 
       data: {
         title,
         body,
-        image: image || existingPost.image, // If a new image is uploaded, use it. Otherwise, keep old.
+        image: image || existingPost.image,
       },
     })
 
     res.status(200).json(updatedPost)
   } catch (error) {
-    console.error("❌ Error updating post:", error)
+    console.error("Error updating post:", error)
     res.status(500).json({ error: "Failed to update post" })
   }
 }
 
-// ✅ Delete a post
+
 export const deletePost = async (req: Request, res: Response) => {
   const { id } = req.params;
 
@@ -120,7 +114,7 @@ export const deletePost = async (req: Request, res: Response) => {
     await prisma.post.delete({ where: { id: Number(id) } });
     res.status(200).json({ message: "Post deleted successfully." });
   } catch (error) {
-    console.error("❌ Error deleting post:", error);
+    console.error("Error deleting post:", error);
     res.status(500).json({ error: "Failed to delete post" });
   }
 };

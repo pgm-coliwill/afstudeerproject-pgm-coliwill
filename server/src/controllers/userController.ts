@@ -33,7 +33,7 @@ export const getUser = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    // Extract youth movement details if available
+  
     const youthMovement = user.youthMovements.length > 0 ? user.youthMovements[0].youthMovement : null;
 
     const userProfile = {
@@ -42,7 +42,7 @@ export const getUser = async (req: Request, res: Response): Promise<void> => {
       lastName: user.lastName,
       cognitoId: user.cognitoId,
       email: user.email,
-      role: user.youthMovements.length > 0 ? user.youthMovements[0].role : "user", // Default to "user" if no role found
+      role: user.youthMovements.length > 0 ? user.youthMovements[0].role : "user", 
       youthMovementId: youthMovement?.id || null,
       youthMovementName: youthMovement?.name || null,
     };
@@ -51,7 +51,7 @@ export const getUser = async (req: Request, res: Response): Promise<void> => {
 
     res.json(userProfile);
   } catch (error) {
-    console.error("❌ Failed to get user:", error);
+    console.error("Failed to get user:", error);
     res.status(500).json({ message: "Failed to get user" });
   }
 };
@@ -87,13 +87,13 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
   try {
     console.log("📌 Creating user with data:", req.body);
 
-    // ✅ Step 1: Fetch the Invitation to get the correct role
+
     const invitation = await prisma.invitation.findUnique({
       where: { code },
     });
 
     if (!invitation) {
-      console.error("❌ Invalid invitation code:", code);
+      console.error("Invalid invitation code:", code);
       res.status(400).json({ message: "Invalid invitation code." });
       return;
     }
@@ -112,39 +112,59 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
 
     console.log("✅ User created:", user);
 
-    // ✅ Step 3: Check if the youth movement exists
+    
     const youthMovement = await prisma.youthMovement.findUnique({
       where: { id: youthMovementId },
     });
 
     if (!youthMovement) {
-      console.error("❌ Youth Movement not found:", youthMovementId);
+      console.error("Youth Movement not found:", youthMovementId);
       res.status(400).json({ message: "Invalid youth movement ID." });
       return;
     }
 
-    // ✅ Step 4: Create an entry in YouthMovementUser to link user with the correct role
+    
     await prisma.youthMovementUser.create({
       data: {
         userId: user.id,
         youthMovementId: youthMovementId,
-        role: invitation.role, // ✅ Dynamically assign role from invitation
+        role: invitation.role, 
       },
     });
 
     console.log(`✅ User linked to Youth Movement as ${invitation.role}:`, youthMovementId);
 
-    // ✅ Step 5: Mark the invitation as "used" so it can't be reused
+   
     await prisma.invitation.update({
       where: { id: invitation.id },
       data: { used: true },
     });
 
-    console.log("✅ Invitation marked as used:", invitation.id);
+    console.log("Invitation marked as used:", invitation.id);
 
     res.json(user);
   } catch (error) {
-    console.error("❌ Failed to create user:", error);
+    console.error("Failed to create user:", error);
     res.status(500).json({ message: "Failed to create user" });
+  }
+};
+
+export const updateUser = async (req: Request, res: Response) => {
+  const userId = parseInt(req.params.id);
+  const { firstName, lastName} = req.body;
+
+  try {
+    const updatedUser = await prisma.user.update({
+      where: { id: userId },
+      data: {
+        firstName,
+        lastName,
+      },
+    });
+
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    console.error("Error updating user:", error);
+    res.status(500).json({ error: "Failed to update user." });
   }
 };

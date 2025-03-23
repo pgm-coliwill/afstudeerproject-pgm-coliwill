@@ -9,4 +9,5 @@ const router = express_1.default.Router();
 router.get("/:cognitoId", userController_1.getUser);
 router.post("/", userController_1.createAdmin);
 router.post("/create", userController_1.createUser);
+router.put("/:id", userController_1.updateUser);
 exports.default = router;

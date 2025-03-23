@@ -27,10 +27,10 @@ export default function MessagingPage() {
 
   return (
     <div className={styles.container}>
-      {/* User List OR ChatBox */}
+     
       {selectedUserId === null ? (
         <div className={styles.userList}>
-          <h2 className="text-lg font-semibold mb-2">Stuur een bericht naar:</h2>
+          <h2>Stuur een bericht naar:</h2>
           {users?.map((entry: any) =>
             entry.user.id !== currentUserId ? (
               <button
@@ -47,7 +47,7 @@ export default function MessagingPage() {
         </div>
       ) : (
         <div className={styles.chatBoxWrapper}>
-          <button onClick={() => setSelectedUserId(null)} className="mb-4 underline text-blue-600">
+          <button onClick={() => setSelectedUserId(null)}>
             ← Terug naar gebruikerslijst
           </button>
           <ChatBox currentUserId={currentUserId!} otherUserId={selectedUserId} />

@@ -1,12 +1,12 @@
-// src/utils/s3Uploader.ts
 import multer from "multer";
 import multerS3 from "multer-s3";
 import { S3Client } from "@aws-sdk/client-s3";
 import dotenv from "dotenv";
 import path from "path";
+import { Request } from "express"; 
 
 dotenv.config();
-console.log("ENV BUCKET:", process.env.AWS_S3_BUCKET_NAME);
+
 
 const s3 = new S3Client({
   region: process.env.AWS_REGION!,
@@ -23,8 +23,10 @@ export const uploadToS3 = multer({
     metadata: (req, file, cb) => {
       cb(null, { fieldName: file.fieldname });
     },
-    key: (req, file, cb) => {
-      const fileName = `posts/${Date.now()}${path.extname(file.originalname)}`;
+    key: (req: Request, file, cb) => {
+     
+      const folder = req.baseUrl.includes("events") ? "events" : "posts";
+      const fileName = `${folder}/${Date.now()}${path.extname(file.originalname)}`;
       cb(null, fileName);
     },
     contentType: multerS3.AUTO_CONTENT_TYPE,
