@@ -1,4 +1,6 @@
-// src/components/cards/BenefitsCardHero.tsx
+"use client";
+
+
 import React from "react";
 import styles from "@/styles/cards/BenefitsCardHero.module.css";
 import { useRouter } from "next/navigation";
