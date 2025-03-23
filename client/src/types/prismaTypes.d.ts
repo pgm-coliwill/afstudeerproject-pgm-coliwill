@@ -10691,11 +10691,13 @@ export namespace Prisma {
 
   export type EventAvgAggregateOutputType = {
     id: number | null
+    maxVolunteers: number | null
     groupId: number | null
   }
 
   export type EventSumAggregateOutputType = {
     id: number | null
+    maxVolunteers: number | null
     groupId: number | null
   }
 
@@ -10709,6 +10711,7 @@ export namespace Prisma {
     location: string | null
     signUp: boolean | null
     volunteer: boolean | null
+    maxVolunteers: number | null
     groupId: number | null
   }
 
@@ -10722,6 +10725,7 @@ export namespace Prisma {
     location: string | null
     signUp: boolean | null
     volunteer: boolean | null
+    maxVolunteers: number | null
     groupId: number | null
   }
 
@@ -10735,6 +10739,7 @@ export namespace Prisma {
     location: number
     signUp: number
     volunteer: number
+    maxVolunteers: number
     groupId: number
     _all: number
   }
@@ -10742,11 +10747,13 @@ export namespace Prisma {
 
   export type EventAvgAggregateInputType = {
     id?: true
+    maxVolunteers?: true
     groupId?: true
   }
 
   export type EventSumAggregateInputType = {
     id?: true
+    maxVolunteers?: true
     groupId?: true
   }
 
@@ -10760,6 +10767,7 @@ export namespace Prisma {
     location?: true
     signUp?: true
     volunteer?: true
+    maxVolunteers?: true
     groupId?: true
   }
 
@@ -10773,6 +10781,7 @@ export namespace Prisma {
     location?: true
     signUp?: true
     volunteer?: true
+    maxVolunteers?: true
     groupId?: true
   }
 
@@ -10786,6 +10795,7 @@ export namespace Prisma {
     location?: true
     signUp?: true
     volunteer?: true
+    maxVolunteers?: true
     groupId?: true
     _all?: true
   }
@@ -10886,6 +10896,7 @@ export namespace Prisma {
     location: string | null
     signUp: boolean
     volunteer: boolean
+    maxVolunteers: number | null
     groupId: number | null
     _count: EventCountAggregateOutputType | null
     _avg: EventAvgAggregateOutputType | null
@@ -10918,6 +10929,7 @@ export namespace Prisma {
     location?: boolean
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: boolean
     groupId?: boolean
     group?: boolean | Event$groupArgs<ExtArgs>
     attendees?: boolean | Event$attendeesArgs<ExtArgs>
@@ -10935,6 +10947,7 @@ export namespace Prisma {
     location?: boolean
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: boolean
     groupId?: boolean
     group?: boolean | Event$groupArgs<ExtArgs>
   }, ExtArgs["result"]["event"]>
@@ -10949,6 +10962,7 @@ export namespace Prisma {
     location?: boolean
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: boolean
     groupId?: boolean
     group?: boolean | Event$groupArgs<ExtArgs>
   }, ExtArgs["result"]["event"]>
@@ -10963,10 +10977,11 @@ export namespace Prisma {
     location?: boolean
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: boolean
     groupId?: boolean
   }
 
-  export type EventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "body" | "image" | "type" | "eventDate" | "location" | "signUp" | "volunteer" | "groupId", ExtArgs["result"]["event"]>
+  export type EventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "body" | "image" | "type" | "eventDate" | "location" | "signUp" | "volunteer" | "maxVolunteers" | "groupId", ExtArgs["result"]["event"]>
   export type EventInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     group?: boolean | Event$groupArgs<ExtArgs>
     attendees?: boolean | Event$attendeesArgs<ExtArgs>
@@ -10997,6 +11012,7 @@ export namespace Prisma {
       location: string | null
       signUp: boolean
       volunteer: boolean
+      maxVolunteers: number | null
       groupId: number | null
     }, ExtArgs["result"]["event"]>
     composites: {}
@@ -11433,6 +11449,7 @@ export namespace Prisma {
     readonly location: FieldRef<"Event", 'String'>
     readonly signUp: FieldRef<"Event", 'Boolean'>
     readonly volunteer: FieldRef<"Event", 'Boolean'>
+    readonly maxVolunteers: FieldRef<"Event", 'Int'>
     readonly groupId: FieldRef<"Event", 'Int'>
   }
     
@@ -17504,6 +17521,7 @@ export namespace Prisma {
     location: 'location',
     signUp: 'signUp',
     volunteer: 'volunteer',
+    maxVolunteers: 'maxVolunteers',
     groupId: 'groupId'
   };
 
@@ -18221,6 +18239,7 @@ export namespace Prisma {
     location?: StringNullableFilter<"Event"> | string | null
     signUp?: BoolFilter<"Event"> | boolean
     volunteer?: BoolFilter<"Event"> | boolean
+    maxVolunteers?: IntNullableFilter<"Event"> | number | null
     groupId?: IntNullableFilter<"Event"> | number | null
     group?: XOR<GroupNullableScalarRelationFilter, GroupWhereInput> | null
     attendees?: AttendeeListRelationFilter
@@ -18237,6 +18256,7 @@ export namespace Prisma {
     location?: SortOrderInput | SortOrder
     signUp?: SortOrder
     volunteer?: SortOrder
+    maxVolunteers?: SortOrderInput | SortOrder
     groupId?: SortOrderInput | SortOrder
     group?: GroupOrderByWithRelationInput
     attendees?: AttendeeOrderByRelationAggregateInput
@@ -18256,6 +18276,7 @@ export namespace Prisma {
     location?: StringNullableFilter<"Event"> | string | null
     signUp?: BoolFilter<"Event"> | boolean
     volunteer?: BoolFilter<"Event"> | boolean
+    maxVolunteers?: IntNullableFilter<"Event"> | number | null
     groupId?: IntNullableFilter<"Event"> | number | null
     group?: XOR<GroupNullableScalarRelationFilter, GroupWhereInput> | null
     attendees?: AttendeeListRelationFilter
@@ -18272,6 +18293,7 @@ export namespace Prisma {
     location?: SortOrderInput | SortOrder
     signUp?: SortOrder
     volunteer?: SortOrder
+    maxVolunteers?: SortOrderInput | SortOrder
     groupId?: SortOrderInput | SortOrder
     _count?: EventCountOrderByAggregateInput
     _avg?: EventAvgOrderByAggregateInput
@@ -18293,6 +18315,7 @@ export namespace Prisma {
     location?: StringNullableWithAggregatesFilter<"Event"> | string | null
     signUp?: BoolWithAggregatesFilter<"Event"> | boolean
     volunteer?: BoolWithAggregatesFilter<"Event"> | boolean
+    maxVolunteers?: IntNullableWithAggregatesFilter<"Event"> | number | null
     groupId?: IntNullableWithAggregatesFilter<"Event"> | number | null
   }
 
@@ -19105,6 +19128,7 @@ export namespace Prisma {
     location?: string | null
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: number | null
     group?: GroupCreateNestedOneWithoutEventsInput
     attendees?: AttendeeCreateNestedManyWithoutEventInput
     volunteers?: VolunteerCreateNestedManyWithoutEventInput
@@ -19120,6 +19144,7 @@ export namespace Prisma {
     location?: string | null
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: number | null
     groupId?: number | null
     attendees?: AttendeeUncheckedCreateNestedManyWithoutEventInput
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutEventInput
@@ -19134,6 +19159,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
     group?: GroupUpdateOneWithoutEventsNestedInput
     attendees?: AttendeeUpdateManyWithoutEventNestedInput
     volunteers?: VolunteerUpdateManyWithoutEventNestedInput
@@ -19149,6 +19175,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
     groupId?: NullableIntFieldUpdateOperationsInput | number | null
     attendees?: AttendeeUncheckedUpdateManyWithoutEventNestedInput
     volunteers?: VolunteerUncheckedUpdateManyWithoutEventNestedInput
@@ -19164,6 +19191,7 @@ export namespace Prisma {
     location?: string | null
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: number | null
     groupId?: number | null
   }
 
@@ -19176,6 +19204,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type EventUncheckedUpdateManyInput = {
@@ -19188,6 +19217,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
     groupId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
@@ -20061,11 +20091,13 @@ export namespace Prisma {
     location?: SortOrder
     signUp?: SortOrder
     volunteer?: SortOrder
+    maxVolunteers?: SortOrder
     groupId?: SortOrder
   }
 
   export type EventAvgOrderByAggregateInput = {
     id?: SortOrder
+    maxVolunteers?: SortOrder
     groupId?: SortOrder
   }
 
@@ -20079,6 +20111,7 @@ export namespace Prisma {
     location?: SortOrder
     signUp?: SortOrder
     volunteer?: SortOrder
+    maxVolunteers?: SortOrder
     groupId?: SortOrder
   }
 
@@ -20092,11 +20125,13 @@ export namespace Prisma {
     location?: SortOrder
     signUp?: SortOrder
     volunteer?: SortOrder
+    maxVolunteers?: SortOrder
     groupId?: SortOrder
   }
 
   export type EventSumOrderByAggregateInput = {
     id?: SortOrder
+    maxVolunteers?: SortOrder
     groupId?: SortOrder
   }
 
@@ -22766,6 +22801,7 @@ export namespace Prisma {
     location?: string | null
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: number | null
     attendees?: AttendeeCreateNestedManyWithoutEventInput
     volunteers?: VolunteerCreateNestedManyWithoutEventInput
   }
@@ -22780,6 +22816,7 @@ export namespace Prisma {
     location?: string | null
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: number | null
     attendees?: AttendeeUncheckedCreateNestedManyWithoutEventInput
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutEventInput
   }
@@ -22921,6 +22958,7 @@ export namespace Prisma {
     location?: StringNullableFilter<"Event"> | string | null
     signUp?: BoolFilter<"Event"> | boolean
     volunteer?: BoolFilter<"Event"> | boolean
+    maxVolunteers?: IntNullableFilter<"Event"> | number | null
     groupId?: IntNullableFilter<"Event"> | number | null
   }
 
@@ -23438,6 +23476,7 @@ export namespace Prisma {
     location?: string | null
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: number | null
     group?: GroupCreateNestedOneWithoutEventsInput
     volunteers?: VolunteerCreateNestedManyWithoutEventInput
   }
@@ -23452,6 +23491,7 @@ export namespace Prisma {
     location?: string | null
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: number | null
     groupId?: number | null
     volunteers?: VolunteerUncheckedCreateNestedManyWithoutEventInput
   }
@@ -23525,6 +23565,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
     group?: GroupUpdateOneWithoutEventsNestedInput
     volunteers?: VolunteerUpdateManyWithoutEventNestedInput
   }
@@ -23539,6 +23580,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
     groupId?: NullableIntFieldUpdateOperationsInput | number | null
     volunteers?: VolunteerUncheckedUpdateManyWithoutEventNestedInput
   }
@@ -23602,6 +23644,7 @@ export namespace Prisma {
     location?: string | null
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: number | null
     group?: GroupCreateNestedOneWithoutEventsInput
     attendees?: AttendeeCreateNestedManyWithoutEventInput
   }
@@ -23616,6 +23659,7 @@ export namespace Prisma {
     location?: string | null
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: number | null
     groupId?: number | null
     attendees?: AttendeeUncheckedCreateNestedManyWithoutEventInput
   }
@@ -23689,6 +23733,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
     group?: GroupUpdateOneWithoutEventsNestedInput
     attendees?: AttendeeUpdateManyWithoutEventNestedInput
   }
@@ -23703,6 +23748,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
     groupId?: NullableIntFieldUpdateOperationsInput | number | null
     attendees?: AttendeeUncheckedUpdateManyWithoutEventNestedInput
   }
@@ -24657,6 +24703,7 @@ export namespace Prisma {
     location?: string | null
     signUp?: boolean
     volunteer?: boolean
+    maxVolunteers?: number | null
   }
 
   export type LeadersGroupCreateManyGroupInput = {
@@ -24714,6 +24761,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
     attendees?: AttendeeUpdateManyWithoutEventNestedInput
     volunteers?: VolunteerUpdateManyWithoutEventNestedInput
   }
@@ -24728,6 +24776,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
     attendees?: AttendeeUncheckedUpdateManyWithoutEventNestedInput
     volunteers?: VolunteerUncheckedUpdateManyWithoutEventNestedInput
   }
@@ -24742,6 +24791,7 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     signUp?: BoolFieldUpdateOperationsInput | boolean
     volunteer?: BoolFieldUpdateOperationsInput | boolean
+    maxVolunteers?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type LeadersGroupUpdateWithoutGroupInput = {
