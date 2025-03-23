@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  height: 80vh;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.userList {
+  width: 100%;
+  max-width: 300px;
+  background-color: #f9fafb;
+  border-right: 1px solid #ddd;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.userButton {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.userButton:hover {
+  background-color: #e0e7ff;
+}
+
+.active {
+  background-color: #c7d2fe;
+}
+
+.chatBoxWrapper {
+  flex: 1;
+  padding: 1rem;
+}

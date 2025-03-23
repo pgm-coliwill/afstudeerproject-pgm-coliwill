@@ -1,8 +1,8 @@
-// src/components/chat/ChatBox.tsx
 "use client";
 
 import { useEffect, useState, useRef } from "react";
 import { io, Socket } from "socket.io-client";
+import styles from "@/styles/chat/ChatBox.module.css";
 
 type Message = {
   id: number;
@@ -28,16 +28,12 @@ export default function ChatBox({ currentUserId, otherUserId }: Props) {
   const [input, setInput] = useState("");
   const socketRef = useRef<Socket | null>(null);
 
-  // change this to your actual backend
-
   useEffect(() => {
-    // Connect to socket server
-    const socket = io(base_url);
+    const socket = io(base_url!);
     socketRef.current = socket;
 
     socket.emit("join", currentUserId);
 
-    // Listen for messages
     socket.on("receive_message", (msg: Message) => {
       setMessages((prev) => [...prev, msg]);
     });
@@ -52,7 +48,6 @@ export default function ChatBox({ currentUserId, otherUserId }: Props) {
   }, [currentUserId]);
 
   useEffect(() => {
-    // Load past messages from DB
     const fetchMessages = async () => {
       const res = await fetch(
         `${base_url}/api/messages/${currentUserId}/${otherUserId}`
@@ -77,28 +72,25 @@ export default function ChatBox({ currentUserId, otherUserId }: Props) {
   };
 
   return (
-    <div className="w-full max-w-md border p-4 rounded shadow space-y-4">
-      <div className="h-64 overflow-y-auto space-y-2 bg-gray-50 p-2 rounded">
+    <div className={styles.container}>
+      <div className={styles.messageContainer}>
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`flex flex-col max-w-xs ${
+            className={`${styles.messageBlock} ${
               msg.senderId === currentUserId
-                ? "ml-auto items-end"
-                : "items-start"
+                ? styles.messageRight
+                : styles.messageLeft
             }`}
           >
-            {/* Display sender name */}
-            <span className="text-xs text-gray-500 mb-1">
+            <span className={styles.senderName}>
               {msg.sender?.firstName} {msg.sender?.lastName}
             </span>
-
-            {/* Message bubble */}
             <div
-              className={`p-2 rounded ${
+              className={`${styles.messageBubble} ${
                 msg.senderId === currentUserId
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200 text-black"
+                  ? styles.sentByMe
+                  : styles.received
               }`}
             >
               {msg.message}
@@ -106,17 +98,14 @@ export default function ChatBox({ currentUserId, otherUserId }: Props) {
           </div>
         ))}
       </div>
-      <div className="flex gap-2">
+      <div className={styles.inputContainer}>
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Typ een bericht..."
-          className="flex-1 border rounded px-3 py-2"
+          className={styles.input}
         />
-        <button
-          onClick={sendMessage}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
+        <button onClick={sendMessage} className={styles.sendButton}>
           Verstuur
         </button>
       </div>

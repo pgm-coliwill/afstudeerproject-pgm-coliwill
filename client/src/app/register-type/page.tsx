@@ -9,26 +9,23 @@ export default function ChooseRegister() {
     <div className={styles.wrapper}>
       <div className={styles.background}></div>
       <div className={styles.cardContainer}>
-        <Link href={"/signup?role=ouder"}>
-          <BenefitsCardHero
-            title="Ik ben een ouder"
-            description="Ik heb een code ontvangen via mail en wil me graag registreren als ouder."
-          />
-        </Link>
+        <BenefitsCardHero
+          title="Ik ben een ouder"
+          description="Ik heb een code ontvangen via mail en wil me registreren als ouder."
+          href="/signup?role=ouder"
+        />
 
-        <Link href={"/signup?role=leider"}>
-          <BenefitsCardHero
-            title="Ik ben een leider"
-            description="Ik heb een code ontvangen via mail en wil me graag inschrijven als leider."
-          />
-        </Link>
+        <BenefitsCardHero
+          title="Ik ben een leider"
+          description="Ik heb een code ontvangen via mail en wil me inschrijven als leider."
+          href="/signup?role=leider"
+        />
 
-        <Link href={"/signup?role=admin"}>
-          <BenefitsCardHero
-            title="Jeugdbeweging"
-            description="Ik wil graag mijn organisatie registreren op het KampVuur platform."
-          />
-        </Link>
+        <BenefitsCardHero
+          title="Jeugdbeweging"
+          description="Ik wil graag mijn organisatie registreren op het KampVuur platform."
+          href="/signup?role=admin"
+        />
       </div>
     </div>
   );
