@@ -122,6 +122,7 @@ model Event {
   location  String?
   signUp    Boolean  @default(false)
   volunteer Boolean  @default(false)
+  maxVolunteers  Int? 
   groupId   Int?
 
   group      Group?      @relation(fields: [groupId], references: [id], onDelete: SetNull)

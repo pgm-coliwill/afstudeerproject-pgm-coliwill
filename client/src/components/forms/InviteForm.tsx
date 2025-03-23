@@ -4,8 +4,10 @@ import React from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { fetchCurrentYouthMovement } from "@/utils/fetchCurrentYouthMovement";
+import styles from "@/styles/forms/InviteForm.module.css";
+import { X } from "lucide-react";
 
-const base_url = process.env.NEXT_PUBLIC_API_BASE_URL
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 interface InviteData {
   emails: string[];
@@ -37,7 +39,6 @@ export default function InviteForm({ role }: { role: "ouder" | "leider" }) {
     name: "emails" as never,
   });
 
-
   const { data: youthMovement, isLoading, error } = useQuery({
     queryKey: ["currentYouthMovement"],
     queryFn: fetchCurrentYouthMovement,
@@ -53,15 +54,8 @@ export default function InviteForm({ role }: { role: "ouder" | "leider" }) {
   const onSubmit = (data: InviteData) => {
     if (!youthMovement) {
       alert("No youth movement found!");
-      console.error("❌ No youth movement data available.");
       return;
     }
-
-    console.log("📌 Submitting Invite Data:", {
-      ...data,
-      role,
-      youthMovementId: youthMovement.id, 
-    });
 
     mutation.mutate({
       ...data,
@@ -71,28 +65,33 @@ export default function InviteForm({ role }: { role: "ouder" | "leider" }) {
   };
 
   return (
-    <div className="p-6">
-      <h2 className="text-lg font-bold">Invite {role === "leider" ? "Leaders" : "Parents"}</h2>
+    <div className={styles.container}>
+      <h2 className={styles.title}>
+        Invite {role === "leider" ? "leiders" : "ouders"}
+      </h2>
 
-      {/* ✅ Show loading state */}
-      {isLoading && <p>Loading youth movement...</p>}
-      {error && <p className="text-red-500">Error fetching youth movement</p>}
+      {isLoading && <p className={styles.message}>Loading youth movement...</p>}
+      {error && (
+        <p className={`${styles.message} ${styles.error}`}>
+          Error fetching youth movement
+        </p>
+      )}
 
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-4">
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         {fields.map((field, index) => (
-          <div key={field.id} className="flex space-x-2">
+          <div key={field.id} className={styles.emailRow}>
             <input
               {...register(`emails.${index}`)}
               type="email"
               placeholder="Enter email"
-              className="border p-2 w-2/3"
+              className={styles.input}
             />
             <button
               type="button"
               onClick={() => remove(index)}
-              className="bg-red-500 text-white px-3 py-2 rounded"
+              className={styles.buttonRemove}
             >
-              ❌
+              <X size={24} />
             </button>
           </div>
         ))}
@@ -100,13 +99,13 @@ export default function InviteForm({ role }: { role: "ouder" | "leider" }) {
         <button
           type="button"
           onClick={() => append("")}
-          className="bg-green-500 text-white px-4 py-2 rounded"
+          className={styles.buttonAdd}
         >
-          ➕ Add Email
+          ➕ Voeg email toe
         </button>
 
-        <button type="submit" className="block bg-blue-500 text-white px-4 py-2 rounded mt-4">
-          Send Invites
+        <button type="submit" className={styles.buttonSubmit}>
+          Stuur uitnodigingen
         </button>
       </form>
     </div>

@@ -14,7 +14,7 @@ export const createParentChild = async (req: Request, res: Response): Promise<vo
 
     console.log("📌 Received Parent-Child Data:", parentChildrenData);
 
-    // ✅ Create Parent-Child entries in the database
+ 
     const createdEntries = await prisma.parentChild.createMany({
       data: parentChildrenData.map((child) => ({
         parentId: child.parentId,
@@ -28,7 +28,7 @@ export const createParentChild = async (req: Request, res: Response): Promise<vo
     res.status(201).json({ message: "Children registered successfully!", createdEntries });
 
   } catch (error) {
-    console.error("❌ Failed to register children:", error);
+    console.error("Failed to register children:", error);
     res.status(500).json({ message: "Error registering children." });
   }
 };

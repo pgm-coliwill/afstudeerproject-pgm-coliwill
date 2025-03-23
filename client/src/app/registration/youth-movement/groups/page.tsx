@@ -5,6 +5,9 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { fetchCurrentYouthMovement } from "@/utils/fetchCurrentYouthMovement";
 import { useRouter } from "next/navigation";
+import styles from "@/styles/pages/Groups.module.css";
+
+import { X } from "lucide-react";
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -42,7 +45,11 @@ export default function Groups() {
     name: "groups",
   });
 
-  const { data: youthMovement, isLoading, error } = useQuery({
+  const {
+    data: youthMovement,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["currentYouthMovement"],
     queryFn: fetchCurrentYouthMovement,
   });
@@ -55,7 +62,9 @@ export default function Groups() {
     },
   });
 
-  const onSubmit = (data: { groups: { name: string; minimumAge: string; maximumAge: string }[] }) => {
+  const onSubmit = (data: {
+    groups: { name: string; minimumAge: string; maximumAge: string }[];
+  }) => {
     if (!youthMovement) {
       alert("No youth movement found.");
       return;
@@ -81,39 +90,43 @@ export default function Groups() {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-xl font-bold">Manage Groups</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Groepen beheer</h1>
 
-      {isLoading && <p>Loading youth movement...</p>}
-      {error && <p className="text-red-500">Error fetching youth movement</p>}
+      {isLoading && <p className={styles.message}>Loading youth movement...</p>}
+      {error && (
+        <p className={`${styles.message} ${styles.error}`}>
+          Error fetching youth movement
+        </p>
+      )}
 
       {youthMovement && (
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           {fields.map((group, index) => (
-            <div key={group.id} className="flex space-x-2">
+            <div key={group.id} className={styles.groupRow}>
               <input
                 {...register(`groups.${index}.name`)}
-                placeholder="Group Name"
-                className="border p-2 w-1/3"
+                placeholder="Groep naam"
+                className={`${styles.input} ${styles.inputName}`}
               />
               <input
                 {...register(`groups.${index}.minimumAge`)}
-                placeholder="Min Age"
+                placeholder="Min leeftijd"
                 type="number"
-                className="border p-2 w-1/4"
+                className={styles.input}
               />
               <input
                 {...register(`groups.${index}.maximumAge`)}
-                placeholder="Max Age"
+                placeholder="Max leeftijd"
                 type="number"
-                className="border p-2 w-1/4"
+                className={styles.input}
               />
               <button
                 type="button"
                 onClick={() => remove(index)}
-                className="bg-red-500 text-white px-3 py-2 rounded"
+                className={styles.buttonRemove}
               >
-                ❌
+                <X size={24} />
               </button>
             </div>
           ))}
@@ -121,16 +134,13 @@ export default function Groups() {
           <button
             type="button"
             onClick={() => append({ name: "", minimumAge: "", maximumAge: "" })}
-            className="bg-green-500 text-white px-4 py-2 rounded"
+            className={styles.buttonAdd}
           >
-            ➕ Add Group
+            ➕ Voeg groep toe
           </button>
 
-          <button
-            type="submit"
-            className="block bg-blue-500 text-white px-4 py-2 rounded mt-4"
-          >
-            Save Groups
+          <button type="submit" className={styles.buttonSubmit}>
+            Save groepen
           </button>
         </form>
       )}

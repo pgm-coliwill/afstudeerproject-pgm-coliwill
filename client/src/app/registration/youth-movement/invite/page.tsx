@@ -8,8 +8,8 @@ import { useRouter } from "next/navigation";
 export default function InviteUsersPage() {
   const router = useRouter();
   return (
-    <div className="p-6">
-      <h1 className="text-xl font-bold">Invite Users</h1>
+    <div>
+      <h1>Invite Users</h1>
       <InviteForm role="leider"/>
       <InviteForm role="ouder"/>
 

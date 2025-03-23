@@ -29,6 +29,7 @@ const parentChildRoutes_1 = __importDefault(require("./routes/parentChildRoutes"
 const postRoutes_1 = __importDefault(require("./routes/postRoutes"));
 const messageRoutes_1 = __importDefault(require("./routes/messageRoutes"));
 const youthMovementUserRoutes_1 = __importDefault(require("./routes/youthMovementUserRoutes"));
+const eventRoutes_1 = __importDefault(require("./routes/eventRoutes"));
 /*CONFIGURATION */
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -52,7 +53,8 @@ app.use("/api/parentChild", parentChildRoutes_1.default);
 app.use("/api/posts", postRoutes_1.default);
 app.use("/api/messages", messageRoutes_1.default);
 app.use("/api/youthMovementUsers", youthMovementUserRoutes_1.default);
-/*SERVER + SOCKET.IO*/
+app.use("/api/events", eventRoutes_1.default);
+/*SOCKET.IO*/
 const socket_io_1 = require("socket.io");
 const client_1 = require("@prisma/client");
 const server = http_1.default.createServer(app);
@@ -65,15 +67,12 @@ const io = new socket_io_1.Server(server, {
 const prisma = new client_1.PrismaClient();
 io.on("connection", (socket) => {
     console.log("🟢 User connected:", socket.id);
-    // Join a user-specific room
     socket.on("join", (userId) => {
         socket.join(userId.toString());
         console.log(`User ${userId} joined room ${userId}`);
     });
-    // Handle sending messages
     socket.on("send_message", (_a) => __awaiter(void 0, [_a], void 0, function* ({ senderId, receiverId, message }) {
         try {
-            // Persist to database
             const saved = yield prisma.message.create({
                 data: {
                     senderId,
@@ -89,20 +88,18 @@ io.on("connection", (socket) => {
                     },
                 },
             });
-            // Emit message to receiver
             io.to(receiverId.toString()).emit("receive_message", saved);
-            // Optionally emit back to sender for confirmation
             io.to(senderId.toString()).emit("message_sent", saved);
         }
         catch (err) {
-            console.error("❌ Error saving message:", err);
+            console.error("Error saving message:", err);
         }
     }));
     socket.on("disconnect", () => {
-        console.log("🔴 User disconnected:", socket.id);
+        console.log("User disconnected:", socket.id);
     });
 });
 const PORT = process.env.PORT || 3002;
 server.listen(PORT, () => {
-    console.log(`🚀 Server with Socket.IO is running on port ${PORT}`);
+    console.log(`Server with Socket.IO is running on port ${PORT}`);
 });

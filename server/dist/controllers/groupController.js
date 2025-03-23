@@ -28,23 +28,22 @@ const createGroups = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 exports.createGroups = createGroups;
 const getGroupsFromYouthMovement = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { youthMovementId } = req.params;
-    console.log("📌 Received request to fetch groups for Youth Movement ID:", youthMovementId); // Debugging log
+    console.log("📌 Received request to fetch groups for Youth Movement ID:", youthMovementId);
     try {
         const groups = yield prisma.group.findMany({
             where: {
                 youthMovementId: Number(youthMovementId),
             },
         });
-        console.log("✅ Groups found:", groups); // Debugging log
         if (!groups.length) {
-            console.warn("⚠️ No groups found for Youth Movement ID:", youthMovementId);
+            console.warn("No groups found for Youth Movement ID:", youthMovementId);
             res.status(404).json({ message: "No groups found." });
             return;
         }
         res.json(groups);
     }
     catch (error) {
-        console.error("❌ Failed to get groups:", error);
+        console.error("Failed to get groups:", error);
         res.status(500).json({ message: "Error getting groups." });
     }
 });

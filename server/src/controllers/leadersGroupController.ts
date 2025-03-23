@@ -7,7 +7,7 @@ export const assignLeaderToGroups = async (req: Request, res: Response): Promise
   const { userId, groupIds } = req.body;
 
   try {
-    console.log("📌 Assigning leader to groups:", { userId, groupIds });
+    console.log(" Assigning leader to groups:", { userId, groupIds });
 
     if (!userId || !groupIds || !Array.isArray(groupIds) || groupIds.length === 0) {
       res.status(400).json({ message: "Invalid data provided." });
@@ -25,7 +25,7 @@ export const assignLeaderToGroups = async (req: Request, res: Response): Promise
     console.log("✅ Successfully assigned groups:", assignedGroups);
     res.status(201).json({ message: "Leader assigned to groups successfully!" });
   } catch (error) {
-    console.error("❌ Failed to assign leader to groups:", error);
+    console.error("Failed to assign leader to groups:", error);
     res.status(500).json({ message: "Error assigning leader to groups." });
   }
 };

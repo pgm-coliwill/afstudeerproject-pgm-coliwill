@@ -1,9 +1,13 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@styles/globals/footer.module.css";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
+  const router = useRouter();
   return (
     <>
       <div className={styles.footerContainer}>
@@ -11,8 +15,18 @@ export default function Footer() {
           <div className={styles.leftContainer}>
             <Image src="/images/logo.svg" alt="logo" width={100} height={100} />
             <div className={styles.buttonContainer}>
-              <button className="primary">Registreer</button>
-              <button className="secondary">Login</button>
+              <button
+                className="primary"
+                onClick={() => router.push("/register-type")}
+              >
+                Registreer
+              </button>
+              <button
+                className="secondary"
+                onClick={() => router.push("/dashboard")}
+              >
+                Login
+              </button>
             </div>
 
             <div className={styles.socialLinks}>

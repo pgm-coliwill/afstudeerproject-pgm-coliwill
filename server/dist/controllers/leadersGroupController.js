@@ -15,7 +15,7 @@ const prisma = new client_1.PrismaClient();
 const assignLeaderToGroups = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId, groupIds } = req.body;
     try {
-        console.log("📌 Assigning leader to groups:", { userId, groupIds });
+        console.log(" Assigning leader to groups:", { userId, groupIds });
         if (!userId || !groupIds || !Array.isArray(groupIds) || groupIds.length === 0) {
             res.status(400).json({ message: "Invalid data provided." });
             return;
@@ -30,7 +30,7 @@ const assignLeaderToGroups = (req, res) => __awaiter(void 0, void 0, void 0, fun
         res.status(201).json({ message: "Leader assigned to groups successfully!" });
     }
     catch (error) {
-        console.error("❌ Failed to assign leader to groups:", error);
+        console.error("Failed to assign leader to groups:", error);
         res.status(500).json({ message: "Error assigning leader to groups." });
     }
 });

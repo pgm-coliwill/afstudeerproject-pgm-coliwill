@@ -15,12 +15,11 @@ const prisma = new client_1.PrismaClient();
 const createYouthMovement = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { name, description, city, postalCode, street, houseNumber, adminId } = req.body;
-        console.log("📌 Creating Youth Movement:", { name, city, adminId });
+        console.log("Creating Youth Movement:", { name, city, adminId });
         if (!adminId) {
             res.status(400).json({ message: "Admin ID is required." });
             return;
         }
-        // ✅ Create the Youth Movement
         const youthMovement = yield prisma.youthMovement.create({
             data: {
                 name,
@@ -32,7 +31,7 @@ const createYouthMovement = (req, res) => __awaiter(void 0, void 0, void 0, func
                 adminId,
             },
         });
-        console.log("✅ Youth Movement Created:", youthMovement);
+        console.log("Youth Movement Created:", youthMovement);
         yield prisma.youthMovementUser.create({
             data: {
                 userId: adminId,
@@ -40,7 +39,7 @@ const createYouthMovement = (req, res) => __awaiter(void 0, void 0, void 0, func
                 role: "leider",
             },
         });
-        console.log("✅ Admin assigned as leader");
+        console.log("Admin assigned as leader");
         res.status(201).json(youthMovement);
     }
     catch (error) {
@@ -52,7 +51,7 @@ exports.createYouthMovement = createYouthMovement;
 const getYouthMovementByUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId } = req.params;
     try {
-        console.log("📌 Fetching Youth Movement for User ID:", userId);
+        console.log("Fetching Youth Movement for User ID:", userId);
         const youthMovement = yield prisma.youthMovement.findFirst({
             where: { adminId: Number(userId) },
         });
@@ -63,7 +62,7 @@ const getYouthMovementByUser = (req, res) => __awaiter(void 0, void 0, void 0, f
         res.json(youthMovement);
     }
     catch (error) {
-        console.error("❌ Failed to fetch youth movement:", error);
+        console.error("Failed to fetch youth movement:", error);
         res.status(500).json({ message: "Error fetching youth movement." });
     }
 });

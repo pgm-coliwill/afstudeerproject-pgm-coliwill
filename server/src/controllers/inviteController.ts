@@ -21,18 +21,18 @@ export const inviteUsers = async (req: Request, res: Response): Promise<void> =>
     console.log("📌 Received Request Data:", { emails, role, youthMovementId });
 
     if (!emails || !role || !youthMovementId) {
-      console.error("❌ Missing required fields.");
+      console.error("Missing required fields.");
       res.status(400).json({ message: "Missing required fields." });
       return;
     }
 
-    // ✅ Check if youthMovementId exists in DB
+    
     const youthMovement = await prisma.youthMovement.findUnique({
       where: { id: youthMovementId },
     });
 
     if (!youthMovement) {
-      console.error("❌ Invalid youthMovementId:", youthMovementId);
+      console.error("Invalid youthMovementId:", youthMovementId);
       res.status(400).json({ message: "Invalid youth movement ID." });
       return;
     }
@@ -40,7 +40,7 @@ export const inviteUsers = async (req: Request, res: Response): Promise<void> =>
    
     const invitations = await Promise.all(
       emails.map(async (email: string) => {
-        const inviteCode = crypto.randomBytes(6).toString("hex"); // Generate unique code
+        const inviteCode = crypto.randomBytes(6).toString("hex"); 
 
         const invitation = await prisma.invitation.create({
           data: {
@@ -49,7 +49,7 @@ export const inviteUsers = async (req: Request, res: Response): Promise<void> =>
             youthMovementId,
             code: inviteCode,
             sentAt: new Date(),
-            expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Expires in 7 days
+            expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), 
           },
         });
 
@@ -92,7 +92,7 @@ const sendEmail = async (toEmail: string, inviteCode: string, youthMovementName:
     await ses.sendEmail(params).promise();
     console.log(`✅ Email sent to ${toEmail}`);
   } catch (error) {
-    console.error(`❌ Failed to send email to ${toEmail}:`, error);
+    console.error(`Failed to send email to ${toEmail}:`, error);
   }
 };
 
@@ -113,7 +113,7 @@ export const getInviteCode = async (req: Request, res: Response): Promise<void> 
 
     res.json(invitation);
   } catch (error) {
-    console.error("❌ Failed to fetch invitation:", error);
+    console.error("Failed to fetch invitation:", error);
     res.status(500).json({ message: "Error fetching invitation." });
   }
 };
