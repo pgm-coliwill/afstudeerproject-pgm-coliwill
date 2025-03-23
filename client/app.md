@@ -25,7 +25,7 @@ KampVuur is een webapplicatie die communicatie, organisatie en betrokkenheid bin
 
 ✅ Inschrijven als deelnemer of vrijwilliger
 
-📌 Posts maken binnen je groep of jeugdbeweging
+📌 Posts maken binnen je groep of jeugdbewegingen
 
 🏷️ Koppeling van gebruikers aan jeugdbewegingen en groepen
 
