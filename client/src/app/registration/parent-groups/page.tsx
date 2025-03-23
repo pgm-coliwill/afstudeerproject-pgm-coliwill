@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { fetchCurrentProfile } from "@/utils/fetchCurrentProfile";
 import { useRouter } from "next/navigation";
-import styles from "@/styles/pages/parentGroups.module.css";
+import styles from "@/styles/pages/ParentGroups.module.css";
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 
